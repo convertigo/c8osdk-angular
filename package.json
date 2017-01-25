@@ -1,0 +1,76 @@
+{
+  "name": "c8osdkangular2",
+  "version": "1.0.138",
+  "description": "convertigo's service",
+  "main": "bundle/index.umd.js",
+  "module": "src/index.js",
+  "typings": "src/index.d.ts",
+  "files": [
+    "dist/",
+    "LICENCE",
+    "typings.json",
+    "install.txt"
+  ],
+  "filesGlob": [
+    "typings/globals/index.d.ts"
+  ],
+  "scripts": {
+    "prepublish": "ngc && npm run build",
+    "build": "webpack && cp bundles/index.umd.js bundles/index.js",
+    "postbuild": "find ./bundles -type f -exec sed -i 's/pouchdb_browser_1.default/pouchdb_browser_1/g' {} + && find ./src -type f -exec sed -i 's/new pouchdb_browser_1.default/new pouchdb_browser_1/g' {} +"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/convertigo/C8oSDKAngular2"
+  },
+  "keywords": [
+    "TypeScript",
+    "Angular 2",
+    "Ionic 2",
+    "Convertigo"
+  ],
+  "author": {
+    "name": "Convertigo",
+    "email": "info@convertigo.com",
+    "url": "http://www.convertigo.com/"
+  },
+  "license": "Apache License Version 2.0, January 2004",
+  "dependencies": {
+    "@angular/common": "2.2.1",
+    "@angular/compiler": "2.2.1",
+    "@angular/compiler-cli": "2.2.1",
+    "@angular/core": "2.2.1",
+    "@angular/forms": "2.2.1",
+    "@angular/http": "2.2.1",
+    "@angular/platform-browser": "2.2.1",
+    "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/platform-server": "2.2.1",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "0.6.26",
+    "pouchdb-browser": "6.0.7"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "concurrently": "^3.0.0",
+    "tsify": "^1.0.7",
+    "typescript": "2.0.10",
+    "typings": "^1.4.0",
+    "awesome-typescript-loader": "3.0.0-beta.17",
+    "webpack": "2.2.0",
+    "tslint": "4.0.2",
+    "tslint-loader": "3.3.0",
+    "@types/node": "6.0.52",
+    "@types/pouchdb": "5.4.28"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen"
+  ],
+  "cordovaPlatforms": [],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
+}

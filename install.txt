@@ -1,0 +1,2 @@
+If you are using convertigo's provider within ionic 2 you must modify your package.json
+More information on https://github.com/convertigo/C8oSDKAngular2
