@@ -32,7 +32,7 @@
     "url": "http://www.convertigo.com/"
   },
   "license": "Apache License Version 2.0, January 2004",
-  "peerDependencies": {
+  "dependencies": {
     "@angular/common": "2.2.1",
     "@angular/compiler": "2.2.1",
     "@angular/compiler-cli": "2.2.1",
@@ -42,19 +42,21 @@
     "@angular/platform-browser": "2.2.1",
     "@angular/platform-browser-dynamic": "2.2.1",
     "@angular/platform-server": "2.2.1",
-    "rxjs": "5.0.0-beta.12",
     "zone.js": "0.6.26",
-    "pouchdb-browser": "6.0.7"
+    "@types/pouchdb": "5.4.28",
+    "pouchdb-browser": "^6.1.1",
+    "rxjs": "5.0.0-beta.12"
   },
   "devDependencies": {
-    "@angular/common": "2.3.1",
-    "@angular/compiler": "2.3.1",
-    "@angular/compiler-cli": "2.3.1",
-    "@angular/core": "2.3.1",
-    "@angular/http": "2.3.1",
-    "@angular/platform-browser": "2.3.1",
-    "@angular/platform-browser-dynamic": "2.3.1",
-    "@angular/platform-server": "2.3.1",
+    "@angular/common": "2.2.1",
+    "@angular/compiler": "2.2.1",
+    "@angular/compiler-cli": "2.2.1",
+    "@angular/core": "2.2.1",
+    "@angular/forms": "2.2.1",
+    "@angular/http": "2.2.1",
+    "@angular/platform-browser": "2.2.1",
+    "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/platform-server": "2.2.1",
     "@types/hammerjs": "2.0.33",
     "@types/jasmine": "2.5.38",
     "@types/node": "6.0.52",
@@ -75,7 +77,6 @@
     "karma-webpack": "1.8.0",
     "loader-utils": "0.2.16",
     "reflect-metadata": "0.1.8",
-    "rxjs": "5.0.0-rc.4",
     "semantic-release": "6.3.2",
     "source-map-loader": "0.1.5",
     "ts-helpers": "1.1.2",
@@ -83,12 +84,10 @@
     "tslint-loader": "3.3.0",
     "typescript": "2.0.10",
     "webpack": "2.1.0-beta.27",
-    "zone.js": "0.7.2",
     "browserify": "^13.1.0",
     "concurrently": "^3.0.0",
     "tsify": "^1.0.7",
-    "typings": "^1.4.0",
-    "@types/pouchdb": "5.4.28"
+    "typings": "^1.4.0"
   },
   "cordovaPlatforms": [],
   "angularCompilerOptions": {
