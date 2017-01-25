@@ -3,7 +3,7 @@ module.exports = function(config) {
 
     var configuration = {
         proxies: {
-            '/convertigo': 'http://localhost:18080/convertigo'
+            '/cems': 'http://demo.convertigo.net:80/cems'
         },
         basePath: '',
 

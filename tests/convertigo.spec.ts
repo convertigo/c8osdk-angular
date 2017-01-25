@@ -29,7 +29,8 @@ describe('provider: c8o.service.ts', () => {
                     .setLogC8o(true)
                     .setLogLevelLocal(C8oLogLevel.DEBUG)
                     .setTrustAllCertificates(true)
-                    .setEndPoint("http://localhost:9876/convertigo/projects/sampleMobileRetailStoreAngular2");
+                    .setEndPoint("http://localhost:9876/cems/projects/sampleMobileRetailStoreAngular2");
+            // http://demo.convertigo.net/cems/project.html#sampleSDKBackend
 
             c8o.init(settings);
 
