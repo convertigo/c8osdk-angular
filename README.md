@@ -3,12 +3,6 @@ This is the Convertigo provider for Angular2
 ## How to Use ##
 npm install C8oSdkAngular2 --save
 
-if you are using Ionic2 you must follow the following steps:
-add this into your package.json
-
-	"config": {
-        	"ionic_rollup": "./config/rollup.config.js"
-    	}
 	
 then create config folder containing rollup.config.js file and add this into the file:
 
