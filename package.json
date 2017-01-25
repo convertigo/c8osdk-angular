@@ -1,18 +1,13 @@
 {
   "name": "c8osdkangular2",
-  "version": "1.0.141",
+  "version": "1.0.144",
   "description": "convertigo's service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
   "typings": "src/index.d.ts",
   "files": [
-    "dist/",
-    "LICENCE",
-    "typings.json",
-    "install.txt"
-  ],
-  "filesGlob": [
-    "typings/globals/index.d.ts"
+    "src/",
+    "LICENCE"
   ],
   "scripts": {
     "prepublish": "ngc && npm run build",
@@ -62,12 +57,6 @@
     "@types/node": "6.0.52",
     "@types/pouchdb": "5.4.28"
   },
-  "cordovaPlugins": [
-    "cordova-plugin-device",
-    "cordova-plugin-console",
-    "cordova-plugin-whitelist",
-    "cordova-plugin-splashscreen"
-  ],
   "cordovaPlatforms": [],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
