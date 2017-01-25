@@ -1,4 +1,4 @@
-# C8oSDKAngular2  
+# C8oSDKAngular2  [![Build Status](https://travis-ci.org/ocombe/ng2-translate.svg?branch=master)](https://travis-ci.org/convertigo/C8oSDKAngular2.svg?branch=master)
 This is the Convertigo provider for Angular2
 ## How to Use ##
 npm install C8oSdkAngular2 --save
