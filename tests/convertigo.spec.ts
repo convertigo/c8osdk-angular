@@ -13,12 +13,13 @@ import {C8oExceptionMessage} from "../src/c8o/Exception/c8oExceptionMessage.serv
 import {C8oHttpRequestException} from "../src/c8o/Exception/c8oHttpRequestException.service";
 
 class info{
-    // to change remote host and port please change configuration in Root/config/karama.conf.js
+    // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
+
     static get host(){
-        return "http://localhost";
+        return "http://c8o.convertigo.net";
     }
     static get port(){
-        return "9876";
+        return "80";
     }
     static get project_path(){
         return "/cems/projects/ClientSDKtesting";
@@ -180,6 +181,4 @@ describe('provider: c8o.service.ts', () => {
                 });
         }))
     );
-
-
 });
