@@ -17,8 +17,16 @@ export class C8oHttpInterface {
 
     transformRequest(parameters: Object): string {
         let str = [];
-        for (let p in parameters)
-            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(parameters[p]));
+        for (let p in parameters) {
+            if(parameters[p] instanceof Array){
+                for(let p1 in parameters[p]){
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(parameters[p][p1]));
+                }
+            }
+            else{
+                str.push(encodeURIComponent(p) + "=" + encodeURIComponent(parameters[p]));
+            }
+        }
         return str.join("&");
     }
 
@@ -31,6 +39,7 @@ export class C8oHttpInterface {
         }
         let headers = new Headers();
         headers.append("Content-Type", "application/x-www-form-urlencoded");
+        //headers.append("User-Agent", "Convertigo Client SDK " + C8o.getSdkVersion());
         if (this.firstCall) {
             this.p1 = new Promise((resolve, reject) => {
                 this.firstCall = false;
@@ -55,12 +64,11 @@ export class C8oHttpInterface {
                         .map(this.extractData)
                         .catch(this.handleError)
                         .subscribe(
-                            response => {console.log("resolve");resolve(response)},
+                            response => {resolve(response)},
                             error => {reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error)));}
                         );
 
                 }).catch((error) => {
-                    console.log("catch");
                     reject(error);
                 });
             });
@@ -82,7 +90,6 @@ export class C8oHttpInterface {
         } else {
             errMsg = error.message ? error.message : error.toString();
         }
-        console.error(errMsg);
         return Observable.throw(errMsg);
     }
 

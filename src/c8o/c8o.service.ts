@@ -316,7 +316,6 @@ export class C8o extends C8oBase {
                             } else {
                                 errMsg = error.message ? error.message : error.toString();
                             }
-                            console.error(errMsg);
                             return Observable.throw(errMsg);
                         })
                         .subscribe(data => {
