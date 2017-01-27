@@ -84,7 +84,7 @@ describe('provider: c8o.service.ts', () => {
         }))
     );
 
-    it('should genrerates exceptions (C8oUnknownHostCallAndLog)',
+    /*it('should genrerates exceptions (C8oUnknownHostCallAndLog)',
         async(inject([C8o], (c8o: C8o) => {
             let exceptionLog;
             let settings: C8oSettings = new C8oSettings();
@@ -121,7 +121,7 @@ describe('provider: c8o.service.ts', () => {
                     expect(err).toBeUndefined();
                 });
         }))
-    );
+    );*/
 
     it('should ping one single value (C8oDefaultPingOneSingleValue)',
         async(inject([C8o], (c8o: C8o) => {
