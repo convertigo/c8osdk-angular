@@ -9,6 +9,7 @@ import {C8oUtils} from "./c8oUtils.service";
 import {C8oLocalCacheResponse} from "./c8oLocalCacheResponse.service";
 import {C8oTranslator} from "./c8oTranslator.service";
 import {C8oHttpRequestException} from "./Exception/c8oHttpRequestException.service";
+import {isUndefined} from "util";
 
 export class C8oCallTask {
     private c8o: C8o;
@@ -83,8 +84,8 @@ export class C8oCallTask {
                     let localCache: C8oLocalCache = (C8oUtils.getParameterObjectValue(this.parameters, C8oLocalCache.param, false) as C8oLocalCache);
                     let localCacheEnabled: boolean = false;
 
-                    if (localCache !== null) {
-                        if (localCacheEnabled !== undefined) {
+                    if (localCache != null) {
+                        if (localCacheEnabled != undefined) {
                             delete this.parameters[C8oLocalCache.param];
                             localCacheEnabled = localCache.enabled;
                             if (localCacheEnabled) {
@@ -137,64 +138,100 @@ export class C8oCallTask {
                                             }
                                         }
                                         catch (error) {
+                                            // no enty
                                         }
                                     });
                             }
                             if (error["status"] === 0) {
                                 reject(new C8oHttpRequestException("ERR_INTERNET_DISCONNECTED", error));
                             }
+                            else{
+                                reject(new C8oException(C8oExceptionMessage.handleC8oCallRequest(), error, true));
+                            }
                         }).then(
                         (result) => {
-                            let response: any;
-                            let responseString: string;
-                            if (this.c8oResponseListener instanceof C8oResponseXmlListener) {
-                                try {
-                                    response = C8oTranslator.jsonToxml(result, "");
+                            if(result != undefined) {
+                                if (result["error"] != undefined) {
                                     if (localCacheEnabled) {
-                                        responseString = response.toString();
+                                        (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
+                                        ).then(
+                                            (localCacheResponse) => {
+                                                try {
+                                                    if (!localCacheResponse.isExpired()) {
+                                                        if (responseType === C8o.RESPONSE_TYPE_XML) {
+                                                            resolve(C8oTranslator.stringToXml(localCacheResponse.getResponse()));
+                                                        } else if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                            resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
+                                                        }
+                                                    }
+                                                }
+                                                catch (error) {
+                                                    // no enty
+                                                }
+                                            });
+                                    }
+                                    if (result["error"]["status"] === 0) {
+                                        reject(new C8oHttpRequestException("ERR_INTERNET_DISCONNECTED", result["error"]));
+                                    }
+                                    else {
+                                        reject(new C8oException(C8oExceptionMessage.handleC8oCallRequest(), result["error"]));
                                     }
                                 }
-                                catch (error) {
-                                    reject(new C8oException(C8oExceptionMessage.inputStreamToXML(), error));
-                                }
-                            }
-                            else if (this.c8oResponseListener instanceof C8oResponseJsonListener) {
-                                try {
-                                    try {
-                                        responseString = result;
+                                else {
+
+                                    let response: any;
+                                    let responseString: string;
+                                    if (this.c8oResponseListener instanceof C8oResponseXmlListener) {
+                                        try {
+                                            response = C8oTranslator.jsonToxml(result, "");
+                                            if (localCacheEnabled) {
+                                                responseString = response.toString();
+                                            }
+                                        }
+                                        catch (error) {
+                                            reject(new C8oException(C8oExceptionMessage.inputStreamToXML(), error));
+                                        }
                                     }
-                                    catch (error) {
-                                        reject(new C8oException(C8oExceptionMessage.parseInputStreamToString(), error));
+                                    else if (this.c8oResponseListener instanceof C8oResponseJsonListener) {
+                                        try {
+                                            try {
+                                                responseString = result;
+                                            }
+                                            catch (error) {
+                                                reject(new C8oException(C8oExceptionMessage.parseInputStreamToString(), error));
+                                            }
+
+                                            response = result;
+                                        }
+                                        catch (error) {
+                                            reject(error);
+                                        }
+                                    }
+                                    else {
+                                        reject(new C8oException(C8oExceptionMessage.wrongListener(this.c8oResponseListener)));
                                     }
 
-                                    response = result;
-                                }
-                                catch (error) {
-                                    reject(error);
-                                }
-                            }
-                            else {
-                                reject(new C8oException(C8oExceptionMessage.wrongListener(this.c8oResponseListener)));
-                            }
-
-                            if (localCacheEnabled) {
-                                try {
-                                    let expirationDate: number = -1;
-                                    if (localCache.ttl > 0) {
-                                        expirationDate = localCache.ttl + (new Date).getTime();
+                                    if (localCacheEnabled) {
+                                        try {
+                                            let expirationDate: number = -1;
+                                            if (localCache.ttl > 0) {
+                                                expirationDate = localCache.ttl + (new Date).getTime();
+                                            }
+                                            let localCacheResponse: C8oLocalCacheResponse = new C8oLocalCacheResponse(responseString, responseType, expirationDate);
+                                            let p1 = (this.c8o.c8oFullSync as C8oFullSyncCbl).saveResponseToLocalCache(c8oCallRequestIdentifier, localCacheResponse);
+                                            Promise.all([p1])
+                                                .then(() => {
+                                                    resolve(response);
+                                                });
+                                        }
+                                        catch (error) {
+                                            reject(new C8oException(C8oExceptionMessage.saveResponseToLocalCache()));
+                                        }
                                     }
-                                    let localCacheResponse: C8oLocalCacheResponse = new C8oLocalCacheResponse(responseString, responseType, expirationDate);
-                                    let p1 = (this.c8o.c8oFullSync as C8oFullSyncCbl).saveResponseToLocalCache(c8oCallRequestIdentifier, localCacheResponse);
-                                    Promise.all([p1])
-                                        .then(() => {
-                                            resolve(response);
-                                        });
-                                }
-                                catch (error) {
-                                    reject(new C8oException(C8oExceptionMessage.saveResponseToLocalCache()));
+
+                                    resolve(response);
                                 }
                             }
-                            resolve(response);
                         });
                 }
             }
@@ -222,7 +259,7 @@ export class C8oCallTask {
             else if (typeof result === "Json") {
                 this.c8o.log.logC8oCallJSONResponse(result, this.c8oCallUrl, this.parameters);
             }
-            else if (result instanceof Error) {
+            else if (result instanceof Error || result instanceof C8oException) {
                 this.c8o.handleCallException(this.c8oExceptionListener, this.parameters, result);
             }
             else if (result instanceof Object) {

@@ -119,6 +119,7 @@ export class C8oPromise<T> {
     }
 
     onFailure(error: Error, parameters: Object) {
+
         this.lastFailure = error;
         this.lastParameters = parameters;
 

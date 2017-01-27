@@ -284,7 +284,7 @@ export class C8o extends C8oBase {
      *
      * @throws C8oException In case of invalid parameter or initialization failure.
      */
-    public init(c8oSettings?: C8oSettings) {
+    public init(c8oSettings?: C8oSettings) : Promise<any> {
         let nullableEndpoint = true;
         if (c8oSettings != undefined) {
             if (c8oSettings.getEndPoint() != null) {
@@ -384,7 +384,6 @@ export class C8o extends C8oBase {
                             }
                             url = url.replace(new RegExp("/$"), "");
                             this.couchUrl = url;
-                            console.log(navigator["connection"].type);
                             resolve();
                         });
                     }
@@ -394,6 +393,7 @@ export class C8o extends C8oBase {
                 });
             });
         });
+        return this.promiseInit;
     }
 
     private extractendpoint() {
@@ -401,6 +401,9 @@ export class C8o extends C8oBase {
             return new C8oException(C8oExceptionMessage.illegalArgumentInvalidURL(this.endpoint).toString());
         }
         let matches = C8o.RE_ENDPOINT.exec(this.endpoint.toString());
+        if(matches === null){
+            throw new C8oException(C8oExceptionMessage.illegalArgumentInvalidEndpoint(this.endpoint.toString()));
+        }
         this.endpointConvertigo = matches[0].substring(0, (matches[0].indexOf("/projects")));
         this.endpointIsSecure = matches[1] != null;
         this.endpointHost = matches[2];
@@ -550,8 +553,11 @@ export class C8o extends C8oBase {
      * @param requestParameters
      * @param exception
      */
-    handleCallException(c8oExceptionListener: C8oExceptionListener, requestParameters: Object, exception: C8oException) {
+    handleCallException(c8oExceptionListener: C8oExceptionListener, requestParameters: Object, exception: Error) {
         this.c8oLogger.warn("Handle a call exception", exception);
+        if(c8oExceptionListener != null){
+            c8oExceptionListener.onException(exception, requestParameters);
+        }
     }
 
     /**

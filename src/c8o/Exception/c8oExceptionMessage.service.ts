@@ -18,6 +18,9 @@ export class C8oExceptionMessage {
         }
         return errorMessage;
     }
+    static illegalArgumentInvalidEndpoint(endpoint: string): string {
+        return "'" + endpoint + "' is not a valid Convertigo endpoint";
+    }
 
     static wrongListener(c8oListener: C8oResponseListener): string {
         return "The C8oListener class " + C8oUtils.getObjectClassName(c8oListener) + " is not handled";
@@ -504,6 +507,9 @@ export class C8oExceptionMessage {
 
     static  handleC8oCallRequest(): string {
         return "Failed while running the c8o call request";
+    }
+    public static runHttpRequest() : string {
+        return "Failed to run the HTTP request";
     }
 
     static  saveResponseToLocalCache(): string {

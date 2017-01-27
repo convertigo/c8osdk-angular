@@ -194,7 +194,14 @@ export class C8oLogger {
 
             this.c8o.httpInterface.handleRequest(this.remoteLogUrl, parameters)
                 .then((response) => {
-
+                    if(response != undefined) {
+                        if (response["error"] != undefined) {
+                            this.c8o.logRemote = false;
+                            if (this.c8o.logOnFail != null) {
+                                this.c8o.logOnFail(new C8oException(C8oExceptionMessage.RemoteLogFail(), response["error"]), null);
+                            }
+                        }
+                    }
                     let logLevelResponse = response[C8oLogger.JSON_KEY_REMOTE_LOG_LEVEL.toString()];
                     if (logLevelResponse != null) {
                         let logLevelResponseStr: string = logLevelResponse.toString();

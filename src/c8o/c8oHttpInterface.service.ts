@@ -1,6 +1,8 @@
 import {Response, Headers} from "@angular/http";
 import {C8o} from "./c8o.service";
 import {Observable} from "rxjs";
+import {C8oExceptionMessage} from "./Exception/c8oExceptionMessage.service";
+import {C8oHttpRequestException} from "./Exception/c8oHttpRequestException.service";
 
 export class C8oHttpInterface {
     c8o: C8o;
@@ -39,7 +41,7 @@ export class C8oHttpInterface {
                     .catch(this.handleError)
                     .subscribe(
                         response => resolve(response),
-                        error => reject(error)
+                        error => {resolve({"error" : (new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))});}
                     );
             });
             return this.p1;
@@ -53,11 +55,12 @@ export class C8oHttpInterface {
                         .map(this.extractData)
                         .catch(this.handleError)
                         .subscribe(
-                            response => resolve(response),
-                            error => reject(error)
+                            response => {console.log("resolve");resolve(response)},
+                            error => {reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error)));}
                         );
 
                 }).catch((error) => {
+                    console.log("catch");
                     reject(error);
                 });
             });

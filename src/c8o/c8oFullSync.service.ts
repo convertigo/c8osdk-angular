@@ -70,7 +70,7 @@ export class C8oFullSync {
         return new Promise((resolve, reject) => {
             fullSyncRequestable.handleFullSyncRequest(this, databaseName, parameters, listener).then((result) => {
                 response = result;
-                if (response === null) {
+                if (response === null || response === undefined) {
                     reject(new C8oException(C8oExceptionMessage.couchNullResult()));
                 }
                 resolve(this.handleFullSyncResponse(response, listener));

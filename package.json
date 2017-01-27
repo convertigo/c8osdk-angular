@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "karma start",
-    "test-watch": "karma start --singleRun=false --autoWatch=true",
+    "test-watch": "karma start --singleRun=false --autoWatch=true --captureExceptions",
     "prepublish": "ngc && npm run build",
     "build": "webpack && cp bundles/index.umd.js bundles/index.js",
     "postbuild": "find ./bundles -type f -exec sed -i 's/pouchdb_browser_1.default/pouchdb_browser_1/g' {} + && find ./src -type f -exec sed -i 's/new pouchdb_browser_1.default/new pouchdb_browser_1/g' {} +"

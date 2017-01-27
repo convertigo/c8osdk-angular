@@ -129,6 +129,7 @@ export class C8oBase {
             this._initialLogRemote = c8oBase.logRemote;
             this._logLevelLocal = c8oBase.logLevelLocal;
             this._logC8o = c8oBase.logC8o;
+            this._logOnFail = c8oBase.logOnFail;
 
             /** FullSync **/
             this._defaultDatabaseName = c8oBase.defaultDatabaseName;

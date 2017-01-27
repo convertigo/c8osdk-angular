@@ -11,5 +11,6 @@ export class C8oHttpRequestException extends C8oException {
     constructor(message: string, cause: any = null) {
         super(message, cause);
         this.originalException = cause;
+
     }
 }
