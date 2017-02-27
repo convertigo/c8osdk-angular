@@ -43,13 +43,15 @@ class stuff{
 
 class functions{
     static CheckLogRemoteHelper(c8o : C8o, lvl : string, msg : string){
-        c8o.callJson(".GetLogs").then(
-            (response: any, _) => {
-                let sLine = response["document"]["line"];
-                expect(sLine != null && !sLine.isEmpty()).toBeTruthy();
-                return null;
-            }
-        )
+        setTimeout(()=> {
+            c8o.callJson(".GetLogs").then(
+                (response: any, _) => {
+                    let sLine = response["document"]["line"];
+                    expect(sLine != null && !sLine.isEmpty()).toBeTruthy();
+                    return null;
+                }
+            );
+        }, 333);
     }
 }
 describe('provider: c8o.service.ts', () => {

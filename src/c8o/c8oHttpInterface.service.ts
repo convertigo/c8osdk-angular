@@ -88,8 +88,6 @@ export class C8oHttpInterface {
         let errMsg: string;
         if (error instanceof Response) {
             const body = error.json() || "";
-            console.log("HRERERE");
-            console.log(JSON.stringify(body));
             let err;
             if(body.error !=  undefined){
                 err = body.error;
