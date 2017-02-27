@@ -40,11 +40,13 @@ export class C8oHttpInterface {
         let headers = new Headers();
         headers.append("Content-Type", "application/x-www-form-urlencoded");
         //headers.append("User-Agent", "Convertigo Client SDK " + C8o.getSdkVersion());
+
         if (this.firstCall) {
             this.p1 = new Promise((resolve, reject) => {
                 this.firstCall = false;
                 this.c8o.httpPublic.post(url, this.transformRequest(parameters), {
-                    headers: headers
+                    headers: headers,
+                    withCredentials: true
                 })
                     .map(this.extractData)
                     .catch(this.handleError)
@@ -59,7 +61,8 @@ export class C8oHttpInterface {
             return new Promise((resolve, reject) => {
                 Promise.all([this.p1]).then(() => {
                     this.c8o.httpPublic.post(url, this.transformRequest(parameters), {
-                        headers: headers
+                        headers: headers,
+                        withCredentials: true
                     })
                         .map(this.extractData)
                         .catch(this.handleError)

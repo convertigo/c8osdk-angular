@@ -1,6 +1,6 @@
 import { C8o }                        from '../src/c8o/c8o.service'
 import {inject, TestBed, async} from    "@angular/core/testing";
-import {Http, ConnectionBackend, XHRBackend, Headers, Response} from "@angular/http";
+import {Http, ConnectionBackend, XHRBackend, Headers, Response, BrowserXhr} from "@angular/http";
 import {C8oSettings} from "../src/c8o/c8oSettings.service";
 import {C8oLogLevel} from "../src/c8o/c8oLogLevel.service";
 import { HttpModule } from '@angular/http';
@@ -11,6 +11,8 @@ import any = jasmine.any;
 import {C8oException} from "../src/c8o/Exception/c8oException.service";
 import {C8oExceptionMessage} from "../src/c8o/Exception/c8oExceptionMessage.service";
 import {C8oHttpRequestException} from "../src/c8o/Exception/c8oHttpRequestException.service";
+import {Injectable} from "@angular/core";
+
 
 class info{
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
@@ -38,6 +40,20 @@ class stuff{
         return c8oSettings;
     }
 }
+
+class functions{
+    static CheckLogRemoteHelper(c8o : C8o, lvl : string, msg : string){
+        c8o.callJson(".GetLogs").then(
+            (response: any, _) => {
+                let sLine = response["document"]["line"];
+                console.log("sline");
+                console.log(JSON.stringify(response));
+                expect(sLine != null && !sLine.isEmpty()).toBeTruthy();
+                return null;
+            }
+        )
+    }
+}
 describe('provider: c8o.service.ts', () => {
     beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
@@ -56,7 +72,6 @@ describe('provider: c8o.service.ts', () => {
         async(inject([C8o], (c8o: C8o) => {
             let settings: C8oSettings = new C8oSettings();
             settings.setDefaultDatabaseName("retaildb")
-                .setLogRemote(true)
                 .setLogC8o(true)
                 .setLogLevelLocal(C8oLogLevel.DEBUG)
                 .setTrustAllCertificates(true)
@@ -84,7 +99,7 @@ describe('provider: c8o.service.ts', () => {
         }))
     );
 
-    /*it('should genrerates exceptions (C8oUnknownHostCallAndLog)',
+    it('should genrerates exceptions (C8oUnknownHostCallAndLog)',
         async(inject([C8o], (c8o: C8o) => {
             let exceptionLog;
             let settings: C8oSettings = new C8oSettings();
@@ -121,7 +136,7 @@ describe('provider: c8o.service.ts', () => {
                     expect(err).toBeUndefined();
                 });
         }))
-    );*/
+    );
 
     it('should ping one single value (C8oDefaultPingOneSingleValue)',
         async(inject([C8o], (c8o: C8o) => {
@@ -168,7 +183,6 @@ describe('provider: c8o.service.ts', () => {
                 "var2", "value two",
                 "mvar1", ["mvalue one", "mvalue two", "mvalue three"]
             ).then((response: any, _) => {
-                //console.log(JSON.stringify(response));
                 expect(response["document"]["pong"]["var1"]).toBe("value one");
                 expect(response["document"]["pong"]["var2"]).toBe("value two");
                 expect(response["document"]["pong"]["mvar1"][0]).toBe("mvalue one");
@@ -263,13 +277,11 @@ describe('provider: c8o.service.ts', () => {
             c8o.callJson(".SetInSession",
                 "ts", ts
             ).then((response: any, _) => {
-                //expect(response["document"]["pong"]["ts"]).toBe(ts);
-                //console.log(JSON.stringify(response));
+                 expect(response["document"]["pong"]["ts"]).toBe(ts);
                 return c8o.callJson(".GetFromSession");
             })
             .then((response: any, _)=>{
-                //expect(response["document"]["session"]["expression"]).toBe(ts);
-                //console.log(JSON.stringify(response));
+                 expect(response["document"]["session"]["expression"]).toBe(ts);
                 return null;
             })
             .fail((err, _)=>{
@@ -277,5 +289,31 @@ describe('provider: c8o.service.ts', () => {
             });
 
         }))
+    );
+
+    it('should check that log remote works (CheckLogRemote)',
+        async(inject([C8o], (c8o: C8o) => {
+            let c8oSettings : C8oSettings = new C8oSettings();
+            c8oSettings.setLogC8o(false);
+            c8oSettings.setEndPoint(info.endpoint);
+            c8o.init(c8oSettings).catch((err : C8oException)=>{
+                console.log(err);
+                expect(err).toBeUndefined();
+            });
+            let id : string = "logID=" + new Date().getTime().valueOf();
+            c8o.callJson(".GetLogs",
+                "init", id
+            ).then((response: any, _) => {
+                setTimeout(()=> {
+                    c8o.log.error(id);
+                    functions.CheckLogRemoteHelper(c8o, "ERROR", id);
+                }, 333);
+                return null;
+            })
+            .fail((err, _)=>{
+                expect(err).toBeUndefined();
+            });
+        }))
+
     );
 });

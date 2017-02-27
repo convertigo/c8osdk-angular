@@ -2,9 +2,7 @@ module.exports = function(config) {
     var testWebpackConfig = require('./webpack.test.js');
 
     var configuration = {
-        aproxies: {
-            '/cems': 'http://c8o.convertigo.net/cems'
-        },
+
         basePath: '',
 
         frameworks: ['jasmine'],
