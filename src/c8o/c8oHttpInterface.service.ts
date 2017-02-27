@@ -88,7 +88,18 @@ export class C8oHttpInterface {
         let errMsg: string;
         if (error instanceof Response) {
             const body = error.json() || "";
-            const err = body.error || JSON.stringify(body);
+            console.log("HRERERE");
+            console.log(JSON.stringify(body));
+            let err;
+            if(body.error !=  undefined){
+                err = body.error;
+            }
+            else if(body.isTrusted != undefined){
+                err = '{"isTrusted":' + body.isTrusted + "}";
+            }
+            else{
+                err = JSON.stringify(body);
+            }
             errMsg = `${error.status} - ${error.statusText || ""} ${err}`;
         } else {
             errMsg = error.message ? error.message : error.toString();

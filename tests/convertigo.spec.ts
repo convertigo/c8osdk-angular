@@ -46,8 +46,6 @@ class functions{
         c8o.callJson(".GetLogs").then(
             (response: any, _) => {
                 let sLine = response["document"]["line"];
-                console.log("sline");
-                console.log(JSON.stringify(response));
                 expect(sLine != null && !sLine.isEmpty()).toBeTruthy();
                 return null;
             }
@@ -93,7 +91,6 @@ describe('provider: c8o.service.ts', () => {
                     return null;
                 }
                 ).fail((error, _) => {
-                    console.log(JSON.stringify(error));
                     expect(error).toBe(undefined)
                 });
         }))
