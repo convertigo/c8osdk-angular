@@ -4,6 +4,8 @@ This is the Convertigo provider for Angular2
 ## How to Use ##
 npm install c8osdkangular2 --save	
 	
+## Official Documentation ##
+[Programming Guide](https://www.convertigo.com/document/convertigo-client-sdk/programming-guide/)
 ## Coding ##
 	import {C8o} from 'c8osdkangular2'
 
