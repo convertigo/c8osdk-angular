@@ -74,6 +74,18 @@ class functions{
 
     }
 }
+
+class PlainObjectA {
+    public name : string;
+    public bObjects : Array<any>;
+    public bObject : PlainObjectB;
+}
+
+class PlainObjectB {
+    public name : string;
+    public num : number;
+    public enabled : boolean;
+}
 describe('provider: c8o.service.ts', () => {
     beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
@@ -956,6 +968,93 @@ describe('provider: c8o.service.ts', () => {
                         expect(response["_id"]).toBe(myId);
                         delete response["_id"];
                         let expectedResponse = '{"c":{"i-j":"great","f":{"h":[true,false,"three","four"],"j":"good","g":true},"d":3,"e":"four"},"i":["5",6,7.1,null],"a":1,"b":-2}'
+                        expect(JSON.stringify(response)).toBe(expectedResponse)
+                        done();
+                        return null;
+                    })
+                    .fail((__, _) => {
+                        done.fail("error is not supposed to happend");
+                    });
+            })();
+        }
+    );
+
+    it('should check that Fullsync Merge object works (C8oFsMergeObject)', function(done) {
+            inject([C8o], function(c8o: C8o)  {
+                c8o.init(stuff.C8o_FS).catch((err : C8oException)=>{
+                    done.fail("error is not supposed to happend");
+                });
+                let myId : string = "C8oFsPostExistingPolicyMergeSub-" + new Date().getTime().valueOf();
+                let plainObjectA : PlainObjectA = new PlainObjectA();
+                plainObjectA.name = "plain A";
+                plainObjectA.bObjects = new Array<any>();
+
+                plainObjectA.bObject = new PlainObjectB();
+                plainObjectA.bObject.name = "plain B 1";
+                plainObjectA.bObject.num = 1;
+                plainObjectA.bObject.enabled = true;
+                plainObjectA.bObjects.push(plainObjectA.bObject);
+
+                plainObjectA.bObject = new PlainObjectB();
+                plainObjectA.bObject.name = "plain B 2";
+                plainObjectA.bObject.num = 2;
+                plainObjectA.bObject.enabled = false;
+                plainObjectA.bObjects.push(plainObjectA.bObject);
+
+                plainObjectA.bObject = new PlainObjectB();
+                plainObjectA.bObject.name = "plain B -777";
+                plainObjectA.bObject.num = -777;
+                plainObjectA.bObject.enabled = true;
+
+                c8o.callJson("fs://.reset")
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://.post",
+                            "_id", myId,
+                            "a obj", plainObjectA
+                        );
+                    })
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        plainObjectA.bObjects[1].name = "plain B 2 bis";
+                        return c8o.callJson("fs://.post",
+                            C8o.FS_POLICY, C8o.FS_POLICY_MERGE,
+                            "_id", myId,
+                            "a obj.bObjects", plainObjectA.bObjects
+                        );
+                    })
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        plainObjectA.bObject = new PlainObjectB();
+                        plainObjectA.bObject.name = "plain B -666";
+                        plainObjectA.bObject.num = -666;
+                        plainObjectA.bObject.enabled = false;
+
+                        return c8o.callJson("fs://.post",
+                            C8o.FS_POLICY, C8o.FS_POLICY_MERGE,
+                            "_id", myId,
+                            "a obj.bObject", plainObjectA.bObject
+                        );
+                    })
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://.post",
+                            C8o.FS_POLICY, C8o.FS_POLICY_MERGE,
+                            "_id", myId,
+                            "a obj.bObject.enabled", true
+                        );
+                    })
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://.get",
+                            "docid", myId
+                        );
+                    })
+                    .then((response: any, _) => {
+                        delete response["_rev"];
+                        expect(response["_id"]).toBe(myId);
+                        delete response["_id"];
+                        let expectedResponse = '{"a obj":{"bObject":{"enabled":true,"name":"plain B -666","num":-666},"bObjects":[{"name":"plain B 1","num":1,"enabled":true},{"name":"plain B 2 bis","num":2,"enabled":false}],"name":"plain A"}}';
                         expect(JSON.stringify(response)).toBe(expectedResponse)
                         done();
                         return null;
