@@ -18,7 +18,7 @@ export class C8oFullSync {
     /**
      * The project requestable value to execute a fullSync request.
      */
-    public static FULL_SYNC_PROJECT: string = "fs:// ";
+    public static FULL_SYNC_PROJECT: string = "fs://";
     public static FULL_SYNC__ID: string = "_id";
     public static FULL_SYNC__REV: string = "_rev";
     public static FULL_SYNC__ATTACHMENTS: string = "_attachments";
@@ -103,7 +103,9 @@ export class C8oFullSync {
         if (C8oUtils.getParameterStringValue(requestParameter, C8o.ENGINE_PARAMETER_PROJECT, false) !== null) {
             return C8oUtils.getParameterStringValue(requestParameter, C8o.ENGINE_PARAMETER_PROJECT, false).startsWith(C8oFullSync.FULL_SYNC_PROJECT);
         }
-        return false;
+        else{
+            return false;
+        }
     }
 
 }
@@ -128,7 +130,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
     public getOrCreateFullSyncDatabase(databaseName: string): C8oFullSyncDatabase {
         let localDatabaseName: string = databaseName + this.localSuffix;
 
-        if (this.fullSyncDatabases[localDatabaseName] === null) {
+        if (this.fullSyncDatabases[localDatabaseName] == null) {
             this.fullSyncDatabases[localDatabaseName] = new C8oFullSyncDatabase(this.c8o, databaseName, this.fullSyncDatabaseUrlBase, this.localSuffix);
         }
         return this.fullSyncDatabases[localDatabaseName];
@@ -190,10 +192,10 @@ export class C8oFullSyncCbl extends C8oFullSync {
         fullSyncDatabase = this.getOrCreateFullSyncDatabase(fullSyncDatabaseName);
         return new Promise((resolve, reject) => {
             fullSyncDatabase.getdatabase.get(docid, param).then((document) => {
-                if (document !== null) {
+                if (document != null) {
                     dictDoc = document;
                     let attachments = document[C8oFullSync.FULL_SYNC__ATTACHMENTS];
-                    if (attachments !== null) {
+                    if (attachments != null) {
                         for (let attachmentName of attachments) {
                             let url = attachments["url"];
                             let attachementDesc: Object = attachments[attachmentName];
@@ -259,7 +261,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
         let fullSyncDatabase: C8oFullSyncDatabase = null;
         fullSyncDatabase = this.getOrCreateFullSyncDatabase(databaseName);
         let subkeySeparatorParameterValue: string = C8oUtils.getParameterStringValue(parameters, C8o.FS_SUBKEY_SEPARATOR, false);
-        if (subkeySeparatorParameterValue === null) {
+        if (subkeySeparatorParameterValue == null) {
             subkeySeparatorParameterValue = ".";
         }
         let newProperties = new Object();
@@ -270,7 +272,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
                 let paths: Array<string> = parameterName.split(subkeySeparatorParameterValue);
                 if (paths.length > 1) {
                     parameterName = paths[0];
-                    let count = paths.length - 1;
+                    let count = paths.length -1;
                     while (count > 0) {
                         let tmpObject: Object = new Object();
                         tmpObject[paths[count]] = objectparameterValue;
@@ -278,17 +280,16 @@ export class C8oFullSyncCbl extends C8oFullSync {
                         count--;
                     }
                     let existProperty = newProperties[parameterName];
-                    if (existProperty !== null) {
+                    
+                    if (existProperty != null) {
                         C8oFullSyncCbl.mergeProperties(objectparameterValue, existProperty);
                     }
                 }
-
                 newProperties[parameterName] = objectparameterValue;
             }
 
 
         }
-
         let db = fullSyncDatabase.getdatabase;
         return new Promise((resolve, reject) => {
             fullSyncPolicy.action(db, newProperties).then((createdDocument) => {
@@ -477,25 +478,34 @@ export class C8oFullSyncCbl extends C8oFullSync {
      throw new Error("TODO: C8oFullSyncCbl: function addParametersToQuery")
      }*/
 
-    // DONE class C8oFullSyncCBL-> mergeProperties
+
+
+
+
+
     static mergeProperties(newProperties: Object, oldProperties: Object) {
         for (let i = 0; i < Object.keys(oldProperties).length; i++) {
-            let oldPropertyKey: any = Object.keys(oldProperties)[i];
-            let oldPropertyValue: any = oldProperties[Object.keys(oldProperties)[i]];
-
-            if (newProperties[oldPropertyKey] !== null && newProperties[oldPropertyKey] !== undefined) {
-                if (newProperties[oldPropertyKey] instanceof Object && oldPropertyValue instanceof Object) {
-                    C8oFullSyncCbl.mergeArrayProperties(newProperties[oldPropertyKey], oldPropertyValue);
+            let oldPropertyKey = Object.keys(oldProperties)[i];
+            let oldPropertyValue = oldProperties[Object.keys(oldProperties)[i]];
+            // Checks if the new document contains the same key
+            if (newProperties[oldPropertyKey] != null && newProperties[oldPropertyKey] != undefined) {
+                let newDocumentValue = newProperties[oldPropertyKey];
+                if(Object.prototype.toString.call( newDocumentValue ) === '[object Array]' && Object.prototype.toString.call( oldPropertyValue ) === '[object Array]'){
+                    C8oFullSyncCbl.mergeArrayProperties(newDocumentValue, oldPropertyValue);
                 }
-                else {
-
+                else if(typeof(newDocumentValue) == "object" && typeof(oldPropertyValue) == "object"){
+                    C8oFullSyncCbl.mergeProperties(newDocumentValue, oldPropertyValue); 
+                }
+                else{
+                    // If the new document has the same key but its value is not the same type than the old one or if their type are "simple"
+                    // Does nothing cause the right value is the new one
                 }
             }
-            else {
+            else{
+                // If the new document does not contain the key then adds it
                 newProperties[oldPropertyKey] = oldPropertyValue;
             }
         }
-
     }
 
     // DONE class C8oFullSyncCBL-> mergeArrayProperties
@@ -510,19 +520,20 @@ export class C8oFullSyncCbl extends C8oFullSync {
             let oldArrayValue = oldArray[i];
 
             if (newArrayValue !== null) {
-                if (typeof newArrayValue === "Object" && typeof oldArrayValue === "Object") {
-                    C8oFullSyncCbl.mergeProperties(newArrayValue, oldArrayValue);
-
-                }
-                else if (typeof newArrayValue === "Array" && typeof oldArrayValue === "Array") {
+                if (newArrayValue instanceof Array && oldArrayValue instanceof Array) {
                     C8oFullSyncCbl.mergeArrayProperties(newArrayValue, oldArrayValue);
                 }
+                else if (typeof(newArrayValue) == "object" && typeof(oldArrayValue) == "object"){ 
+                    C8oFullSyncCbl.mergeProperties(newArrayValue, oldArrayValue);
+                }
                 else {
-
+                    // If the new array value is not the same type than the old one or if their type are "simple"
+                    // Does nothing cause the right value is the new one
                 }
             }
             else {
-                newArray.add(oldArrayValue);
+                // If the new array value is null then it means that it size is reach so we can add objects at its end
+                newArray.push(oldArrayValue);
             }
         }
     }

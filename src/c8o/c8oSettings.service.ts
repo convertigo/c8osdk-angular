@@ -61,10 +61,10 @@ export class C8oSettings extends C8oBase {
      * @param trustAllCertificates <b>true</b> if https calls trust all certificates; otherwise, <b>false</b>.
      * @returns The current <b>C8oSettings</b>, for chaining.
      */
-    public setTrustAllCertificates(trustAllCertificates: boolean): C8oSettings {
+    /*public setTrustAllCertificates(trustAllCertificates: boolean): C8oSettings {
         this._trustAllCertificates = trustAllCertificates;
         return this;
-    }
+    }*/
 
 
     public addClientCertificate(anyCertificate: string, password: string): C8oSettings;

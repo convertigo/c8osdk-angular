@@ -7,7 +7,7 @@ export class C8oBase {
     /*HTTP*/
     protected _endpointSettings: string;
     protected _timeout: number = -1;
-    protected _trustAllCertificates: boolean = false;
+    // protected _trustAllCertificates: boolean = false;
     protected _cookies: Object = {};
     protected _clientCertificateFiles: Object;
     protected _clientCertificateBinaries: Object;
@@ -49,9 +49,9 @@ export class C8oBase {
      * Default is <b>false</b>.
      * @returns <b>true</b> if https calls trust all certificates; otherwise, <b>false</b>.
      */
-    public get trustAllCertificates(): boolean {
+    /*public get trustAllCertificates(): boolean {
         return this._trustAllCertificates;
-    }
+    }*/
 
     /**
      * Gets initial cookies to send to the Convertigo server.<br/>
@@ -116,7 +116,7 @@ export class C8oBase {
         if (c8oBase !== undefined) {
             /** HTTP **/
             this._timeout = c8oBase._timeout;
-            this._trustAllCertificates = c8oBase._trustAllCertificates;
+            // this._trustAllCertificates = c8oBase._trustAllCertificates;
             if (this.cookies == null) {
                 this._cookies = {};
             }

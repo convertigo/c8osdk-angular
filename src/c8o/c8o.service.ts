@@ -655,24 +655,42 @@ export class FullSyncPolicy {
     public static MERGE: FullSyncPolicy = new FullSyncPolicy(C8o.FS_POLICY_MERGE, (database: any, newProperties: Object) => {
         try {
             let documentId: string = C8oUtils.getParameterStringValue(newProperties, C8oFullSync.FULL_SYNC__ID, false);
-            delete newProperties[C8oFullSync.FULL_SYNC__ID];
+            // delete newProperties[C8oFullSync.FULL_SYNC__ID];
             delete newProperties[C8oFullSync.FULL_SYNC__REV];
 
             if (documentId == null) {
-                return new Promise((resolve) => {
+                return new Promise((resolve, reject) => {
+
                     database.put(newProperties).then((createdDocument) => {
                         resolve(createdDocument);
+                    }).catch((error) => {
+                        reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
                     });
                 });
-            } else {
-                return new Promise((resolve) => {
+            } 
+            else {
+                return new Promise((resolve, reject) => {
                     database.get(documentId).then((doc) => {
                         C8oFullSyncCbl.mergeProperties(newProperties, doc);
                         database.put(newProperties).then((createdDocument) => {
                             resolve(createdDocument);
+                        })
+                        .catch((error) => {
+                            reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
                         });
-
-                    });
+                    }).catch((error) => {
+                            if(error.status == 404){
+                                database.put(newProperties).then((createdDocument) => {
+                                    resolve(createdDocument);
+                                })
+                                .catch((error) => {
+                                    reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
+                                });
+                            }
+                            else{
+                                reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
+                            }
+                        });
                 });
             }
         }
