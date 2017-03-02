@@ -10,6 +10,8 @@ import {C8oException} from "../src/c8o/Exception/c8oException.service";
 import {C8oExceptionMessage} from "../src/c8o/Exception/c8oExceptionMessage.service";
 import {C8oPromise} from "../src/c8o/c8oPromise.service";
 import {C8oHttpRequestException} from "../src/c8o/Exception/c8oHttpRequestException.service";
+import * as PouchDB from "pouchdb-browser";
+import {C8oProgress} from "../src/c8o/c8oProgress.service";
 
 
 
@@ -28,6 +30,15 @@ class info{
     static get project_path(){
         return "/cems/projects/ClientSDKtesting";
     }
+    /*static get host(){
+        return "localhost";
+    }
+    static get port(){
+        return "18080";
+    }
+    static get project_path(){
+        return "/convertigo/projects/ClientSDKtesting";
+    }*/
     static get endpoint(){
         return info.http + info.host + ":" + info.port + info.project_path;
     }
@@ -38,7 +49,7 @@ class stuff{
         c8oSettings
             .setEndPoint(info.endpoint)
             .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.ERROR)
+            .setLogLevelLocal(C8oLogLevel.ERROR);
         return c8oSettings;
     }
 
@@ -48,8 +59,17 @@ class stuff{
             .setDefaultDatabaseName("clientsdktesting")
             .setEndPoint(info.endpoint)
             .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.ERROR)
+            .setLogLevelLocal(C8oLogLevel.ERROR);
+        return c8oSettings;
+    }
 
+    static get C8o_FS_PULL(){
+        let c8oSettings : C8oSettings = new C8oSettings();
+        c8oSettings
+            .setDefaultDatabaseName("qa_fs_pull")
+            .setEndPoint(info.endpoint)
+            .setLogRemote(false)
+            .setLogLevelLocal(C8oLogLevel.ERROR);
         return c8oSettings;
     }
 }
@@ -100,6 +120,34 @@ describe('provider: c8o.service.ts', () => {
         });
     });
 
+
+    it('should returns and IllegalArgument Exception (C8oBadEndpoint)', function (done) {
+        inject([C8o], (c8o: C8o) => {
+            let progress: C8oProgress = new C8oProgress();
+            let localPDB = new PouchDB("myLOCALPOUCHDB");
+            let remotePDB = new PouchDB("http://localhost:5984/qa_fs_pull");
+            localPDB.sync(remotePDB)
+                .on("change", (info) => {
+                    /*progress.total = info.docs_read;
+                    progress.current = info.docs_written;
+                    progress.status = "change";*/
+                    console.log("CHANGE: " + info.change.docs_written);
+                }).on("paused", function (err) {
+                progress.finished = true;
+                progress.status = "complete";
+            }).on("complete", (info) => {
+               /* progress.finished = true;
+                progress.total = info.docs_read;
+                progress.current = info.docs_written;
+                progress.status = "complete";*/
+                console.log("COMPLETED: " + JSON.stringify(info));
+            }).on("error", (err) => {
+                console.log("ERROR: " + JSON.stringify(err));
+            });
+            done()
+        })();
+    }
+);
     it('should returns and IllegalArgument Exception (C8oBadEndpoint)', function (done) {
         inject([C8o], (c8o: C8o) => {
             let settings: C8oSettings = new C8oSettings();
@@ -126,7 +174,7 @@ describe('provider: c8o.service.ts', () => {
                     done()
                     return null;
                 }
-                ).fail((__, _) => {
+                ).fail((error, _) => {
                     done.fail("error is not supposed to happend");
                 });
         })();
@@ -1065,5 +1113,152 @@ describe('provider: c8o.service.ts', () => {
             })();
         }
     );
+
+    it('should check that Fullsync post get works on several bases (C8oFsPostGetMultibase)', function(done) {
+            inject([C8o], function(c8o: C8o)  {
+                c8o.init(stuff.C8o_FS).catch((err : C8oException)=>{
+                    done.fail("error is not supposed to happend");
+                });
+                let myId : string = "C8oFsPostGetMultibase-" + new Date().getTime().valueOf();
+                c8o.callJson("fs://.reset")
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://notdefault.reset");
+                    })
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://.post",
+                            "_id", myId
+                        );
+                    })
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://notdefault.get", "docid", myId)
+                    })
+                    .then((__, _) => {
+                        done.fail("this \"then\" is not supposed to be executed");
+                        return null;
+                    })
+                    .fail((error, _) => {
+                        expect(error instanceof C8oException).toBeTruthy();
+                        c8o.callJson("fs://notdefault.post", "_id", myId)
+                        .then((response: any, _) => {
+                            expect(response["ok"]).toBeTruthy();
+                            return c8o.callJson("fs://notdefault.get", "docid", myId);
+                        })
+                        .then((response: any, _) => {
+                            expect(response["_id"]).toBe(myId);
+                            done();
+                            return null;
+                        })
+                        .fail((error, _) => {
+                            console.log(error);
+                            done.fail("error is not supposed to happend");
+                        })
+                    });
+            })();
+        }
+    );
+
+    /*it('should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)', function(done) {
+        inject([C8o], function(c8o: C8o)  {
+            c8o.init(stuff.C8o_FS_PULL).catch((err : C8oException)=>{
+                done.fail("error is not supposed to happend");
+            });
+
+            c8o.callJson(".InitFsPull")
+                .then((response: any, _) => {
+                    expect(response["document"]["ok"]).toBeTruthy();
+                    console.log("ok1")
+                    return c8o.callJson("fs://.replicate_pull");
+                })
+                .then((response: any, _) => {
+                    expect(response["document"]["ok"]).toBeTruthy();
+                    console.log("ok2")
+                    return null;
+                })
+                .fail((error, _) => {
+                    console.log("error: " + JSON.stringify(error.cause));
+                    console.log(error.cause)
+                    console.log(error)
+                });
+        })();
+        }
+    );*/
+
+
+
+    /*it('should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)', function(done) {
+            inject([C8o], function(c8o: C8o)  {
+                c8o.init(stuff.C8o_FS_PULL).catch((err : C8oException)=>{
+                    done.fail("error is not supposed to happend");
+                });
+
+                c8o.callJson(".InitFsPull")
+                    .then((response: any, _) => {
+                        expect(response["document"]["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://.reset");
+                    })
+                    .then((response: any, _) => {
+                        expect(response["ok"]).toBeTruthy();
+                        return c8o.callJson("fs://.get", "docid", "258");
+                    })
+                    .then((__, _) => {
+                        done.fail("this \"then\" is not supposed to be executed");
+                        return null;
+                    })
+                    .fail((error, _) => {
+                        console.log("ok")
+                        expect(error instanceof C8oException).toBeTruthy();
+                        c8o.callJson("fs://.replicate_pull")
+                            .then((response: any, _) => {
+                                console.log("ok2")
+                                expect(response["ok"]).toBeTruthy();
+                                return c8o.callJson("fs://.get", "docid", "258");
+                            })
+                            .then((response: any, _) => {
+                                expect(response["data"]).toBe("258");
+                                return c8o.callJson("fs://.get", "docid", "456");
+                            })
+                            .then((__, _) => {
+                                done.fail("this \"then\" is not supposed to be executed");
+                                return null;
+                            })
+                            .fail((error2, _) => {
+                            console.log("ok3");
+                                expect(error2 instanceof C8oException).toBeTruthy();
+                                c8o.callJson(".LoginTesting")
+                                    .then((response: any, _) => {
+                                    console.log("ok4")
+                                        console.log(JSON.stringify(response));
+                                        expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+                                        return c8o.callJson("fs://.replicate_pull");
+                                    })
+                                    .then((response: any, _) => {
+                                        console.log("ok5");
+                                        console.log(JSON.stringify(response));
+                                        expect(response["ok"]).toBeTruthy();
+                                        return c8o.callJson("fs://.get", "docid", "456");
+                                    })
+                                    .then((response: any, _) => {
+                                        console.log("ok6")
+                                        expect(response["data"]).toBe("456");
+                                        return null;//c8o.callJson(".LogoutTesting");
+                                    })
+                                    .then((response: any, _) => {
+                                        console.log("ok7")
+                                        done();
+                                        return null;
+                                    })
+                                    .fail((error3, _) => {
+                                        console.log("pasok")
+                                        console.log(JSON.stringify(error3))
+                                        //done.fail("error is not supposed to happend");
+                                    });
+                            })
+                    });
+            })();
+        }
+    );*/
 
 });
