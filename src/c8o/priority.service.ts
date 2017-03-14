@@ -16,5 +16,6 @@ export class Priority {
 
     constructor(isAviable: (c8o: C8o) => boolean) {
         this.isAviable = isAviable;
+
     }
 }

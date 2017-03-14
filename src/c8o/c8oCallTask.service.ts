@@ -81,12 +81,12 @@ export class C8oCallTask {
                         reject(new C8oException(C8oExceptionMessage.wrongListener(this.c8oResponseListener)));
                     }
                     let c8oCallRequestIdentifier: string = null;
-                    let localCache: C8oLocalCache = (C8oUtils.getParameterObjectValue(this.parameters, C8oLocalCache.param, false) as C8oLocalCache);
+                    let localCache: C8oLocalCache = (C8oUtils.getParameterObjectValue(this.parameters, C8oLocalCache.PARAM, false) as C8oLocalCache);
                     let localCacheEnabled: boolean = false;
 
                     if (localCache != null) {
                         if (localCacheEnabled != undefined) {
-                            delete this.parameters[C8oLocalCache.param];
+                            delete this.parameters[C8oLocalCache.PARAM];
                             localCacheEnabled = localCache.enabled;
                             if (localCacheEnabled) {
                                 try {

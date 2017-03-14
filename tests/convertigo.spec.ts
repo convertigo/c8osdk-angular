@@ -12,6 +12,8 @@ import {C8oPromise} from "../src/c8o/c8oPromise.service";
 import {C8oHttpRequestException} from "../src/c8o/Exception/c8oHttpRequestException.service";
 import * as PouchDB from "pouchdb-browser";
 import {C8oProgress} from "../src/c8o/c8oProgress.service";
+import {C8oLocalCache} from "../src/c8o/c8oLocalCache.service";
+import {Priority} from "../src/c8o/priority.service";
 
 
 
@@ -72,6 +74,15 @@ class stuff{
             .setLogLevelLocal(C8oLogLevel.ERROR);
         return c8oSettings;
     }
+
+    static get C8o_LC(){
+        let c8oSettings : C8oSettings = new C8oSettings();
+        c8oSettings
+            .setEndPoint(info.endpoint)
+            .setLogRemote(false)
+            .setLogLevelLocal(C8oLogLevel.ERROR);
+        return c8oSettings;
+    }
 }
 
 class functions{
@@ -121,7 +132,7 @@ describe('provider: c8o.service.ts', () => {
     });
 
 
-    it('should returns and IllegalArgument Exception (C8oBadEndpoint)', function (done) {
+    /*it('should returns and IllegalArgument Exception (C8oBadEndpoint)', function (done) {
         inject([C8o], (c8o: C8o) => {
             let progress: C8oProgress = new C8oProgress();
             let localPDB = new PouchDB("myLOCALPOUCHDB");
@@ -131,8 +142,8 @@ describe('provider: c8o.service.ts', () => {
                     /*progress.total = info.docs_read;
                     progress.current = info.docs_written;
                     progress.status = "change";*/
-                    console.log("CHANGE: " + info.change.docs_written);
-                }).on("paused", function (err) {
+                    //console.log("CHANGE: " + info.change.docs_written);
+                /*}).on("paused", function (err) {
                 progress.finished = true;
                 progress.status = "complete";
             }).on("complete", (info) => {
@@ -140,14 +151,20 @@ describe('provider: c8o.service.ts', () => {
                 progress.total = info.docs_read;
                 progress.current = info.docs_written;
                 progress.status = "complete";*/
-                console.log("COMPLETED: " + JSON.stringify(info));
+                /*console.log("COMPLETED: " + JSON.stringify(info));
             }).on("error", (err) => {
                 console.log("ERROR: " + JSON.stringify(err));
             });
             done()
         })();
     }
-);
+);*/
+
+    it('should check sdk version (C8oVersion)', function () {
+            expect(C8o.getSdkVersion()).toBe("2.0.4");
+        }
+    );
+
     it('should returns and IllegalArgument Exception (C8oBadEndpoint)', function (done) {
         inject([C8o], (c8o: C8o) => {
             let settings: C8oSettings = new C8oSettings();
@@ -1161,34 +1178,6 @@ describe('provider: c8o.service.ts', () => {
     );
 
     /*it('should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)', function(done) {
-        inject([C8o], function(c8o: C8o)  {
-            c8o.init(stuff.C8o_FS_PULL).catch((err : C8oException)=>{
-                done.fail("error is not supposed to happend");
-            });
-
-            c8o.callJson(".InitFsPull")
-                .then((response: any, _) => {
-                    expect(response["document"]["ok"]).toBeTruthy();
-                    console.log("ok1")
-                    return c8o.callJson("fs://.replicate_pull");
-                })
-                .then((response: any, _) => {
-                    expect(response["document"]["ok"]).toBeTruthy();
-                    console.log("ok2")
-                    return null;
-                })
-                .fail((error, _) => {
-                    console.log("error: " + JSON.stringify(error.cause));
-                    console.log(error.cause)
-                    console.log(error)
-                });
-        })();
-        }
-    );*/
-
-
-
-    /*it('should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)', function(done) {
             inject([C8o], function(c8o: C8o)  {
                 c8o.init(stuff.C8o_FS_PULL).catch((err : C8oException)=>{
                     done.fail("error is not supposed to happend");
@@ -1256,6 +1245,55 @@ describe('provider: c8o.service.ts', () => {
                                         //done.fail("error is not supposed to happend");
                                     });
                             })
+                    });
+            })();
+        }
+    );
+
+    /*it('should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)', function(done) {
+            inject([C8o], function(c8o: C8o)  {
+                c8o.init(stuff.C8o_LC).catch((err : C8oException)=>{
+                    done.fail("error is not supposed to happend");
+                });
+                let id = "C8oLocalCacheXmlPriorityLocal-" + new Date().getTime().valueOf();
+                let signature : string;
+                let signature2 : string;
+
+                c8o.callJson(".Ping",
+                    C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
+                    "var1", id)
+                    .then((response: any, _) => {
+                        expect(response["document"]["pong"]["var1"]).toBe(id);
+                        signature = response["document"]["@signature"];
+                        return c8o.callJson(".Ping",
+                            C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
+                            "var1", id + "bis");
+                    })
+                    .then((response: any, _) => {
+                        expect(response["document"]["pong"]["var1"]).toBe(id + "bis");
+                        signature2 = response["document"]["@signature"];
+                        expect(signature2).not.toBe(signature);
+                        return c8o.callJson(".Ping",
+                            C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
+                            "var1", id);
+                    })
+                    .then((response: any, _) => {
+                        expect(response["document"]["pong"]["var1"]).toBe(id);
+                        signature2 = response["document"]["@signature"];
+                        expect(signature).toBe(signature);
+                        return c8o.callJson(".Ping",
+                            C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
+                            "var1", id);
+                    })
+                    .then((response: any, _) => {
+                        expect(response["document"]["pong"]["var1"]).toBe(id);
+                        signature2 = response["document"]["@signature"];
+                        expect(signature).not.toBe(signature);
+                        return null
+                    })
+                    .fail((error, _) => {
+                        console.log(error);
+                        done.fail("error is not supposed to happend");
                     });
             })();
         }
