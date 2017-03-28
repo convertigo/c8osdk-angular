@@ -90,6 +90,7 @@ export class C8oFullSyncDatabase {
         let continuous: boolean = false;
         let cancel: boolean = false;
         let obj: Object = {};
+
         if (parameters["continuous"] != null || parameters["continuous"] != undefined) {
             if (parameters["continuous"] as boolean == true) {
                 continuous = true;
@@ -110,29 +111,24 @@ export class C8oFullSyncDatabase {
         }
 
         let remoteDB = new PouchDB(this.c8oFullSyncDatabaseUrl);
-        let rep = this.database.sync(remoteDB, obj);
-
-        if (cancel) {
-            if (rep != null) {
-                rep.cancel();
-            }
-        }
-
+        let rep = this.database.sync(remoteDB);
         let param = parameters;
         let progress: C8oProgress = new C8oProgress();
         progress.raw = rep;
-        progress.taskInfo = "n/a";
-        progress.continuous = continuous.valueOf();
-        return new Promise(() => {
+        progress.continuous = false;
+
+        return new Promise((resolve, reject) => {
             rep.on("change", (info) => {
                 progress.finished = false;
                 if (info.direction == "pull") {
                     progress.pull = true;
-                    progress.status = progress.raw.pull.state;
+                    progress.status = rep.pull.state;
+                    progress.finished = rep.pull.state != "active";
                 }
                 else if (info.direction == "push") {
                     progress.pull = false;
-                    progress.status = progress.raw.push.state;
+                    progress.status = rep.push.state;
+                    progress.finished = rep.push.state != "active";
                 }
                 progress.total = info.change.docs_read;
                 progress.current = info.change.docs_written;
@@ -141,11 +137,68 @@ export class C8oFullSyncDatabase {
 
             }).on("complete", (info) => {
                 progress.finished = true;
-                progress.total = info.push.docs_read + info.pull.docs_read;
-                progress.current = info.push.docs_written + info.pull.docs_written;
-                progress.status = "complete";
+                progress.pull = false;
+                progress.total = info.push.docs_read;
+                progress.current = info.push.docs_written;
+                progress.status = info.status;
+                progress.finished = true;
                 param[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
-                (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
+                (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
+                progress.pull = true;
+                progress.total = info.pull.docs_read;
+                progress.current = info.pull.docs_written;
+                (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
+                rep.cancel();
+
+                if(continuous) {
+                    rep = this.database.sync(remoteDB, obj);
+                    progress.continuous = true;
+                    progress.raw = rep;
+                    progress.taskInfo = "n/a";
+                    progress.pull =true;
+                    progress.status = "live";
+                    progress.finished = false;
+                    progress.pull = true;
+                    progress.total = 0;
+                    progress.current = 0;
+                    (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
+                    progress.pull = false;
+                    (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
+                    rep.on("change", (info) => {
+                        progress.finished = false;
+                        if (info.direction == "pull") {
+                            progress.pull = true;
+                            progress.status = rep.pull.state;
+                        }
+                        else if (info.direction == "push") {
+                            progress.pull = false;
+                            progress.status = rep.push.state;
+                        }
+                        progress.total = info.change.docs_read;
+                        progress.current = info.change.docs_written;
+                        param[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
+                        (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
+                    })
+                        .on('paused', function (err) {
+                            progress.finished = true;
+                            (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
+                            if(progress.total == 0 && progress.current == 0){
+                                progress.pull = !progress.pull;
+                                (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
+                            }
+                        })
+                        .on("error", (err) => {
+                        if (err.message == "Unexpected end of JSON input") {
+                            progress.finished = true;
+                            progress.status = "live";
+                            (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
+                        } else {
+                            rep.cancel();
+                            reject(err);
+                        }
+                    });
+
+                }
             }).on("error", (err) => {
                 rep.cancel();
                 if (err.message == "Unexpected end of JSON input") {
@@ -155,12 +208,22 @@ export class C8oFullSyncDatabase {
                     rep.cancel();
 
                 } else {
-                    // reject(err);
+                     reject(err);
                 }
             });
 
+            if (cancel) {
+                if (rep != null) {
+                    rep.cancel();
+                    progress.finished = true;
+                    if(c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener){
+                        c8oResponseListener.onProgressResponse(progress, null);
+                    }
+                }
+            }
+        }).catch((error) => {
+            throw error.toString();
         });
-
     }
 
     /**
@@ -174,9 +237,12 @@ export class C8oFullSyncDatabase {
     private startReplication(fullSyncReplication: FullSyncReplication, parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any> {
         let continuous: boolean = false;
         let cancel: boolean = false;
+        let obj: Object = {};
+
         if (parameters["continuous"] != null || parameters["continuous"] != undefined) {
             if (parameters["continuous"] as boolean == true) {
                 continuous = true;
+                obj = {"live": true};
             }
             else {
                 continuous = false;
@@ -197,51 +263,73 @@ export class C8oFullSyncDatabase {
         let remoteDB = new myDB(this.c8oFullSyncDatabaseUrl);
         let rep = fullSyncReplication.replication = fullSyncReplication.pull ? this.database.replicate.from(remoteDB) : this.database.replicate.to(remoteDB);
 
-        if (cancel) {
-            if (rep != null) {
-                rep.cancel();
-            }
-        }
-
-
         let progress: C8oProgress = new C8oProgress();
         progress.raw = rep;
         progress.pull = fullSyncReplication.pull;
-        progress.continuous = continuous.valueOf();
+        progress.continuous = false;
         return new Promise((resolve, reject) => {
+
             rep.on("change", (info) => {
                 progress.total = info.docs_read;
                 progress.current = info.docs_written;
                 progress.status = "change";
                 parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
-
                 (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
-            }).on("paused", function (err) {
-                progress.finished = true;
-                progress.status = "complete";
-
-                (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
-                resolve();
             }).on("complete", (info) => {
                 progress.finished = true;
                 progress.total = info.docs_read;
                 progress.current = info.docs_written;
                 progress.status = "complete";
-                // progress.raw =
+                parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
                 (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
-                resolve();
-            }).on("error", (err) => {
                 rep.cancel();
+                if(continuous) {
+                    rep = this.database.sync(remoteDB, obj);
+                    progress.continuous = true;
+                    progress.raw = rep;
+                    progress.taskInfo = "n/a";
+                    rep.on("change", (info) => {
+                        progress.finished = false;
+                        progress.total = info.docs_read;
+                        progress.current = info.docs_written;
+                        progress.status = "change";
+                        parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
+                        (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
+                    })
+                        .on("error", (err) => {
+                            if (err.message == "Unexpected end of JSON input") {
+                                progress.finished = true;
+                                progress.status = "live";
+                                (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
+
+
+                            } else {
+                                rep.cancel();
+                                reject(err);
+                            }
+                        });
+                }
+            }).on("error", (err) => {
                 if (err.message == "Unexpected end of JSON input") {
                     progress.finished = true;
                     progress.status = "complete";
+                    parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
                     (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
                     rep.cancel();
-                    resolve();
                 } else {
                     reject(err);
                 }
             });
+
+            if (cancel) {
+                if (rep != null) {
+                    rep.cancel();
+                    progress.finished = true;
+                    if(c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener){
+                        c8oResponseListener.onProgressResponse(progress, null);
+                    }
+                }
+            }
 
         }).catch((error) => {
             throw error.toString();
