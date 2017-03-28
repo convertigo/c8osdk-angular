@@ -32,14 +32,6 @@ export class C8oSettings extends C8oBase {
         return this;
     }
 
-    /**
-     * Gets the endpoint define in C8oSettings<br/>
-     * @returns The current <b>endpoint</b>, if defined by c8oSettings.
-     */
-    public getEndPoint(): string {
-        return this._endpointSettings;
-
-    }
 
     /**
      * Sets the connection timeout to Convertigo in milliseconds. A value of zero means the timeout is not used.<br/>

@@ -287,7 +287,7 @@ export class C8o extends C8oBase {
     public init(c8oSettings?: C8oSettings) : Promise<any> {
         let nullableEndpoint = true;
         if (c8oSettings != undefined) {
-            if (c8oSettings.getEndPoint() != null) {
+            if (c8oSettings.endpoint != null) {
                 nullableEndpoint = false;
             }
         }
@@ -334,7 +334,7 @@ export class C8o extends C8oBase {
         }
         else {
             this.promiseConstructor = new Promise((resolve) => {
-                this.endpoint = c8oSettings.getEndPoint();
+                this.endpoint = c8oSettings.endpoint;
                 this.extractendpoint();
                 resolve();
             });

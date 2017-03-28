@@ -112,6 +112,15 @@ export class C8oBase {
         return this._logOnFail;
     }
 
+    /**
+     * Gets the endpoint define in C8oSettings<br/>
+     * @returns The current <b>endpoint</b>, if defined by c8oSettings.
+     */
+    public get endpoint(): string {
+        return this._endpointSettings;
+
+    }
+
     public copy(c8oBase: C8oBase) {
         if (c8oBase !== undefined) {
             /** HTTP **/
