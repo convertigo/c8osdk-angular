@@ -24,7 +24,7 @@ class info{
         return "http://";
     }
     static get host(){
-        return "c8o.convertigo.net";
+        return "c8o-dev.convertigo.net";
     }
     static get port(){
         return "80";
@@ -597,7 +597,7 @@ describe('provider: c8o.service.ts', () => {
         }
     );
 
-    it('should check that a ssl call on http is not possible (C8o0Ssl1TrustFail)',
+    /*it('should check that a ssl call on http is not possible (C8o0Ssl1TrustFail)',
         async(inject([C8o], (c8o: C8o) => {
             let c8oSettings : C8oSettings = new C8oSettings();
             c8oSettings.setEndPoint("https://" + info.host + ":443" + info.project_path);
@@ -613,7 +613,7 @@ describe('provider: c8o.service.ts', () => {
                expect(error.cause.constructor).toBe(C8oHttpRequestException);
             });
         }))
-    );
+    );*/
 
 
     it('should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)', function(done) {
@@ -1629,12 +1629,14 @@ describe('provider: c8o.service.ts', () => {
                                             }
                                             if(livePull == "pull: 0/0 (live)" && livePush == "push: 0/0 (live)" && !doneOnce){
                                                 doneOnce = true;
-                                                expect(firstPush).toBe("push: 10/10 (running)")
-                                                var pattern = /push: [-+]?\d+\/[-+]?\d+ \(done\)/;
+                                                var pattern = /push: [-+]?\d+\/[-+]?\d+ \(running\)/;
+                                                expect(pattern.test(firstPush)).toBeTruthy();
+                                                pattern = /push: [-+]?\d+\/[-+]?\d+ \(done\)/;
                                                 expect(pattern.test(lastPush)).toBeTruthy();
-                                                expect(firstPull).toBe("pull: 100/100 (running)");
-                                                var pattern2 = /pull: [-+]?\d+\/[-+]?\d+ \(done\)/;
-                                                expect(pattern2.test(lastPull)).toBeTruthy();
+                                                pattern = /pull: [-+]?\d+\/[-+]?\d+ \(running\)/;
+                                                expect(pattern.test(firstPull)).toBeTruthy();
+                                                pattern = /pull: [-+]?\d+\/[-+]?\d+ \(done\)/;
+                                                expect(pattern.test(lastPull)).toBeTruthy();
                                                 c8o.callJson(".LogoutTesting")
                                                     .then((__, _) => {
                                                         done();

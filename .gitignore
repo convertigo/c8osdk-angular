@@ -17,8 +17,10 @@ bundles
 *.js
 *.map
 *.d.ts
+*.ngsummary.json
 # Node generated files
 node_modules
+debug.log
 npm-debug.log
 # Typings generated files
 typings
