@@ -202,12 +202,12 @@ describe('provider: c8o.service.ts', () => {
                                 expect(err instanceof C8oException).toBeTruthy();
                                 let expection = err.cause;
                                 expect(expection instanceof C8oHttpRequestException).toBeTruthy();
-                                expect(expection.cause).toBe('0 -  {"isTrusted":true}');
+                                expect(expection["cause"]).toBe('0 -  {"isTrusted":true}');
                                 expect(exceptionLog).not.toBeNull();
                                 expect(exceptionLog instanceof C8oException).toBeTruthy();
-                                exceptionLog = exceptionLog.cause;
+                                exceptionLog = exceptionLog["cause"];
                                 expect(expection instanceof C8oHttpRequestException).toBeTruthy();
-                                exceptionLog = exceptionLog.cause;
+                                exceptionLog = exceptionLog["cause"];
                                 expect(exceptionLog).toBe('0 -  {"isTrusted":true}');
                             })
                     }, 250);
