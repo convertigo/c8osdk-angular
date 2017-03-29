@@ -11,8 +11,9 @@ export class Priority {
     });
 
     public static LOCAL: Priority = new Priority((c8o) => {
-        return true;
-    });
+            return true;
+        }
+    );
 
     constructor(isAviable: (c8o: C8o) => boolean) {
         this.isAviable = isAviable;

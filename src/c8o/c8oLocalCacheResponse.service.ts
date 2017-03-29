@@ -9,7 +9,7 @@ export class C8oLocalCacheResponse {
         this.expirationDate = expirationDate;
     }
 
-    isExpired(): boolean {
+    public isExpired(): boolean {
         if (this.expirationDate <= 0) {
             return false;
         }
@@ -19,15 +19,15 @@ export class C8oLocalCacheResponse {
         }
     }
 
-    getResponse(): string {
+    public getResponse(): string {
         return this.response;
     }
 
-    getResponseType(): string {
+    public getResponseType(): string {
         return this.responseType;
     }
 
-    getExpirationDate(): number {
+    public getExpirationDate(): number {
         return this.expirationDate;
     }
 }

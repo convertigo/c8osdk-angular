@@ -178,7 +178,7 @@ describe('provider: c8o.service.ts', () => {
         }
     );
     //TOFIX travis ci environnement failure
-    /**
+
     it('should genrerates exceptions (C8oUnknownHostCallAndLog)',
         async(inject([C8o], (c8o: C8o) => {
             let exceptionLog;
@@ -216,7 +216,7 @@ describe('provider: c8o.service.ts', () => {
                     expect(err).toBeUndefined();
                 });
         }))
-    );*/
+    );
 
 
     it('should ping one single value (C8oDefaultPingOneSingleValue)',  function (done) {
@@ -1160,6 +1160,7 @@ describe('provider: c8o.service.ts', () => {
     it('should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)', function(done) {
             inject([C8o], function(c8o: C8o)  {
                 c8o.init(stuff.C8o_FS_PULL).catch((err : C8oException)=>{
+                    console.log("ahaha")
                     done.fail("error is not supposed to happend");
                 });
 
@@ -1696,7 +1697,7 @@ describe('provider: c8o.service.ts', () => {
         }
     );
 
-    /*it('should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)', function(done) {
+    it('should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)', function(done) {
             inject([C8o], function(c8o: C8o)  {
                 c8o.init(stuff.C8o_LC).catch((err : C8oException)=>{
                     done.fail("error is not supposed to happend");
@@ -1710,14 +1711,14 @@ describe('provider: c8o.service.ts', () => {
                     "var1", id)
                     .then((response: any, _) => {
                         expect(response["document"]["pong"]["var1"]).toBe(id);
-                        signature = response["document"]["@signature"];
+                        signature = response["document"]["attr"]["signature"];
                         return c8o.callJson(".Ping",
                             C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
-                            "var1", id + "bis");
+                            "var1", (id + "bis"));
                     })
                     .then((response: any, _) => {
                         expect(response["document"]["pong"]["var1"]).toBe(id + "bis");
-                        signature2 = response["document"]["@signature"];
+                        signature2 = response["document"]["attr"]["signature"];
                         expect(signature2).not.toBe(signature);
                         return c8o.callJson(".Ping",
                             C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
@@ -1725,7 +1726,7 @@ describe('provider: c8o.service.ts', () => {
                     })
                     .then((response: any, _) => {
                         expect(response["document"]["pong"]["var1"]).toBe(id);
-                        signature2 = response["document"]["@signature"];
+                        signature2 = response["document"]["signature"];
                         expect(signature).toBe(signature);
                         return c8o.callJson(".Ping",
                             C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
@@ -1733,16 +1734,16 @@ describe('provider: c8o.service.ts', () => {
                     })
                     .then((response: any, _) => {
                         expect(response["document"]["pong"]["var1"]).toBe(id);
-                        signature2 = response["document"]["@signature"];
-                        expect(signature).not.toBe(signature);
+                        signature2 = response["document"]["signature"];
+                        expect(signature).not.toBe(signature2);
+                        done();
                         return null
                     })
                     .fail((error, _) => {
-                        console.log(error);
                         done.fail("error is not supposed to happend");
                     });
             })();
         }
-    );*/
+    );
 
 });

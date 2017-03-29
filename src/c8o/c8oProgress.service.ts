@@ -1,4 +1,5 @@
 import {C8oFullSyncTranslator} from "./c8oFullSyncTranslator.service";
+
 export class C8oProgress {
     private _changed: boolean = false;
     private _continuous: boolean = false;

@@ -10,6 +10,8 @@ import {C8oLocalCacheResponse} from "./c8oLocalCacheResponse.service";
 import {C8oTranslator} from "./c8oTranslator.service";
 import {C8oHttpRequestException} from "./Exception/c8oHttpRequestException.service";
 import {isUndefined} from "util";
+import {Priority} from "./priority.service";
+import {C8oUnavailableLocalCacheException} from "./Exception/c8oUnavailableLocalCacheException.service";
 
 export class C8oCallTask {
     private c8o: C8o;
@@ -81,7 +83,7 @@ export class C8oCallTask {
                         reject(new C8oException(C8oExceptionMessage.wrongListener(this.c8oResponseListener)));
                     }
                     let c8oCallRequestIdentifier: string = null;
-                    let localCache: C8oLocalCache = (C8oUtils.getParameterObjectValue(this.parameters, C8oLocalCache.PARAM, false) as C8oLocalCache);
+                    let localCache: C8oLocalCache = C8oUtils.getParameterObjectValue(this.parameters, C8oLocalCache.PARAM, false);
                     let localCacheEnabled: boolean = false;
 
                     if (localCache != null) {
@@ -95,25 +97,37 @@ export class C8oCallTask {
                                 catch (error) {
                                     reject(new C8oException(C8oExceptionMessage.serializeC8oCallRequest(), error));
                                 }
-                                if (localCache.priority.isAviable(this.c8o)) {
+                                // here we are not testing if localcahe is avaible.
+                                // if connection is not avaible this will generates an exeption that will be catched
                                     (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier)
                                         .then(
                                             (result) => {
-                                                let localCacheResponse: C8oLocalCacheResponse = result;
-                                                if (!localCacheResponse.isExpired()) {
-                                                    if (responseType === C8o.RESPONSE_TYPE_XML) {
-                                                        resolve(C8oTranslator.stringToXml(localCacheResponse.getResponse()));
-                                                    }
-                                                    else if (responseType === C8o.RESPONSE_TYPE_JSON) {
-                                                        resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
+                                                if(result instanceof C8oUnavailableLocalCacheException){
+                                                    //no entry
+                                                }
+                                                else{
+                                                    let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
+
+                                                    if (!localCacheResponse.isExpired()) {
+                                                        if (responseType === C8o.RESPONSE_TYPE_XML) {
+                                                            resolve(C8oTranslator.stringToXml(localCacheResponse.getResponse()));
+                                                        }
+                                                        else if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                            resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
+                                                        }
                                                     }
                                                 }
                                             })
                                         .catch(
                                             (error) => {
-                                                reject(new C8oException(error));
+                                                if(error instanceof C8oUnavailableLocalCacheException){
+                                                    //no entry
+                                                }
+                                                else{
+                                                    reject(error);
+                                                }
                                             });
-                                }
+
                             }
                         }
                     }
@@ -127,7 +141,7 @@ export class C8oCallTask {
                             if (localCacheEnabled) {
                                 (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
                                 ).then(
-                                    (localCacheResponse) => {
+                                    (localCacheResponse : C8oLocalCacheResponse) => {
                                         try {
                                             if (!localCacheResponse.isExpired()) {
                                                 if (responseType === C8o.RESPONSE_TYPE_XML) {
@@ -155,7 +169,7 @@ export class C8oCallTask {
                                     if (localCacheEnabled) {
                                         (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
                                         ).then(
-                                            (localCacheResponse) => {
+                                            (localCacheResponse : C8oLocalCacheResponse) => {
                                                 try {
                                                     if (!localCacheResponse.isExpired()) {
                                                         if (responseType === C8o.RESPONSE_TYPE_XML) {
