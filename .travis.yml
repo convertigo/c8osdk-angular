@@ -26,7 +26,7 @@ before_script:
   - npm prune
 
 install:
-  - yarn
+  - npm
 
 after_success:
   - npm run semantic-release
