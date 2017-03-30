@@ -37,6 +37,7 @@ export class C8oCallTask {
         c8o.log.logMethodCall("C8oCallTask", parameters, c8oResponseListener, c8oExceptionListener);
     }
 
+    // called execute() in others SDK...
     public run() {
         try {
             this.handleRequest().then((response) => {
@@ -50,12 +51,28 @@ export class C8oCallTask {
         }
     }
 
+    public executeFromLive(){
+        delete this.parameters[C8o.FS_LIVE];
+        this.parameters[C8o.ENGINE_PARAMETER_FROM_LIVE] = true;
+        this.run();
+    }
+
+
+
     handleRequest(): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
                 let isFullSyncRequest: boolean = C8oFullSync.isFullSyncRequest(this.parameters);
                 if (isFullSyncRequest) {
                     this.c8o.log._debug("Is FullSync request");
+
+                    // FS_LIVE
+                    let liveid = C8oUtils.getParameterStringValue(this.parameters, C8o.FS_LIVE, false);
+                    if(liveid != null){
+                        console.log("fslive");
+                        let dbName : string = (C8oUtils.getParameterStringValue(this.parameters, C8o.ENGINE_PARAMETER_PROJECT, true) as string).substring(C8oFullSync.FULL_SYNC_PROJECT.length);
+                        this.c8o.addLive(liveid, dbName, this);
+                    }
                     this.c8o.c8oFullSync.handleFullSyncRequest(this.parameters, this.c8oResponseListener)
                         .then(
                             (result) => {

@@ -19,6 +19,7 @@ import {C8oException} from "./Exception/c8oException.service";
 import {C8oCouchBaseLiteException} from "./Exception/c8oCouchBaseLiteException.service";
 import {C8oExceptionListener} from "./Exception/c8oExceptionListener.service";
 import {Observable} from "rxjs";
+import {C8oFullSyncChangeListener} from "./c8oFullSyncChangeListener.service";
 /**
  * Allows to send requests to a Convertigo Server (or Studio), these requests are called c8o calls.<br/>
  * C8o calls are done thanks to a HTTP request or a CouchbaseLite usage.<br/>
@@ -59,6 +60,7 @@ export class C8o extends C8oBase {
     static ENGINE_PARAMETER_ENCODED: string = "__encoded";
     static ENGINE_PARAMETER_DEVICE_UUID: string = "__uuid";
     static ENGINE_PARAMETER_PROGRESS: string = "__progress";
+    static ENGINE_PARAMETER_FROM_LIVE: string = "__fromLive";
 
     /** FULLSYNC parameters **/
 
@@ -162,6 +164,9 @@ export class C8o extends C8oBase {
      * Used to run fullSync requests.
      */
     c8oFullSync: C8oFullSync;
+
+    lives : Array<C8oCallTask> = new Array<C8oCallTask>();
+    livesDb : Array<string> = new Array<string>();
 
     private data: any;
     private _http: Http;
@@ -583,6 +588,36 @@ export class C8o extends C8oBase {
         });
     }
 
+    /**
+     * Add a listener to monitor all changes of the 'db'.
+     *
+     * @param db the name of the fullsync database to monitor. Use the default database for a blank or a null value.
+     * @param listener the listener to trigger on change.
+     */
+    public addFullSyncChangeListener (db : string, listener: any /*C8oFullSyncChangeListener*/) {
+        (this.c8oFullSync as C8oFullSyncCbl).addFullSyncChangeListener(db, listener);
+}
+
+    addLive(liveid: string, db: string, task: C8oCallTask){
+        this.cancelLive(liveid);
+        this.lives[liveid] = task;
+        this.livesDb[liveid] = db;
+        this.addFullSyncChangeListener(db, this.handleFullSyncLive);
+    }
+
+    public cancelLive(liveid:string){
+
+    }
+
+    /*private handleFullSyncLive : C8oFullSyncChangeListener = new C8oFullSyncChangeListener(()=>{
+
+    })*/
+
+    private handleFullSyncLive(changes:Object){
+        for(let task of this.lives){
+            (task as C8oCallTask).executeFromLive();
+        }
+    }
 }
 
 

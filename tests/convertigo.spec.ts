@@ -140,7 +140,7 @@ describe('provider: c8o.service.ts', () => {
         });
     });
 
-   it('should check sdk version (C8oVersion)', function () {
+/*   it('should check sdk version (C8oVersion)', function () {
             expect(C8o.getSdkVersion()).toBe("2.0.4");
         }
     );
@@ -209,7 +209,7 @@ describe('provider: c8o.service.ts', () => {
                                 expect(expection instanceof C8oHttpRequestException).toBeTruthy();
                                 /*exceptionLog = exceptionLog["cause"];
                                 expect(JSON.stringify(exceptionLog)).toBe('0 -  {"isTrusted":true}');*/
-                            })
+/*                            })
                     }, 250);
                 })
                 .catch((err : C8oException)=>{
@@ -616,7 +616,7 @@ describe('provider: c8o.service.ts', () => {
     );*/
 
 
-    it('should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)', function(done) {
+/*    it('should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)', function(done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(stuff.C8o_FS).catch((err: C8oException) => {
                     expect(err).toBeUndefined();
@@ -1745,30 +1745,44 @@ describe('provider: c8o.service.ts', () => {
             })();
         }
     );
-
+*/
     it('should check that c8o fs live changes works (C8oFsLiveChanges)', function(done) {
             inject([C8o], function(c8o: C8o)  {
                 c8o.init(stuff.C8o_FS_PUSH).catch((err : C8oException)=>{
+                    console.log("errinit");
                     done.fail("error is not supposed to happend");
                 });
                 let lastChnages : Object = null;
                 let signal : Object = null;
+                let cptlive : number = 0;
+
 
                 c8o.callJson("fs://.reset")
                 .then((response: any, _) => {
                     expect(response["ok"]).toBeTruthy();
                     return c8o.callJson("fs://.replicate_pull", "continuous", true);
                 })
-                .progress((c8oProgress: C8oProgress)=>{
-
+                .then((response: any, _) => {
+                    console.log("ok")
+                    expect(response["ok"]).toBeTruthy();
+                    return c8o.callJson("fs://.get", "docid", "abc", C8o.FS_LIVE, "getabc");
+                })
+                .then((response: any, _) => {
+                   console.log("SdkDebug", "fs://.get docid abc THEN");
+                   if(response["_id"] == "abc"){
+                        cptlive ++;
+                        console.log("SdkDebug", "fs://.get docid abc THEN cptlive[0]=" + cptlive);
+                   }
+                   done();
+                    return null;
                 })
                 .fail((error, _) => {
+                    console.log("err2");
+                    console.log(JSON.stringify(error));
                     done.fail("error is not supposed to happend");
                 });
 
-                setTimeout(()=> {
 
-                }, 5000);
 
             })();
         }
