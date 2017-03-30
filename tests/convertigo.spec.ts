@@ -1746,4 +1746,32 @@ describe('provider: c8o.service.ts', () => {
         }
     );
 
+    it('should check that c8o fs live changes works (C8oFsLiveChanges)', function(done) {
+            inject([C8o], function(c8o: C8o)  {
+                c8o.init(stuff.C8o_FS_PUSH).catch((err : C8oException)=>{
+                    done.fail("error is not supposed to happend");
+                });
+                let lastChnages : Object = null;
+                let signal : Object = null;
+
+                c8o.callJson("fs://.reset")
+                .then((response: any, _) => {
+                    expect(response["ok"]).toBeTruthy();
+                    return c8o.callJson("fs://.replicate_pull", "continuous", true);
+                })
+                .progress((c8oProgress: C8oProgress)=>{
+
+                })
+                .fail((error, _) => {
+                    done.fail("error is not supposed to happend");
+                });
+
+                setTimeout(()=> {
+
+                }, 5000);
+
+            })();
+        }
+    );
+
 });

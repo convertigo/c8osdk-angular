@@ -104,8 +104,15 @@ export class C8o extends C8oBase {
      */
     static FS_SUBKEY_SEPARATOR: string = "_use_subkey_separator";
 
-    /** Local cache keys **/
+    /**
+     * Use it with "fs://" request as parameter to enable the live request feature.<br/>
+     * Must be followed by a string parameter, the 'liveid' that can be use to cancel the live
+     * request using c8o.cancelLive(liveid) method.<br/>
+     * A live request automatically recall the then or thenUI handler when the database changed.
+     */
+    public static FS_LIVE :  string = "__live";
 
+    /** Local cache keys **/
     static LOCAL_CACHE_DOCUMENT_KEY_RESPONSE: string = "response";
     static LOCAL_CACHE_DOCUMENT_KEY_RESPONSE_TYPE: string = "responseType";
     static LOCAL_CACHE_DOCUMENT_KEY_EXPIRATION_DATE: string = "expirationDate";
