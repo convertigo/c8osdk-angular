@@ -5,7 +5,7 @@ This is the Convertigo provider for Angular2
 ## Official Documentation ##
 [Programming Guide](https://www.convertigo.com/document/convertigo-client-sdk/programming-guide/)
 
-####Creating a C8o instance
+#### Creating a C8o instance ####
 
 In Angular dependency injection is used to create a C8o instance
 
@@ -20,7 +20,7 @@ In Angular dependency injection is used to create a C8o instance
     }
 
 
-####Advanced instance settings
+#### Advanced instance settings ####
  The endpoint is the mandatory setting to get a C8o instance correctly initialized but there is additional settings through the C8oSettings class.
 
 A C8oSettings instance should be passed after the endpoint. Settings are copied inside the C8o instance and a C8oSettings instance can be modified and reused.
@@ -45,7 +45,7 @@ In order to finish the c8o initialization you must use init method from c8o obje
     // all settings can be retrieve from a C8o or C8oSettings instance
     let timeout : number = c8o.timeout;
 
-####Calling a Convertigo requestable with call parameters 
+#### Calling a Convertigo requestable with call parameters ####
 
 The call method expects the requester string of the following syntax:
 * For a transaction: [project].connector.transaction
@@ -73,6 +73,6 @@ Convertigo requestables generally needs key/value parameters. The key is always 
         });
 
 
-## Full documentation is available on 
+## Full documentation is available on ##
 
 [Programming Guide](https://www.convertigo.com/document/convertigo-client-sdk/programming-guide/)
