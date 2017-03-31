@@ -24,6 +24,7 @@ debug.log
 npm-debug.log
 # Typings generated files
 typings
+doc/*
 
 #################
 ## JetBrains
