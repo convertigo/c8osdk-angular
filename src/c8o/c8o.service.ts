@@ -594,7 +594,7 @@ export class C8o extends C8oBase {
      * @param db the name of the fullsync database to monitor. Use the default database for a blank or a null value.
      * @param listener the listener to trigger on change.
      */
-    public addFullSyncChangeListener (db : string, listener: (changes:Object) =>void) {
+    public addFullSyncChangeListener (db : string, listener: C8oFullSyncChangeListener) {
         (this.c8oFullSync as C8oFullSyncCbl).addFullSyncChangeListener(db, listener);
     }
 
@@ -604,7 +604,7 @@ export class C8o extends C8oBase {
      * @param db the name of the fullsync database to monitor. Use the default database for a blank or a null value.
      * @param listener the listener instance to remove.
      */
-    public removeFullSyncChangeListener (db : string, listener: (changes:Object) =>void) {
+    public removeFullSyncChangeListener (db : string, listener: C8oFullSyncChangeListener) {
         (this.c8oFullSync as C8oFullSyncCbl).removeFullSyncChangeListener(db, listener);
     }
 
@@ -612,23 +612,30 @@ export class C8o extends C8oBase {
         this.cancelLive(liveid);
         this.lives[liveid] = task;
         this.livesDb[liveid] = db;
-        console.log("C8o:addLive executed")
         this.addFullSyncChangeListener(db, this.handleFullSyncLive);
     }
 
     public cancelLive(liveid:string){
-
-    }
-
-    private handleFullSyncLive = (changes:Object) =>{
-        console.log("C8o: executed")
-        console.log(this.lives);
-        for(let task in this.lives){
-            console.log("C8o: executed=>severals");
-            (this.lives[task] as C8oCallTask).executeFromLive();
+        if(this.livesDb[liveid] != undefined){
+            let db : string = this.livesDb[liveid];
+            delete this.livesDb[liveid];
+            if(this.livesDb[db]!= undefined){
+                db = null;
+            }
+            if(db != null){
+                this.removeFullSyncChangeListener(db, this.handleFullSyncLive);
+            }
         }
+        delete this.lives[liveid];
     }
-}
+
+    private handleFullSyncLive : C8oFullSyncChangeListener = new C8oFullSyncChangeListener(
+        (changes:Object) =>{
+            for(let task in this.lives){
+                (this.lives[task] as C8oCallTask).executeFromLive();
+            }
+        });
+    }
 
 
 export class FullSyncPolicy {

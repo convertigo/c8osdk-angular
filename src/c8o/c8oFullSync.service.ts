@@ -114,7 +114,7 @@ export class C8oFullSync {
 export class C8oFullSyncCbl extends C8oFullSync {
     private static ATTACHMENT_PROPERTY_KEY_CONTENT_URL: string = "content_url";
     private fullSyncDatabases: Object;
-    private fullSyncChangeListeners: Array<Array<(changes:Object) =>void>> = new Array<Array<(changes:Object) =>void>>();
+    private fullSyncChangeListeners: Array<Array<C8oFullSyncChangeListener>> = new Array<Array<C8oFullSyncChangeListener>>();
     private cblChangeListeners: Array<any> = new Array<any>();
 
     constructor(c8o: C8o) {
@@ -673,21 +673,19 @@ export class C8oFullSyncCbl extends C8oFullSync {
         });
     }
 
-    public addFullSyncChangeListener(db: string, listener:(changes:Object) =>void){
+    public addFullSyncChangeListener(db: string, listener:C8oFullSyncChangeListener){
         if(db == null || db == ""){
             db = this.c8o.defaultDatabaseName;
         }
 
-        let listeners : Array<Array<(changes:Object) =>void>> = new Array<Array<(changes:Object) =>void>>();
+        let listeners : Array<Array<C8oFullSyncChangeListener>> = new Array<Array<C8oFullSyncChangeListener>>();
         if(this.fullSyncChangeListeners[db] != null){
-            console.log("ici")
-            console.log(this.fullSyncChangeListeners);
             listeners[0] = this.fullSyncChangeListeners[db];
         }
         else{
-            listeners[0] = new Array<(changes:Object) =>void>();
-            var evtHanfler = this.fullSyncChangeListeners[db] = listeners[0];
-             this.getOrCreateFullSyncDatabase(db).getdatabase
+            listeners[0] = new Array<C8oFullSyncChangeListener>();
+            this.fullSyncChangeListeners[db] = listeners[0];
+            var evtHanfler = this.getOrCreateFullSyncDatabase(db).getdatabase
                 .changes({
                     since: 'now',
                     live: true,
@@ -695,7 +693,6 @@ export class C8oFullSyncCbl extends C8oFullSync {
                 }).on('change', function(change) {
                     let changes : Object = new Object();
                     let docs : Array<Object> = new Array<Object>();
-
                     //docs["isExternal"] = false;
                     let doc : Object = new Object;
                     doc["id"] = change["doc"]["_id"];
@@ -706,30 +703,35 @@ export class C8oFullSyncCbl extends C8oFullSync {
                     }
                     docs.push(doc);
                     changes["changes"] = docs;
-                    console.log(JSON.stringify(change));
-
                     for(let handler of listeners[0]){
-                        console.log("addFullSyncChangeListener: boucle")
-                        handler();
+                        if(handler != undefined){
+                              handler.onChange(changes);
+                        }
                     }
 
-                }).on('complete', function(change) {
-                    console.log("addFullSyncChangeListener: complete");
-
-
-                })
-                .on('error', function (err) {
-                    console.log("addFullSyncChangeListener: error")
-                console.log(err);
-            });
+                });
             this.cblChangeListeners[db] = evtHanfler;
         }
         listeners[0].push(listener)
-        console.log("listeners[0]")
-        console.log(listeners[0])
-
     }
-    public removeFullSyncChangeListener(db: string, listener:(changes:Object) =>void){
 
+    public removeFullSyncChangeListener(db: string, listener: C8oFullSyncChangeListener){
+        if(db == null || db == ""){
+            db = this.c8o.defaultDatabaseName;
+        }
+        if(this.fullSyncChangeListeners[db] != null){
+            let listeners : Array<C8oFullSyncChangeListener> = this.fullSyncChangeListeners[db];
+            for(let list in listeners){
+                if(listeners[list] == listener){
+                    delete  listeners[list];
+                }
+            }
+            if(listeners.length == 0 || listeners == null){
+                this.getOrCreateFullSyncDatabase(db).getdatabase.cancel();
+                this.cblChangeListeners[db].cancel();
+                delete this.fullSyncChangeListeners[db];
+                delete this.cblChangeListeners[db];
+            }
+        }
     }
 }

@@ -141,7 +141,7 @@ describe('provider: c8o.service.ts', () => {
         });
     });
 
-/*   it('should check sdk version (C8oVersion)', function () {
+   it('should check sdk version (C8oVersion)', function () {
             expect(C8o.getSdkVersion()).toBe("2.0.4");
         }
     );
@@ -178,7 +178,6 @@ describe('provider: c8o.service.ts', () => {
         })();
         }
     );
-    //TOFIX travis ci environnement failure
 
     it('should genrerates exceptions (C8oUnknownHostCallAndLog)',
         async(inject([C8o], (c8o: C8o) => {
@@ -203,14 +202,12 @@ describe('provider: c8o.service.ts', () => {
                                 expect(err instanceof C8oException).toBeTruthy();
                                 let expection = err.cause;
                                 expect(expection instanceof C8oHttpRequestException).toBeTruthy();
-                                //expect(expection["cause"]).toBe('0 -  {"isTrusted":true}');
+
                                 expect(exceptionLog).not.toBeNull();
                                 expect(exceptionLog instanceof C8oException).toBeTruthy();
                                 exceptionLog = exceptionLog["cause"];
                                 expect(expection instanceof C8oHttpRequestException).toBeTruthy();
-                                /*exceptionLog = exceptionLog["cause"];
-                                expect(JSON.stringify(exceptionLog)).toBe('0 -  {"isTrusted":true}');*/
-/*                            })
+                              })
                     }, 250);
                 })
                 .catch((err : C8oException)=>{
@@ -617,7 +614,7 @@ describe('provider: c8o.service.ts', () => {
     );*/
 
 
-/*    it('should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)', function(done) {
+    it('should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)', function(done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(stuff.C8o_FS).catch((err: C8oException) => {
                     expect(err).toBeUndefined();
@@ -1746,63 +1743,90 @@ describe('provider: c8o.service.ts', () => {
             })();
         }
     );
-*/
+
     it('should check that c8o fs live changes works (C8oFsLiveChanges)', function(done) {
             inject([C8o], function(c8o: C8o)  {
                 c8o.init(stuff.C8o_FS_PUSH).catch((err : C8oException)=>{
-                    console.log("errinit");
                     done.fail("error is not supposed to happend");
                 });
-                let lastChnages : Object = null;
+                let lastChanges : Array<Object> = new Array<Object>();
+                lastChanges[0] = null;
                 let signal : Object = null;
                 let cptlive : number = 0;
                 let firstPass =true;
-                let changeListener : C8oFullSyncChangeListener =
-
+                let changeListener : C8oFullSyncChangeListener = new C8oFullSyncChangeListener((changes:Object)=>{
+                    //console.log("SdkDebug", "C8oFullSyncChangeListener before");
+                    lastChanges[0] = changes;
+                });
                 c8o.callJson("fs://.reset")
                 .then((response: any, _) => {
                     expect(response["ok"]).toBeTruthy();
                     return c8o.callJson("fs://.replicate_pull", "continuous", true);
                 })
                 .then((response: any, _) => {
-                    console.log("ok")
                     expect(response["ok"]).toBeTruthy();
                     return c8o.callJson("fs://.get", "docid", "abc", C8o.FS_LIVE, "getabc");
                 })
                 .then((response: any, _) => {
-                   console.log("SdkDebug", "fs://.get docid abc THEN");
+                   //console.log("SdkDebug", "fs://.get docid abc THEN");
                    if(response["_id"] == "abc"){
                         cptlive ++;
-                        console.log("SdkDebug", "fs://.get docid abc THEN cptlive[0]=" + cptlive);
+                        //console.log("SdkDebug", "fs://.get docid abc THEN cptlive[0]=" + cptlive);
                    }
                    if(firstPass){
-                       expect(cptlive).toBe(1);
                        firstPass = false;
+                       expect(cptlive).toBe(1);
                    }
-
                     return null;
                 })
                 .fail((error, _) => {
-                    console.log("err2");
-                    console.log(JSON.stringify(error));
                     done.fail("error is not supposed to happend");
                 });
 
                 setTimeout(()=> {
-                c8o.callJson(".qa_fs_push.PostDocument", "_id", "ghi").then((response: any, _) => {
-                    setTimeout(()=> {
-                        console.log("SdkDebug", "assertEquals(2, cptlive[0]) = " + cptlive);
-                        expect(cptlive).toBe(2);
-                        c8o.addFullSyncChangeListener("", changeListener);
-                        done();
-                    }, 5000);
-                    return null;
-                })}, 3000);
-
-
-
+                    c8o.callJson(".qa_fs_push.PostDocument", "_id", "ghi").then((response: any, _) => {
+                        //console.log("SdkDebug", "assertEquals(2, cptlive[0]) = " + cptlive);
+                        setTimeout(()=> {
+                            expect(cptlive).toBe(2);
+                            c8o.addFullSyncChangeListener("", changeListener);
+                            c8o.callJson(".qa_fs_push.PostDocument", "_id", "jkl")
+                                .then((response: any, _) => {
+                                    //console.log("SdkDebug", ".qa_fs_push.PostDocument  _id jkl");
+                                    expect(response["document"]["couchdb_output"]["ok"]).toBeTruthy();
+                                    //console.log(("SdkDebug", "signal[0].await(15, TimeUnit.SECONDS) cptlive[0]=" + cptlive))
+                                    setTimeout(()=> {
+                                        //console.log("SdkDebug", "assertEquals(3, cptlive[0]); = " + cptlive);
+                                        expect(cptlive).toBe(3);
+                                        expect(lastChanges[0]).not.toBeNull();
+                                        expect(lastChanges[0]).not.toBe(undefined);
+                                        expect(lastChanges[0]["changes"].length).toBe(1);
+                                        expect(lastChanges[0]["changes"][0]["id"]).toBe("jkl");
+                                        c8o.cancelLive("getabc");
+                                        c8o.callJson(".qa_fs_push.PostDocument", "_id", "mno")
+                                            .then((response: any, _) => {
+                                                //console.log("SdkDebug", ".qa_fs_push.PostDocument  _id mno");
+                                                //console.log("SdkDebug", "signal[0].await(15, TimeUnit.SECONDS) cptlive[0]=" + cptlive);
+                                                expect(response["document"]["couchdb_output"]["ok"]).toBeTruthy();
+                                                setTimeout(()=> {
+                                                    //console.log("SdkDebug", "assertEquals(3, cptlive[0]); = " + cptlive);
+                                                    expect(cptlive).toBe(3);
+                                                    expect(lastChanges[0]).not.toBe(null);
+                                                    expect(lastChanges[0]).not.toBe(undefined);
+                                                    expect(lastChanges[0]["changes"].length).toBe(1);
+                                                    expect(lastChanges[0]["changes"][0]["id"]).toBe("mno");
+                                                    c8o.removeFullSyncChangeListener("", changeListener);
+                                                    done();
+                                                },2000);
+                                                return null;
+                                            });
+                                    },2000);
+                                    return null;
+                                });
+                        },2000);
+                        return null;
+                    })
+                }, 2000);
             })();
         }
     );
-
 });
