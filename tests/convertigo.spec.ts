@@ -14,6 +14,7 @@ import * as PouchDB from "pouchdb-browser";
 import {C8oProgress} from "../src/c8o/c8oProgress.service";
 import {C8oLocalCache} from "../src/c8o/c8oLocalCache.service";
 import {Priority} from "../src/c8o/priority.service";
+import {C8oFullSyncChangeListener} from "../src/c8o/c8oFullSyncChangeListener.service";
 
 
 
@@ -1755,7 +1756,8 @@ describe('provider: c8o.service.ts', () => {
                 let lastChnages : Object = null;
                 let signal : Object = null;
                 let cptlive : number = 0;
-
+                let firstPass =true;
+                let changeListener : C8oFullSyncChangeListener =
 
                 c8o.callJson("fs://.reset")
                 .then((response: any, _) => {
@@ -1773,7 +1775,11 @@ describe('provider: c8o.service.ts', () => {
                         cptlive ++;
                         console.log("SdkDebug", "fs://.get docid abc THEN cptlive[0]=" + cptlive);
                    }
-                   done();
+                   if(firstPass){
+                       expect(cptlive).toBe(1);
+                       firstPass = false;
+                   }
+
                     return null;
                 })
                 .fail((error, _) => {
@@ -1781,6 +1787,17 @@ describe('provider: c8o.service.ts', () => {
                     console.log(JSON.stringify(error));
                     done.fail("error is not supposed to happend");
                 });
+
+                setTimeout(()=> {
+                c8o.callJson(".qa_fs_push.PostDocument", "_id", "ghi").then((response: any, _) => {
+                    setTimeout(()=> {
+                        console.log("SdkDebug", "assertEquals(2, cptlive[0]) = " + cptlive);
+                        expect(cptlive).toBe(2);
+                        c8o.addFullSyncChangeListener("", changeListener);
+                        done();
+                    }, 5000);
+                    return null;
+                })}, 3000);
 
 
 

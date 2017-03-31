@@ -54,6 +54,7 @@ export class C8oCallTask {
     public executeFromLive(){
         delete this.parameters[C8o.FS_LIVE];
         this.parameters[C8o.ENGINE_PARAMETER_FROM_LIVE] = true;
+        console.log(JSON.stringify(this.parameters))
         this.run();
     }
 
@@ -70,7 +71,10 @@ export class C8oCallTask {
                     let liveid = C8oUtils.getParameterStringValue(this.parameters, C8o.FS_LIVE, false);
                     if(liveid != null){
                         console.log("fslive");
+                        console.log(JSON.stringify(this.parameters));
                         let dbName : string = (C8oUtils.getParameterStringValue(this.parameters, C8o.ENGINE_PARAMETER_PROJECT, true) as string).substring(C8oFullSync.FULL_SYNC_PROJECT.length);
+                        console.log("dbbbName")
+                        console.log(this.parameters[C8o.ENGINE_PARAMETER_PROJECT])
                         this.c8o.addLive(liveid, dbName, this);
                     }
                     this.c8o.c8oFullSync.handleFullSyncRequest(this.parameters, this.c8oResponseListener)

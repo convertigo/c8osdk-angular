@@ -88,6 +88,8 @@ export class C8oUtils {
         let value: string = this.getParameterStringValue(parameters2, name, false);
         if (value == null) {
             if (exceptionIfMissing) {
+                console.log(JSON.stringify(parameters))
+                console.log("exception if missing")
                 throw new Error("The parameter '" + name + "' is missing");
             }
         }
@@ -139,3 +141,4 @@ export class Queue<T> {
         return this._store.length;
     }
 }
+

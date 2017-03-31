@@ -12,6 +12,7 @@ import {C8oUnavailableLocalCacheException} from "./Exception/c8oUnavailableLocal
 import {C8oLocalCacheResponse} from "./c8oLocalCacheResponse.service";
 import {FullSyncDeleteDocumentParameter} from "./fullSyncDeleteDocumentParameter.service";
 import {C8oCouchBaseLiteException} from "./Exception/c8oCouchBaseLiteException.service";
+import {C8oFullSyncChangeListener} from "./c8oFullSyncChangeListener.service";
 
 export class C8oFullSync {
     private static FULL_SYNC_URL_PATH: string = "/fullsync/";
@@ -42,13 +43,13 @@ export class C8oFullSync {
      * @return promise<any>
      * @throws C8oException
      */
-    public handleFullSyncRequest(parameters: Object, listener: C8oResponseListener): Promise<any> {
-        let params = (JSON.parse(JSON.stringify(parameters)));
-        let projectParameterValue: string = C8oUtils.peekParameterStringValue(params, C8o.ENGINE_PARAMETER_PROJECT, true);
+    public handleFullSyncRequest(_parameters: Object, listener: C8oResponseListener): Promise<any> {
+        let parameters = (JSON.parse(JSON.stringify(_parameters)));
+        let projectParameterValue: string = C8oUtils.peekParameterStringValue(parameters, C8o.ENGINE_PARAMETER_PROJECT, true);
         if (!projectParameterValue.startsWith(C8oFullSync.FULL_SYNC_PROJECT)) {
             throw new C8oException(C8oExceptionMessage.invalidParameterValue(projectParameterValue, "its don't start with" + C8oFullSync.FULL_SYNC_PROJECT));
         }
-        let fullSyncRequestableValue: string = C8oUtils.peekParameterStringValue(params, C8o.ENGINE_PARAMETER_SEQUENCE, true);
+        let fullSyncRequestableValue: string = C8oUtils.peekParameterStringValue(parameters, C8o.ENGINE_PARAMETER_SEQUENCE, true);
 
         //  get rid of the optional trailing #RouteHint present in the sequence
         if (fullSyncRequestableValue.indexOf("#") !== -1)
@@ -103,7 +104,7 @@ export class C8oFullSync {
         if (C8oUtils.getParameterStringValue(requestParameter, C8o.ENGINE_PARAMETER_PROJECT, false) !== null) {
             return C8oUtils.getParameterStringValue(requestParameter, C8o.ENGINE_PARAMETER_PROJECT, false).startsWith(C8oFullSync.FULL_SYNC_PROJECT);
         }
-        else{
+        else {
             return false;
         }
     }
@@ -113,6 +114,8 @@ export class C8oFullSync {
 export class C8oFullSyncCbl extends C8oFullSync {
     private static ATTACHMENT_PROPERTY_KEY_CONTENT_URL: string = "content_url";
     private fullSyncDatabases: Object;
+    private fullSyncChangeListeners: Array<Array<(changes:Object) =>void>> = new Array<Array<(changes:Object) =>void>>();
+    private cblChangeListeners: Array<any> = new Array<any>();
 
     constructor(c8o: C8o) {
         super(c8o);
@@ -666,7 +669,67 @@ export class C8oFullSyncCbl extends C8oFullSync {
                 else {
                     resolve(error);
                 }
-            })
+            });
         });
+    }
+
+    public addFullSyncChangeListener(db: string, listener:(changes:Object) =>void){
+        if(db == null || db == ""){
+            db = this.c8o.defaultDatabaseName;
+        }
+
+        let listeners : Array<Array<(changes:Object) =>void>> = new Array<Array<(changes:Object) =>void>>();
+        if(this.fullSyncChangeListeners[db] != null){
+            console.log("ici")
+            console.log(this.fullSyncChangeListeners);
+            listeners[0] = this.fullSyncChangeListeners[db];
+        }
+        else{
+            listeners[0] = new Array<(changes:Object) =>void>();
+            var evtHanfler = this.fullSyncChangeListeners[db] = listeners[0];
+             this.getOrCreateFullSyncDatabase(db).getdatabase
+                .changes({
+                    since: 'now',
+                    live: true,
+                    include_docs: true
+                }).on('change', function(change) {
+                    let changes : Object = new Object();
+                    let docs : Array<Object> = new Array<Object>();
+
+                    //docs["isExternal"] = false;
+                    let doc : Object = new Object;
+                    doc["id"] = change["doc"]["_id"];
+                    doc["rev"] = change["doc"]["_rev"];
+                    doc["isConflict"] = change.doc._conflicts;
+                    if(change.source != null){
+                        doc["sourceUrl"] = change.source;
+                    }
+                    docs.push(doc);
+                    changes["changes"] = docs;
+                    console.log(JSON.stringify(change));
+
+                    for(let handler of listeners[0]){
+                        console.log("addFullSyncChangeListener: boucle")
+                        handler();
+                    }
+
+                }).on('complete', function(change) {
+                    console.log("addFullSyncChangeListener: complete");
+
+
+                })
+                .on('error', function (err) {
+                    console.log("addFullSyncChangeListener: error")
+                console.log(err);
+            });
+            this.cblChangeListeners[db] = evtHanfler;
+        }
+        listeners[0].push(listener)
+        console.log("listeners[0]")
+        console.log(listeners[0])
+
+    }
+    public removeFullSyncChangeListener(db: string, listener:(changes:Object) =>void){
+
     }
 }

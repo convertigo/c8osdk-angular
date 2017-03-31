@@ -97,7 +97,7 @@ export class C8oPromise<T> {
     }
 
     onResponse(response: T, parameters: Object) {
-        if (this.lastResponse != null || this.lastResponse != undefined) {
+        if ((this.lastResponse != null || this.lastResponse != undefined) && parameters[C8o.ENGINE_PARAMETER_FROM_LIVE] == undefined) {
             if (this.nextPromise != null || this.nextPromise != undefined) {
                 this.nextPromise.onResponse(response, parameters);
             }

@@ -1,3 +1,3 @@
- export class C8oFullSyncChangeListener {
+ export interface C8oFullSyncChangeListener {
      onChange :(changes:Object)=> void;
  }
