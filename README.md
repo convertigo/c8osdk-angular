@@ -1,9 +1,20 @@
 [![NPM](https://nodei.co/npm/c8osdkangular2.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/c8osdkangular2/)
 # C8oSDKAngular2  [![Build Status](https://travis-ci.org/convertigo/C8oSDKAngular2.svg?branch=master)](https://travis-ci.org/convertigo/C8oSDKAngular2.svg?branch=master) [![npm version](https://img.shields.io/npm/v/c8osdkangular2.svg)](https://www.npmjs.com/package/c8osdkangular2)
-This is the Convertigo provider for Angular2
+This is the Convertigo provider for Angular (Angular 2+)
 
-## Official Documentation ##
-[Programming Guide](https://www.convertigo.com/document/convertigo-client-sdk/programming-guide/)
+Convertigo Client SDK is a set of libraries used by mobile or Windows desktop applications to access Convertigo Server services. An application using the SDK can easily access Convertigo services such as Sequences and Transactions.
+
+The Client SDK will abstract the programmer from handling the communication protocols, local cache, FullSync off line data managment, UI thread management and remote logging. So the developer can focus on building the application.
+
+Client SDK is available for:
+* Android Native apps as a standard Gradle dependency
+* iOS native apps as a standard Cocoapod
+* Windows desktop or Xamarin apps as Nugets or Xamarin Components
+* Google Angular framework as an NPM package
+
+This current package is the Angular SDK. For others SDKs see official Convertigo Documentation.
+
+## Documentation ##
 
 #### Creating a C8o instance ####
 
