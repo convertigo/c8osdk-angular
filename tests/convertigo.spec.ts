@@ -142,7 +142,7 @@ describe('provider: c8o.service.ts', () => {
     });
 
    it('should check sdk version (C8oVersion)', function () {
-            expect(C8o.getSdkVersion()).toBe("2.0.4");
+            expect(C8o.getSdkVersion()).toBe("2.1.1");
         }
     );
 
