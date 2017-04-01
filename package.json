@@ -26,7 +26,12 @@
     "TypeScript",
     "Angular 2",
     "Ionic 2",
-    "Convertigo"
+    "Convertigo",
+    "mbaas",
+    "madp",
+    "mobility",
+    "nosql",
+    "couchdb"
   ],
   "author": {
     "name": "Convertigo",
