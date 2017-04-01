@@ -25,7 +25,7 @@ export class FullSyncAbstractResponse {
     }
 
     getProperties(): any {
-        let properties: Object = new Object();
+        let properties: Object = {};
         properties[FullSyncResponse.RESPONSE_KEY_OK] = this.operationStatus;
         return properties;
     }

@@ -40,6 +40,7 @@ export class C8oFullSyncDatabase {
      * @param c8o
      * @param databaseName
      * @param fullSyncDatabases
+     * @param localSuffix
      * @throws C8oException Failed to get the fullSync database.
      */
     constructor(c8o: C8o, databaseName: string, fullSyncDatabases: string, localSuffix: string) {
@@ -91,8 +92,8 @@ export class C8oFullSyncDatabase {
         let cancel: boolean = false;
         let obj: Object = {};
 
-        if (parameters["continuous"] != null || parameters["continuous"] != undefined) {
-            if (parameters["continuous"] as boolean == true) {
+        if (parameters["continuous"] != null || parameters["continuous"] !== undefined) {
+            if (parameters["continuous"] as boolean === true) {
                 continuous = true;
                 obj = {"live": true};
             }
@@ -101,8 +102,9 @@ export class C8oFullSyncDatabase {
             }
         }
 
-        if (parameters["cancel"] != null || parameters["cancel"] != undefined) {
-            if (parameters["cancel"] as boolean == true) {
+        if (parameters["cancel"] != null || parameters["cancel"] !== undefined) {
+            //noinspection RedundantIfStatementJS
+            if (parameters["cancel"] as boolean === true) {
                 cancel = true;
             }
             else {
@@ -120,15 +122,15 @@ export class C8oFullSyncDatabase {
         return new Promise((resolve, reject) => {
             rep.on("change", (info) => {
                 progress.finished = false;
-                if (info.direction == "pull") {
+                if (info.direction === "pull") {
                     progress.pull = true;
                     progress.status = rep.pull.state;
-                    progress.finished = rep.pull.state != "active";
+                    progress.finished = rep.pull.state !== "active";
                 }
-                else if (info.direction == "push") {
+                else if (info.direction === "push") {
                     progress.pull = false;
                     progress.status = rep.push.state;
-                    progress.finished = rep.push.state != "active";
+                    progress.finished = rep.push.state !== "active";
                 }
                 progress.total = info.change.docs_read;
                 progress.current = info.change.docs_written;
@@ -150,12 +152,12 @@ export class C8oFullSyncDatabase {
                 (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
                 rep.cancel();
 
-                if(continuous) {
+                if (continuous) {
                     rep = this.database.sync(remoteDB, obj);
                     progress.continuous = true;
                     progress.raw = rep;
                     progress.taskInfo = "n/a";
-                    progress.pull =true;
+                    progress.pull = true;
                     progress.status = "live";
                     progress.finished = false;
                     progress.pull = true;
@@ -166,11 +168,11 @@ export class C8oFullSyncDatabase {
                     (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
                     rep.on("change", (info) => {
                         progress.finished = false;
-                        if (info.direction == "pull") {
+                        if (info.direction === "pull") {
                             progress.pull = true;
                             progress.status = rep.pull.state;
                         }
-                        else if (info.direction == "push") {
+                        else if (info.direction === "push") {
                             progress.pull = false;
                             progress.status = rep.push.state;
                         }
@@ -179,16 +181,16 @@ export class C8oFullSyncDatabase {
                         param[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
                         (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
                     })
-                        .on('paused', function (err) {
+                        .on("paused", function () {
                             progress.finished = true;
                             (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
-                            if(progress.total == 0 && progress.current == 0){
+                            if (progress.total === 0 && progress.current === 0) {
                                 progress.pull = !progress.pull;
                                 (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, param);
                             }
                         })
                         .on("error", (err) => {
-                        if (err.message == "Unexpected end of JSON input") {
+                        if (err.message === "Unexpected end of JSON input") {
                             progress.finished = true;
                             progress.status = "live";
                             (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
@@ -201,7 +203,7 @@ export class C8oFullSyncDatabase {
                 }
             }).on("error", (err) => {
                 rep.cancel();
-                if (err.message == "Unexpected end of JSON input") {
+                if (err.message === "Unexpected end of JSON input") {
                     progress.finished = true;
                     progress.status = "Complete";
                     (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
@@ -216,7 +218,7 @@ export class C8oFullSyncDatabase {
                 if (rep != null) {
                     rep.cancel();
                     progress.finished = true;
-                    if(c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener){
+                    if (c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener) {
                         c8oResponseListener.onProgressResponse(progress, null);
                     }
                 }
@@ -239,8 +241,8 @@ export class C8oFullSyncDatabase {
         let cancel: boolean = false;
         let obj: Object = {};
 
-        if (parameters["continuous"] != null || parameters["continuous"] != undefined) {
-            if (parameters["continuous"] as boolean == true) {
+        if (parameters["continuous"] != null || parameters["continuous"] !== undefined) {
+            if (parameters["continuous"] as boolean === true) {
                 continuous = true;
                 obj = {"live": true};
             }
@@ -249,8 +251,9 @@ export class C8oFullSyncDatabase {
             }
         }
 
-        if (parameters["cancel"] != null || parameters["cancel"] != undefined) {
-            if (parameters["cancel"] as boolean == true) {
+        if (parameters["cancel"] != null || parameters["cancel"] !== undefined) {
+            //noinspection RedundantIfStatementJS
+            if (parameters["cancel"] as boolean === true) {
                 cancel = true;
             }
             else {
@@ -283,7 +286,7 @@ export class C8oFullSyncDatabase {
                 parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
                 (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
                 rep.cancel();
-                if(continuous) {
+                if (continuous) {
                     rep = this.database.sync(remoteDB, obj);
                     progress.continuous = true;
                     progress.raw = rep;
@@ -297,7 +300,7 @@ export class C8oFullSyncDatabase {
                         (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
                     })
                         .on("error", (err) => {
-                            if (err.message == "Unexpected end of JSON input") {
+                            if (err.message === "Unexpected end of JSON input") {
                                 progress.finished = true;
                                 progress.status = "live";
                                 (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
@@ -310,7 +313,7 @@ export class C8oFullSyncDatabase {
                         });
                 }
             }).on("error", (err) => {
-                if (err.message == "Unexpected end of JSON input") {
+                if (err.message === "Unexpected end of JSON input") {
                     progress.finished = true;
                     progress.status = "complete";
                     parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
@@ -325,7 +328,7 @@ export class C8oFullSyncDatabase {
                 if (rep != null) {
                     rep.cancel();
                     progress.finished = true;
-                    if(c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener){
+                    if (c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener) {
                         c8oResponseListener.onProgressResponse(progress, null);
                     }
                 }
@@ -338,6 +341,7 @@ export class C8oFullSyncDatabase {
     }
 
 
+    //noinspection JSUnusedGlobalSymbols
     public get getdatabseName(): string {
         return this.databaseName;
     }

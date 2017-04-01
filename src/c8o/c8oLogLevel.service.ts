@@ -22,7 +22,7 @@ export class C8oLogLevel {
 
     static getC8oLogLevel(name: string): C8oLogLevel {
         for (let i = 0; i <= C8oLogLevel.C8O_LOG_LEVELS.length; i++) {
-            if (C8oLogLevel.C8O_LOG_LEVELS[i].name == name) {
+            if (C8oLogLevel.C8O_LOG_LEVELS[i].name === name) {
                 return C8oLogLevel.C8O_LOG_LEVELS[i];
             }
         }

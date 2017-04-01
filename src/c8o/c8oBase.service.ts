@@ -30,7 +30,9 @@ export class C8oBase {
     /* Encryption */
     protected _useEncryption: boolean = false;
     protected _disableSSL: boolean = false;
+    //noinspection JSUnusedGlobalSymbols
     protected _keyStorePassword: string;
+    //noinspection JSUnusedGlobalSymbols
     protected _trustStorePassword: string;
 
     /** Getters **/
@@ -96,14 +98,17 @@ export class C8oBase {
         return this._fullSyncLocalSuffix;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get fullSyncServerUrl(): string {
         return this._fullSyncServerUrl;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get fullSyncUsername(): string {
         return this._fullSyncUsername;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get fullSyncPassword(): string {
         return this._fullSyncPassword;
     }

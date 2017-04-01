@@ -38,10 +38,12 @@ export class C8oProgress {
 
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get changed(): boolean {
         return this._changed;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public set changed(value: boolean) {
         this._changed = value;
     }
@@ -108,6 +110,7 @@ export class C8oProgress {
         this._status = value;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get taskInfo(): string {
         return this._taskInfo;
     }
@@ -117,6 +120,7 @@ export class C8oProgress {
         this._taskInfo = value;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get raw(): any {
         return this._raw;
     }

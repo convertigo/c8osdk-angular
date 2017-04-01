@@ -1,8 +1,8 @@
-export class FullSyncRequestParameter{
-    private _name : string;
-    private _type : string;
+export class FullSyncRequestParameter {
+    private _name: string;
+    private _type: string;
 
-    private constructor(name:string, type:string){
+    private constructor(name: string, type: string) {
         this._name = name;
         this._type = type;
     }
@@ -32,15 +32,15 @@ export class FullSyncRequestParameter{
     public static STARTKEY_DOCID: FullSyncRequestParameter = new FullSyncRequestParameter("startkey_docid", "string");
 
 
-    public static values() : Array<FullSyncRequestParameter>{
-        let array : [FullSyncRequestParameter] = [FullSyncRequestParameter.DESCENDING, FullSyncRequestParameter.ENDKEY, FullSyncRequestParameter.ENDKEY_DOCID, FullSyncRequestParameter.GROUP_LEVEL, FullSyncRequestParameter.INCLUDE_DELETED, FullSyncRequestParameter.INDEX_UPDATE_MODE, FullSyncRequestParameter.KEY, FullSyncRequestParameter.KEYS, FullSyncRequestParameter.LIMIT, FullSyncRequestParameter.REDUCE, FullSyncRequestParameter.GROUP, FullSyncRequestParameter.SKIP, FullSyncRequestParameter.STARTKEY, FullSyncRequestParameter.STARTKEY_DOCID, FullSyncRequestParameter.INCLUDE_DOCS];
-        return array;
+    public static values(): Array<FullSyncRequestParameter> {
+        return [FullSyncRequestParameter.DESCENDING, FullSyncRequestParameter.ENDKEY, FullSyncRequestParameter.ENDKEY_DOCID, FullSyncRequestParameter.GROUP_LEVEL, FullSyncRequestParameter.INCLUDE_DELETED, FullSyncRequestParameter.INDEX_UPDATE_MODE, FullSyncRequestParameter.KEY, FullSyncRequestParameter.KEYS, FullSyncRequestParameter.LIMIT, FullSyncRequestParameter.REDUCE, FullSyncRequestParameter.GROUP, FullSyncRequestParameter.SKIP, FullSyncRequestParameter.STARTKEY, FullSyncRequestParameter.STARTKEY_DOCID, FullSyncRequestParameter.INCLUDE_DOCS];
     }
 
-    public static getFullSyncRequestParameter(name:string){
-        if(name != null){
-            for(let fullSyncRequestParameter of FullSyncRequestParameter.values()){
-                if(name == fullSyncRequestParameter.name){
+    //noinspection JSUnusedGlobalSymbols
+    public static getFullSyncRequestParameter(name: string) {
+        if (name != null) {
+            for (let fullSyncRequestParameter of FullSyncRequestParameter.values()){
+                if (name === fullSyncRequestParameter.name) {
                     return fullSyncRequestParameter as FullSyncRequestParameter;
                 }
             }

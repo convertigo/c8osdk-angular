@@ -24,20 +24,19 @@ export class C8oUtils {
 
 
     public static isValidUrl(url: string): boolean {
-        let valid = /^(http|https):\/\/[^ "]+$/.test(url.toString());
-        return valid;
+        return /^(http|https):\/\/[^ "]+$/.test(url.toString());
     }
 
 
     public static getNewGUIDString(): string {
         let d = new Date().getTime();
-        if (window.performance && typeof window.performance.now == "function") {
+        if (window.performance && typeof window.performance.now === "function") {
             d += performance.now(); // use high-precision timer if available
         }
         return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
             let r = (d + Math.random() * 16) % 16 | 0;
             d = Math.floor(d / 16);
-            return (c == "x" ? r : (r & 0x3 | 0x8)).toString(16);
+            return (c === "x" ? r : (r & 0x3 | 0x8)).toString(16);
         });
     }
 
@@ -46,8 +45,8 @@ export class C8oUtils {
     public static getParameter(parameters: Object, name: string, useName: boolean): any {
         for (let _i = 0; _i < Object.keys(parameters).length; _i++) {
             let parameterName = Object.keys(parameters)[_i];
-            if ((name == parameterName) || (useName && name == this.USE_PARAMETER_IDENTIFIER + parameterName)) {
-                let obj = new Object();
+            if ((name === parameterName) || (useName && name === this.USE_PARAMETER_IDENTIFIER + parameterName)) {
+                let obj = {};
                 obj[Object.keys(parameters)[_i]] = parameters[Object.keys(parameters)[_i]];
                 return obj;
             }
@@ -61,6 +60,7 @@ export class C8oUtils {
      *
      * @param parameters
      * @param name
+     * @param useName
      * @returns string
      */
     public static getParameterStringValue(parameters: Object, name: string, useName: boolean): string {
@@ -72,6 +72,7 @@ export class C8oUtils {
     }
 
     public static getParameterObjectValue(parameters: Object, name: string, useName: boolean = false): any {
+        //noinspection UnnecessaryLocalVariableJS
         let parameters2 = parameters;
         let parameter = C8oUtils.getParameter(parameters2, name, useName);
         if (parameter != null) {
@@ -84,12 +85,11 @@ export class C8oUtils {
     }
 
     public static peekParameterStringValue(parameters: Object, name: string, exceptionIfMissing: boolean): string {
+        //noinspection UnnecessaryLocalVariableJS
         let parameters2 = parameters;
         let value: string = this.getParameterStringValue(parameters2, name, false);
         if (value == null) {
             if (exceptionIfMissing) {
-                console.log(JSON.stringify(parameters))
-                console.log("exception if missing")
                 throw new Error("The parameter '" + name + "' is missing");
             }
         }

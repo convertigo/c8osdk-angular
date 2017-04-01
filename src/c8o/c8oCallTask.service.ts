@@ -1,5 +1,5 @@
 import {C8o} from "./c8o.service";
-import {C8oResponseListener, C8oResponseXmlListener, C8oResponseJsonListener} from "./c8oResponse.service";
+import {C8oResponseListener, C8oResponseJsonListener} from "./c8oResponse.service";
 import {C8oExceptionListener} from "./Exception/c8oExceptionListener.service";
 import {C8oFullSync, C8oFullSyncCbl} from "./c8oFullSync.service";
 import {C8oException} from "./Exception/c8oException.service";
@@ -9,8 +9,6 @@ import {C8oUtils} from "./c8oUtils.service";
 import {C8oLocalCacheResponse} from "./c8oLocalCacheResponse.service";
 import {C8oTranslator} from "./c8oTranslator.service";
 import {C8oHttpRequestException} from "./Exception/c8oHttpRequestException.service";
-import {isUndefined} from "util";
-import {Priority} from "./priority.service";
 import {C8oUnavailableLocalCacheException} from "./Exception/c8oUnavailableLocalCacheException.service";
 
 export class C8oCallTask {
@@ -51,7 +49,7 @@ export class C8oCallTask {
         }
     }
 
-    public executeFromLive(){
+    public executeFromLive() {
         delete this.parameters[C8o.FS_LIVE];
         this.parameters[C8o.ENGINE_PARAMETER_FROM_LIVE] = true;
         this.run();
@@ -68,8 +66,8 @@ export class C8oCallTask {
 
                     // FS_LIVE
                     let liveid = C8oUtils.getParameterStringValue(this.parameters, C8o.FS_LIVE, false);
-                    if(liveid != null){
-                        let dbName : string = (C8oUtils.getParameterStringValue(this.parameters, C8o.ENGINE_PARAMETER_PROJECT, true) as string).substring(C8oFullSync.FULL_SYNC_PROJECT.length);
+                    if (liveid !== null) {
+                        let dbName: string = (C8oUtils.getParameterStringValue(this.parameters, C8o.ENGINE_PARAMETER_PROJECT, true) as string).substring(C8oFullSync.FULL_SYNC_PROJECT.length);
                         this.c8o.addLive(liveid, dbName, this);
                     }
                     this.c8o.c8oFullSync.handleFullSyncRequest(this.parameters, this.c8oResponseListener)
@@ -89,10 +87,7 @@ export class C8oCallTask {
                 }
                 else {
                     let responseType: string = "";
-                    if (this.c8oResponseListener === null || this.c8oResponseListener instanceof C8oResponseXmlListener) {
-                        responseType = C8o.RESPONSE_TYPE_XML;
-                    }
-                    else if (this.c8oResponseListener instanceof C8oResponseJsonListener) {
+                    if (this.c8oResponseListener instanceof C8oResponseJsonListener) {
                         responseType = C8o.RESPONSE_TYPE_JSON;
                     } else {
                         // Return an Exception because the C8oListener used is unknown
@@ -103,7 +98,7 @@ export class C8oCallTask {
                     let localCacheEnabled: boolean = false;
 
                     if (localCache != null) {
-                        if (localCacheEnabled != undefined) {
+                        if (localCacheEnabled !== undefined) {
                             delete this.parameters[C8oLocalCache.PARAM];
                             localCacheEnabled = localCache.enabled;
                             if (localCacheEnabled) {
@@ -113,15 +108,15 @@ export class C8oCallTask {
                                 catch (error) {
                                     reject(new C8oException(C8oExceptionMessage.serializeC8oCallRequest(), error));
                                 }
-                                // here we are not testing if localcahe is avaible.
-                                // if connection is not avaible this will generates an exeption that will be catched
+                                // here we are not testing if localcahe is available.
+                                // if connection is not available this will generates an exception that will be caught
                                     (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier)
                                         .then(
                                             (result) => {
-                                                if(result instanceof C8oUnavailableLocalCacheException){
-                                                    //no entry
+                                                if (result instanceof C8oUnavailableLocalCacheException) {
+                                                    // no entry
                                                 }
-                                                else{
+                                                else {
                                                     let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
 
                                                     if (!localCacheResponse.isExpired()) {
@@ -136,10 +131,10 @@ export class C8oCallTask {
                                             })
                                         .catch(
                                             (error) => {
-                                                if(error instanceof C8oUnavailableLocalCacheException){
-                                                    //no entry
+                                                if (error instanceof C8oUnavailableLocalCacheException) {
+                                                    // no entry
                                                 }
-                                                else{
+                                                else {
                                                     reject(error);
                                                 }
                                             });
@@ -157,7 +152,7 @@ export class C8oCallTask {
                             if (localCacheEnabled) {
                                 (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
                                 ).then(
-                                    (localCacheResponse : C8oLocalCacheResponse) => {
+                                    (localCacheResponse: C8oLocalCacheResponse) => {
                                         try {
                                             if (!localCacheResponse.isExpired()) {
                                                 if (responseType === C8o.RESPONSE_TYPE_XML) {
@@ -168,24 +163,24 @@ export class C8oCallTask {
                                             }
                                         }
                                         catch (error) {
-                                            // no enty
+                                            // no entry
                                         }
                                     });
                             }
                             if (error["status"] === 0) {
                                 reject(new C8oHttpRequestException("ERR_INTERNET_DISCONNECTED", error));
                             }
-                            else{
+                            else {
                                 reject(new C8oException(C8oExceptionMessage.handleC8oCallRequest(), error, true));
                             }
                         }).then(
                         (result) => {
-                            if(result != undefined) {
-                                if (result["error"] != undefined) {
+                            if (result !== undefined) {
+                                if (result["error"] !== undefined) {
                                     if (localCacheEnabled) {
                                         (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
                                         ).then(
-                                            (localCacheResponse : C8oLocalCacheResponse) => {
+                                            (localCacheResponse: C8oLocalCacheResponse) => {
                                                 try {
                                                     if (!localCacheResponse.isExpired()) {
                                                         if (responseType === C8o.RESPONSE_TYPE_XML) {
@@ -196,7 +191,7 @@ export class C8oCallTask {
                                                     }
                                                 }
                                                 catch (error) {
-                                                    // no enty
+                                                    // no entry
                                                 }
                                             });
                                     }
@@ -211,18 +206,7 @@ export class C8oCallTask {
 
                                     let response: any;
                                     let responseString: string;
-                                    if (this.c8oResponseListener instanceof C8oResponseXmlListener) {
-                                        try {
-                                            response = C8oTranslator.jsonToxml(result, "");
-                                            if (localCacheEnabled) {
-                                                responseString = response.toString();
-                                            }
-                                        }
-                                        catch (error) {
-                                            reject(new C8oException(C8oExceptionMessage.inputStreamToXML(), error));
-                                        }
-                                    }
-                                    else if (this.c8oResponseListener instanceof C8oResponseJsonListener) {
+                                    if (this.c8oResponseListener instanceof C8oResponseJsonListener) {
                                         try {
                                             try {
                                                 responseString = result;
@@ -275,19 +259,8 @@ export class C8oCallTask {
 
     private handleResponse(result: any) {
         try {
-            if (typeof result === "void") {
-                return;
-            }
             if (this.c8oResponseListener === null) {
                 return;
-            }
-
-            if (result instanceof Document) {
-                this.c8o.log.logC8oCallXMLResponse(result, this.c8oCallUrl, this.parameters);
-                (this.c8oResponseListener as C8oResponseXmlListener).onXmlResponseresponse(result, this.parameters);
-            }
-            else if (typeof result === "Json") {
-                this.c8o.log.logC8oCallJSONResponse(result, this.c8oCallUrl, this.parameters);
             }
             else if (result instanceof Error || result instanceof C8oException) {
                 this.c8o.handleCallException(this.c8oExceptionListener, this.parameters, result);

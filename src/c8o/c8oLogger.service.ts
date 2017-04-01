@@ -24,6 +24,7 @@ export class C8oLogger {
 
     private remoteLogUrl: string;
     private remoteLogs: Queue<JSON>;
+    //noinspection JSMismatchedCollectionQueryUpdate
     private alreadyRemoteLogging: boolean[];
     private remoteLogLevel: C8oLogLevel;
     private uidRemoteLogs: string;
@@ -38,7 +39,7 @@ export class C8oLogger {
 
         this.remoteLogUrl = c8o.endpointConvertigo + "/admin/services/logs.Add";
         this.remoteLogs = new Queue<JSON>();
-        this.alreadyRemoteLogging = new Array<boolean>();
+        this.alreadyRemoteLogging = [];
         this.alreadyRemoteLogging.push(false);
 
         this.remoteLogLevel = C8oLogLevel.TRACE;
@@ -63,18 +64,22 @@ export class C8oLogger {
         return this.isLoggableConsole(logLevel) || this.isLoggableRemote(logLevel);
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get isFatal(): boolean {
         return this.canLog(C8oLogLevel.FATAL);
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get isError(): boolean {
         return this.canLog(C8oLogLevel.ERROR);
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get isWarn(): boolean {
         return this.canLog(C8oLogLevel.WARN);
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get isInfo(): boolean {
         return this.canLog(C8oLogLevel.INFO);
     }
@@ -169,6 +174,7 @@ export class C8oLogger {
 
     logRemote() {
 
+        //noinspection JSUnusedAssignment
         let canLog: boolean = false;
         canLog = this.remoteLogs.count() > 0;
         if (canLog) {
@@ -182,7 +188,7 @@ export class C8oLogger {
             // "/admin/services/logs.Add";
             let count: number = 0;
             let listSize: number = <number>this.remoteLogs.count();
-            let logsArray = new Array<JSON>();
+            let logsArray = [];
             while (count < listSize && count < C8oLogger.REMOTE_LOG_LIMIT) {
                 logsArray.push(this.remoteLogs.pop());
                 count += 1;
@@ -194,8 +200,8 @@ export class C8oLogger {
 
             this.c8o.httpInterface.handleRequest(this.remoteLogUrl, parameters)
                 .then((response) => {
-                    if(response != undefined) {
-                        if (response["error"] != undefined) {
+                    if (response !== undefined) {
+                        if (response["error"] !== undefined) {
                             this.c8o.logRemote = false;
                             if (this.c8o.logOnFail != null) {
                                 this.c8o.logOnFail(new C8oException(C8oExceptionMessage.RemoteLogFail(), response["error"]), null);
@@ -224,7 +230,7 @@ export class C8oLogger {
     logMethodCall(methodName: string, ...parameters: any[]) {
         if (this.c8o.logC8o && this.isDebug) {
             let methodCallLogMessage: string = "Method call: " + methodName;
-            if (parameters == null || Object.keys(parameters).length == 0) {
+            if (parameters == null || Object.keys(parameters).length === 0) {
                 this._debug(methodCallLogMessage);
             }
             if (this.isTrace) {

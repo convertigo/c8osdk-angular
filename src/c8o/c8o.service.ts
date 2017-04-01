@@ -20,6 +20,7 @@ import {C8oCouchBaseLiteException} from "./Exception/c8oCouchBaseLiteException.s
 import {C8oExceptionListener} from "./Exception/c8oExceptionListener.service";
 import {Observable} from "rxjs";
 import {C8oFullSyncChangeListener} from "./c8oFullSyncChangeListener.service";
+
 /**
  * Allows to send requests to a Convertigo Server (or Studio), these requests are called c8o calls.<br/>
  * C8o calls are done thanks to a HTTP request or a CouchbaseLite usage.<br/>
@@ -29,7 +30,6 @@ import {C8oFullSyncChangeListener} from "./c8oFullSyncChangeListener.service";
 
 @Injectable()
 export class C8o extends C8oBase {
-
     // Log:
     // - VERBOSE (v): methods parameters,
     // - DEBUG (d): methods calls,
@@ -50,9 +50,9 @@ export class C8o extends C8oBase {
      */
     private static RE_ENDPOINT = /^(https?:\/\/([^:]+)(:[0-9]+)?\/?.*?)\/projects\/([^\/]+)$/;
 
-    /*** Engine reserved parameters ***/
-
-
+    /**
+     *  Engine reserved parameters
+     */
     static ENGINE_PARAMETER_PROJECT: string = "__project";
     static ENGINE_PARAMETER_SEQUENCE: string = "__sequence";
     static ENGINE_PARAMETER_CONNECTOR: string = "__connector";
@@ -62,7 +62,9 @@ export class C8o extends C8oBase {
     static ENGINE_PARAMETER_PROGRESS: string = "__progress";
     static ENGINE_PARAMETER_FROM_LIVE: string = "__fromLive";
 
-    /** FULLSYNC parameters **/
+    /**
+     * FULLSYNC parameters
+     */
 
     /**
      * Constant to use as a parameter for a Call of "fs://.post" and must be followed by a FS_POLICY_* constant.
@@ -112,7 +114,7 @@ export class C8o extends C8oBase {
      * request using c8o.cancelLive(liveid) method.<br/>
      * A live request automatically recall the then or thenUI handler when the database changed.
      */
-    public static FS_LIVE :  string = "__live";
+    public static FS_LIVE:  string = "__live";
 
     /** Local cache keys **/
     static LOCAL_CACHE_DOCUMENT_KEY_RESPONSE: string = "response";
@@ -165,8 +167,8 @@ export class C8o extends C8oBase {
      */
     c8oFullSync: C8oFullSync;
 
-    lives : Array<C8oCallTask> = new Array<C8oCallTask>();
-    livesDb : Array<string> = new Array<string>();
+    lives: Array<C8oCallTask> = [];
+    livesDb: Array<string> = [];
 
     private data: any;
     private _http: Http;
@@ -231,6 +233,7 @@ export class C8o extends C8oBase {
         this._endpointConvertigo = value;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get endpointIsSecure(): boolean {
         return this._endpointIsSecure;
     }
@@ -239,6 +242,7 @@ export class C8o extends C8oBase {
         this._endpointIsSecure = value;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get endpointHost(): string {
         return this._endpointHost;
     }
@@ -247,6 +251,7 @@ export class C8o extends C8oBase {
         this._endpointHost = value;
     }
 
+    //noinspection JSUnusedGlobalSymbols
     public get endpointPort(): string {
         return this._endpointPort;
     }
@@ -272,7 +277,7 @@ export class C8o extends C8oBase {
     }
 
     /**
-     * This is the base object representing a Convertigo Server end point. This object should be instanciated
+     * This is the base object representing a Convertigo Server end point. This object should be instantiated
      * when the apps starts and be accessible from any class of the app. Although this is not common , you may have
      * several C8o objects instantiated in your app.
      *
@@ -287,7 +292,7 @@ export class C8o extends C8oBase {
     }
 
     /**
-     * This is the base object representing a Convertigo Server end point. This object should be instanciated
+     * This is the base object representing a Convertigo Server end point. This object should be instantiated
      * when the apps starts and be accessible from any class of the app. Although this is not common , you may have
      * several C8o objects instantiated in your app.
      *
@@ -296,9 +301,9 @@ export class C8o extends C8oBase {
      *
      * @throws C8oException In case of invalid parameter or initialization failure.
      */
-    public init(c8oSettings?: C8oSettings) : Promise<any> {
+    public init(c8oSettings?: C8oSettings): Promise<any> {
         let nullableEndpoint = true;
-        if (c8oSettings != undefined) {
+        if (c8oSettings !== undefined) {
             if (c8oSettings.endpoint != null) {
                 nullableEndpoint = false;
             }
@@ -336,7 +341,7 @@ export class C8o extends C8oBase {
                             let remoteBase = data.remoteBase.toString();
                             let n = remoteBase.indexOf("/_private");
                             this.endpoint = remoteBase.substring(0, n);
-                            this._automaticRemoveSplashsCreen = data["splashScreenRemoveMode"] != "manual";
+                            this._automaticRemoveSplashsCreen = data["splashScreenRemoveMode"] !== "manual";
                             resolve();
                         });
                 }
@@ -356,7 +361,7 @@ export class C8o extends C8oBase {
          * Looking for splashScreen timeOut
          */
         if (this._automaticRemoveSplashsCreen) {
-            if (navigator["splashscreen"] != undefined) {
+            if (navigator["splashscreen"] !== undefined) {
                 navigator["splashscreen"].hide();
             }
         }
@@ -377,7 +382,7 @@ export class C8o extends C8oBase {
                 }, false);
                 document.addEventListener("online", () => {
                     this.log.info("Network online");
-                    if (this._initialLogRemote && this.logRemote == false) {
+                    if (this._initialLogRemote && !this.logRemote) {
                         this.logRemote = true;
                         this.log.info("Setting remote logs to true");
                     }
@@ -388,7 +393,7 @@ export class C8o extends C8oBase {
                 resolve();
             }).then(() => {
                 return new Promise((resolve, reject) => {
-                    if (window["cblite"] != undefined) {
+                    if (window["cblite"] !== undefined) {
                         window["cblite"].getURL((err, url) => {
                             if (err) {
                                 reject(err);
@@ -412,7 +417,7 @@ export class C8o extends C8oBase {
             return new C8oException(C8oExceptionMessage.illegalArgumentInvalidURL(this.endpoint).toString());
         }
         let matches = C8o.RE_ENDPOINT.exec(this.endpoint.toString());
-        if(matches === null){
+        if (matches === null) {
             throw new C8oException(C8oExceptionMessage.illegalArgumentInvalidEndpoint(this.endpoint.toString()));
         }
         this.endpointConvertigo = matches[0].substring(0, (matches[0].indexOf("/projects")));
@@ -433,10 +438,11 @@ export class C8o extends C8oBase {
      */
     public call(requestable: string, parameters: Object = null, c8oResponseListener: C8oResponseListener = null, c8oExceptionListener: C8oExceptionListener = null) {
         try {
-            if (requestable == null || requestable == undefined) {
+            if (requestable === null || requestable === undefined) {
+                //noinspection ExceptionCaughtLocallyJS
                 throw new C8oException(C8oExceptionMessage.illegalArgumentNullParameter("resquestable"));
             }
-            if (parameters == null || parameters == undefined) {
+            if (parameters === null || parameters === undefined) {
                 parameters = {};
             }
             else {
@@ -444,10 +450,11 @@ export class C8o extends C8oBase {
             }
 
             let regex = C8o.RE_REQUESTABLE.exec(requestable);
-            if (regex[0] == null || regex == undefined) {
+            if (regex[0] === null || regex === undefined) {
+                //noinspection ExceptionCaughtLocallyJS
                 throw new C8oException(C8oExceptionMessage.InvalidArgumentInvalidEndpoint(this._endpoint));
             }
-            if (regex[1] != "") {
+            if (regex[1] !== "") {
                 parameters[C8o.ENGINE_PARAMETER_PROJECT.toString()] = regex[1];
             }
             if (regex[2] != null) {
@@ -510,7 +517,7 @@ export class C8o extends C8oBase {
      * @return A C8oPromise that can deliver the JSON response
      */
     public callJsonObject(requestable: string, parameters: Object): C8oPromise<JSON> {
-        var promise: C8oPromise<JSON> = new C8oPromise<JSON>(this);
+        let promise: C8oPromise<JSON> = new C8oPromise<JSON>(this);
         this.call(requestable, parameters, new C8oResponseJsonListener((response: any, requestParameters: Object) => {
                 if (response == null && requestParameters[C8o.ENGINE_PARAMETER_PROGRESS]) {
                     promise.onProgress(requestParameters[C8o.ENGINE_PARAMETER_PROGRESS]);
@@ -548,7 +555,7 @@ export class C8o extends C8oBase {
      */
     public static toParameters(parameters: any): Object {
         let newParameters: Object = {};
-        if (0 != parameters.length % 2) {
+        if (0 !== parameters.length % 2) {
             throw new C8oException("Incorrect number of parameters");
         }
         for (let i = 0; i < parameters.length; i += 2) {
@@ -566,7 +573,7 @@ export class C8o extends C8oBase {
      */
     handleCallException(c8oExceptionListener: C8oExceptionListener, requestParameters: Object, exception: Error) {
         this.c8oLogger.warn("Handle a call exception", exception);
-        if(c8oExceptionListener != null){
+        if (c8oExceptionListener != null) {
             c8oExceptionListener.onException(exception, requestParameters);
         }
     }
@@ -580,7 +587,7 @@ export class C8o extends C8oBase {
      * @returns a promise containing a buffer
      */
     public get_attachment(id: string, attachment_name: string): Promise<any> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             let fullsyncdb = (this.c8oFullSync as C8oFullSyncCbl).getOrCreateFullSyncDatabase(this.defaultDatabaseName);
             fullsyncdb.getdatabase.getAttachment(id, attachment_name).then((buffer) => {
                 resolve(buffer);
@@ -594,7 +601,7 @@ export class C8o extends C8oBase {
      * @param db the name of the fullsync database to monitor. Use the default database for a blank or a null value.
      * @param listener the listener to trigger on change.
      */
-    public addFullSyncChangeListener (db : string, listener: C8oFullSyncChangeListener) {
+    public addFullSyncChangeListener (db: string, listener: C8oFullSyncChangeListener) {
         (this.c8oFullSync as C8oFullSyncCbl).addFullSyncChangeListener(db, listener);
     }
 
@@ -604,45 +611,46 @@ export class C8o extends C8oBase {
      * @param db the name of the fullsync database to monitor. Use the default database for a blank or a null value.
      * @param listener the listener instance to remove.
      */
-    public removeFullSyncChangeListener (db : string, listener: C8oFullSyncChangeListener) {
+    public removeFullSyncChangeListener (db: string, listener: C8oFullSyncChangeListener) {
         (this.c8oFullSync as C8oFullSyncCbl).removeFullSyncChangeListener(db, listener);
     }
 
-    addLive(liveid: string, db: string, task: C8oCallTask){
+    addLive(liveid: string, db: string, task: C8oCallTask) {
         this.cancelLive(liveid);
         this.lives[liveid] = task;
         this.livesDb[liveid] = db;
         this.addFullSyncChangeListener(db, this.handleFullSyncLive);
     }
 
-    public cancelLive(liveid:string){
-        if(this.livesDb[liveid] != undefined){
-            let db : string = this.livesDb[liveid];
+    public cancelLive(liveid: string) {
+        if (this.livesDb[liveid] !== undefined) {
+            let db: string = this.livesDb[liveid];
             delete this.livesDb[liveid];
-            if(this.livesDb[db]!= undefined){
+            if (this.livesDb[db] !== undefined) {
                 db = null;
             }
-            if(db != null){
+            if (db !== null) {
                 this.removeFullSyncChangeListener(db, this.handleFullSyncLive);
             }
         }
         delete this.lives[liveid];
     }
 
-    private handleFullSyncLive : C8oFullSyncChangeListener = new C8oFullSyncChangeListener(
-        (changes:Object) =>{
-            for(let task in this.lives){
+    //noinspection JSUnusedLocalSymbols
+    private handleFullSyncLive: C8oFullSyncChangeListener = new C8oFullSyncChangeListener(
+        (changes: Object) => {
+            for (let task in this.lives) {
                 (this.lives[task] as C8oCallTask).executeFromLive();
             }
         });
-    }
+}
 
 
 export class FullSyncPolicy {
 
     public static NONE: FullSyncPolicy = new FullSyncPolicy(C8o.FS_POLICY_NONE, (database: any, newProperties: Object) => {
         let documentId = C8oUtils.getParameterStringValue(newProperties, C8oFullSync.FULL_SYNC__ID, false);
-        if (documentId == "") {
+        if (documentId === "") {
             documentId = null;
         }
         return new Promise((resolve, reject) => {
@@ -692,7 +700,7 @@ export class FullSyncPolicy {
                     }).then((createdDocument) => {
                         resolve(createdDocument);
                     }).catch((error) => {
-                            if (error.status == "404") {
+                            if (error.status === "404" || error.status === 404) {
                                 newProperties["_id"] = documentId;
                                 return database.post(newProperties);
                             }
@@ -726,7 +734,7 @@ export class FullSyncPolicy {
                         reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
                     });
                 });
-            } 
+            }
             else {
                 return new Promise((resolve, reject) => {
                     database.get(documentId).then((doc) => {
@@ -734,22 +742,22 @@ export class FullSyncPolicy {
                         database.put(newProperties).then((createdDocument) => {
                             resolve(createdDocument);
                         })
-                        .catch((error) => {
-                            reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
-                        });
+                            .catch((error) => {
+                                reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
+                            });
                     }).catch((error) => {
-                            if(error.status == 404){
-                                database.put(newProperties).then((createdDocument) => {
-                                    resolve(createdDocument);
-                                })
+                        if (error.status === 404) {
+                            database.put(newProperties).then((createdDocument) => {
+                                resolve(createdDocument);
+                            })
                                 .catch((error) => {
                                     reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
                                 });
-                            }
-                            else{
-                                reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
-                            }
-                        });
+                        }
+                        else {
+                            reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
+                        }
+                    });
                 });
             }
         }
@@ -761,21 +769,20 @@ export class FullSyncPolicy {
     public value: string;
     public action: (PouchDB, Object) => any;
 
-    constructor(value: string, action: (any, Object) => any) {
+    constructor(value: string, action: (_Object, Object) => any) {
         this.value = value;
         this.action = action;
     }
 
     public static values(): FullSyncPolicy[] {
-        let array: FullSyncPolicy[] = [this.NONE, this.CREATE, this.OVERRIDE, this.MERGE];
-        return array;
+        return [this.NONE, this.CREATE, this.OVERRIDE, this.MERGE];
     }
 
     public static getFullSyncPolicy(value: string): FullSyncPolicy {
         if (value != null) {
             let fullSyncPolicyValues: FullSyncPolicy[] = FullSyncPolicy.values();
             for (let fullSyncPolicy of fullSyncPolicyValues) {
-                if (fullSyncPolicy.value == value) {
+                if (fullSyncPolicy.value === value) {
                     return fullSyncPolicy as FullSyncPolicy;
                 }
             }
@@ -796,7 +803,7 @@ export class FullSyncPostDocumentParameter {
     }
 
     public static values(): FullSyncPostDocumentParameter[] {
-        let array: FullSyncPostDocumentParameter[] = new Array<FullSyncPostDocumentParameter>();
+        let array: FullSyncPostDocumentParameter[] = [];
         array.push(this.POLICY, this.SUBKEY_SEPARATOR);
         return array;
     }

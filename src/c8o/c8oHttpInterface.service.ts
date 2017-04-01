@@ -18,12 +18,13 @@ export class C8oHttpInterface {
     transformRequest(parameters: Object): string {
         let str = [];
         for (let p in parameters) {
-            if(parameters[p] instanceof Array){
-                for(let p1 in parameters[p]){
+            if (parameters[p] instanceof Array) {
+                for (let p1 in parameters[p]) {
+                    //noinspection JSUnfilteredForInLoop
                     str.push(encodeURIComponent(p) + "=" + encodeURIComponent(parameters[p][p1]));
                 }
             }
-            else{
+            else {
                 str.push(encodeURIComponent(p) + "=" + encodeURIComponent(parameters[p]));
             }
         }
@@ -39,10 +40,10 @@ export class C8oHttpInterface {
         }
         let headers = new Headers();
         headers.append("Content-Type", "application/x-www-form-urlencoded");
-        //headers.append("User-Agent", "Convertigo Client SDK " + C8o.getSdkVersion());
+        // headers.append("User-Agent", "Convertigo Client SDK " + C8o.getSdkVersion());
 
         if (this.firstCall) {
-            this.p1 = new Promise((resolve, reject) => {
+            this.p1 = new Promise((resolve) => {
                 this.firstCall = false;
                 this.c8o.httpPublic.post(url, this.transformRequest(parameters), {
                     headers: headers,
@@ -52,7 +53,7 @@ export class C8oHttpInterface {
                     .catch(this.handleError)
                     .subscribe(
                         response => resolve(response),
-                        error => {resolve({"error" : (new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))});}
+                        error => {resolve({"error" : (new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))}); }
                     );
             });
             return this.p1;
@@ -67,8 +68,8 @@ export class C8oHttpInterface {
                         .map(this.extractData)
                         .catch(this.handleError)
                         .subscribe(
-                            response => {resolve(response)},
-                            error => {reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error)));}
+                            response => { resolve(response); },
+                            error => { reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))); }
                         );
 
                 }).catch((error) => {
@@ -79,8 +80,7 @@ export class C8oHttpInterface {
     }
 
     private extractData(res: Response) {
-        let body = res.json();
-        return body;
+        return res.json();
     }
 
     private handleError(error: Response | any) {
@@ -89,13 +89,13 @@ export class C8oHttpInterface {
         if (error instanceof Response) {
             const body = error.json() || "";
             let err;
-            if(body.error !=  undefined){
+            if (body.error !==  undefined) {
                 err = body.error;
             }
-            else if(body.isTrusted != undefined){
-                err = '{"isTrusted":' + body.isTrusted + "}";
+            else if (body.isTrusted !== undefined) {
+                err = "{\"isTrusted\":" + body.isTrusted + "}";
             }
-            else{
+            else {
                 err = JSON.stringify(body);
             }
             errMsg = `${error.status} - ${error.statusText || ""} ${err}`;

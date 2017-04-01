@@ -4,7 +4,7 @@ import {C8oLogLevel} from "./c8oLogLevel.service";
 /**
  * Contains optional parameters of a C8o class instantiation.<br/>
  * Note that setters return the setting instance thereby C8oSettings can be instantiate like that:<br/>
- * new C8oSettings().setTimeout(5000).setTrustAllCetificates(true).setUseEncryption(true);
+ * new C8oSettings().setTimeout(5000).setTrustAllCertificates(true).setUseEncryption(true);
  *
  */
 export class C8oSettings extends C8oBase {
@@ -62,15 +62,15 @@ export class C8oSettings extends C8oBase {
     public addClientCertificate(anyCertificate: string, password: string): C8oSettings;
     public addClientCertificate(anyCertificate: number, password: string): C8oSettings;
     public addClientCertificate(anyCertificate: any, password: string): C8oSettings {
-        if (typeof anyCertificate == "string") {
+        if (typeof anyCertificate === "string") {
             if (this._clientCertificateFiles == null) {
-                this._clientCertificateFiles = new Object();
+                this._clientCertificateFiles = {};
             }
             this._clientCertificateFiles[anyCertificate] = password;
         }
-        else if (typeof anyCertificate == "number") {
+        else if (typeof anyCertificate === "number") {
             if (this._clientCertificateBinaries == null) {
-                this._clientCertificateBinaries = new Object();
+                this._clientCertificateBinaries = {};
             }
             this._clientCertificateBinaries[anyCertificate] = password;
         }
@@ -85,7 +85,7 @@ export class C8oSettings extends C8oBase {
      */
     public addCookie(name: string, value: string): C8oSettings {
         if (this._cookies == null) {
-            this._cookies = new Object();
+            this._cookies = {};
         }
         this._cookies[name] = value;
         return this;

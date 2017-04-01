@@ -1,7 +1,7 @@
 import {C8oResponseListener} from "../c8oResponse.service";
 import {C8oUtils} from "../c8oUtils.service";
 /**
- * Contains static functions returning the exception messages
+ * Contains static Functions returning the exception messages
  * in order to make simpler their modification and avoid duplication.
  */
 export class C8oExceptionMessage {
@@ -277,8 +277,9 @@ export class C8oExceptionMessage {
         return "The listener type '" + listenerType + "' is not handled";
     }
 
+    //noinspection JSUnusedLocalSymbols
     static  WrongListener(c8oListener: C8oResponseListener): string {
-        return ""; // "The C8oListener class " + C8oUtils.GetObjectClassName(c8oListener) + " is not handled"
+        return "wrong listener"; // "The C8oListener class " + C8oUtils.GetObjectClassName(c8oListener) + " is not handled"
     }
 
     static  wrongResult(result: any): string {
@@ -310,11 +311,11 @@ export class C8oExceptionMessage {
     }
 
     static  queryEnumeratorToJSON(): string {
-        return "Unable to parse the QueryEnumerato to a JSON document";
+        return "Unable to parse the QueryEnumerator to a JSON document";
     }
 
     static  queryEnumeratorToXML(): string {
-        return "Unable to parse the QueryEnumerato to a XML document";
+        return "Unable to parse the QueryEnumerator to a XML document";
     }
 
     static  addparametersToQuery(): string {
@@ -366,7 +367,7 @@ export class C8oExceptionMessage {
     }
 
     static  urlEncode(): string {
-        return "Failed to URL encode prameters";
+        return "Failed to URL encode parameters";
     }
 
     static  getParametersStringBytes(): string {
@@ -494,7 +495,7 @@ export class C8oExceptionMessage {
     }
 
     static  serializeC8oCallRequest(): string {
-        return "Failes to serialize the Convertigo call request";
+        return "Fails to serialize the Convertigo call request";
     }
 
     static  getResponseFromLocalCache(): string {
@@ -508,7 +509,7 @@ export class C8oExceptionMessage {
     static  handleC8oCallRequest(): string {
         return "Failed while running the c8o call request";
     }
-    public static runHttpRequest() : string {
+    public static runHttpRequest(): string {
         return "Failed to run the HTTP request";
     }
 

@@ -2,8 +2,7 @@ import {C8oFullSyncCbl, C8oFullSync} from "./c8oFullSync.service";
 import {
     C8oResponseListener,
     C8oResponseProgressListener,
-    C8oResponseJsonListener,
-    C8oResponseXmlListener
+    C8oResponseJsonListener
 } from "./c8oResponse.service";
 import {C8oUtils} from "./c8oUtils.service";
 import {FullSyncPolicy, FullSyncPostDocumentParameter} from "./c8o.service";
@@ -15,6 +14,7 @@ import {FullSyncGetViewParameter} from "./fullSyncGetViewParameter.service";
  */
 export class FullSyncRequestable {
 
+    //noinspection JSUnusedLocalSymbols
     static GET: FullSyncRequestable = new FullSyncRequestable("get", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve) => {
             let docid: string = C8oUtils.peekParameterStringValue(parameters, FullSyncGetDocumentParameter.DOCID.name, true);
@@ -24,6 +24,7 @@ export class FullSyncRequestable {
         });
     });
 
+    //noinspection JSUnusedLocalSymbols
     static DELETE: FullSyncRequestable = new FullSyncRequestable("delete", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve, reject) => {
             let docid: string = C8oUtils.peekParameterStringValue(parameters, FullSyncGetDocumentParameter.DOCID.name, true);
@@ -38,6 +39,7 @@ export class FullSyncRequestable {
             });
     });
 
+    //noinspection JSUnusedLocalSymbols
     static POST: FullSyncRequestable = new FullSyncRequestable("post", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve, reject) => {
             try {
@@ -55,6 +57,7 @@ export class FullSyncRequestable {
 
     });
 
+    //noinspection JSUnusedLocalSymbols
     static PUT_ATTACHMENT: FullSyncRequestable = new FullSyncRequestable("put_attachment", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve) => {
             let docid: string = C8oUtils.peekParameterStringValue(parameters, FullSyncGetDocumentParameter.DOCID.name, false);
@@ -67,6 +70,7 @@ export class FullSyncRequestable {
         });
     });
 
+    //noinspection JSUnusedLocalSymbols
     static DELETE_ATTACHMENT: FullSyncRequestable = new FullSyncRequestable("delete_attachment", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve) => {
             let docid: string = C8oUtils.peekParameterStringValue(parameters, FullSyncGetDocumentParameter.DOCID.name, false);
@@ -77,6 +81,7 @@ export class FullSyncRequestable {
         });
     });
 
+    //noinspection JSUnusedLocalSymbols
     static ALL: FullSyncRequestable = new FullSyncRequestable("all", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve) => {
             c8oFullSync.handleAllDocumentsRequest(databaseName, parameters).then((result) => {
@@ -87,6 +92,7 @@ export class FullSyncRequestable {
         });
     });
 
+    //noinspection JSUnusedLocalSymbols
     static VIEW: FullSyncRequestable = new FullSyncRequestable("view", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve, reject) => {
             let ddoc: string = C8oUtils.peekParameterStringValue(parameters, FullSyncGetViewParameter.DDOC.name, false);
@@ -120,10 +126,6 @@ export class FullSyncRequestable {
                     let varNull: JSON = null;
                     (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, parameters);
                 }
-                else if (c8oResponseListener instanceof C8oResponseXmlListener) {
-                    let varNull: JSON = null;
-                    (c8oResponseListener as C8oResponseXmlListener).onXmlResponseresponse(varNull, parameters);
-                }
                 if (pullFinish || pushFinish) {
                     resolve({"ok": true});
                 }
@@ -147,10 +149,6 @@ export class FullSyncRequestable {
                     let varNull: JSON = null;
                     (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, param);
                 }
-                else if (c8oResponseListener instanceof C8oResponseXmlListener) {
-                    let varNull: JSON = null;
-                    (c8oResponseListener as C8oResponseXmlListener).onXmlResponseresponse(varNull, param);
-                }
             })).catch((error) => {
                 reject(error);
             });
@@ -171,10 +169,6 @@ export class FullSyncRequestable {
                     let varNull: JSON = null;
                     (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, param);
                 }
-                else if (c8oResponseListener instanceof C8oResponseXmlListener) {
-                    let varNull: JSON = null;
-                    (c8oResponseListener as C8oResponseXmlListener).onXmlResponseresponse(varNull, param);
-                }
             })).catch((error) => {
                 reject(error);
             });
@@ -184,6 +178,7 @@ export class FullSyncRequestable {
             });
     });
 
+    //noinspection JSUnusedLocalSymbols,JSUnusedLocalSymbols
     static RESET: FullSyncRequestable = new FullSyncRequestable("reset", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve, reject) => {
             c8oFullSync.handleResetDatabaseRequest(databaseName).then((response) => {
@@ -196,6 +191,7 @@ export class FullSyncRequestable {
         });
     });
 
+    //noinspection JSUnusedLocalSymbols,JSUnusedLocalSymbols
     static CREATE: FullSyncRequestable = new FullSyncRequestable("create", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve) => {
             resolve(c8oFullSync.handleCreateDatabaseRequest(databaseName));
@@ -204,6 +200,7 @@ export class FullSyncRequestable {
         });
     });
 
+    //noinspection JSUnusedLocalSymbols,JSUnusedLocalSymbols
     static DESTROY: FullSyncRequestable = new FullSyncRequestable("destroy", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve, reject) => {
             c8oFullSync.handleDestroyDatabaseRequest(databaseName).then((response) => {
@@ -219,16 +216,16 @@ export class FullSyncRequestable {
 
 
     private value: string;
-    private hanfleFullSncrequestOp: (c8oFullSyncCbl: C8oFullSync, string: string, dictionnary: Object, c8oResponseListener: C8oResponseListener) => any;
+    private handleFullSyncRequestOp: (c8oFullSyncCbl: C8oFullSync, str: string, dictionary: Object, c8oResponseListener: C8oResponseListener) => any;
 
-    constructor(value: string, hanfleFullSncrequestOp: (c8oFullSyncCbl: C8oFullSyncCbl, string: string, dictionnary: Object, c8oResponseListener: C8oResponseListener) => any) {
+    constructor(value: string, handleFullSyncRequestOp: (c8oFullSyncCbl: C8oFullSyncCbl, str: string, dictionary: Object, c8oResponseListener: C8oResponseListener) => any) {
         this.value = value;
-        this.hanfleFullSncrequestOp = hanfleFullSncrequestOp;
+        this.handleFullSyncRequestOp = handleFullSyncRequestOp;
     }
 
     handleFullSyncRequest(c8oFullSync: C8oFullSync, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any> {
         return new Promise((resolve, reject) => {
-            this.hanfleFullSncrequestOp(c8oFullSync, databaseName, parameters, c8oResponseListener).then((result) => {
+            this.handleFullSyncRequestOp(c8oFullSync, databaseName, parameters, c8oResponseListener).then((result) => {
                 resolve(result);
             }).catch((error) => {
                 reject(error);
@@ -241,15 +238,14 @@ export class FullSyncRequestable {
     static getFullSyncRequestable(value: string): FullSyncRequestable {
         let fullSyncRequestableValues: Array<FullSyncRequestable> = FullSyncRequestable.values();
         for (let i = 0; i < fullSyncRequestableValues.length; i++) {
-            if (fullSyncRequestableValues[i].value == value) {
+            if (fullSyncRequestableValues[i].value === value) {
                 return fullSyncRequestableValues[i];
             }
         }
     }
 
     static values(): Array<FullSyncRequestable> {
-        let array: [FullSyncRequestable] = [this.GET, this.DELETE, this.POST, this.ALL, this.VIEW, this.SYNC, this.REPLICATE_PULL, this.REPLICATE_PUSH, this.RESET, this.CREATE, this.DESTROY, this.PUT_ATTACHMENT, this.DELETE_ATTACHMENT];
-        return array;
+        return [this.GET, this.DELETE, this.POST, this.ALL, this.VIEW, this.SYNC, this.REPLICATE_PULL, this.REPLICATE_PUSH, this.RESET, this.CREATE, this.DESTROY, this.PUT_ATTACHMENT, this.DELETE_ATTACHMENT];
 
     }
 }

@@ -1,8 +1,5 @@
 import {C8oProgress} from "./c8oProgress.service";
 import {C8o} from "./c8o.service";
-export interface C8oOnProgress {
-    run(c8oProgress: C8oProgress);
-}
 
 export class C8oPromise<T> {
     private c8o: C8o;
@@ -97,8 +94,8 @@ export class C8oPromise<T> {
     }
 
     onResponse(response: T, parameters: Object) {
-        if ((this.lastResponse != null || this.lastResponse != undefined) && parameters[C8o.ENGINE_PARAMETER_FROM_LIVE] == undefined) {
-            if (this.nextPromise != null || this.nextPromise != undefined) {
+        if ((this.lastResponse != null || this.lastResponse !== undefined) && parameters[C8o.ENGINE_PARAMETER_FROM_LIVE] === undefined) {
+            if (this.nextPromise != null || this.nextPromise !== undefined) {
                 this.nextPromise.onResponse(response, parameters);
             }
         }
