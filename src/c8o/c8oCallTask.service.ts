@@ -120,10 +120,7 @@ export class C8oCallTask {
                                                     let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
 
                                                     if (!localCacheResponse.isExpired()) {
-                                                        if (responseType === C8o.RESPONSE_TYPE_XML) {
-                                                            resolve(C8oTranslator.stringToXml(localCacheResponse.getResponse()));
-                                                        }
-                                                        else if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                        if (responseType === C8o.RESPONSE_TYPE_JSON) {
                                                             resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
                                                         }
                                                     }
@@ -155,9 +152,7 @@ export class C8oCallTask {
                                     (localCacheResponse: C8oLocalCacheResponse) => {
                                         try {
                                             if (!localCacheResponse.isExpired()) {
-                                                if (responseType === C8o.RESPONSE_TYPE_XML) {
-                                                    resolve(C8oTranslator.stringToXml(localCacheResponse.getResponse()));
-                                                } else if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                if (responseType === C8o.RESPONSE_TYPE_JSON) {
                                                     resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
                                                 }
                                             }
@@ -183,9 +178,7 @@ export class C8oCallTask {
                                             (localCacheResponse: C8oLocalCacheResponse) => {
                                                 try {
                                                     if (!localCacheResponse.isExpired()) {
-                                                        if (responseType === C8o.RESPONSE_TYPE_XML) {
-                                                            resolve(C8oTranslator.stringToXml(localCacheResponse.getResponse()));
-                                                        } else if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                        if (responseType === C8o.RESPONSE_TYPE_JSON) {
                                                             resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
                                                         }
                                                     }

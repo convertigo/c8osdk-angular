@@ -414,7 +414,7 @@ export class C8o extends C8oBase {
 
     private extractendpoint() {
         if (!C8oUtils.isValidUrl(this.endpoint)) {
-            return new C8oException(C8oExceptionMessage.illegalArgumentInvalidURL(this.endpoint).toString());
+            throw new C8oException(C8oExceptionMessage.illegalArgumentInvalidURL(this.endpoint).toString());
         }
         let matches = C8o.RE_ENDPOINT.exec(this.endpoint.toString());
         if (matches === null) {

@@ -21,21 +21,6 @@ export class C8oException extends Error {
             this._cause = cause;
         }
     }
-
-    //noinspection JSUnusedLocalSymbols
-    private static filterMessage(message: string, cause: Error, all: boolean = false): string {
-        if (all) {
-            message = message + " | " + JSON.stringify(cause);
-            return message;
-        }
-        else if (cause.message !== undefined) {
-            message = message + " | " + cause.message;
-            return message;
-        }
-        else {
-            return message;
-        }
-    }
     public get cause(): Error{
         return this._cause;
     }

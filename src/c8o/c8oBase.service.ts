@@ -149,6 +149,10 @@ export class C8oBase {
             this._defaultDatabaseName = c8oBase.defaultDatabaseName;
             this._authenticationCookieValue = c8oBase.authenticationCookieValue;
             this._fullSyncLocalSuffix = c8oBase.fullSyncLocalSuffix;
+
+            this._fullSyncServerUrl = c8oBase.fullSyncServerUrl;
+            this._fullSyncUsername = c8oBase.fullSyncUsername;
+            this._fullSyncPassword = c8oBase.fullSyncPassword;
         }
     }
 }
