@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular2",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "convertigo's service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
