@@ -8,5 +8,7 @@ export class C8oUnavailableLocalCacheException extends C8oException {
     constructor(detailMessage: string, cause: Error);
     constructor(detailMessage: string, cause: Error = null) {
         super(detailMessage, cause);
+        // Since typescript 2.1.1 we have to set the prototype explicitly.
+        Object.setPrototypeOf(this, C8oUnavailableLocalCacheException.prototype);
     }
 }

@@ -14,11 +14,15 @@ export class C8oException extends Error {
         if (cause == null) {
             super(message);
             this.message = message;
+            // Since typescript 2.1.1 we have to set the prototype explicitly.
+            Object.setPrototypeOf(this, C8oException.prototype);
         }
         else {
             super(message);
             this.message = message;
             this._cause = cause;
+            // Since typescript 2.1.1 we have to set the prototype explicitly.
+            Object.setPrototypeOf(this, C8oException.prototype);
         }
     }
     public get cause(): Error{

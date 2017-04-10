@@ -5,5 +5,7 @@ export class C8oCouchBaseLiteException extends C8oException {
     constructor(message: string, cause: Error);
     constructor(message: string, cause: Error = null) {
         super(message, cause);
+        // Since typescript 2.1.1 we have to set the prototype explicitly.
+        Object.setPrototypeOf(this, C8oCouchBaseLiteException.prototype);
     }
 }

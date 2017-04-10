@@ -11,6 +11,8 @@ export class C8oHttpRequestException extends C8oException {
     constructor(message: string, cause: any = null) {
         super(message, cause);
         this.originalException = cause;
+        // Since typescript 2.1.1 we have to set the prototype explicitly.
+        Object.setPrototypeOf(this, C8oHttpRequestException.prototype);
 
     }
 }
