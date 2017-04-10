@@ -93,6 +93,7 @@
     "tsify": "^1.0.7",
     "tslint": "4.0.2",
     "tslint-loader": "3.3.0",
+    "typedoc": "^0.5.10",
     "typescript": "2.2.1",
     "typings": "^1.4.0",
     "webpack": "2.1.0-beta.27"
