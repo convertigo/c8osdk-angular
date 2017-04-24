@@ -1,8 +1,8 @@
-[![NPM](https://nodei.co/npm/c8osdkangular2.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/c8osdkangular2/)
+[![NPM](https://nodei.co/npm/c8osdkangular.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/c8osdkangular/)
 
-# C8oSDKAngular2  [![Build Status](https://travis-ci.org/convertigo/C8oSDKAngular2.svg?branch=master)](https://travis-ci.org/convertigo/C8oSDKAngular2.svg?branch=master) [![npm version](https://img.shields.io/npm/v/c8osdkangular2.svg)](https://www.npmjs.com/package/c8osdkangular2) #
+# C8oSDKAngular  [![Build Status](https://travis-ci.org/convertigo/C8oSDKAngular.svg?branch=master)](https://travis-ci.org/convertigo/C8oSDKAngular.svg?branch=master) [![npm version](https://img.shields.io/npm/v/c8osdkangular.svg)](https://www.npmjs.com/package/c8osdkangular) #
 
-This is the Convertigo provider for Angular (Angular 2+)
+This is the Convertigo provider for Angular
 
 Convertigo Client SDK is a set of libraries used by mobile or Windows desktop applications to access Convertigo Server services. An application using the SDK can easily access Convertigo services such as Sequences and Transactions.
 
@@ -22,7 +22,7 @@ This current package is the Angular SDK. For others SDKs see official Convertigo
 
 In Angular dependency injection is used to create a C8o instance
 
-    import { C8o } from "c8osdkangular2";
+    import { C8o } from "c8osdkangular";
     …
     // You must declare C8o within your NgModules C8o as a provider.
     // Then you will be able to get C8o object instancied thanks to Angular's dependency injection as the following example :
@@ -44,7 +44,7 @@ A C8oSettings can be instantiated from an existing C8oSettings or C8o instance.
 
 In order to finish the c8o initialization you must use init method from c8o object with a c8oSettings parameters
 
-    import { C8o, C8oSettings } from "c8osdkangular2";
+    import { C8o, C8oSettings } from "c8osdkangular";
     …
     // The only way
     let settings: C8oSettings = new C8oSettings();
