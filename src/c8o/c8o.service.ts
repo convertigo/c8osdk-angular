@@ -320,7 +320,7 @@ export class C8o extends C8oBase {
                 // if project is running on device
                 // get the uri from env.json
                 else if (window.location.href.startsWith("file")) {
-                    let uri = window.location.href.replace("app.html", "env.json");
+                    let uri = window.location.href.substring(0, window.location.href.indexOf("/www/") + 5) + "env.json";
                     this.http.get(uri)
                         .map(res => res.json())
                         .catch((error: Response | any) => {

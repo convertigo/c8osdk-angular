@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "convertigo's service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
@@ -25,7 +25,7 @@
   },
   "keywords": [
     "TypeScript",
-    "Angular 2",
+    "Angular",
     "Ionic 2",
     "Convertigo",
     "mbaas",
