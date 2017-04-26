@@ -310,16 +310,16 @@ export class C8o extends C8oBase {
         }
         if (nullableEndpoint) {
             this.promiseConstructor = new Promise((resolve) => {
-                // if project is running into web browser
+                // if project is running into web browser served by convertigo
                 // get the url from window.location
-                if (window.location.href.startsWith("http")) {
-                    let n = window.location.href.indexOf("/Display");
+                if (window.location.href.startsWith("http") && window.location.href.indexOf("/DisplayObjects") != -1) {
+                    let n = window.location.href.indexOf("/DisplayObjects");
                     this.endpoint = window.location.href.substring(0, n);
                     resolve();
                 }
-                // if project is running on device
+                // else if project is running on device or serve by ionic serve
                 // get the uri from env.json
-                else if (window.location.href.startsWith("file")) {
+                else {
                     let uri = window.location.href.substring(0, window.location.href.indexOf("/www/") + 5) + "env.json";
                     this.http.get(uri)
                         .map(res => res.json())
