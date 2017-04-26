@@ -320,7 +320,13 @@ export class C8o extends C8oBase {
                 // else if project is running on device or serve by ionic serve
                 // get the uri from env.json
                 else {
-                    let uri = window.location.href.substring(0, window.location.href.indexOf("/www/") + 5) + "env.json";
+                    let uri ="";
+                    if(window.location.href.startsWith("file")){
+                         uri = window.location.href.substring(0, window.location.href.indexOf("/www/") + 5) + "env.json";
+                    }
+                    else{
+                        uri = window.location.origin + "/env.json";
+                    }
                     this.http.get(uri)
                         .map(res => res.json())
                         .catch((error: Response | any) => {
