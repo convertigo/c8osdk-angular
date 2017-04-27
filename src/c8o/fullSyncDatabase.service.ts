@@ -196,7 +196,15 @@ export class C8oFullSyncDatabase {
                             (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
                         } else {
                             rep.cancel();
-                            reject(err);
+                            if(err.code === "ETIMEDOUT" && err.status === 0){
+                                reject("TIMEOUT");
+                            }
+                            else if(err.name === "unknown" && err.status === 0 && err.message === "getCheckpoint rejected with "){
+                                reject("NO_NETWORK");
+                            }
+                            else{
+                                reject(err);
+                            }
                         }
                     });
 
@@ -209,8 +217,15 @@ export class C8oFullSyncDatabase {
                     (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
                     rep.cancel();
 
-                } else {
-                     reject(err);
+                }
+                else if(err.code === "ETIMEDOUT" && err.status === 0){
+                    reject("TIMEOUT");
+                }
+                else if(err.name === "unknown" && err.status === 0 && err.message === "getCheckpoint rejected with "){
+                    reject("NO_NETWORK");
+                }
+                else{
+                    reject(err);
                 }
             });
 
@@ -308,7 +323,15 @@ export class C8oFullSyncDatabase {
 
                             } else {
                                 rep.cancel();
-                                reject(err);
+                                if(err.code === "ETIMEDOUT" && err.status === 0){
+                                    reject("TIMEOUT");
+                                }
+                                else if(err.name === "unknown" && err.status === 0 && err.message === "getCheckpoint rejected with "){
+                                    reject("NO_NETWORK");
+                                }
+                                else{
+                                    reject(err);
+                                }
                             }
                         });
                 }
@@ -319,7 +342,14 @@ export class C8oFullSyncDatabase {
                     parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
                     (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
                     rep.cancel();
-                } else {
+                }
+                else if(err.code === "ETIMEDOUT" && err.status === 0){
+                    reject("TIMEOUT");
+                }
+                else if(err.name === "unknown" && err.status === 0 && err.message === "getCheckpoint rejected with "){
+                    reject("NO_NETWORK");
+                }
+                else{
                     reject(err);
                 }
             });
