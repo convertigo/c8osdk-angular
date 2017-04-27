@@ -50,10 +50,10 @@ export class C8oFullSyncDatabase {
         try {
             if (c8o.couchUrl != null) {
                 this.database = new PouchDB(c8o.couchUrl + "/" + databaseName);
-                this.c8o.log.debug("PouchDb lunched on couchbaselite");
+                this.c8o.log.debug("PouchDb launched on couchbaselite");
             } else {
                 this.database = new PouchDB(databaseName);
-                this.c8o.log.debug("PouchDb lunched normally");
+                this.c8o.log.debug("PouchDb launched normally");
             }
         }
         catch (error) {
