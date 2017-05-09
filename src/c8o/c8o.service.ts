@@ -321,8 +321,8 @@ export class C8o extends C8oBase {
                 // get the uri from env.json
                 else {
                     let uri ="";
-                    if(window.location.href.startsWith("file")){
-                         uri = window.location.href.substring(0, window.location.href.indexOf("/www/") + 5) + "env.json";
+                    if(window.location.href.startsWith("file://")){
+                         uri = (window.location.href.substring(0, window.location.href.indexOf("/index.html"))) + "/env.json"
                     }
                     else{
                         uri = window.location.origin + "/env.json";
