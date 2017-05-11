@@ -48,7 +48,7 @@ export class C8o extends C8oBase {
     /**
      * The regex used to get the part of the endpoint before '/projects/...'
      */
-    private static RE_ENDPOINT = /^(https?:\/\/([^:]+)(:[0-9]+)?\/?.*?)\/projects\/([^\/]+)$/;
+    private static RE_ENDPOINT = /^(https?:\/\/([^:/]+)(:[0-9]+)?\/?.*?)\/projects\/([^\/]+)$/;
 
     /**
      *  Engine reserved parameters
