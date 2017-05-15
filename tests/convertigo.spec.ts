@@ -223,7 +223,7 @@ describe("provider: c8o.service.ts", () => {
                 c8o.init(Stuff.C8o).catch((err: C8oException) => {
                     expect(err).toBeUndefined();
                 });
-                let resp = await c8o.callJson(".Ping", "var1", "val1").assinc();
+                let resp = await c8o.callJson(".Ping", "var1", "val1").async();
                 expect(resp["document"]["pong"]).not.toBeNull();
                 console.log(resp["document"]["pong"])
                 done();
