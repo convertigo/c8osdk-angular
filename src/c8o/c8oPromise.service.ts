@@ -16,7 +16,7 @@ export class C8oPromise<T> {
         this.c8o = c8o;
     }
 
-    async assinc (): Promise<any> {
+    async async (): Promise<any> {
         let resp: any;
         await this.then((response, parameters) => {
             resp = response;
@@ -27,7 +27,7 @@ export class C8oPromise<T> {
         return resp;
 
     }
-    
+
     then(c8oOnResponse: (response: T, parameters: Object) => C8oPromise<T>) {
         if (this.nextPromise != null) {
             return this.nextPromise.then(c8oOnResponse);
