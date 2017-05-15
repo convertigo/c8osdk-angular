@@ -225,7 +225,6 @@ describe("provider: c8o.service.ts", () => {
                 });
                 let resp = await c8o.callJson(".Ping", "var1", "val1").async();
                 expect(resp["document"]["pong"]).not.toBeNull();
-                console.log(resp["document"]["pong"])
                 done();
             })().catch(() => {
                 done.fail("error is not supposed to happend");
