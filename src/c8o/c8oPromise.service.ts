@@ -16,6 +16,18 @@ export class C8oPromise<T> {
         this.c8o = c8o;
     }
 
+    async assinc (): Promise<any> {
+        let resp: any;
+        await this.then((response, parameters) => {
+            resp = response;
+            return null;
+        }).fail((error: Error, parameters: Object) => {
+            resp = error;
+        });
+        return resp;
+
+    }
+    
     then(c8oOnResponse: (response: T, parameters: Object) => C8oPromise<T>) {
         if (this.nextPromise != null) {
             return this.nextPromise.then(c8oOnResponse);

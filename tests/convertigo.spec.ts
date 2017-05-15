@@ -217,6 +217,23 @@ describe("provider: c8o.service.ts", () => {
         }
     );
 
+    it("should ping async (C8oDefaultPingAsync)", (done) => {
+        inject([C8o], (c8o: C8o) => {
+            (async (): Promise<any> => {
+                c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+                let resp = await c8o.callJson(".Ping", "var1", "val1").assinc();
+                expect(resp["document"]["pong"]).not.toBeNull();
+                console.log(resp["document"]["pong"])
+                done();
+            })().catch(() => {
+                done.fail("error is not supposed to happend");
+            });
+        })();
+
+    });
+
     it("should verify C8oExceptionMessages (C8oExceptionsMessages)", function (done) {
             new C8oRessourceNotFoundException("a", new Error("abc"));
             expect(C8oExceptionMessage.notImplementedFullSyncInterface()).toBe("You are using the default FullSyncInterface which is not implemented");
