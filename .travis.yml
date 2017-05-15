@@ -14,7 +14,7 @@ notifications:
       - charlesg@convertigo.com
       - nicolasa@convertigo.com
     on_success: change # default: change
-    on_failure: always # default: always
+    on_failure: change # default: always
 
 node_js:
   - '6'
