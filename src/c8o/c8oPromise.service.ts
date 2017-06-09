@@ -16,16 +16,15 @@ export class C8oPromise<T> {
         this.c8o = c8o;
     }
 
-    async async (): Promise<any> {
-        let resp: any;
-        await this.then((response, parameters) => {
-            resp = response;
-            return null;
-        }).fail((error: Error, parameters: Object) => {
-            resp = error;
+    async(): Promise<any> {
+        return new Promise((resolve, reject)=>{
+            this.then((response, parameters) => {
+                resolve(response);
+                return null;
+            }).fail((error: Error, parameters: Object) => {
+                reject(error);
+            });
         });
-        return resp;
-
     }
 
     then(c8oOnResponse: (response: T, parameters: Object) => C8oPromise<T>) {

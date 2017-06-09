@@ -119,6 +119,9 @@ class Functions {
             );
 
     }
+    static async pingasync(){
+
+    }
 }
 
 class PlainObjectA {
@@ -223,8 +226,14 @@ describe("provider: c8o.service.ts", () => {
                 c8o.init(Stuff.C8o).catch((err: C8oException) => {
                     expect(err).toBeUndefined();
                 });
-                let resp = await c8o.callJson(".Ping", "var1", "val1").async();
-                expect(resp["document"]["pong"]).not.toBeNull();
+                await c8o.callJson(".Ping", "var1", "val1").async()
+                    .then((resp)=>{
+                        expect(resp["document"]["pong"].var1).toBe("val1")
+                    })
+                    .catch((err)=>{
+                        expect(err).toBeNull();
+                    });
+
                 done();
             })().catch(() => {
                 done.fail("error is not supposed to happend");
