@@ -289,6 +289,7 @@ export class C8o extends C8oBase {
         super();
         this._http = http;
         this.data = null;
+        this.c8oLogger = new C8oLogger(this, true);
     }
 
     /**
@@ -368,7 +369,8 @@ export class C8o extends C8oBase {
                 this.copy(c8oSettings);
 
                 this.httpInterface = new C8oHttpInterface(this);
-                this.c8oLogger = new C8oLogger(this);
+                this.c8oLogger.affect_val(this, false);
+                this.c8oLogger.logRemoteInit();
 
                 document.addEventListener("offline", () => {
                     this.c8oLogger.info("Network offline");
