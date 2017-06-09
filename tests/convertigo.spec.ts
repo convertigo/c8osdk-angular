@@ -55,8 +55,8 @@ class Stuff {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
-            .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.ERROR);
+            .setLogRemote(true)
+            .setLogLevelLocal(C8oLogLevel.DEBUG);
         return c8oSettings;
     }
 
@@ -238,6 +238,25 @@ describe("provider: c8o.service.ts", () => {
             })().catch(() => {
                 done.fail("error is not supposed to happend");
             });
+        })();
+
+    });
+
+    it("should ping local (c8opinglocal)", (done) => {
+        inject([C8o], (c8o: C8o) => {
+
+                c8o.log.fatal("abcdef");
+            setTimeout(()=>{
+
+                c8o.init(Stuff.C8o).then(()=>{
+                    setTimeout(()=>{ done(); }, 2000);
+                }).catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+
+
+            }, 5000);
+
         })();
 
     });
