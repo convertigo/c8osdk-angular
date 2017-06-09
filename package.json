@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.1.28",
+  "version": "2.1.29",
   "description": "convertigo's MBaaS client API service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
@@ -54,7 +54,7 @@
     "@angular/platform-browser-dynamic": "4.1.2",
     "@types/pouchdb": "5.4.28",
     "pouchdb-browser": "^6.1.1",
-    "rxjs": "^5.4.0",
+    "rxjs": "5.1.1",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.11"
   },
