@@ -242,6 +242,30 @@ describe("provider: c8o.service.ts", () => {
 
     });
 
+    it("should ping Observable (C8oDefaultPingObservable)", (done) => {
+        inject([C8o], (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            let observable = c8o.callJson(".Ping", "var1", "val1").toObservable();
+            observable.subscribe(
+                (response)=>{
+                    expect(response["document"]["pong"].var1).toBe("val1");
+                    console.log("La Valeur de ma réponse est:")
+                    console.log(response["document"]["pong"].var1);
+                },
+                (error)=>{
+                    expect(error).toBeNull();
+                },
+                ()=>{
+                    console.log("completed");
+                    done();
+                }
+            )
+        })();
+
+    });
+
     it("should verify C8oExceptionMessages (C8oExceptionsMessages)", function (done) {
             new C8oRessourceNotFoundException("a", new Error("abc"));
             expect(C8oExceptionMessage.notImplementedFullSyncInterface()).toBe("You are using the default FullSyncInterface which is not implemented");
@@ -812,6 +836,7 @@ describe("provider: c8o.service.ts", () => {
             })();
         }
     );
+
 
     /*it("should check that a ssl call on http is not possible (C8o0Ssl1TrustFail)",
         async(inject([C8o], (c8o: C8o) => {
