@@ -363,14 +363,6 @@ export class C8o extends C8oBase {
             });
         }
 
-        /**
-         * Looking for splashScreen timeOut
-         */
-        if (this._automaticRemoveSplashsCreen) {
-            if (navigator["splashscreen"] !== undefined) {
-                navigator["splashscreen"].hide();
-            }
-        }
         this.promiseInit = Promise.all([this.promiseConstructor]).then(() => {
             return new Promise((resolve) => {
                 this.copy(c8oSettings);
@@ -416,6 +408,23 @@ export class C8o extends C8oBase {
             });
         });
         return this.promiseInit;
+    }
+
+    /**
+     * This should be called OnPlatform Ready to remove splashscreen if necessary
+     *
+     */
+    public finalizeInit(){
+        Promise.all([this.promiseInit]).then(() => {
+            /**
+             * Looking for splashScreen timeOut
+             */
+            if (this._automaticRemoveSplashsCreen) {
+                if (navigator["splashscreen"] !== undefined) {
+                    navigator["splashscreen"].hide();
+                }
+            }
+        });
     }
 
     private extractendpoint() {
