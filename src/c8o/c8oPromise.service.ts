@@ -1,5 +1,7 @@
 import {C8oProgress} from "./c8oProgress.service";
 import {C8o} from "./c8o.service";
+import {Observable} from "rxjs/Observable";
+
 
 export class C8oPromise<T> {
     private c8o: C8o;
@@ -25,6 +27,10 @@ export class C8oPromise<T> {
                 reject(error);
             });
         });
+    }
+
+    toObservable() : Observable<any> {
+        return Observable.fromPromise(this.async());
     }
 
     then(c8oOnResponse: (response: T, parameters: Object) => C8oPromise<T>) {
