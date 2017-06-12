@@ -1424,7 +1424,7 @@ describe("provider: c8o.service.ts", () => {
             inject([C8o], function(c8o: C8o)  {
                 c8o.init(Stuff.C8o_FS_PULL).catch(() => {
                     console.log("ahaha");
-                    done.fail("error is not supposed to happend");
+                    done.fail("error is not supposed to happend during init");
                 });
 
                 c8o.callJson(".InitFsPull")
@@ -1457,26 +1457,33 @@ describe("provider: c8o.service.ts", () => {
                             })
                             .fail((error2) => {
                                 expect(error2 instanceof C8oException).toBeTruthy();
-                                c8o.callJson(".LoginTesting")
-                                    .then((response: any) => {
-                                        expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-                                        return c8o.callJson("fs://.replicate_pull");
-                                    })
-                                    .then((response: any) => {
-                                        expect(response["ok"]).toBeTruthy();
-                                        return c8o.callJson("fs://.get", "docid", "456");
-                                    })
-                                    .then((response: any) => {
-                                        expect(response["data"]).toBe("456");
-                                        return null; // c8o.callJson(".LogoutTesting");
-                                    })
-                                    .then(() => {
-                                        done();
-                                        return null;
-                                    })
-                                    .fail(() => {
-                                        done.fail("error is not supposed to happend");
-                                    });
+                                c8o.callJson("fs://.reset").then((resp)=>{
+                                    c8o.callJson(".LoginTesting")
+
+                                        .then((response: any) => {
+                                            expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+                                            return c8o.callJson("fs://.replicate_pull");
+                                        })
+                                        .then((response: any) => {
+                                            expect(response["ok"]).toBeTruthy();
+                                            return c8o.callJson("fs://.get", "docid", "456");
+                                        })
+                                        .then((response: any) => {
+                                            expect(response["data"]).toBe("456");
+                                            return null; // c8o.callJson(".LogoutTesting");
+                                        })
+                                        .then(() => {
+                                            done();
+                                            return null;
+                                        })
+                                        .fail((error) => {
+                                            console.log(JSON.stringify(error));
+                                            console.log(JSON.stringify(error.cause));
+                                            done.fail("error is not supposed to happend");
+                                        });
+                                    return null;
+                                })
+
                             });
                     });
             })();
@@ -1577,6 +1584,9 @@ describe("provider: c8o.service.ts", () => {
                     .then((response: any) => {
                         value = response["rows"][0]["value"];
                         expect(405.0).toBe(value);
+                        return c8o.callJson("fs://.reset");
+                    })
+                    .then((response: any) => {
                         return c8o.callJson(".LoginTesting");
                     })
                     .then((response: any) => {
