@@ -242,7 +242,7 @@ describe("provider: c8o.service.ts", () => {
 
     });
 
-    it("should ping local (c8opinglocal)", (done) => {
+    it("should log after init (c8ologAfterinit)", (done) => {
         inject([C8o], (c8o: C8o) => {
 
                 c8o.log.fatal("abcdef");
@@ -642,37 +642,40 @@ describe("provider: c8o.service.ts", () => {
             let c8oSettings: C8oSettings = new C8oSettings();
             c8oSettings.setLogC8o(false);
             c8oSettings.setEndPoint(Info.endpoint);
-            c8o.init(c8oSettings).catch((err: C8oException) => {
-                expect(err).toBeUndefined();
-            });
-            let id: string = "logID=" + new Date().getTime().valueOf();
-            c8o.callJson(".GetLogs",
-                "init", id
-            ).then(() => {
-                setTimeout(() => {
-                    c8o.log.error(id);
-                    let arg  = ["ERROR", "WARN", "INFO", "DEBUG", "TRACE", "FATAL"];
-                    c8o.log.warn(id);
-                    c8o.log.info(id);
-                    c8o.log.debug(id);
-                    c8o.log.trace(id);
-                    c8o.log.fatal(id);
-                    Functions.CheckLogRemoteHelper(c8o, arg, id);
-                    c8o.logRemote = false;
-                    c8o.log.info(id);
-                    setTimeout(() => {
-                        c8o.callJson(".GetLogs")
-                            .then((response: any) => {
-                                expect(response["document"]["line"]).toBeUndefined();
-                                done();
-                                return null;
-                        });
-                    }, 333);
-                }, 333);
-                return null;
-            }).fail(() => {
-                done.fail("error is not supposed to happend");
-            });
+            c8o.init(c8oSettings)
+                .then(()=>{
+                    let id: string = "logID=" + new Date().getTime().valueOf();
+                    c8o.callJson(".GetLogs",
+                        "init", id
+                    ).then(() => {
+                        setTimeout(() => {
+                            c8o.log.error(id);
+                            let arg  = ["ERROR", "WARN", "INFO", "DEBUG", "TRACE", "FATAL"];
+                            c8o.log.warn(id);
+                            c8o.log.info(id);
+                            c8o.log.debug(id);
+                            c8o.log.trace(id);
+                            c8o.log.fatal(id);
+                            Functions.CheckLogRemoteHelper(c8o, arg, id);
+                            c8o.logRemote = false;
+                            c8o.log.info(id);
+                            setTimeout(() => {
+                                c8o.callJson(".GetLogs")
+                                    .then((response: any) => {
+                                        expect(response["document"]["line"]).toBeUndefined();
+                                        done();
+                                        return null;
+                                    });
+                            }, 333);
+                        }, 333);
+                        return null;
+                    }).fail(() => {
+                        done.fail("error is not supposed to happend");
+                    });
+                })
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
         })();
         }
     );
