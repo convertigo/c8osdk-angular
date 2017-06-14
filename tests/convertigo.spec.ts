@@ -159,7 +159,7 @@ describe("provider: c8o.service.ts", () => {
            c8o.init(settings).catch((err: C8oException) => {
                expect(err).toBeUndefined();
            }).then(() => {
-               expect(C8o.getSdkVersion()).toBe("2.1.1");
+               expect(C8o.getSdkVersion()).toBe("2.1.30");
                c8o.couchUrl = "http://fakecoururl.com";
                expect(c8o.couchUrl).toBe("http://fakecoururl.com");
                c8o.logC8o = true;
