@@ -136,7 +136,7 @@ export class C8o extends C8oBase {
      * @return Current version of the SDK as "x.y.z".
      */
     static getSdkVersion(): string {
-        return "2.1.1";
+        return "2.1.30";
     }
 
     /** Network **/
