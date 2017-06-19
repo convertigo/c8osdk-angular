@@ -57,8 +57,8 @@ export class C8oCallTask {
 
 
 
-    handleRequest(): Promise<any> {
-        return new Promise((resolve, reject) => {
+    async handleRequest(): Promise<any> {
+        return new Promise(async (resolve, reject) => {
             try {
                 let isFullSyncRequest: boolean = C8oFullSync.isFullSyncRequest(this.parameters);
                 if (isFullSyncRequest) {
@@ -70,7 +70,7 @@ export class C8oCallTask {
                         let dbName: string = (C8oUtils.getParameterStringValue(this.parameters, C8o.ENGINE_PARAMETER_PROJECT, true) as string).substring(C8oFullSync.FULL_SYNC_PROJECT.length);
                         this.c8o.addLive(liveid, dbName, this);
                     }
-                    this.c8o.c8oFullSync.handleFullSyncRequest(this.parameters, this.c8oResponseListener)
+                    await this.c8o.c8oFullSync.handleFullSyncRequest(this.parameters, this.c8oResponseListener)
                         .then(
                             (result) => {
                                 resolve(result);
@@ -110,44 +110,48 @@ export class C8oCallTask {
                                 }
                                 // here we are not testing if localcahe is available.
                                 // if connection is not available this will generates an exception that will be caught
-                                    (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier)
-                                        .then(
-                                            (result) => {
-                                                if (result instanceof C8oUnavailableLocalCacheException) {
-                                                    // no entry
-                                                }
-                                                else {
-                                                    let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
+                                console.log("awaiting")
+                                await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier)
+                                    .then(
+                                        (result) => {
+                                            if (result instanceof C8oUnavailableLocalCacheException) {
+                                                // no entry
+                                                console.log("unaviable local cache")
+                                            }
+                                            else {
+                                                let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
 
-                                                    if (!localCacheResponse.isExpired()) {
-                                                        if (responseType === C8o.RESPONSE_TYPE_JSON) {
-                                                            resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
-                                                        }
+                                                if (!localCacheResponse.isExpired()) {
+                                                    if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                        console.log("getting from localcache")
+                                                        resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
                                                     }
                                                 }
-                                            })
-                                        .catch(
-                                            (error) => {
-                                                if (error instanceof C8oUnavailableLocalCacheException) {
-                                                    // no entry
-                                                }
-                                                else {
-                                                    reject(error);
-                                                }
-                                            });
+                                            }
+                                        })
+                                    .catch(
+                                        (error) => {
+                                            if (error instanceof C8oUnavailableLocalCacheException) {
+                                                // no entry
+                                            }
+                                            else {
+                                                reject(error);
+                                            }
+                                        });
+                                console.log("awaiting2")
 
                             }
                         }
                     }
-
+                    console.log("calling");
                     // Get Response
                     this.parameters[C8o.ENGINE_PARAMETER_DEVICE_UUID] = this.c8o.deviceUUID;
                     this.c8oCallUrl = this.c8o.endpoint + "/." + responseType;
-                    this.c8o.httpInterface.handleRequest(this.c8oCallUrl, this.parameters
+                    await this.c8o.httpInterface.handleRequest(this.c8oCallUrl, this.parameters
                     ).catch(
-                        (error) => {
+                        async (error) => {
                             if (localCacheEnabled) {
-                                (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
+                                await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
                                 ).then(
                                     (localCacheResponse: C8oLocalCacheResponse) => {
                                         try {
@@ -169,16 +173,17 @@ export class C8oCallTask {
                                 reject(new C8oException(C8oExceptionMessage.handleC8oCallRequest(), error, true));
                             }
                         }).then(
-                        (result) => {
+                        async (result) => {
                             if (result !== undefined) {
                                 if (result["error"] !== undefined) {
                                     if (localCacheEnabled) {
-                                        (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
+                                        await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
                                         ).then(
                                             (localCacheResponse: C8oLocalCacheResponse) => {
                                                 try {
                                                     if (!localCacheResponse.isExpired()) {
                                                         if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                            console.log("getting from localcache ....")
                                                             resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
                                                         }
                                                     }
@@ -225,7 +230,7 @@ export class C8oCallTask {
                                                 expirationDate = localCache.ttl + (new Date).getTime();
                                             }
                                             let localCacheResponse: C8oLocalCacheResponse = new C8oLocalCacheResponse(responseString, responseType, expirationDate);
-                                            let p1 = (this.c8o.c8oFullSync as C8oFullSyncCbl).saveResponseToLocalCache(c8oCallRequestIdentifier, localCacheResponse);
+                                            let p1 = await (this.c8o.c8oFullSync as C8oFullSyncCbl).saveResponseToLocalCache(c8oCallRequestIdentifier, localCacheResponse);
                                             Promise.all([p1])
                                                 .then(() => {
                                                     resolve(response);
@@ -243,10 +248,10 @@ export class C8oCallTask {
                 }
             }
             catch (error) {
-                reject(error);
+                (error);
             }
-
         });
+
 
     }
 
