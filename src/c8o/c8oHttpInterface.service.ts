@@ -28,7 +28,10 @@ export class C8oHttpInterface {
                 str.push(encodeURIComponent(p) + "=" + encodeURIComponent(parameters[p]));
             }
         }
-        return str.join("&");
+        let query = str.join("&");
+        // Add this to instruct Convertigo server to remove any name space in the jSON keys
+        // to prevent keys like this:  'namespace:key'
+        return (query + "&__removeNamespaces=true");
     }
 
     async handleRequest(url: string, parameters: Object): Promise<any> {
