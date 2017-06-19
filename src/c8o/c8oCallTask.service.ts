@@ -111,42 +111,39 @@ export class C8oCallTask {
                                 // here we are not testing if localcahe is available.
                                 // if connection is not available this will generates an exception that will be caught
                                 console.log("awaiting")
-                                await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier)
-                                    .then(
-                                        (result) => {
-                                            if (result instanceof C8oUnavailableLocalCacheException) {
-                                                // no entry
-                                                console.log("unaviable local cache")
-                                            }
-                                            else {
-                                                let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
+                                try{
+                                    let result = await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier);
+                                    if (result instanceof C8oUnavailableLocalCacheException) {
+                                        // no entry
+                                        console.log("unaviable local cache")
+                                    }
+                                    else {
+                                        let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
 
-                                                if (!localCacheResponse.isExpired()) {
-                                                    if (responseType === C8o.RESPONSE_TYPE_JSON) {
-                                                        console.log("getting from localcache")
-                                                        resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
-                                                    }
-                                                }
+                                        if (!localCacheResponse.isExpired()) {
+                                            if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                console.log("getting from localcache")
+                                                resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
+                                                return;
                                             }
-                                        })
-                                    .catch(
-                                        (error) => {
-                                            if (error instanceof C8oUnavailableLocalCacheException) {
-                                                // no entry
-                                            }
-                                            else {
-                                                reject(error);
-                                            }
-                                        });
-                                console.log("awaiting2")
-
+                                        }
+                                    }
+                                }
+                                catch (error) {
+                                    if (error instanceof C8oUnavailableLocalCacheException) {
+                                        // no entry
+                                    }
+                                    else {
+                                        reject(error);
+                                    }
+                                }
                             }
                         }
                     }
-                    console.log("calling");
                     // Get Response
                     this.parameters[C8o.ENGINE_PARAMETER_DEVICE_UUID] = this.c8o.deviceUUID;
                     this.c8oCallUrl = this.c8o.endpoint + "/." + responseType;
+                    
                     await this.c8o.httpInterface.handleRequest(this.c8oCallUrl, this.parameters
                     ).catch(
                         async (error) => {
