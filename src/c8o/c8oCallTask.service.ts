@@ -110,28 +110,31 @@ export class C8oCallTask {
                                 }
                                 // here we are not testing if localcahe is available.
                                 // if connection is not available this will generates an exception that will be caught
-                                try{
-                                    let result = await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier);
-                                    if (result instanceof C8oUnavailableLocalCacheException) {
-                                        // no entry
-                                    }
-                                    else {
-                                        let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
+                                console.log(JSON.stringify(localCache));
+                                if(localCache.priority.isAvailable) {
+                                    try {
+                                        let result = await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier);
+                                        if (result instanceof C8oUnavailableLocalCacheException) {
+                                            // no entry
+                                        }
+                                        else {
+                                            let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
 
-                                        if (!localCacheResponse.isExpired()) {
-                                            if (responseType === C8o.RESPONSE_TYPE_JSON) {
-                                                resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
-                                                return;
+                                            if (!localCacheResponse.isExpired()) {
+                                                if (responseType === C8o.RESPONSE_TYPE_JSON) {
+                                                    resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
+                                                    return;
+                                                }
                                             }
                                         }
                                     }
-                                }
-                                catch (error) {
-                                    if (error instanceof C8oUnavailableLocalCacheException) {
-                                        // no entry
-                                    }
-                                    else {
-                                        reject(error);
+                                    catch (error) {
+                                        if (error instanceof C8oUnavailableLocalCacheException) {
+                                            // no entry
+                                        }
+                                        else {
+                                            reject(error);
+                                        }
                                     }
                                 }
                             }
