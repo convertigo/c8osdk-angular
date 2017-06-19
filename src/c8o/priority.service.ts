@@ -4,20 +4,15 @@ import {C8o} from "./c8o.service";
  * When the device has no network access, the local cache response is used, if existing.
  */
 export class Priority {
-    isAvailable: (c8o: C8o) => boolean;
+    isAvailable: boolean;
 
     //noinspection JSUnusedLocalSymbols
-    public static SERVER: Priority = new Priority((c8o) => {
-        return true;
-    });
+    public static SERVER: Priority = new Priority(false);
 
     //noinspection JSUnusedLocalSymbols
-    public static LOCAL: Priority = new Priority((c8o) => {
-            return true;
-        }
-    );
+    public static LOCAL: Priority = new Priority(true);
 
-    constructor(isAvailable: (c8o: C8o) => boolean) {
+    constructor(isAvailable: boolean) {
         this.isAvailable = isAvailable;
 
     }
