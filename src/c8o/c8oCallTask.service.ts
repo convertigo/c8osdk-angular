@@ -110,19 +110,16 @@ export class C8oCallTask {
                                 }
                                 // here we are not testing if localcahe is available.
                                 // if connection is not available this will generates an exception that will be caught
-                                console.log("awaiting")
                                 try{
                                     let result = await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier);
                                     if (result instanceof C8oUnavailableLocalCacheException) {
                                         // no entry
-                                        console.log("unaviable local cache")
                                     }
                                     else {
                                         let localCacheResponse: C8oLocalCacheResponse = (result as C8oLocalCacheResponse);
 
                                         if (!localCacheResponse.isExpired()) {
                                             if (responseType === C8o.RESPONSE_TYPE_JSON) {
-                                                console.log("getting from localcache")
                                                 resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
                                                 return;
                                             }
@@ -180,7 +177,6 @@ export class C8oCallTask {
                                                 try {
                                                     if (!localCacheResponse.isExpired()) {
                                                         if (responseType === C8o.RESPONSE_TYPE_JSON) {
-                                                            console.log("getting from localcache ....")
                                                             resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
                                                         }
                                                     }
@@ -245,7 +241,7 @@ export class C8oCallTask {
                 }
             }
             catch (error) {
-                (error);
+                reject(error);
             }
         });
 
