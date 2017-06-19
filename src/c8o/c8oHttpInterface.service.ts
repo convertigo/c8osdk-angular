@@ -31,7 +31,7 @@ export class C8oHttpInterface {
         return str.join("&");
     }
 
-    handleRequest(url: string, parameters: Object): Promise<any> {
+    async handleRequest(url: string, parameters: Object): Promise<any> {
         // get rid of the optional trailing #RouteHint present in the sequence
         if (parameters["__sequence"] !== undefined) {
             if (parameters["__sequence"].indexOf("#") !== -1) {

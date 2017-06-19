@@ -43,7 +43,7 @@ export class C8oFullSync {
      * @return promise<any>
      * @throws C8oException
      */
-    public handleFullSyncRequest(_parameters: Object, listener: C8oResponseListener): Promise<any> {
+    public async handleFullSyncRequest(_parameters: Object, listener: C8oResponseListener): Promise<any> {
         let parameters = (JSON.parse(JSON.stringify(_parameters)));
         let projectParameterValue: string = C8oUtils.peekParameterStringValue(parameters, C8o.ENGINE_PARAMETER_PROJECT, true);
         if (!projectParameterValue.startsWith(C8oFullSync.FULL_SYNC_PROJECT)) {
@@ -567,7 +567,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
     }
 
     // DONE class C8oFullSyncCBL->getResponseFromLocalCache
-    getResponseFromLocalCache(c8oCallRequestIdentifier: string): Promise<any> {
+    async getResponseFromLocalCache(c8oCallRequestIdentifier: string): Promise<any> {
         let fullSyncDatabase = this.getOrCreateFullSyncDatabase(C8o.LOCAL_CACHE_DATABASE_NAME);
         let localCacheDocument = null;
         return new Promise((resolve, reject) => {
@@ -625,7 +625,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
     }
 
     // DONE class C8oFullSyncCBL->saveResponseToLocalCache
-    saveResponseToLocalCache(c8oCallRequestIdentifier: string, localCacheResponse: C8oLocalCacheResponse): Promise<any> {
+    async saveResponseToLocalCache(c8oCallRequestIdentifier: string, localCacheResponse: C8oLocalCacheResponse): Promise<any> {
         let fullSyncDatabase: C8oFullSyncDatabase = this.getOrCreateFullSyncDatabase(C8o.LOCAL_CACHE_DATABASE_NAME);
         return new Promise((resolve) => {
             fullSyncDatabase.getdatabase.get(c8oCallRequestIdentifier).then((localCacheDocument) => {
