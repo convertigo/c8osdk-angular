@@ -107,7 +107,7 @@ describe("provider: common verifications", () => {
     it("should log after init (c8ologAfterinit)", (done) => {
         inject([C8o], (c8o: C8o) => {
 
-            c8o.log.fatal("Test log after init");
+            c8o.log.info("Test log after init");
             setTimeout(()=>{
 
                 c8o.init(Stuff.C8o).then(()=>{
