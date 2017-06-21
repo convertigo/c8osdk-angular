@@ -19,7 +19,7 @@ import {C8oUtils} from "../src/c8o/c8oUtils.service";
 import {C8oRessourceNotFoundException} from "../src/c8o/Exception/c8oRessourceNotFoundException.service";
 import {Functions, Info, PlainObjectA, PlainObjectB, Stuff} from "./utils.help";
 
-describe("provider: common verifications", () => {
+describe("provider: fullsync verifications", () => {
     beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
         TestBed.configureTestingModule({
