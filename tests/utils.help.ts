@@ -29,7 +29,7 @@ export class Stuff {
         c8oSettings
             .setEndPoint(Info.endpoint)
             .setLogRemote(true)
-            .setLogLevelLocal(C8oLogLevel.DEBUG);
+            .setLogLevelLocal(C8oLogLevel.ERROR);
         return c8oSettings;
     }
 
