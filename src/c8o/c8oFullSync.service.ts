@@ -398,8 +398,8 @@ export class C8oFullSyncCbl extends C8oFullSync {
                         resolve(result);
                     }
 
-                }).catch(() => {
-                reject(new C8oException(C8oExceptionMessage.couchRequestGetView()));
+                }).catch((error) => {
+                    reject(new C8oException(C8oExceptionMessage.couchRequestGetView(), error));
             });
         });
 
