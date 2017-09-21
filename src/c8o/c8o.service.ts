@@ -608,10 +608,12 @@ export class C8o extends C8oBase {
             if(database_name == null){
                 database_name = this.defaultDatabaseName;
             }
-            let fullsyncdb = (this.c8oFullSync as C8oFullSyncCbl).getOrCreateFullSyncDatabase(database_name);
-            fullsyncdb.getdatabase.getAttachment(id, attachment_name).then((buffer) => {
-                resolve(buffer);
-            });
+            if((this.c8oFullSync as C8oFullSyncCbl) != undefined){
+                let fullsyncdb = (this.c8oFullSync as C8oFullSyncCbl).getOrCreateFullSyncDatabase(database_name);
+                fullsyncdb.getdatabase.getAttachment(id, attachment_name).then((buffer) => {
+                    resolve(buffer);
+                });
+            }
         });
     }
 
