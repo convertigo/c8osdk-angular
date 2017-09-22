@@ -113,7 +113,7 @@ export class C8oFullSyncDatabase {
         }
 
         let remoteDB = new PouchDB(this.c8oFullSyncDatabaseUrl);
-        let rep = this.database.sync(remoteDB);
+        let rep = this.database.sync(remoteDB, {timeout: 600000, retry: true});
         let param = parameters;
         let progress: C8oProgress = new C8oProgress();
         progress.raw = rep;
@@ -190,23 +190,29 @@ export class C8oFullSyncDatabase {
                             }
                         })
                         .on("error", (err) => {
-                        if (err.message === "Unexpected end of JSON input") {
-                            progress.finished = true;
-                            progress.status = "live";
-                            (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
-                        } else {
-                            rep.cancel();
-                            if(err.code === "ETIMEDOUT" && err.status === 0){
-                                reject("TIMEOUT");
+                            if (err.message === "Unexpected end of JSON input") {
+                                progress.finished = true;
+                                progress.status = "live";
+                                (c8oResponseListener as C8oResponseProgressListener).onProgressResponse(progress, parameters);
+                            } else {
+                                rep.cancel();
+                                if(err.code === "ETIMEDOUT" && err.status === 0){
+                                    if(parameters["force_retry"] == true){
+                                        this.c8o.log.warn("C80=>FullSyncDatabase: Timeout handle during fullsync replication (fs://.sync) \n Forcing Restarting replication");
+                                        this.database.sync(remoteDB, {timeout: 600000, retry: true});
+                                    }
+                                    else{
+                                        this.c8o.log.warn("C80=>FullSyncDatabase: Timeout handle during fullsync replication (fs://.sync) \n Restarting automatically replication");
+                                    }
+                                }
+                                else if(err.name === "unknown" && err.status === 0 && err.message === "getCheckpoint rejected with "){
+                                    reject("NO_NETWORK");
+                                }
+                                else{
+                                    reject(err);
+                                }
                             }
-                            else if(err.name === "unknown" && err.status === 0 && err.message === "getCheckpoint rejected with "){
-                                reject("NO_NETWORK");
-                            }
-                            else{
-                                reject(err);
-                            }
-                        }
-                    });
+                        });
 
                 }
             }).on("error", (err) => {
@@ -219,7 +225,13 @@ export class C8oFullSyncDatabase {
 
                 }
                 else if(err.code === "ETIMEDOUT" && err.status === 0){
-                    reject("TIMEOUT");
+                    if(parameters["force_retry"] == true){
+                        this.c8o.log.warn("C80=>FullSyncDatabase: Timeout handle during fullsync replication (fs://.sync) \n Forcing Restarting replication");
+                        this.database.sync(remoteDB, {timeout: 600000, retry: true});
+                    }
+                    else{
+                        this.c8o.log.warn("C80=>FullSyncDatabase: Timeout handle during fullsync replication (fs://.sync) \n Restarting automatically replication");
+                    }
                 }
                 else if(err.name === "unknown" && err.status === 0 && err.message === "getCheckpoint rejected with "){
                     reject("NO_NETWORK");
