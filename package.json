@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.1.39",
+  "version": "2.1.40",
   "description": "convertigo's MBaaS client API service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
