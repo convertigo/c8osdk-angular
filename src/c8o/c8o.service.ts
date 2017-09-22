@@ -391,22 +391,6 @@ export class C8o extends C8oBase {
                 this.c8oLogger.logMethodCall("C8o Constructor");
                 this.c8oFullSync = new C8oFullSyncCbl(this);
                 resolve();
-            }).then(() => {
-                return new Promise((resolve, reject) => {
-                    if (window["cblite"] !== undefined) {
-                        window["cblite"].getURL((err, url) => {
-                            if (err) {
-                                reject(err);
-                            }
-                            url = url.replace(new RegExp("/$"), "");
-                            this.couchUrl = url;
-                            resolve();
-                        });
-                    }
-                    else {
-                        resolve();
-                    }
-                });
             });
         });
         return this.promiseInit;
@@ -416,16 +400,36 @@ export class C8o extends C8oBase {
      * This should be called OnPlatform Ready to remove splashscreen if necessary
      *
      */
-    public finalizeInit(){
-        Promise.all([this.promiseInit]).then(() => {
-            /**
-             * Looking for splashScreen timeOut
-             */
-            if (this._automaticRemoveSplashsCreen) {
-                if (navigator["splashscreen"] !== undefined) {
-                    navigator["splashscreen"].hide();
+    public finalizeInit(): Promise<any>{
+        return new Promise((resolve)=>{
+            Promise.all([this.promiseInit]).then(() => {
+                /**
+                 * Looking for splashScreen timeOut
+                 */
+                if (this._automaticRemoveSplashsCreen) {
+                    if (navigator["splashscreen"] !== undefined) {
+                        navigator["splashscreen"].hide();
+                    }
                 }
-            }
+                /**
+                 * Looking for cblite
+                 */
+                if (window["cblite"] != undefined) {
+                    window["cblite"].getURL((err, url) => {
+                        if (err) {
+                            resolve();
+                        }
+                        else{
+                            url = url.replace(new RegExp("/$"), "");
+                            this.couchUrl = url;
+                            resolve();
+                        }
+                    });
+                }
+                else {
+                    resolve();
+                }
+            });
         });
     }
 
