@@ -142,8 +142,9 @@ export class C8oCallTask {
                     // Get Response
                     this.parameters[C8o.ENGINE_PARAMETER_DEVICE_UUID] = this.c8o.deviceUUID;
                     this.c8oCallUrl = this.c8o.endpoint + "/." + responseType;
-                    
-                    await this.c8o.httpInterface.handleRequest(this.c8oCallUrl, this.parameters
+                    let params : Object = new Object();
+                    params= Object.assign(params, this.parameters)
+                    await this.c8o.httpInterface.handleRequest(this.c8oCallUrl, params
                     ).catch(
                         async (error) => {
                             if (localCacheEnabled) {
