@@ -49,12 +49,19 @@ export class C8oFullSyncDatabase {
         this.databaseName = databaseName + localSuffix;
         try {
             if (c8o.couchUrl != null) {
-                this.database = new PouchDB(c8o.couchUrl + "/" + databaseName);
-                this.c8o.log.debug("PouchDb launched on couchbaselite");
+                if(window["device"]["platform"] == "iOS"){
+                    this.database = new PouchDB(databaseName);
+                    this.c8o.log.debug("PouchDb lunched normally for iOS");
+                }
+                else{
+                    this.database = new PouchDB(c8o.couchUrl + "/" + databaseName);
+                    this.c8o.log.debug("PouchDb launched on couchbaselite");
+                }
             } else {
                 this.database = new PouchDB(databaseName);
                 this.c8o.log.debug("PouchDb launched normally");
             }
+
         }
         catch (error) {
             throw error;
