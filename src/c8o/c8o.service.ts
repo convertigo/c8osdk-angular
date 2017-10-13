@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import              "rxjs/Rx";
 import {C8oBase} from "./c8oBase.service";
 import {C8oUtils} from "./c8oUtils.service";
-import {Http, Response} from "@angular/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {C8oHttpInterface} from "./c8oHttpInterface.service";
 import {C8oLogger} from "./c8oLogger.service";
 import {C8oFullSync} from "./c8oFullSync.service";
@@ -171,7 +171,7 @@ export class C8o extends C8oBase {
     livesDb: Array<string> = [];
 
     private data: any;
-    private _http: Http;
+    private _http: HttpClient;
     private _couchUrl: string = null;
     private promiseConstructor: Promise<any>;
     private promiseInit: Promise<any>;
@@ -272,7 +272,7 @@ export class C8o extends C8oBase {
         return C8o.deviceUUID;
     }
 
-    public get httpPublic(): Http {
+    public get httpPublic(): HttpClient {
         return this._http;
     }
 
@@ -285,7 +285,7 @@ export class C8o extends C8oBase {
      *
      * @throws C8oException In case of invalid parameter or initialization failure.
      */
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
         super();
         this._http = http;
         this.data = null;
@@ -329,6 +329,30 @@ export class C8o extends C8oBase {
                         uri = window.location.origin + "/env.json";
                     }
                     this.http.get(uri)
+                        .subscribe(
+                            data => {
+                                this.data = data;
+                                //noinspection TypeScriptUnresolvedVariable
+                                let remoteBase = data["remoteBase"].toString();
+                                let n = remoteBase.indexOf("/_private");
+                                this.endpoint = remoteBase.substring(0, n);
+                                this._automaticRemoveSplashsCreen = data["splashScreenRemoveMode"] !== "manual";
+                                resolve();
+                            },
+                            error=>{
+                                alert("Missing env.json file");
+                                let errMsg: string;
+                                if (error instanceof Error) {
+                                    errMsg = error.message;
+                                } else {
+                                    errMsg = `${error.status} - ${error.statusText || ""} ${error}`;
+                                }
+                                return Observable.throw(errMsg);
+                            }
+                        );
+
+                    /*
+                    suscribe()
                         .map(res => res.json())
                         .catch((error: Response | any) => {
                             alert("Missing env.json file");
@@ -342,15 +366,7 @@ export class C8o extends C8oBase {
                             }
                             return Observable.throw(errMsg);
                         })
-                        .subscribe(data => {
-                            this.data = data;
-                            //noinspection TypeScriptUnresolvedVariable
-                            let remoteBase = data.remoteBase.toString();
-                            let n = remoteBase.indexOf("/_private");
-                            this.endpoint = remoteBase.substring(0, n);
-                            this._automaticRemoveSplashsCreen = data["splashScreenRemoveMode"] !== "manual";
-                            resolve();
-                        });
+                     */
                 }
             }).then(() => {
                 this.extractendpoint();

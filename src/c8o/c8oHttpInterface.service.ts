@@ -1,4 +1,4 @@
-import {Response, Headers} from "@angular/http";
+import {HttpResponse, HttpHeaders} from "@angular/common/http";
 import {C8o} from "./c8o.service";
 import {Observable} from "rxjs";
 import {C8oExceptionMessage} from "./Exception/c8oExceptionMessage.service";
@@ -41,9 +41,8 @@ export class C8oHttpInterface {
                 parameters["__sequence"] = parameters["__sequence"].substring(0, parameters["__sequence"].indexOf("#"));
             }
         }
-        let headers = new Headers();
-        headers.append("Content-Type", "application/x-www-form-urlencoded");
-        // headers.append("User-Agent", "Convertigo Client SDK " + C8o.getSdkVersion());
+
+        let headers = new HttpHeaders().append("Content-Type", "application/x-www-form-urlencoded");
 
         if (this.firstCall) {
             this.p1 = new Promise((resolve) => {
@@ -52,8 +51,6 @@ export class C8oHttpInterface {
                     headers: headers,
                     withCredentials: true
                 })
-                    .map(this.extractData)
-                    .catch(this.handleError)
                     .subscribe(
                         response => resolve(response),
                         error => {resolve({"error" : (new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))}); }
@@ -68,10 +65,8 @@ export class C8oHttpInterface {
                         headers: headers,
                         withCredentials: true
                     })
-                        .map(this.extractData)
-                        .catch(this.handleError)
                         .subscribe(
-                            response => { resolve(response); },
+                            response => { console.log("!!!!!!!!!!!!!!!!!!!");console.log(JSON.stringify(response));resolve(response); },
                             error => { reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))); }
                         );
 
@@ -82,31 +77,7 @@ export class C8oHttpInterface {
         }
     }
 
-    private extractData(res: Response) {
-        return res.json();
-    }
 
-    private handleError(error: Response | any) {
-        // In a real world app, we might use a remote logging infrastructure
-        let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || "";
-            let err;
-            if (body.error !==  undefined) {
-                err = body.error;
-            }
-            else if (body.isTrusted !== undefined) {
-                err = "{\"isTrusted\":" + body.isTrusted + "}";
-            }
-            else {
-                err = JSON.stringify(body);
-            }
-            errMsg = `${error.status} - ${error.statusText || ""} ${err}`;
-        } else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        return Observable.throw(errMsg);
-    }
 
     handleC8oCallRequest(url: string, parameters: Object): Promise<any> {
         this.c8o.c8oLogger.logC8oCall(url, parameters);

@@ -8,13 +8,14 @@ import {C8o} from "../src/c8o/c8o.service";
 import {C8oException} from "../src/c8o/Exception/c8oException.service";
 import {C8oPromise} from "../src/c8o/c8oPromise.service";
 import {Functions, Info, Stuff} from "./utils.help";
+import {HttpClientModule} from "@angular/common/http";
 
 describe("provider: basic calls verifications", () => {
     beforeEach(() => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
         TestBed.configureTestingModule({
             imports: [
-                HttpModule,
+                HttpClientModule,
                 BrowserModule
             ],
             providers: [
