@@ -14,6 +14,7 @@ import {C8oResponseJsonListener} from "../src/c8o/c8oResponse.service";
 import {C8oUtils} from "../src/c8o/c8oUtils.service";
 import {C8oRessourceNotFoundException} from "../src/c8o/Exception/c8oRessourceNotFoundException.service";
 import { Info, Stuff} from "./utils.help";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -23,7 +24,7 @@ describe("provider: common verifications", () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
         TestBed.configureTestingModule({
             imports: [
-                HttpModule,
+                HttpClientModule,
                 BrowserModule
             ],
             providers: [
