@@ -144,7 +144,7 @@ export class C8oCallTask {
                     this.c8oCallUrl = this.c8o.endpoint + "/." + responseType;
                     let params : Object = new Object();
                     params= Object.assign(params, this.parameters)
-                    await this.c8o.httpInterface.handleRequest(this.c8oCallUrl, params
+                    await this.c8o.httpInterface.handleRequest(this.c8oCallUrl, params, this.c8oResponseListener
                     ).catch(
                         async (error) => {
                             if (localCacheEnabled) {
