@@ -483,7 +483,7 @@ export class C8o extends C8oBase {
                 parameters = {};
             }
             else {
-                parameters = (JSON.parse(JSON.stringify(parameters)));
+                //parameters = (JSON.parse(JSON.stringify(parameters)));
             }
 
             let regex = C8o.RE_REQUESTABLE.exec(requestable);
@@ -527,7 +527,7 @@ export class C8o extends C8oBase {
                     parameters = {};
                 }
                 else {
-                    parameters = (JSON.parse(JSON.stringify(parameters)));
+                    //parameters = (JSON.parse(JSON.stringify(parameters)));
                 }
                 let task: C8oCallTask = new C8oCallTask(this, parameters, c8oResponseListener, c8oExceptionListener);
                 task.run();
