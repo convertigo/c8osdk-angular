@@ -28,7 +28,7 @@ export class C8oHttpInterface {
                         return 1;
                     }
                     else if(this.isCordova()){
-                        if(parameters[p][p1] instanceof window["cordova"]["file"]){
+                        if(parameters[p][p1] instanceof URL){
                             return 2;
                         }
                     }
@@ -37,6 +37,9 @@ export class C8oHttpInterface {
             else {
                 if(parameters[p] instanceof FileList){
                     return 1;
+                }
+                else if(this.isCordova()){
+                    return 2;
                 }
             }
         }
@@ -93,32 +96,29 @@ export class C8oHttpInterface {
 
 
     transformRequestfilecordova(parameters: Object): any {
-        let formdata : FormData=  new FormData();
+        let file: Array<any> = new Array();
+        let params: Object = new Object();
         for (let p in parameters) {
             if (parameters[p] instanceof Array) {
                 for (let p1 in parameters[p]) {
-                    if(parameters[p][p1] instanceof FileList){
-                        for (var i = 0; i < parameters[p][p1].length; i++) {
-                            formdata.append(p, parameters[p][p1][i], parameters[p][p1][i].name);
-                        }
+                    if(parameters[p][p1] instanceof URL){
+                        file.push([p1, parameters[p][p1]]);
                     }
                     else{
-                        formdata.append(p, parameters[p][p1])
+                        params[p1] = parameters[p][p1]["href"];
                     }
                 }
             }
             else {
-                if(parameters[p] instanceof FileList) {
-                    for (var j = 0; j < parameters[p].length; j++) {
-                        formdata.append(p, parameters[p][j], parameters[p][j].name);
-                    }
+                if(parameters[p] instanceof URL) {
+                    file.push([p, parameters[p]["href"]]);
                 }
                 else{
-                    formdata.append(p, parameters[p]);
+                    params[p] = parameters[p];
                 }
             }
         }
-        return formdata;
+        return [file, params];
     }
 
     private isCordova():boolean{
@@ -131,23 +131,6 @@ export class C8oHttpInterface {
             }
         }
         return this._isCordova;
-    }
-
-    private isPluginFile():boolean{
-        if(this._isPluginFile == null){
-            if(window["cordova"]["file"]!= undefined){
-                this._isPluginFile = true;
-            }
-            else{
-                this._isPluginFile = false;
-            }
-        }
-        return this._isPluginFile;
-    }
-
-    private preHandleRequest(url:string, parameters: Object, headers: Headers) {
-        // get rid of the optional trailing #RouteHint present in the sequence
-
     }
 
     async handleRequest(url: string, parameters: Object, c8oResponseListener?: C8oResponseListener): Promise<any> {
@@ -241,12 +224,43 @@ export class C8oHttpInterface {
 
             }
             case 2: {
+                let progress: C8oProgress = new C8oProgress();
+                progress.pull = false;
+                let varNull: JSON = null;
+                let options = new window["FileUploadOptions"]();
+                let data = this.transformRequestfilecordova(parameters);
+                let files = data[0];
+                if(files.length == 1){
+                    options.fileKey = files[0][0];
+                    options.fileName = files[0][1].substr(files[0][1].lastIndexOf('/') + 1);
+                    options.params = data[1];
+                    options.headers = {'Accept':'application/json'}
+                    return new Promise((resolve,reject)=>{
+                        Promise.all([this.p1]).then(() => {
+                            var ft = new window["FileTransfer"]();
+                            ft.onprogress = (progressEvent) => {
+                                if (progressEvent.lengthComputable) {
+                                    this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
+                                }
+                            };
+                            ft.upload(files[0][1], encodeURI(url), ((resp => {
+                                resolve(resp);
+                            })), ((err) => {
+                                reject(err);
+                            }), options);
+                        })
+                    })
+
+                }
+
+
+
 
             }
         }
 
     }
-    handleProgress(event: HttpProgressEvent, progress: C8oProgress, parameters: any, c8oResponseListener: C8oResponseListener, varNull: JSON){
+    handleProgress(event: any, progress: C8oProgress, parameters: any, c8oResponseListener: C8oResponseListener, varNull: JSON){
         progress.current = event.loaded;
         progress.total = event.total;
         if(event.loaded != event.total){
