@@ -171,7 +171,7 @@ export class C8oHttpInterface {
                 var ft = new window["FileTransfer"]();
                 ft.onprogress = (progressEvent) => {
                     if (progressEvent.lengthComputable) {
-                        this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
+                        this.handleProgress(progressEvent, progress, parameters, c8oResponseListener, varNull);
                     }
                 };
                 ft.upload(files[0][1], encodeURI(url), ((resp => {
