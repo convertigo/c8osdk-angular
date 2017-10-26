@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.1.45",
+  "version": "2.1.46",
   "description": "convertigo's MBaaS client API service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
@@ -19,9 +19,7 @@
     "postbuild": "find ./bundles -type f -exec sed -i 's/pouchdb_browser_1.default/pouchdb_browser_1/g' {} + && find ./src -type f -exec sed -i 's/new pouchdb_browser_1.default/new pouchdb_browser_1/g' {} +",
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/c8o/",
     "typedoc": "typedoc",
-    "build-dev": "tsc -p .",
-    "publish": "npm publish",
-    "publish:beta": "npm publish --tag beta"
+    "build-dev": "tsc -p ."
   },
   "repository": {
     "type": "git",
