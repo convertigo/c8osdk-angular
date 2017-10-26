@@ -141,124 +141,125 @@ export class C8oHttpInterface {
             }
         }
         switch (this.checkFile(parameters)){
-            //Angular Http
             case 0: {
-                parameters = this.transformRequest(parameters);
-                let headers = new HttpHeaders().set("Content-Type", "application/x-www-form-urlencoded");
-                if (this.firstCall) {
-                    this.p1 = new Promise((resolve, reject) => {
-                        this.firstCall = false;
-                        this.c8o.httpPublic.post(url, parameters, {
-                            headers: headers,
-                            withCredentials: true
-                        })
-                            .retry(1)
-                            .subscribe(
-                                response => resolve(response),
-                                error => {resolve({"error" : (new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))}); }
-                            );
-                    });
-                    return this.p1;
-                }
-                else {
-                    return new Promise((resolve, reject) => {
-                        Promise.all([this.p1]).then(() => {
-                            this.c8o.httpPublic.post(url, parameters, {
-                                headers: headers,
-                                withCredentials: true
-                            })
-                                .retry(1)
-                                .subscribe(
-                                    response => { resolve(response); },
-                                    error => { reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))); }
-                                );
-
-                        }).catch((error) => {
-                            reject(error);
-                        });
-                    });
-                }
+                return this.uplaodfilesHttpClient(url, parameters);
             }
             case 1: {
                 let form = this.transformRequestformdata(parameters);
-                let headers = new HttpHeaders().set('Accept', 'application/json');
-                let progress: C8oProgress = new C8oProgress();
-                progress.pull = false;
-                let varNull: JSON = null;
-
-                if (this.firstCall) {
-                    this.p1 = new Promise((resolve) => {
-                        this.firstCall = false;
-                        const httpRequest = new HttpRequest('POST', url, form, {reportProgress: true, withCredentials: true, headers: headers});
-                       this.c8o.httpPublic.request(httpRequest).subscribe(
-                           event=>{
-                               if (event.type === HttpEventType.UploadProgress) {
-                                   this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
-                               } else if (event instanceof HttpResponse) {
-                                  resolve(event);
-                               }
-                               },
-                           error => { resolve({"error" :(new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))}); })
-
-                    });
-                    return this.p1;
-                }
-                else {
-                    return new Promise((resolve, reject) => {
-                        Promise.all([this.p1]).then(() => {
-                            const httpRequest = new HttpRequest('POST', url, form, {reportProgress: true, withCredentials: true, headers: headers});
-                            this.c8o.httpPublic.request(httpRequest).subscribe(
-                                event=>{
-                                    if (event.type === HttpEventType.UploadProgress) {
-                                        this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
-
-                                    } else if (event instanceof HttpResponse) {
-                                        resolve(event);
-                                    }
-                                },
-                                error => { reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))); })
-
-                        });
-                    });
-                }
-
+                return this.uploadfilesHttpClientRequest(url,form,parameters,c8oResponseListener)
             }
             case 2: {
-                let progress: C8oProgress = new C8oProgress();
-                progress.pull = false;
-                let varNull: JSON = null;
-                let options = new window["FileUploadOptions"]();
-                let data = this.transformRequestfilecordova(parameters);
-                let files = data[0];
-                if(files.length == 1){
-                    options.fileKey = files[0][0];
-                    options.fileName = files[0][1].substr(files[0][1].lastIndexOf('/') + 1);
-                    options.params = data[1];
-                    options.headers = {'Accept':'application/json'}
-                    return new Promise((resolve,reject)=>{
-                        Promise.all([this.p1]).then(() => {
-                            var ft = new window["FileTransfer"]();
-                            ft.onprogress = (progressEvent) => {
-                                if (progressEvent.lengthComputable) {
-                                    this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
-                                }
-                            };
-                            ft.upload(files[0][1], encodeURI(url), ((resp => {
-                                resolve(resp);
-                            })), ((err) => {
-                                reject(err);
-                            }), options);
-                        })
-                    })
-
-                }
-
-
-
-
+                return this.uploadfilePluginCordova(url, parameters, c8oResponseListener);
             }
         }
 
+    }
+
+    uploadfilePluginCordova(url: string, parameters: Object, c8oResponseListener: C8oResponseListener):Promise<any>{
+        let progress: C8oProgress = new C8oProgress();
+        progress.pull = false;
+        let varNull: JSON = null;
+        let data = this.transformRequestfilecordova(parameters);
+        let files = data[0];
+        let options = new window["FileUploadOptions"]();
+        options.fileKey = files[0][0];
+        options.fileName = files[0][1].substr(files[0][1].lastIndexOf('/') + 1);
+        options.params = data[1];
+        options.headers = {'Accept':'application/json'}
+        return new Promise((resolve,reject)=>{
+            Promise.all([this.p1]).then(() => {
+                var ft = new window["FileTransfer"]();
+                ft.onprogress = (progressEvent) => {
+                    if (progressEvent.lengthComputable) {
+                        this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
+                    }
+                };
+                ft.upload(files[0][1], encodeURI(url), ((resp => {
+                    resolve(resp);
+                })), ((err) => {
+                    reject(err);
+                }), options);
+            })
+        })
+    }
+    uplaodfilesHttpClient(url: string, parameters: Object): Promise<any>{
+        parameters = this.transformRequest(parameters);
+        let headers = new HttpHeaders().set("Content-Type", "application/x-www-form-urlencoded");
+        if (this.firstCall) {
+            this.p1 = new Promise((resolve, reject) => {
+                this.firstCall = false;
+                this.c8o.httpPublic.post(url, parameters, {
+                    headers: headers,
+                    withCredentials: true
+                })
+                    .retry(1)
+                    .subscribe(
+                        response => resolve(response),
+                        error => {resolve({"error" : (new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))}); }
+                    );
+            });
+            return this.p1;
+        }
+        else {
+            return new Promise((resolve, reject) => {
+                Promise.all([this.p1]).then(() => {
+                    this.c8o.httpPublic.post(url, parameters, {
+                        headers: headers,
+                        withCredentials: true
+                    })
+                        .retry(1)
+                        .subscribe(
+                            response => { resolve(response); },
+                            error => { reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))); }
+                        );
+
+                }).catch((error) => {
+                    reject(error);
+                });
+            });
+        }
+    }
+    uploadfilesHttpClientRequest(url: string, form: FormData, parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any>{
+        let headers = new HttpHeaders().set('Accept', 'application/json');
+        let progress: C8oProgress = new C8oProgress();
+        progress.pull = false;
+        let varNull: JSON = null;
+
+        if (this.firstCall) {
+            this.p1 = new Promise((resolve) => {
+                this.firstCall = false;
+                const httpRequest = new HttpRequest('POST', url, form, {reportProgress: true, withCredentials: true, headers: headers});
+                this.c8o.httpPublic.request(httpRequest).subscribe(
+                    event=>{
+                        if (event.type === HttpEventType.UploadProgress) {
+                            this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
+                        } else if (event instanceof HttpResponse) {
+                            resolve(event);
+                        }
+                    },
+                    error => { resolve({"error" :(new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))}); })
+
+            });
+            return this.p1;
+        }
+        else {
+            return new Promise((resolve, reject) => {
+                Promise.all([this.p1]).then(() => {
+                    const httpRequest = new HttpRequest('POST', url, form, {reportProgress: true, withCredentials: true, headers: headers});
+                    this.c8o.httpPublic.request(httpRequest).subscribe(
+                        event=>{
+                            if (event.type === HttpEventType.UploadProgress) {
+                                this.handleProgress(event, progress, parameters, c8oResponseListener, varNull);
+
+                            } else if (event instanceof HttpResponse) {
+                                resolve(event);
+                            }
+                        },
+                        error => { reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))); })
+
+                });
+            });
+        }
     }
     handleProgress(event: any, progress: C8oProgress, parameters: any, c8oResponseListener: C8oResponseListener, varNull: JSON){
         progress.current = event.loaded;
