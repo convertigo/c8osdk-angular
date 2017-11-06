@@ -39,7 +39,9 @@ export class C8oHttpInterface {
                     return 1;
                 }
                 else if(this.isCordova()){
-                    return 2;
+                    if(parameters[p]instanceof URL){
+                        return 2;
+                    }
                 }
             }
         }
