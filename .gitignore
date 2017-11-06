@@ -2,6 +2,7 @@
 ## Misc
 #################
 **/.DS_Store
+package-lock.json
 nbproject
 manifest.mf
 build.xml
