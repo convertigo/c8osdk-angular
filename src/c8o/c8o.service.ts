@@ -136,7 +136,7 @@ export class C8o extends C8oBase {
      * @return Current version of the SDK as "x.y.z".
      */
     static getSdkVersion(): string {
-        return "2.1.30";
+        return "2.1.43-patch20171120";
     }
 
     /** Network **/
@@ -175,6 +175,7 @@ export class C8o extends C8oBase {
     private _couchUrl: string = null;
     private promiseConstructor: Promise<any>;
     private promiseInit: Promise<any>;
+    private promiseFinInit: Promise<any>;
 
 
     public get couchUrl(): string {
@@ -401,7 +402,7 @@ export class C8o extends C8oBase {
      *
      */
     public finalizeInit(): Promise<any>{
-        return new Promise((resolve)=>{
+        this.promiseFinInit = new Promise((resolve)=>{
             Promise.all([this.promiseInit]).then(() => {
                 /**
                  * Looking for splashScreen timeOut
@@ -431,6 +432,8 @@ export class C8o extends C8oBase {
                 }
             });
         });
+
+        return this.promiseFinInit;
     }
 
     private extractendpoint() {
@@ -504,7 +507,7 @@ export class C8o extends C8oBase {
      */
     public _call(parameters: Object = null, c8oResponseListener: C8oResponseListener = null, c8oExceptionListener: C8oExceptionListener = null) {
         // IMPORTANT: all c8o calls have to end here !
-        Promise.all([this.promiseInit]).then(() => {
+        Promise.all([this.promiseFinInit]).then(() => {
             try {
                 this.c8oLogger.logMethodCall("call", parameters, c8oResponseListener, c8oExceptionListener);
                 if (parameters == null) {
