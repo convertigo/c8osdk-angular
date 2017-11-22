@@ -16,7 +16,7 @@ export class C8oBase {
     protected _logRemote: boolean = true;
     protected _initialLogRemote: boolean = true;
     protected _logLevelLocal: C8oLogLevel = C8oLogLevel.NONE;
-    protected _logC8o: boolean = true;
+    protected _logC8o: boolean = false;
     protected _logOnFail: (exception: Error, parameters: Object) => void;
 
     /* FullSync */
