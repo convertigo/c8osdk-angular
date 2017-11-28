@@ -9,6 +9,7 @@ cache:
 sudo: false
 
 notifications:
+  slack: convertigo:tcjIiQJek1NZwdPs5mF7wu5c
   email:
     recipients:
       - charlesg@convertigo.com
