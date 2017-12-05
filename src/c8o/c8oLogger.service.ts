@@ -1,10 +1,9 @@
-import {Injectable} from "@angular/core";
 import {C8oLogLevel} from "./c8oLogLevel.service";
 import {C8o} from "./c8o.service";
 import {C8oException} from "./Exception/c8oException.service";
 import {C8oExceptionMessage} from "./Exception/c8oExceptionMessage.service";
 import {Queue} from "./c8oUtils.service";
-@Injectable()
+
 export class C8oLogger {
 
     // *** Constants ***//

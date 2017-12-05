@@ -43,7 +43,6 @@ describe("provider: common verifications", () => {
                 c8o.init(settings).catch((err: C8oException) => {
                     expect(err).toBeUndefined();
                 }).then(() => {
-                    expect(C8o.getSdkVersion()).toBe("2.1.48");
                     c8o.couchUrl = "http://fakecoururl.com";
                     expect(c8o.couchUrl).toBe("http://fakecoururl.com");
                     c8o.logC8o = true;

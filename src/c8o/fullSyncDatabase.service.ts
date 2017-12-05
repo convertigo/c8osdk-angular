@@ -3,7 +3,7 @@ import {C8o} from "./c8o.service";
 import {C8oProgress} from "./c8oProgress.service";
 import {FullSyncReplication} from "./fullSyncreplication.service";
 
-import * as PouchDB from "pouchdb-browser";
+import PouchDB from 'pouchdb-browser'
 /**
  * Created by charlesg on 10/01/2017.
  */
