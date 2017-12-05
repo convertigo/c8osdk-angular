@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Inject, Injectable} from "@angular/core";
 import              "rxjs/Rx";
 import {C8oBase} from "./c8oBase.service";
 import {C8oUtils} from "./c8oUtils.service";
@@ -286,7 +286,7 @@ export class C8o extends C8oBase {
      *
      * @throws C8oException In case of invalid parameter or initialization failure.
      */
-    constructor(private http: HttpClient) {
+    constructor(@Inject(HttpClient) private http: HttpClient) {
         super();
         this._http = http;
         this.data = null;
