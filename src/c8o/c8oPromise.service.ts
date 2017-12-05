@@ -1,7 +1,7 @@
 import {C8oProgress} from "./c8oProgress.service";
 import {C8o} from "./c8o.service";
-import {Observable} from "rxjs/Observable";
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromPromise';
 
 export class C8oPromise<T> {
     private c8o: C8o;

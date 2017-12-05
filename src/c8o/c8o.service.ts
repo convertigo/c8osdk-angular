@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import              "rxjs/Rx";
 import {C8oBase} from "./c8oBase.service";
 import {C8oUtils} from "./c8oUtils.service";
 import {HttpClient, HttpResponse} from "@angular/common/http";
@@ -18,7 +17,7 @@ import {C8oCallTask} from "./c8oCallTask.service";
 import {C8oException} from "./Exception/c8oException.service";
 import {C8oCouchBaseLiteException} from "./Exception/c8oCouchBaseLiteException.service";
 import {C8oExceptionListener} from "./Exception/c8oExceptionListener.service";
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs/Observable';
 import {C8oFullSyncChangeListener} from "./c8oFullSyncChangeListener.service";
 
 /**
@@ -129,15 +128,6 @@ export class C8o extends C8oBase {
 
     /* Static configuration */
     static deviceUUID: string = C8oUtils.getNewGUIDString();
-
-    /**
-     * Returns the current version of the SDK as "x.y.z".
-     *
-     * @return Current version of the SDK as "x.y.z".
-     */
-    static getSdkVersion(): string {
-        return "2.1.48";
-    }
 
     /** Network **/
 
