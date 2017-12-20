@@ -12,13 +12,20 @@ export class C8oHttpInterface {
     firstCall: boolean = true;
     p1: Promise<Object>;
     private _isCordova = null;
-    private _isPluginFile = null;
 
     constructor(c8o: C8o) {
         this.c8o = c8o;
         this.timeout = this.c8o.timeout;
     }
 
+    /**
+     * Check type of file given in parameters
+     * 0 : No file to upload
+     * 1 : FileList
+     * 2 : url when running in cordova
+     * @param {Object} parameters
+     * @return {number}
+     */
     checkFile(parameters: Object): number{
         for (let p in parameters) {
             if (parameters[p] instanceof Array) {
@@ -48,6 +55,11 @@ export class C8oHttpInterface {
         return 0;
     }
 
+    /**
+     * Url encode parameters
+     * @param {Object} parameters
+     * @return {string}
+     */
     transformRequest(parameters: Object): string {
         let str = [];
         for (let p in parameters) {
@@ -66,6 +78,12 @@ export class C8oHttpInterface {
         // to prevent keys like this:  'namespace:key'
         return (query + "&__removeNamespaces=true");
     }
+
+    /**
+     * Transform FormData parameters
+     * @param {Object} parameters
+     * @return {FormData}
+     */
     transformRequestformdata(parameters: Object): FormData {
         let formdata : FormData=  new FormData();
         for (let p in parameters) {
@@ -96,7 +114,11 @@ export class C8oHttpInterface {
     }
 
 
-
+    /**
+     * Extract file from parameters and return and array containing a file and params
+     * @param {Object} parameters
+     * @return {any}
+     */
     transformRequestfilecordova(parameters: Object): any {
         let file: Array<any> = new Array();
         let params: Object = new Object();
@@ -123,6 +145,10 @@ export class C8oHttpInterface {
         return [file, params];
     }
 
+    /**
+     * Check if we are in cordova environment
+     * @return {boolean}
+     */
     private isCordova():boolean{
         if(this._isCordova == null){
             if(window["cordova"]!= undefined){
@@ -135,8 +161,14 @@ export class C8oHttpInterface {
         return this._isCordova;
     }
 
+    /**
+     * Handle the request
+     * @param {string} url
+     * @param {Object} parameters
+     * @param {C8oResponseListener} c8oResponseListener
+     * @return {Promise<any>}
+     */
     async handleRequest(url: string, parameters: Object, c8oResponseListener?: C8oResponseListener): Promise<any> {
-
         if (parameters["__sequence"] !== undefined) {
             if (parameters["__sequence"].indexOf("#") !== -1) {
                 parameters["__sequence"] = parameters["__sequence"].substring(0, parameters["__sequence"].indexOf("#"));
@@ -148,7 +180,7 @@ export class C8oHttpInterface {
             }
             case 1: {
                 let form = this.transformRequestformdata(parameters);
-                return this.uploadfilesHttpClientRequest(url,form,parameters,c8oResponseListener)
+                return this.uploadfilesHttpClientRequest(url,form,parameters,c8oResponseListener);
             }
             case 2: {
                 return this.uploadfilePluginCordova(url, parameters, c8oResponseListener);
@@ -157,6 +189,13 @@ export class C8oHttpInterface {
 
     }
 
+    /**
+     * Upload file with cordova plugin
+     * @param {string} url
+     * @param {Object} parameters
+     * @param {C8oResponseListener} c8oResponseListener
+     * @return {Promise<any>}
+     */
     uploadfilePluginCordova(url: string, parameters: Object, c8oResponseListener: C8oResponseListener):Promise<any>{
         let progress: C8oProgress = new C8oProgress();
         progress.pull = false;
@@ -167,7 +206,9 @@ export class C8oHttpInterface {
         options.fileKey = files[0][0];
         options.fileName = files[0][1].substr(files[0][1].lastIndexOf('/') + 1);
         options.params = data[1];
-        options.headers = {'Accept':'application/json'}
+        let headersObject = {'Accept':'application/json', 'x-convertigo-sdk': this.c8o.sdkVersion};
+        Object.assign(headersObject, this.c8o.headers);
+        options.headers = headersObject;
         return new Promise((resolve,reject)=>{
             Promise.all([this.p1]).then(() => {
                 var ft = new window["FileTransfer"]();
@@ -181,12 +222,21 @@ export class C8oHttpInterface {
                 })), ((err) => {
                     reject(err);
                 }), options);
-            })
-        })
+            });
+        });
     }
+
+    /**
+     * Upload file using Http Client
+     * @param {string} url
+     * @param {Object} parameters
+     * @return {Promise<any>}
+     */
     uplaodfilesHttpClient(url: string, parameters: Object): Promise<any>{
         parameters = this.transformRequest(parameters);
-        let headers = new HttpHeaders().set("Content-Type", "application/x-www-form-urlencoded");
+        let headersObject = {"Content-Type": "application/x-www-form-urlencoded", "x-convertigo-sdk": this.c8o.sdkVersion};
+        Object.assign(headersObject, this.c8o.headers);
+        let headers = new HttpHeaders(headersObject);
         if (this.firstCall) {
             this.p1 = new Promise((resolve, reject) => {
                 this.firstCall = false;
@@ -221,11 +271,23 @@ export class C8oHttpInterface {
             });
         }
     }
+
+    /**
+     * Upload File using HttpClient Request
+     * @param {string} url
+     * @param {FormData} form
+     * @param {Object} parameters
+     * @param {C8oResponseListener} c8oResponseListener
+     * @return {Promise<any>}
+     */
     uploadfilesHttpClientRequest(url: string, form: FormData, parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any>{
-        let headers = new HttpHeaders().set('Accept', 'application/json');
+        let headersObject = {'Accept':'application/json', 'x-convertigo-sdk': this.c8o.sdkVersion};
+        Object.assign(headersObject, this.c8o.headers);
+        let headers = new HttpHeaders(headersObject);
         let progress: C8oProgress = new C8oProgress();
         progress.pull = false;
         let varNull: JSON = null;
+
 
         if (this.firstCall) {
             this.p1 = new Promise((resolve) => {
@@ -263,6 +325,15 @@ export class C8oHttpInterface {
             });
         }
     }
+
+    /**
+     * Handle progress
+     * @param event
+     * @param {C8oProgress} progress
+     * @param parameters
+     * @param {C8oResponseListener} c8oResponseListener
+     * @param {JSON} varNull
+     */
     handleProgress(event: any, progress: C8oProgress, parameters: any, c8oResponseListener: C8oResponseListener, varNull: JSON){
         progress.current = event.loaded;
         progress.total = event.total;
@@ -275,9 +346,4 @@ export class C8oHttpInterface {
         parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
         (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, parameters);
     }
-
-    /*handleC8oCallRequest(url: string, parameters: Object): Promise<any> {
-        this.c8o.c8oLogger.logC8oCall(url, parameters);
-        return this.handleRequest(url, parameters);
-    }*/
 }

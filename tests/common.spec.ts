@@ -33,6 +33,22 @@ describe("provider: common verifications", () => {
         });
     });
 
+    /*it("should check sdk version (CheckVersion)", function (done) {
+        inject([C8o], (c8o: C8o) => {
+            let settings: C8oSettings = new C8oSettings();
+            settings
+                .setEndPoint(Info.endpoint)
+                .setLogRemote(false)
+                .setLogLevelLocal(C8oLogLevel.ERROR);
+            c8o.init(settings).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            }).then(() => {
+                expect(c8o.sdkVersion).toBe("2.1.56");
+                done();
+            })
+        })();
+    });*/
+
     it("should check someParams (CheckParams)", function (done) {
             inject([C8o], (c8o: C8o) => {
                 let settings: C8oSettings = new C8oSettings();
