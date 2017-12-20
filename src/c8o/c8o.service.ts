@@ -20,6 +20,7 @@ import {C8oExceptionListener} from "./Exception/c8oExceptionListener.service";
 import { Observable } from 'rxjs/Observable';
 import {C8oFullSyncChangeListener} from "./c8oFullSyncChangeListener.service";
 
+declare var require: any;
 /**
  * Allows to send requests to a Convertigo Server (or Studio), these requests are called c8o calls.<br/>
  * C8o calls are done thanks to a HTTP request or a CouchbaseLite usage.<br/>
@@ -267,6 +268,10 @@ export class C8o extends C8oBase {
         return this._http;
     }
 
+    public get sdkVersion(): string {
+        return require("../../package.json").version;
+    }
+
     /**
      * This is the base object representing a Convertigo Server end point. This object should be instantiated
      * when the apps starts and be accessible from any class of the app. Although this is not common , you may have
@@ -282,7 +287,6 @@ export class C8o extends C8oBase {
         this.data = null;
         this.c8oLogger = new C8oLogger(this, true);
     }
-
     /**
      * This is the base object representing a Convertigo Server end point. This object should be instantiated
      * when the apps starts and be accessible from any class of the app. Although this is not common , you may have

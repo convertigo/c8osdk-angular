@@ -15,7 +15,10 @@ node_modules/*
 coverage
 *.metadata.json
 bundles
-*.js
+src/*.js
+src/c8o/*.js
+src/c8o/Exception/*.js
+tests/*.js
 *.map
 *.d.ts
 *.ngsummary.json

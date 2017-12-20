@@ -18,6 +18,10 @@ export class C8oSettings extends C8oBase {
         }
     }
 
+    /**
+     * Clone C8osettings object
+     * @return {C8oSettings}
+     */
     public clone(): C8oSettings {
         return new C8oSettings(this);
     }
@@ -46,21 +50,39 @@ export class C8oSettings extends C8oBase {
         this._timeout = timeout;
         return this;
     }
-
     /**
-     * Sets a value indicating whether https calls trust all certificates or not.<br/>
-     * Default is <b>false</b>.
-     * @param trustAllCertificates <b>true</b> if https calls trust all certificates; otherwise, <b>false</b>.
+     * Add a header
+     * @param name The name of header.
+     * @param value The value of header.
      * @returns The current <b>C8oSettings</b>, for chaining.
      */
-    /*public setTrustAllCertificates(trustAllCertificates: boolean): C8oSettings {
-        this._trustAllCertificates = trustAllCertificates;
+    public addHeader(name: string, value: string) {
+        this._headers[name] = value;
         return this;
-    }*/
+    }
 
-
+    /**
+     * addClientCertificate
+     * @param {string} anyCertificate
+     * @param {string} password
+     * @return {C8oSettings}
+     */
     public addClientCertificate(anyCertificate: string, password: string): C8oSettings;
+
+    /**
+     * addClientCertificate
+     * @param {number} anyCertificate
+     * @param {string} password
+     * @return {C8oSettings}
+     */
     public addClientCertificate(anyCertificate: number, password: string): C8oSettings;
+
+    /**
+     * addClientCertificate
+     * @param anyCertificate
+     * @param {string} password
+     * @return {C8oSettings}
+     */
     public addClientCertificate(anyCertificate: any, password: string): C8oSettings {
         if (typeof anyCertificate === "string") {
             if (this._clientCertificateFiles == null) {
@@ -114,12 +136,22 @@ export class C8oSettings extends C8oBase {
         return this;
     }
 
+    /**
+     * setLogC8o
+     * @param {boolean} logC8o
+     * @return {C8oSettings}
+     */
     public setLogC8o(logC8o: boolean): C8oSettings {
         this._logC8o = logC8o;
         return this;
     }
 
-    public  setLogOnFail(logOnFail: (exception: Error, parameters: Object) => void): C8oSettings {
+    /**
+     * setLogOnFail
+     * @param {(exception: Error, parameters: Object) => void} logOnFail
+     * @return {C8oSettings}
+     */
+    public setLogOnFail(logOnFail: (exception: Error, parameters: Object) => void): C8oSettings {
         this._logOnFail = logOnFail;
         return this;
     }
@@ -136,27 +168,52 @@ export class C8oSettings extends C8oBase {
         return this;
     }
 
+    /**
+     * setAuthenticationCookieValue
+     * @param {string} authenticationCookieValue
+     * @return {C8oSettings}
+     */
     public setAuthenticationCookieValue(authenticationCookieValue: string): C8oSettings {
         this._authenticationCookieValue = authenticationCookieValue;
         return this;
     }
 
-    public  setFullSyncServerUrl(fullSyncServerUrl: string): C8oSettings {
+    /**
+     * setFullSyncServerUrl
+     * @param {string} fullSyncServerUrl
+     * @return {C8oSettings}
+     */
+    public setFullSyncServerUrl(fullSyncServerUrl: string): C8oSettings {
         this._fullSyncServerUrl = fullSyncServerUrl;
         return this;
     }
 
-    public  setFullSyncUsername(fullSyncUsername: string): C8oSettings {
+    /**
+     * setFullSyncUsername
+     * @param {string} fullSyncUsername
+     * @return {C8oSettings}
+     */
+    public setFullSyncUsername(fullSyncUsername: string): C8oSettings {
         this._fullSyncUsername = fullSyncUsername;
         return this;
     }
 
-    public  setFullSyncPassword(fullSyncPassword: string): C8oSettings {
+    /**
+     * setFullSyncPassword
+     * @param {string} fullSyncPassword
+     * @return {C8oSettings}
+     */
+    public setFullSyncPassword(fullSyncPassword: string): C8oSettings {
         this._fullSyncPassword = fullSyncPassword;
         return this;
     }
 
-    public  setFullSyncLocalSuffix(fullSyncLocalSuffix: string): C8oSettings {
+    /**
+     * setFullSyncLocalSuffix
+     * @param {string} fullSyncLocalSuffix
+     * @return {C8oSettings}
+     */
+    public setFullSyncLocalSuffix(fullSyncLocalSuffix: string): C8oSettings {
         this._fullSyncLocalSuffix = fullSyncLocalSuffix;
         return this;
     }
@@ -167,7 +224,7 @@ export class C8oSettings extends C8oBase {
      * @param useEncryption
      * @returns The current <b>C8oSettings</b>, for chaining.
      */
-    public  setUseEncryption(useEncryption: boolean): C8oSettings {
+    public setUseEncryption(useEncryption: boolean): C8oSettings {
         this._useEncryption = useEncryption;
         return this;
     }

@@ -33,6 +33,12 @@ export class C8oFullSyncDatabase {
      * Used to make push replication (downloads changes from the remote database to the local one).
      */
     private pushFullSyncReplication: FullSyncReplication = new FullSyncReplication(false);
+    /**
+     * Used to make pull replication (uploads changes from the local database to the remote one).
+     */
+    private syncFullSyncReplication: FullSyncReplication = new FullSyncReplication();
+
+    private remotePouchHeader;
 
     /**
      * Creates a fullSync database with the specified name and its location.
@@ -45,23 +51,25 @@ export class C8oFullSyncDatabase {
      */
     constructor(c8o: C8o, databaseName: string, fullSyncDatabases: string, localSuffix: string) {
         this.c8o = c8o;
+        let header = {
+            'x-convertigo-sdk': this.c8o.sdkVersion
+        };
+        Object.assign(header, this.c8o.headers);
+        this.remotePouchHeader = {
+            ajax: {
+                headers: header
+            }
+        };
         this.c8oFullSyncDatabaseUrl = fullSyncDatabases + databaseName;
         this.databaseName = databaseName + localSuffix;
         try {
             if (c8o.couchUrl != null) {
-                if(window["device"]["platform"] == "iOS"){
-                    this.database = new PouchDB(databaseName);
-                    this.c8o.log.debug("PouchDb lunched normally for iOS");
-                }
-                else{
-                    this.database = new PouchDB(c8o.couchUrl + "/" + databaseName);
-                    this.c8o.log.debug("PouchDb launched on couchbaselite");
-                }
+                this.database = new PouchDB(c8o.couchUrl + "/" + databaseName);
+                this.c8o.log.debug("PouchDb launched on couchbaselite");
             } else {
                 this.database = new PouchDB(databaseName);
                 this.c8o.log.debug("PouchDb launched normally");
             }
-
         }
         catch (error) {
             throw error;
@@ -73,9 +81,7 @@ export class C8oFullSyncDatabase {
      * @returns Promise<any>
      */
     public startAllReplications(parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any> {
-        /*this.startPullReplication(parameters, c8oResponseListener);
-         return this.startPushReplication(parameters, c8oResponseListener);*/
-        return this.startSync(parameters, c8oResponseListener);
+        return this.startSync(this.syncFullSyncReplication, parameters, c8oResponseListener);
     }
 
     /**
@@ -94,10 +100,15 @@ export class C8oFullSyncDatabase {
         return this.startReplication(this.pushFullSyncReplication, parameters, c8oResponseListener);
     }
 
-    private startSync(parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any> {
+    private startSync(fullSyncReplication: FullSyncReplication, parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any> {
         let continuous: boolean = false;
         let cancel: boolean = false;
         let parametersObj: Object = {};
+
+        //stop replication if exists
+        if(fullSyncReplication.replication != null){
+            fullSyncReplication.replication.cancel();
+        }
 
         //check continuous flag
         if (parameters["continuous"] != null) {
@@ -159,8 +170,8 @@ export class C8oFullSyncDatabase {
             parametersObj["seq_interval"] = parameters["seq_interval"];
         }
 
-        let remoteDB = new PouchDB(this.c8oFullSyncDatabaseUrl);
-        let rep = this.database.sync(remoteDB, parametersObj);
+        let remoteDB = new PouchDB(this.c8oFullSyncDatabaseUrl, this.remotePouchHeader);
+        let rep = fullSyncReplication.replication = this.database.sync(remoteDB, parametersObj);
         let param = parameters;
         let progress: C8oProgress = new C8oProgress();
         progress.raw = rep;
@@ -315,7 +326,10 @@ export class C8oFullSyncDatabase {
         let continuous: boolean = false;
         let cancel: boolean = false;
         let parametersObj: Object = {};
-
+        //stop replication if exists
+        if(fullSyncReplication.replication != null){
+            fullSyncReplication.replication.cancel();
+        }
         //check continuous flag
         if (parameters["continuous"] != null) {
             if (parameters["continuous"] as boolean === true) {
@@ -376,9 +390,7 @@ export class C8oFullSyncDatabase {
             parametersObj["seq_interval"] = parameters["seq_interval"];
         }
 
-        let myDB: any;
-        myDB = PouchDB;
-        let remoteDB = new myDB(this.c8oFullSyncDatabaseUrl);
+        let remoteDB = new PouchDB(this.c8oFullSyncDatabaseUrl, this.remotePouchHeader);
         let rep = fullSyncReplication.replication = fullSyncReplication.pull ? this.database.replicate.from(remoteDB, parametersObj) : this.database.replicate.to(remoteDB, parametersObj);
 
         let progress: C8oProgress = new C8oProgress();

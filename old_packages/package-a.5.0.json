@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.1.57",
+  "version": "2.1.56",
   "description": "convertigo's MBaaS client API service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
@@ -51,7 +51,6 @@
     "@angular/http": "5.0.0",
     "@angular/platform-browser": "5.0.0",
     "@angular/platform-browser-dynamic": "5.0.0",
-    "@types/node": "^8.5.2",
     "@types/pouchdb": "6.3.1",
     "pouchdb-browser": "6.3.4",
     "rxjs": "5.5.2",

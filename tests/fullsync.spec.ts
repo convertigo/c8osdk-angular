@@ -574,7 +574,7 @@ describe("provider: fullsync verifications", () => {
                     });
             })();
         }
-    );
+    ); 
 
     it("should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)", function (done) {
             inject([C8o], function (c8o: C8o) {
