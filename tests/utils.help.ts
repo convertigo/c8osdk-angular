@@ -9,16 +9,16 @@ export class Info {
         return "http://";
     }
     static get host() {
-        //return "c8o-dev.convertigo.net";
-        return "localhost";
+        return "c8o-dev.convertigo.net";
+        //return "localhost";
     }
     static get port() {
-        //return "80";
-        return "18080"
+        return "80";
+        //return "18080"
     }
     static get project_path() {
-        //return "/cems/projects/ClientSDKtesting";
-        return "/convertigo/projects/ClientSDKtesting";
+        return "/cems/projects/ClientSDKtesting";
+        //return "/convertigo/projects/ClientSDKtesting";
     }
     static get endpoint() {
         return Info.http + Info.host + ":" + Info.port + Info.project_path;
