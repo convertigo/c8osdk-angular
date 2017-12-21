@@ -212,7 +212,7 @@ export class C8oFullSyncDatabase {
 
                 if (continuous) {
                     parametersObj["live"] = true;
-                    rep = this.database.sync(remoteDB, parametersObj);
+                    rep = fullSyncReplication.replication = this.database.sync(remoteDB, parametersObj);
                     progress.continuous = true;
                     progress.raw = rep;
                     progress.taskInfo = "n/a";
@@ -415,7 +415,7 @@ export class C8oFullSyncDatabase {
                 rep.cancel();
                 if (continuous) {
                     parametersObj["live"] = true;
-                    rep = this.database.sync(remoteDB, parametersObj);
+                    rep = fullSyncReplication.replication = this.database.sync(remoteDB, parametersObj);
                     progress.continuous = true;
                     progress.raw = rep;
                     progress.taskInfo = "n/a";
