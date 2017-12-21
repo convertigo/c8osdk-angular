@@ -35,6 +35,7 @@ describe("provider: fullsync verifications", () => {
     });
 
 
+
     it("should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)", function (done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -1121,6 +1122,36 @@ describe("provider: fullsync verifications", () => {
         }
     );
 
+    it("should check that Fullsync repliacte cancel when lauching two replication works(C8oFsReplicateCancelOnDoublon)", function (done) {
+        inject([C8o], (c8o: C8o) => {
+            let state: string;
+                c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+                c8o.callJson("fs://.reset")
+                    .then((response: any) => {
+                        expect(response["ok"]).toBeTruthy();
+                        c8o.callJson("fs://.replicate_pull")
+                            .progress((progress: C8oProgress) => {
+                                state = progress["_raw"]["cancelled"];
+                                return null;
+
+                            });
+                        c8o.callJson("fs://.replicate_pull")
+                            .then((response, parameters) => {
+                                setTimeout(()=>{
+                                        expect(state).toBeTruthy();
+                                        done();
+                                    }, 3000);
+
+                                return null;
+                            });
+                        return null;
+                    });
+            }
+        )();
+    });
+
     it("should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)", function (done) {
             inject([C8o], function (c8o: C8o) {
                 c8o.init(Stuff.C8o_LC).catch(() => {
@@ -1245,4 +1276,6 @@ describe("provider: fullsync verifications", () => {
             })();
         }
     );
+
+
 });
