@@ -1,6 +1,6 @@
 [![NPM](https://nodei.co/npm/c8osdkangular.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/c8osdkangular/)
 
-# C8oSDKAngular  [![Build Status](https://travis-ci.org/convertigo/C8oSDKAngular.svg?branch=master)](https://travis-ci.org/convertigo/C8oSDKAngular.svg?branch=master) [![npm version](https://img.shields.io/npm/v/c8osdkangular.svg)](https://www.npmjs.com/package/c8osdkangular) #
+# C8oSDKAngular  [![Build Status](https://api.travis-ci.org/convertigo/c8osdk-angular.svg?branch=master)](https://travis-ci.org/convertigo/c8osdk-angular) [![npm version](https://img.shields.io/npm/v/c8osdkangular.svg)](https://www.npmjs.com/package/c8osdkangular) #
 
 This is the Convertigo provider for Angular
 
