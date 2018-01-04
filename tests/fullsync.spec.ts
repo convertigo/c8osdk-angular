@@ -33,9 +33,6 @@ describe("provider: fullsync verifications", () => {
             ]
         });
     });
-
-
-
     it("should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)", function (done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -1234,6 +1231,7 @@ describe("provider: fullsync verifications", () => {
                         return null;
                     })
                     .fail((error) => {
+                        console.log(error.cause);
                         done.fail("error is not supposed to happend");
                     });
 
@@ -1269,7 +1267,7 @@ describe("provider: fullsync verifications", () => {
                                     }, 2000);
                                     return null;
                                 });
-                        }, 2000);
+                        }, 3000);
                         return null;
                     });
                 }, 2000);
@@ -1277,5 +1275,38 @@ describe("provider: fullsync verifications", () => {
         }
     );
 
+    it("should check that Fullsync Put attachment works (C8oFsPutAttachment)", function (done) {
+            inject([C8o], (c8o: C8o) => {
+                c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+                let myId: string = "C8oFsPutAttachment";
+                let id: string;
+                c8o.callJson("fs://.reset")
+                    .then(() => {
+                        return c8o.callJson("fs://.post", "_id", myId);
+                    })
+                    .then((response: any) => {
+                        expect(response["ok"]).toBeTruthy();
+                        id = response["id"];
+                        expect(id).toBe(myId);
+                        return c8o.callJson("fs://.put_attachment", "docid", id, "name", "text2.txt", "content_type", "text/plain", "content", new Blob(['Hello Convertigo !'], {type: 'text/plain'}));
+                    })
+                    .then((response: any) => {
+                        return c8o.callJson("fs://.get", "docid", id, "attachments", true);
+                    })
+                    .then((response: any) => {
+                        expect(response["_id"]).toBe(myId);
+                        expect(response["_attachments"]["text2.txt"]).not.toBeNull();
+                        expect(response["_attachments"]["text2.txt"]["content_type"]).toBe("text/plain");
+                        done();
+                        return null;
+                    })
+                    .fail((error) => {
+                        done.fail("error is not supposed to happend");
+                    });
+            })();
+        }
+    );
 
 });
