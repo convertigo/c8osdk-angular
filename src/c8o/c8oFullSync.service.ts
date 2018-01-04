@@ -44,7 +44,16 @@ export class C8oFullSync {
      * @throws C8oException
      */
     public async handleFullSyncRequest(_parameters: Object, listener: C8oResponseListener): Promise<any> {
-        let parameters = (JSON.parse(JSON.stringify(_parameters)));
+        let parameters = {};
+        for(let val in _parameters){
+            if(_parameters[val] instanceof Blob != true){
+                //if it's not a blob then stringify and parse the value to make some values like true case insensitive ( from string to boolean)
+                parameters[val] = JSON.parse(JSON.stringify(_parameters[val]));
+            }
+            else{
+                parameters[val] = _parameters[val];
+            }
+        }
         let projectParameterValue: string = C8oUtils.peekParameterStringValue(parameters, C8o.ENGINE_PARAMETER_PROJECT, true);
         if (!projectParameterValue.startsWith(C8oFullSync.FULL_SYNC_PROJECT)) {
             throw new C8oException(C8oExceptionMessage.invalidParameterValue(projectParameterValue, "its don't start with" + C8oFullSync.FULL_SYNC_PROJECT));
@@ -288,7 +297,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
         });
     }
 
-    handlePutAttachmentRequest(databaseName: string, docid: string, attachmentName: string, attachmentType: string, attachmentContent: MSStream): Promise<any> {
+    handlePutAttachmentRequest(databaseName: string, docid: string, attachmentName: string, attachmentType: string, attachmentContent: any): Promise<any> {
         let document: any = null;
         let fullSyncDatabase: C8oFullSyncDatabase = this.getOrCreateFullSyncDatabase(databaseName);
 
@@ -297,7 +306,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
                 document = result;
 
                 if (document !== null) {
-                    fullSyncDatabase.getdatabase.putAttachment(docid, attachmentName, attachmentContent, attachmentType)
+                    fullSyncDatabase.getdatabase.putAttachment(docid, attachmentName,result._rev, attachmentContent, attachmentType)
                         .then((result) => {
                             //  handle result
                             resolve(new FullSyncDocumentOperationResponse(result._id, result._rev, result.ok));

@@ -16,8 +16,7 @@ import {C8oRessourceNotFoundException} from "../src/c8o/Exception/c8oRessourceNo
 import { Info, Stuff} from "./utils.help";
 import {HttpClientModule} from "@angular/common/http";
 
-
-
+declare var require: any;
 
 describe("provider: common verifications", () => {
     beforeEach(() => {
@@ -33,7 +32,7 @@ describe("provider: common verifications", () => {
         });
     });
 
-    /*it("should check sdk version (CheckVersion)", function (done) {
+    it("should check sdk version (CheckVersion)", function (done) {
         inject([C8o], (c8o: C8o) => {
             let settings: C8oSettings = new C8oSettings();
             settings
@@ -43,12 +42,11 @@ describe("provider: common verifications", () => {
             c8o.init(settings).catch((err: C8oException) => {
                 expect(err).toBeUndefined();
             }).then(() => {
-                expect(c8o.sdkVersion).toBe("2.1.56");
+                expect(c8o.sdkVersion).toBe(require("../package.json").version);
                 done();
             })
         })();
-    });*/
-
+    });
 
 
     it("should check someParams (CheckParams)", function (done) {
