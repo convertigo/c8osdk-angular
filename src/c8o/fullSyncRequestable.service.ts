@@ -74,7 +74,7 @@ export class FullSyncRequestable {
     static DELETE_ATTACHMENT: FullSyncRequestable = new FullSyncRequestable("delete_attachment", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve) => {
             let docid: string = C8oUtils.peekParameterStringValue(parameters, FullSyncGetDocumentParameter.DOCID.name, false);
-            let name: string = C8oUtils.getParameterStringValue(parameters, FullSyncAttachmentParameter.DOCID.name, false);
+            let name: string = C8oUtils.getParameterStringValue(parameters, FullSyncAttachmentParameter.NAME.name, false);
             resolve(c8oFullSync.handleDeleteAttachmentRequest(databaseName, docid, name));
         }).catch((error) => {
             throw error;
