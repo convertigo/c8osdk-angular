@@ -415,7 +415,7 @@ export class C8oFullSyncDatabase {
                 rep.cancel();
                 if (continuous) {
                     parametersObj["live"] = true;
-                    rep = fullSyncReplication.replication = this.database.sync(remoteDB, parametersObj);
+                    rep = fullSyncReplication.replication = fullSyncReplication.pull ? this.database.replicate.from(remoteDB, parametersObj) : this.database.replicate.to(remoteDB, parametersObj);
                     progress.continuous = true;
                     progress.raw = rep;
                     progress.taskInfo = "n/a";
