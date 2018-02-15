@@ -172,7 +172,7 @@ export class C8oCallTask {
                         }).then(
                         async (result) => {
                             if (result !== undefined) {
-                                
+
 
 
                                     let response: any;
