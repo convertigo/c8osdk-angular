@@ -172,31 +172,8 @@ export class C8oCallTask {
                         }).then(
                         async (result) => {
                             if (result !== undefined) {
-                                if (result["error"] !== undefined) {
-                                    if (localCacheEnabled) {
-                                        await (this.c8o.c8oFullSync as C8oFullSyncCbl).getResponseFromLocalCache(c8oCallRequestIdentifier
-                                        ).then(
-                                            (localCacheResponse: C8oLocalCacheResponse) => {
-                                                try {
-                                                    if (!localCacheResponse.isExpired()) {
-                                                        if (responseType === C8o.RESPONSE_TYPE_JSON) {
-                                                            resolve(C8oTranslator.stringToJSON(localCacheResponse.getResponse()));
-                                                        }
-                                                    }
-                                                }
-                                                catch (error) {
-                                                    // no entry
-                                                }
-                                            });
-                                    }
-                                    if (result["error"]["status"] === 0) {
-                                        reject(new C8oHttpRequestException("ERR_INTERNET_DISCONNECTED", result["error"]));
-                                    }
-                                    else {
-                                        reject(new C8oException(C8oExceptionMessage.handleC8oCallRequest(), result["error"]));
-                                    }
-                                }
-                                else {
+                                
+
 
                                     let response: any;
                                     let responseString: string;
@@ -238,7 +215,7 @@ export class C8oCallTask {
                                     }
 
                                     resolve(response);
-                                }
+
                             }
                         });
                 }
