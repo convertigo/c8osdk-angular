@@ -620,7 +620,7 @@ export class C8o extends C8oBase {
      * @returns a promise containing a buffer
      */
     public get_attachment(id: string, attachment_name: string, database_name?: string): Promise<any> {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             if(database_name == null){
                 database_name = this.defaultDatabaseName;
             }
@@ -628,6 +628,8 @@ export class C8o extends C8oBase {
                 let fullsyncdb = (this.c8oFullSync as C8oFullSyncCbl).getOrCreateFullSyncDatabase(database_name);
                 fullsyncdb.getdatabase.getAttachment(id, attachment_name).then((buffer) => {
                     resolve(buffer);
+                }).catch((err) => {
+                    reject(err)
                 });
             }
         });
