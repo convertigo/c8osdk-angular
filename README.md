@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.org/convertigo/c8osdk-angular.svg?branch=master)](https://travis-ci.org/convertigo/c8osdk-angular) [![npm version](https://img.shields.io/npm/v/c8osdkangular.svg)](https://www.npmjs.com/package/c8osdkangular) #
+[![Build Status](https://api.travis-ci.org/convertigo/c8osdk-angular.svg?branch=master)](https://travis-ci.org/convertigo/c8osdk-angular) [![npm version](https://img.shields.io/npm/v/c8osdkangular.svg)](https://www.npmjs.com/package/c8osdkangular)
 
 # C8oSDKAngular #
 
