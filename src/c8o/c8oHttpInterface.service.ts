@@ -1,21 +1,17 @@
-import {HttpResponse, HttpHeaders, HttpRequest, HttpEventType, HttpProgressEvent} from "@angular/common/http";
 import {C8o} from "./c8o.service";
-import 'rxjs/add/operator/retry';
-import {C8oExceptionMessage} from "./Exception/c8oExceptionMessage.service";
-import {C8oHttpRequestException} from "./Exception/c8oHttpRequestException.service";
-import {C8oResponseJsonListener, C8oResponseListener, C8oResponseProgressListener} from "./c8oResponse.service";
-import {C8oProgress} from "./c8oProgress.service";
+import {C8oHttpInterfaceCore} from "c8osdkjscore/src/c8o/c8oHttpInterfaceCore";
+import {C8oResponseJsonListener, C8oResponseListener} from "c8osdkjscore/src/c8o/c8oResponse";
+import {C8oProgress} from "c8osdkjscore/src/c8o/c8oProgress";
+import {HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from "@angular/common/http";
+import {C8oHttpRequestException} from "c8osdkjscore/src/c8o/Exception/c8oHttpRequestException";
+import {C8oExceptionMessage} from "c8osdkjscore/src/c8o/Exception/c8oExceptionMessage";
 
-export class C8oHttpInterface {
-    c8o: C8o;
-    timeout: number;
-    firstCall: boolean = true;
-    p1: Promise<Object>;
-    private _isCordova = null;
+
+export class C8oHttpInterface extends C8oHttpInterfaceCore{
+
 
     constructor(c8o: C8o) {
-        this.c8o = c8o;
-        this.timeout = this.c8o.timeout;
+        super(c8o);
     }
 
     /**
@@ -114,12 +110,13 @@ export class C8oHttpInterface {
     }
 
 
+
     /**
      * Extract file from parameters and return and array containing a file and params
      * @param {Object} parameters
      * @return {any}
      */
-    transformRequestfilecordova(parameters: Object): any {
+    transformRequestfileNative(parameters: Object): any{
         let file: Array<any> = new Array();
         let params: Object = new Object();
         for (let p in parameters) {
@@ -161,6 +158,8 @@ export class C8oHttpInterface {
         return this._isCordova;
     }
 
+
+
     /**
      * Handle the request
      * @param {string} url
@@ -176,31 +175,32 @@ export class C8oHttpInterface {
         }
         switch (this.checkFile(parameters)){
             case 0: {
-                return this.uplaodfilesHttpClient(url, parameters);
+                return this.httpPost(url, parameters);
             }
             case 1: {
                 let form = this.transformRequestformdata(parameters);
-                return this.uploadfilesHttpClientRequest(url,form,parameters,c8oResponseListener);
+                return this.uploadFileHttp(url,form,parameters,c8oResponseListener);
             }
             case 2: {
-                return this.uploadfilePluginCordova(url, parameters, c8oResponseListener);
+                return this.uploadFilePluginNative(url, parameters, c8oResponseListener);
             }
         }
 
     }
 
+
     /**
-     * Upload file with cordova plugin
+     * Upload file with native plugin
      * @param {string} url
      * @param {Object} parameters
      * @param {C8oResponseListener} c8oResponseListener
      * @return {Promise<any>}
      */
-    uploadfilePluginCordova(url: string, parameters: Object, c8oResponseListener: C8oResponseListener):Promise<any>{
+    uploadFilePluginNative(url: string, parameters: Object, c8oResponseListener: C8oResponseListener):Promise<any>{
         let progress: C8oProgress = new C8oProgress();
         progress.pull = false;
         let varNull: JSON = null;
-        let data = this.transformRequestfilecordova(parameters);
+        let data = this.transformRequestfileNative(parameters);
         let files = data[0];
         let options = new window["FileUploadOptions"]();
         options.fileKey = files[0][0];
@@ -227,12 +227,12 @@ export class C8oHttpInterface {
     }
 
     /**
-     * Upload file using Http Client
+     * Make an http post
      * @param {string} url
      * @param {Object} parameters
      * @return {Promise<any>}
      */
-    uplaodfilesHttpClient(url: string, parameters: Object): Promise<any>{
+    httpPost(url: string, parameters: Object): Promise<any>{
         parameters = this.transformRequest(parameters);
         let headersObject = {"Content-Type": "application/x-www-form-urlencoded", "x-convertigo-sdk": this.c8o.sdkVersion};
         Object.assign(headersObject, this.c8o.headers);
@@ -273,14 +273,14 @@ export class C8oHttpInterface {
     }
 
     /**
-     * Upload File using HttpClient Request
+     * Upload File using an Http client
      * @param {string} url
      * @param {FormData} form
      * @param {Object} parameters
      * @param {C8oResponseListener} c8oResponseListener
      * @return {Promise<any>}
      */
-    uploadfilesHttpClientRequest(url: string, form: FormData, parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any>{
+    uploadFileHttp(url: string, form: FormData, parameters: Object, c8oResponseListener: C8oResponseListener): Promise<any>{
         let headersObject = {'Accept':'application/json', 'x-convertigo-sdk': this.c8o.sdkVersion};
         Object.assign(headersObject, this.c8o.headers);
         let headers = new HttpHeaders(headersObject);
@@ -326,6 +326,7 @@ export class C8oHttpInterface {
         }
     }
 
+
     /**
      * Handle progress
      * @param event
@@ -334,7 +335,7 @@ export class C8oHttpInterface {
      * @param {C8oResponseListener} c8oResponseListener
      * @param {JSON} varNull
      */
-    handleProgress(event: any, progress: C8oProgress, parameters: any, c8oResponseListener: C8oResponseListener, varNull: JSON){
+    handleProgress(event: any, progress: C8oProgress, parameters: any, c8oResponseListener: C8oResponseListener, varNull: JSON): void{
         progress.current = event.loaded;
         progress.total = event.total;
         if(event.loaded != event.total){
@@ -345,5 +346,6 @@ export class C8oHttpInterface {
         }
         parameters[C8o.ENGINE_PARAMETER_PROGRESS] = progress;
         (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, parameters);
+
     }
 }
