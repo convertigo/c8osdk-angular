@@ -1,18 +1,12 @@
-import {inject, TestBed, async} from "@angular/core/testing";
+/*import {inject, TestBed, async} from "@angular/core/testing";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import "rxjs/Rx";
 import any = jasmine.any;
-import {C8oSettings} from "../src/c8o/c8oSettings.service";
-import {C8oLogLevel} from "../src/c8o/c8oLogLevel.service";
 import {C8o} from "../src/c8o/c8o.service";
-import {C8oException} from "../src/c8o/Exception/c8oException.service";
-import {C8oExceptionMessage} from "../src/c8o/Exception/c8oExceptionMessage.service";
-import {C8oHttpRequestException} from "../src/c8o/Exception/c8oHttpRequestException.service";
-import {C8oProgress} from "../src/c8o/c8oProgress.service";
-import {C8oResponseJsonListener} from "../src/c8o/c8oResponse.service";
 import {C8oUtils} from "../src/c8o/c8oUtils.service";
-import {C8oRessourceNotFoundException} from "../src/c8o/Exception/c8oRessourceNotFoundException.service";
+import{ C8oSettings, C8oLogLevel, C8oException, C8oExceptionMessage, C8oProgress, C8oRessourceNotFoundException, C8oResponseJsonListener, C8oHttpRequestException } from "c8osdkjscore";
+
 import { Info, Stuff} from "./utils.help";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -318,3 +312,4 @@ describe("provider: common verifications", () => {
 
 
 });
+*/

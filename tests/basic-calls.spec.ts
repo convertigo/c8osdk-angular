@@ -2,10 +2,10 @@ import {inject, TestBed, async} from "@angular/core/testing";
 import { BrowserModule } from "@angular/platform-browser";
 import "rxjs/Rx";
 import any = jasmine.any;
-import {C8oSettings} from "../src/c8o/c8oSettings.service";
+import {C8oSettings, C8oException, C8oPromise} from "c8osdkjscore";
+
 import {C8o} from "../src/c8o/c8o.service";
-import {C8oException} from "../src/c8o/Exception/c8oException.service";
-import {C8oPromise} from "../src/c8o/c8oPromise.service";
+
 import {Functions, Info, Stuff} from "./utils.help";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -40,6 +40,7 @@ describe("provider: basic calls verifications", () => {
             })();
         }
     );
+
 
     it("should ping async (C8oDefaultPingAsync)", (done) => {
         inject([C8o], (c8o: C8o) => {
