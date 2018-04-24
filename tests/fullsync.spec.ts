@@ -1,4 +1,4 @@
-/*import {inject, TestBed, async} from "@angular/core/testing";
+import {inject, TestBed, async} from "@angular/core/testing";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import "rxjs/Rx";
@@ -1302,4 +1302,3 @@ describe("provider: fullsync verifications", () => {
     );
 
 });
-*/

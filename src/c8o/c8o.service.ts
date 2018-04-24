@@ -14,6 +14,9 @@ export class C8o extends C8oCore {
         this.c8oLogger = new C8oLogger(this, true);
     }
 
+    public get sdkVersion(): string {
+        return require("../../package.json").version;
+    }
     public init(c8oSettings?: C8oSettings): Promise<any> {
         let nullableEndpoint = true;
         if (c8oSettings !== undefined) {
