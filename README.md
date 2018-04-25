@@ -9,10 +9,11 @@ Convertigo Client SDK is a set of libraries used by mobile or Windows desktop ap
 The Client SDK will abstract the programmer from handling the communication protocols, local cache, FullSync off line data managment, UI thread management and remote logging. So the developer can focus on building the application.
 
 Client SDK is available for:
-* Android Native apps as a standard Gradle dependency
-* iOS native apps as a standard Cocoapod
+* [Android Native](https://github.com/convertigo/c8osdk-android) apps as a standard Gradle dependency
+* [iOS native](https://github.com/convertigo/c8osdk-ios) apps as a standard Cocoapod
 * Windows desktop or Xamarin apps as Nugets or Xamarin Components
-* Google Angular framework as an NPM package
+* [Google Angular framework](https://github.com/convertigo/c8osdk-angular) as an NPM package
+* [Vue.js](https://github.com/convertigo/c8osdk-vuejs) Framework as an NPM package
 
 This current package is the Angular SDK. For others SDKs see official Convertigo Documentation.
 
