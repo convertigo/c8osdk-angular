@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "convertigo's MBaaS client API service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
@@ -54,7 +54,10 @@
     "c8osdkjscore": "1.0.0",
     "rxjs": "5.5.10",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "@types/node": "^8.5.2",
+    "@types/pouchdb": "6.3.1",
+    "pouchdb-browser": "6.3.4"
   },
   "devDependencies": {
     "rimraf": "2.6.1",
