@@ -3,6 +3,10 @@
 #################
 **/.DS_Store
 nbproject
+
+
+package-lock.json
+
 manifest.mf
 build.xml
 node_modules/*
