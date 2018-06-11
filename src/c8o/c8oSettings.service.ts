@@ -23,6 +23,17 @@ export class C8oSettings extends C8oBase {
     }
 
     /**
+     * Add a header
+     * @param name The name of header.
+     * @param value The value of header.
+     * @returns The current <b>C8oSettings</b>, for chaining.
+     */
+    public addHeader(name: string, value: string) {
+        this._headers[name] = value;
+        return this;
+    }
+
+    /**
      * Sets the endpoint (override env.json).<br/>
      * @param endpoint The endpoint.
      * @returns The current <b>C8oSettings</b>, for chaining.

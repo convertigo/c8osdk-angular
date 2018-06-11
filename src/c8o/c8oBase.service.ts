@@ -35,6 +35,8 @@ export class C8oBase {
     //noinspection JSUnusedGlobalSymbols
     protected _trustStorePassword: string;
 
+    protected _headers: Object = {};
+
     /** Getters **/
 
     /**
@@ -126,6 +128,10 @@ export class C8oBase {
 
     }
 
+    public get headers(): Object {
+        return this._headers;
+    }
+
     public copy(c8oBase: C8oBase) {
         if (c8oBase !== undefined) {
             /** HTTP **/
@@ -153,6 +159,7 @@ export class C8oBase {
             this._fullSyncServerUrl = c8oBase.fullSyncServerUrl;
             this._fullSyncUsername = c8oBase.fullSyncUsername;
             this._fullSyncPassword = c8oBase.fullSyncPassword;
+            this._headers = c8oBase._headers;
         }
     }
 }

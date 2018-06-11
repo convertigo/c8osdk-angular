@@ -41,9 +41,9 @@ export class C8oHttpInterface {
                 parameters["__sequence"] = parameters["__sequence"].substring(0, parameters["__sequence"].indexOf("#"));
             }
         }
-        let headers = new Headers();
-        headers.append("Content-Type", "application/x-www-form-urlencoded");
-        // headers.append("User-Agent", "Convertigo Client SDK " + C8o.getSdkVersion());
+        let headersObject = {"Content-Type": "application/x-www-form-urlencoded"}
+        Object.assign(headersObject, this.c8o.headers);
+        let headers = new Headers(headersObject);
 
         if (this.firstCall) {
             this.p1 = new Promise((resolve) => {
