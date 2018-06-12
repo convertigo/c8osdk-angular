@@ -34,6 +34,10 @@ export class C8oFullSyncDatabase {
      */
     private pushFullSyncReplication: FullSyncReplication = new FullSyncReplication(false);
 
+
+    private remotePouchHeader;
+
+
     /**
      * Creates a fullSync database with the specified name and its location.
      *
@@ -45,6 +49,15 @@ export class C8oFullSyncDatabase {
      */
     constructor(c8o: C8o, databaseName: string, fullSyncDatabases: string, localSuffix: string) {
         this.c8o = c8o;
+        const header = {
+            "x-convertigo-sdk": C8o.getSdkVersion(),
+        };
+        Object.assign(header, this.c8o.headers);
+        this.remotePouchHeader = {
+            ajax: {
+                headers: header,
+            },
+        };
         this.c8oFullSyncDatabaseUrl = fullSyncDatabases + databaseName;
         this.databaseName = databaseName + localSuffix;
         try {
@@ -119,7 +132,7 @@ export class C8oFullSyncDatabase {
             }
         }
 
-        let remoteDB = new PouchDB(this.c8oFullSyncDatabaseUrl);
+        let remoteDB = new PouchDB(this.c8oFullSyncDatabaseUrl, this.remotePouchHeader);
         let rep = this.database.sync(remoteDB, {timeout: 600000, retry: true});
         let param = parameters;
         let progress: C8oProgress = new C8oProgress();
@@ -297,7 +310,7 @@ export class C8oFullSyncDatabase {
 
         let myDB: any;
         myDB = PouchDB;
-        let remoteDB = new myDB(this.c8oFullSyncDatabaseUrl);
+        let remoteDB = new myDB(this.c8oFullSyncDatabaseUrl, this.remotePouchHeader);
         let rep = fullSyncReplication.replication = fullSyncReplication.pull ? this.database.replicate.from(remoteDB) : this.database.replicate.to(remoteDB);
 
         let progress: C8oProgress = new C8oProgress();
