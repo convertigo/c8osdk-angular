@@ -485,7 +485,7 @@ export class C8oFullSyncCbl extends C8oFullSync {
                 if (Object.prototype.toString.call( newDocumentValue ) === "[object Array]" && Object.prototype.toString.call( oldPropertyValue ) === "[object Array]") {
                     C8oFullSyncCbl.mergeArrayProperties(newDocumentValue, oldPropertyValue);
                 }
-                else if (typeof(newDocumentValue) === "object" && typeof(oldPropertyValue) === "object") {
+                else if (typeof(newDocumentValue) === "object" && typeof(oldPropertyValue) === "object" && oldPropertyValue !== null) {
                     C8oFullSyncCbl.mergeProperties(newDocumentValue, oldPropertyValue);
                 }
                 else {
