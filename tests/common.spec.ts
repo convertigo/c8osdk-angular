@@ -25,7 +25,7 @@ describe("provider: common verifications", () => {
             ]
         });
     });
-
+/**/
     it("should check sdk version (CheckVersion)", function (done) {
         inject([C8o], (c8o: C8o) => {
             let settings: C8oSettings = new C8oSettings();
@@ -309,6 +309,6 @@ describe("provider: common verifications", () => {
                 });
         }))
     );
-
+/**/
 
 });
