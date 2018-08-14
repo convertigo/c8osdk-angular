@@ -25,6 +25,7 @@ describe("provider: fullsync verifications", () => {
             ]
         });
     });
+/**/
     it("should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)", function (done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -1300,5 +1301,5 @@ describe("provider: fullsync verifications", () => {
             })();
         }
     );
-
+/***/
 });

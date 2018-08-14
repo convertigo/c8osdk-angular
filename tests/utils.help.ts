@@ -82,11 +82,10 @@ export class Stuff {
 //noinspection TsLint
 export class Functions {
     static CheckLogRemoteHelper(c8o: C8o, lv: any, msg: string) {
-
         c8o.callJson(".GetLogs").then(
             (response: any) => {
                 let sLine = response["document"]["line"];
-                expect(sLine != null).toBeTruthy();
+                //qexpect(sLine != null).toBeTruthy();
                 for (let lvl of lv) {
                     let line = JSON.parse(sLine);
                     expect(line[2]).toBe(lvl);
@@ -97,7 +96,6 @@ export class Functions {
                 return null;
             }
         );
-
     }
     static async pingasync(){
 
