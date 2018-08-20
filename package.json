@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.2.3",
+  "version": "2.2.4-beta1",
   "description": "convertigo's MBaaS client API service",
   "main": "bundle/index.umd.js",
   "module": "src/index.js",
@@ -43,7 +43,7 @@
   },
   "license": "Apache License Version 2.0, January 2004",
   "dependencies": {
-    "c8osdkjscore": "1.0.2",
+    "c8osdkjscore": "1.0.3",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26",
