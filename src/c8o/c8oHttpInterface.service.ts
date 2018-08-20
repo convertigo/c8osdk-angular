@@ -17,7 +17,7 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
     /**
      * Check type of file given in parameters
      * 0 : No file to upload
-     * 1 : FileList
+     * 1 : FileList Or File
      * 2 : url when running in cordova
      * @param {Object} parameters
      * @return {number}
@@ -30,6 +30,9 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
                     if(parameters[p][p1] instanceof FileList){
                         return 1;
                     }
+                    else if (parameters[p][p1] instanceof File) {
+                        return 1;
+                    }
                     else if(this.isCordova()){
                         if(parameters[p][p1] instanceof URL){
                             return 2;
@@ -39,6 +42,9 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
             }
             else {
                 if(parameters[p] instanceof FileList){
+                    return 1;
+                }
+                if(parameters[p] instanceof File){
                     return 1;
                 }
                 else if(this.isCordova()){
