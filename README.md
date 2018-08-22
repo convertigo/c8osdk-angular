@@ -22,7 +22,8 @@
   - [Creating a C8o instance](#creating-a-c8o-instance)
   - [Advanced instance settings](#advanced-instance-settings)
   - [Calling a Convertigo requestable](#calling-a-convertigo-requestable)
-  - [Call parameters](#call-parameters)
+  - [Calling a Convertigo requestable with parameters](#calling-a-convertigo-requestable-with-parameters)
+  - [Calling a Convertigo requestable uploading a files](#calling-a-convertigo-requestable-uploading-a-files)
   - [Chaining calls](#chaining-calls)
   - [Handling failures](#handling-failures)
   - [Writing the device logs to the Convertigo server](#writing-the-device-logs-to-the-convertigo-server)
@@ -184,7 +185,7 @@ this.c8o.callJson(".login")
     });
 ```
 
-### Call parameters
+### Calling a Convertigo requestable with parameters ###
 Convertigo requestables generally needs key/value parameters encapsuled in a simple javascript object. 
 
 The key is always a string and the value can be any object but a string is the standard case.
@@ -217,6 +218,49 @@ this.c8o.callJsonObject(".login",{
       //handle result
     });
 ```
+
+### Calling a Convertigo requestable uploading a files ###
+
+Convertigo requestables supports file as argument. You can pass it as key value pair.
+Indeed, the key is a string (name of the variable), and the value must be a Javascript File, or FileList. It can be into an array or directly passed as argument
+
+```javascript
+// Assuming c8o is a C8o instance properly instanciated and initiated as describe above, and '.login' is the name of a sequence of your project
+
+// Here using Javascript's Promises with awaiter syntax
+let fileFirst = new File(["Hello Convertigo First !"], "fileFirst.txt", {
+            type: "text/plain",
+          });
+let fileSecond = new File(["Hello Convertigo Second !"], "fileSecond.txt", {
+type: "text/plain",
+});
+
+let result = await this.c8o.callJson('.sequenceThatReceiveAFile ', {
+  paramOne: "MyFirstParam",
+  files: [fileFirst, fileSecond]
+})
+.async();
+
+// Here using Javascript's Promises with then/catch syntax
+this.c8o.callJson('.sequenceThatReceiveAFile', {
+   paramOne: "MyFirstParam",
+   files: [fileFirst, fileSecond]
+ })
+ .async()
+ .then((response)=>{
+   // handle result
+ });
+
+// Using C8oPromise that allow for example progress and Live. C8oPromise is described in Api doc in section Api documentation of this README.
+this.c8o.callJson(".sequenceThatReceiveAFile",{
+  paramOne: "MyFirstParam",
+  files: [fileFirst, fileSecond]
+   })
+   .then((response)=>{
+     //handle result
+   });
+```
+
 ### Chaining calls ###
 
 The .then() returns a C8oPromise that can be use to chain other promise methods, such as .then() or failure handlers. The last .then() must return a null value. .then() can be mixed but the returning type must be the same: Xml or Json.
