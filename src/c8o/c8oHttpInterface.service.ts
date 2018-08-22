@@ -96,6 +96,9 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
                             formdata.append(p, parameters[p][p1][i], parameters[p][p1][i].name);
                         }
                     }
+                    else if(parameters[p][p1] instanceof FileList){
+                        formdata.append(p, parameters[p][p1], parameters[p][p1].name)
+                    }
                     else{
                         formdata.append(p, parameters[p][p1])
                     }
@@ -106,6 +109,9 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
                     for (var j = 0; j < parameters[p].length; j++) {
                         formdata.append(p, parameters[p][j], parameters[p][j].name);
                     }
+                }
+                else if(parameters[p] instanceof File) {
+                    formdata.append(p, parameters[p], parameters[p].name);
                 }
                 else{
                     formdata.append(p, parameters[p]);
