@@ -26,6 +26,27 @@ describe("provider: common verifications", () => {
         });
     });
 /**/
+
+    it("should check bad requestable (badRequest)", function(done) {
+        inject([C8o], (c8o: C8o) => {
+        const settings: C8oSettings = new C8oSettings().setLogLevelLocal(C8oLogLevel.DEBUG);
+        settings
+            .setEndPoint(Info.endpoint)
+            .setLogRemote(false)
+            .setLogLevelLocal(C8oLogLevel.ERROR);
+        c8o.init(settings).then(() => {
+            c8o.callJson("badRequest")
+            .then(() => {
+                done.fail("it's supposed to triggered an error");
+                return null;
+            })
+            .fail((err, params)=>{
+                expect(err.toJSON().message).toContain("is not a valid Convertigo endpoint")
+                done();
+            });
+        })
+        })();
+    });
     it("should check sdk version (CheckVersion)", function (done) {
         inject([C8o], (c8o: C8o) => {
             let settings: C8oSettings = new C8oSettings();
