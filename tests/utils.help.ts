@@ -77,6 +77,16 @@ export class Stuff {
             .addHeader("x-convertigo-mb", "7.5.0-beta");
         return c8oSettings;
     }
+    static get C8o_FS_FILES() {
+        const c8oSettings: C8oSettings = new C8oSettings();
+        c8oSettings
+            .setDefaultDatabaseName("qa_fs_files")
+            .setEndPoint(Info.endpoint)
+            .setLogRemote(false)
+            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .addHeader("x-convertigo-mb", "7.5.0-beta");
+        return c8oSettings;
+    }
 }
 
 //noinspection TsLint

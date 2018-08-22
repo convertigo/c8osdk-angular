@@ -1302,4 +1302,55 @@ describe("provider: fullsync verifications", () => {
         }
     );
 /***/
+
+it("should check that Fullsync get attachment works ans sequence upload to (C8oSequencePutAttachmentFSGetAttachment)", function(done) {
+    inject([C8o], (c8o: C8o) => {
+    c8o.init(Stuff.C8o_FS_FILES).catch((err: C8oException) => {
+        expect(err).toBeUndefined();
+    });
+    const id: string = "documentFile";
+
+    let fileFirst = new File(["Hello Convertigo First !"], "fileFirst.txt", {
+        type: "text/plain",
+      });
+    let fileSecond = new File(["Hello Convertigo Second !"], "fileSecond.txt", {
+    type: "text/plain",
+    });
+    let arrayFile = [fileFirst, fileSecond];
+
+    c8o.callJson(".LogingTesting")
+    .then(() => {
+        return  c8o.callJson(".InitFsFile", "_id", id)
+    })
+    .then(() => {
+        return c8o.callJson(".GetAndInsertBase64", "files",arrayFile);
+    })
+    .then((response: any) => {
+            return c8o.callJson("fs://.sync", "continuous", true);
+    })
+    .then((response: any) => {
+        return c8o.callJson("fs://.get", "docid", id, "attachments", true);
+    })
+    .then((response: any) => {
+       var reader = new FileReader();
+       var readerSecond = new FileReader();
+       reader.readAsDataURL(fileFirst); 
+            reader.onloadend = ()=> {
+            let base64data = (<string> reader.result).split(",")[1];
+            expect(response["_attachments"]["fileFirst.txt"]["data"]).toBe(base64data);
+            readerSecond.readAsDataURL(fileSecond);
+            readerSecond.onloadend = ()=> {
+                let base64dataSecond = (<string> readerSecond.result).split(",")[1];
+                expect(response["_attachments"]["fileSecond.txt"]["data"]).toBe(base64dataSecond);
+                done();
+            };                
+        }
+       return null;
+    })
+    .fail((error) => {
+        console.log(JSON.stringify(error));
+        done.fail("error is not supposed to happend");
+    });
+})();
+});
 });
