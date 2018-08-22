@@ -14,26 +14,26 @@
 
 - [TOC](#toc)
 - [Introduction](#introduction)
-    - [About SDKs](#about-sdks)
-    - [About Convertigo Platform](#about-convertigo-platform)
+  - [About SDKs](#about-sdks)
+  - [About Convertigo Platform](#about-convertigo-platform)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Documentation](#documentation)
-    - [Creating a C8o instance](#creating-a-c8o-instance)
-    - [Advanced instance settings](#advanced-instance-settings)
-    - [Calling a Convertigo requestable](#calling-a-convertigo-requestable)
-    - [Call parameters](#call-parameters)
-    - [Chaining calls](#chaining-calls)
-    - [Handling failures](#handling-failures)
-    - [Writing the device logs to the Convertigo server](#writing-the-device-logs-to-the-convertigo-server)
-        - [Basic](#basic)
-        - [Advanced](#advanced)
-    - [Using the Local Cache](#using-the-local-cache)
-    - [Using the Full Sync](#using-the-full-sync)
-    - [Replicating Full Sync databases](#replicating-full-sync-databases)
-    - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
-    - [Full Sync FS_LIVE requests](#full-sync-fs_live-requests)
-    - [Full Sync Change Listener](#full-sync-change-listener)
+  - [Creating a C8o instance](#creating-a-c8o-instance)
+  - [Advanced instance settings](#advanced-instance-settings)
+  - [Calling a Convertigo requestable](#calling-a-convertigo-requestable)
+  - [Call parameters](#call-parameters)
+  - [Chaining calls](#chaining-calls)
+  - [Handling failures](#handling-failures)
+  - [Writing the device logs to the Convertigo server](#writing-the-device-logs-to-the-convertigo-server)
+    - [Basic](#basic)
+    - [Advanced](#advanced)
+  - [Using the Local Cache](#using-the-local-cache)
+  - [Using the Full Sync](#using-the-full-sync)
+  - [Replicating Full Sync databases](#replicating-full-sync-databases)
+  - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
+  - [Full Sync FS_LIVE requests](#full-sync-fs_live-requests)
+  - [Full Sync Change Listener](#full-sync-change-listener)
 
 
 ## Introduction ##
@@ -393,7 +393,6 @@ Convertigo Client SDK provides a high level access to local data following the s
 * fs://<database>.replicate_pull gets all database server modifications
 * fs://<database>.reset resets a database by removing all the data in it
 * fs://<database>.put_attachment Puts (add) an attachment to a document in the database
-* fs://<database>.get_attachment Gets an attachment from a document
 
 Where fs://<database> is the name of a specific FullSync Connector in the project specified in the endpoint. The fs://<database> name is optional only if the default database name is specified with the method setDefaultDatabaseName on the C8oSetting.
 
@@ -406,20 +405,20 @@ All platforms can specify a local database prefix that allows many local databas
 
 // clear or create the "base" database
 // resultReset mustbe equal to { "ok" : true }
-let resultReset = await this.c8o.callJson('fs://base.reset');
+let resultReset = await this.c8o.callJson('fs://base.reset').async();
 
 // creates a new document on "base", with 2 key/value pairs
 // resultPost mustbe equal to { "ok": true, "id": "6f1b52df","rev":  "1-b0620371" }
 let resultPost = await this.c8o.callJsonObject('fs://base.post', {
               firstname: "Jhonn",
               lastname: "Doe"
-          });
+          }).async();
 
 // retrieves the complet document from its "docid"
 // resultGet mustbe equal to { "lastname": "Doe", "rev": "1-b0620371", "firstname": "John", "_id": "6f1b52df" }
 let resultGet = await this.c8o.callJsonObject('fs://base.get', {
               docid: resultPost['id']
-          });
+          }).async();
 ```
 
 ### Replicating Full Sync databases
