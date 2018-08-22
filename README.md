@@ -419,6 +419,13 @@ let resultPost = await this.c8o.callJsonObject('fs://base.post', {
 let resultGet = await this.c8o.callJsonObject('fs://base.get', {
               docid: resultPost['id']
           }).async();
+
+// Put an attachment into our document 
+let resultGet = await this.c8o.callJson("fs://base.put_attachment", 
+            "docid", id, "name", "text2.txt", "content_type", "text/plain", "content", new Blob(["Hello Convertigo !"], {type: "text/plain"})).async();
+
+// Get this attachment from our document
+let resultGet = await this.c8o.callJson("fs://base.get", "docid", id, "attachments", true).async();
 ```
 
 ### Replicating Full Sync databases
