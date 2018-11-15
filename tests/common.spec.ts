@@ -8,7 +8,7 @@ import {C8oUtils} from "../src/c8o/c8oUtils.service";
 import{ C8oSettings, C8oLogLevel, C8oException, C8oExceptionMessage, C8oProgress, C8oRessourceNotFoundException, C8oResponseJsonListener, C8oHttpRequestException } from "c8osdkjscore";
 
 import { Info, Stuff} from "./utils.help";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HttpErrorResponse} from "@angular/common/http";
 
 declare var require: any;
 
@@ -316,12 +316,10 @@ describe("provider: common verifications", () => {
                                 expect(err).not.toBeNull();
                                 expect(err instanceof C8oException).toBeTruthy();
                                 let expection = err.cause;
-                                expect(expection instanceof C8oHttpRequestException).toBeTruthy();
-
-                                expect(exceptionLog).not.toBeNull();
+                                expect(expection instanceof HttpErrorResponse).toBeTruthy();expect(exceptionLog).not.toBeNull();
                                 expect(exceptionLog instanceof C8oException).toBeTruthy();
                                 exceptionLog = exceptionLog["cause"];
-                                expect(expection instanceof C8oHttpRequestException).toBeTruthy();
+                                expect(expection instanceof HttpErrorResponse).toBeTruthy();
                             });
                     }, 250);
                 })
