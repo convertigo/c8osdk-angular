@@ -17,7 +17,7 @@ notifications:
     on_failure: change # default: always
 
 node_js:
-  - '6'
+  - '10.13.0'
 
 branches:
   except:
