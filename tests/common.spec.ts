@@ -13,8 +13,10 @@ import {HttpClientModule, HttpErrorResponse} from "@angular/common/http";
 declare var require: any;
 
 describe("provider: common verifications", () => {
+    var originalTimeout;
     beforeEach(() => {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
+        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 500000;
         TestBed.configureTestingModule({
             imports: [
                 HttpClientModule,
@@ -25,6 +27,9 @@ describe("provider: common verifications", () => {
             ]
         });
     });
+    afterEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+      });
 /**/
 
     it("should check bad requestable (badRequest)", function(done) {
@@ -165,7 +170,6 @@ describe("provider: common verifications", () => {
             expect(C8oExceptionMessage.unknownValue("valName", "val")).toBe("The valName value val is unknown");
             expect(C8oExceptionMessage.unknownType("valName", "val")).toBe("The valName type " + C8oUtils.getObjectClassName("val") + "is unknown");
             expect(C8oExceptionMessage.ressourceNotFound("ress")).toBe("The ress was not found");
-            expect(C8oExceptionMessage.toDo()).toBe("TODO");
             expect(C8oExceptionMessage.illegalArgumentInvalidFullSyncDatabaseUrl("http://fakeurl.com")).toBe("The fullSync database url 'http://fakeurl.com' is not a valid url");
             expect(C8oExceptionMessage.FullSyncDatabaseInitFailed("dbname")).toBe( "Failed to initialize the FullSync database 'dbname'");
             expect(C8oExceptionMessage.MissParameter("paramName")).toBe("The parameter 'paramName' is missing");
@@ -216,7 +220,6 @@ describe("provider: common verifications", () => {
             C8oExceptionMessage.unhandledListenerType("a");
             C8oExceptionMessage.WrongListener(new C8oResponseJsonListener((JSON, Object) => {}));
             C8oExceptionMessage.wrongResult("a");
-            C8oExceptionMessage.todo();
             C8oExceptionMessage.unhandledFullSyncRequestable("a");
             C8oExceptionMessage.closeInputStream();
             C8oExceptionMessage.deserializeJsonObjectFromString("a");

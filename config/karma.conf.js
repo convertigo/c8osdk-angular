@@ -2,6 +2,10 @@ module.exports = function(config) {
     var testWebpackConfig = require('./webpack.test.js');
 
     var configuration = {
+        captureTimeout: 500000,
+        browserDisconnectTolerance: 3,
+        browserDisconnectTimeout : 500000,
+        browserNoActivityTimeout : 500000,
 
         basePath: '',
 
@@ -15,7 +19,7 @@ module.exports = function(config) {
          *
          * we are building the test environment in ./spec-bundle.js
          */
-        files: [ { pattern: './config/spec-bundle.js', watched: false } ],
+        files: [ { pattern: './config/spec-bundle.js', watched: false }, { pattern: './files/dump.json', included: false } ],
 
         preprocessors: { './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap'] },
 
