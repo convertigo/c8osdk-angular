@@ -33,7 +33,7 @@
   - [Using the Full Sync](#using-the-full-sync)
   - [Replicating Full Sync databases](#replicating-full-sync-databases)
   - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
-  - [Full Sync FS_LIVE requests](#full-sync-fs_live-requests)
+  - [Full Sync FS_LIVE requests](#full-sync-fslive-requests)
   - [Full Sync Change Listener](#full-sync-change-listener)
 
 
@@ -437,6 +437,8 @@ Convertigo Client SDK provides a high level access to local data following the s
 * fs://<database>.replicate_pull gets all database server modifications
 * fs://<database>.reset resets a database by removing all the data in it
 * fs://<database>.put_attachment Puts (add) an attachment to a document in the database
+* fs://<database>.bulk Bulk loads a database from a file 
+* fs://<database>.info Get info for a given database
 
 Where fs://<database> is the name of a specific FullSync Connector in the project specified in the endpoint. The fs://<database> name is optional only if the default database name is specified with the method setDefaultDatabaseName on the C8oSetting.
 
@@ -470,6 +472,13 @@ let resultGet = await this.c8o.callJson("fs://base.put_attachment",
 
 // Get this attachment from our document
 let resultGet = await this.c8o.callJson("fs://base.get", "docid", id, "attachments", true).async();
+
+// Get information form a local database
+let resultInfo = await this.c8o.callJson("fs://base.info").async();
+
+// Bulk load of database with an url as data argument
+let resultBulk = await this.c8o.callJson("fs://base.bulk", "data", "http://myurl.com/dump.json");
+
 ```
 
 ### Replicating Full Sync databases
