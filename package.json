@@ -43,12 +43,10 @@
   },
   "license": "Apache License Version 2.0, January 2004",
   "dependencies": {
-    "c8osdkjscore": "1.0.5",
+    "c8osdkjscore": "1.0.6-beta2",
     "rxjs": "5.5.11",
-    "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26",
     "pouchdb-browser": "6.4.3",
-    "@types/node": "^8.5.2",
     "@types/pouchdb": "6.3.2"
   },
   "devDependencies": {
