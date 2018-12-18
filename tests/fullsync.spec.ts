@@ -13,8 +13,10 @@ import {Functions, Info, PlainObjectA, PlainObjectB, Stuff} from "./utils.help";
 import {HttpClientModule} from "@angular/common/http";
 
 describe("provider: fullsync verifications", () => {
+    var originalTimeout;
     beforeEach(() => {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
+        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 500000;
         TestBed.configureTestingModule({
             imports: [
                 HttpClientModule,
@@ -25,6 +27,9 @@ describe("provider: fullsync verifications", () => {
             ]
         });
     });
+    afterEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+      });
 /**/
     it("should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)", function (done) {
             inject([C8o], (c8o: C8o) => {
@@ -1301,7 +1306,7 @@ describe("provider: fullsync verifications", () => {
             })();
         }
     );
-/***/
+
 
 it("should check that Fullsync get attachment works ans sequence upload to (C8oSequencePutAttachmentFSGetAttachment)", function(done) {
     inject([C8o], (c8o: C8o) => {
@@ -1353,4 +1358,55 @@ it("should check that Fullsync get attachment works ans sequence upload to (C8oS
     });
 })();
 });
+
+it("should check that Fullsync bulkworks (C8oFsBulk)", function (done) {
+    inject([C8o], (c8o: C8o) => {
+        c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
+            expect(err).toBeUndefined();
+        });
+        let myId: string = "C8oFsPostGetDelete-" + new Date().getTime().valueOf();
+        let id: string;
+        c8o.callJson("fs://digiprev_fullsync_dataref.reset")
+            .then(() => {
+                //return c8o.callJson("fs://.bulk", "data", "http://c8o-dev.convertigo.net/cems/projects/ClientSDKtesting/files/dump.json");
+                return c8o.callJson("fs://digiprev_fullsync_dataref.bulk", "data", "http://localhost:9876/base/files/dump.json");
+            })
+            .then((response: any) => {
+                return c8o.callJson("fs://digiprev_fullsync_dataref.info");
+            })
+            .then((response)=>{
+                expect(response["doc_count"]).toBe(11590);
+                expect(response["update_seq"]).toBe(13235);
+                c8o.callJson("fs://digiprev_fullsync_dataref.replicate_pull")
+                .then((response: any) => {
+                    done();
+                    return null;
+                })
+                .progress((progress)=>{
+                    // Do stuff with progress
+                    if(progress.toString() == "pull: 0/0 (done)"){
+                        expect(progress.toString()).toBe("pull: 0/0 (done)")
+                    }
+                    else if(progress.toString() == "push: 0/0 (done)"){
+                        expect(progress.toString()).toBe("push: 0/0 (done)");
+                    }
+                    else{
+                        done.fail("C8oFsBulk");
+                    }
+                    })
+                .fail((error) => {
+                    console.log(JSON.stringify(error))
+                    done.fail("C8oFsBulk");
+                });
+                return null;
+            })
+            
+            .fail((error) => {
+                console.log(JSON.stringify(error))
+                done.fail("C8oFsBulk");
+            });
+    })();
+});
+
+/***/
 });

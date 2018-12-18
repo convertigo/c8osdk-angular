@@ -10,8 +10,10 @@ import {Functions, Info, Stuff} from "./utils.help";
 import {HttpClientModule} from "@angular/common/http";
 
 describe("provider: basic calls verifications", () => {
+    var originalTimeout;
     beforeEach(() => {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
+        originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 500000;
         TestBed.configureTestingModule({
             imports: [
                 HttpClientModule,
@@ -22,6 +24,9 @@ describe("provider: basic calls verifications", () => {
             ]
         });
     });
+    afterEach(function() {
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+      });
 /**/
     it("should ping (C8oDefaultPing)", function (done) {
             inject([C8o], (c8o: C8o) => {
