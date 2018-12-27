@@ -1093,26 +1093,49 @@ describe("provider: fullsync verifications", () => {
                     expect(err).toBeUndefined();
                 });
                 c8o.callJson("fs://.reset")
-                    .then((response: any) => {
+                .then((response: any) => {
+                    expect(response["ok"]).toBeTruthy();
+                    c8o.callJson("fs://.replicate_pull", "cancel", true, "continuous", "true")
+                    .then((response: any, parameters1) => {
                         expect(response["ok"]).toBeTruthy();
-                        return c8o.callJson("fs://.replicate_pull", "cancel", true);
-                    })
-                    .then((response: any) => {
-                        expect(response["ok"]).toBeTruthy();
-                        return c8o.callJson("fs://.replicate_pull", "cancel", true);
-                    })
-                    .then((response: any) => {
-                        expect(response["ok"]).toBeTruthy();
-                        return c8o.callJson("fs://.sync", "cancel", true);
-                    })
-                    .then((response: any) => {
-                        expect(response["ok"]).toBeTruthy();
-                        done();
+                        c8o.callJson("fs://.replicate_push", "cancel", true,"continuous", "true")
+                        .then((response2: any,parameters2) => {
+                            expect(response2["ok"]).toBeTruthy();
+                            c8o.callJson("fs://.sync", "cancel", true,"continuous", "true")
+                            .then((response3: any, parameters) => {
+                                expect(response3["ok"]).toBeTruthy(); 
+                                done();                            
+                                return null;
+                            })
+                            .progress((prog)=>{
+                            })
+                            .fail((error) => {
+                                console.log(error);
+                                done.fail("error is not supposed to happend");
+                            });
+                            return null;
+                        })
+                        .progress((prog)=>{
+                        })
+                        .fail((error) => {
+                            console.log(error);
+                            done.fail("error is not supposed to happend");
+                        });
                         return null;
                     })
+                    .progress((prog)=>{
+                    })
                     .fail((error) => {
+                        console.log(error);
                         done.fail("error is not supposed to happend");
                     });
+
+                    return null;
+                })
+                .fail((error) => {
+                    console.log(error);
+                    done.fail("error is not supposed to happend");
+                });
             })();
         }
     );
