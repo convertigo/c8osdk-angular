@@ -113,22 +113,28 @@ export class FullSyncRequestable {
         let pushFinish: boolean = false;
         return new Promise((resolve, reject) => {
             c8oFullSync.handleSyncRequest(databaseName, parameters, new C8oResponseProgressListener((progress, parameters) => {
-                if (!pullFinish && progress.pull && progress.finished) {
-                    pullFinish = true;
-                    c8oFullSync.c8o.log._debug("handleFullSyncRequest pullFinish = true: " + progress.toString());
+                if(parameters["cancel"] == true){
+                    resolve({ok: true});
                 }
-                if (!pushFinish && progress.push && progress.finished) {
-                    pushFinish = true;
-                    c8oFullSync.c8o.log._debug("handleFullSyncRequest pushFinish = true: " + progress.toString());
+                else{
+                    if (!pullFinish && progress.pull && progress.finished) {
+                        pullFinish = true;
+                        c8oFullSync.c8o.log._debug("handleFullSyncRequest pullFinish = true: " + progress.toString());
+                    }
+                    if (!pushFinish && progress.push && progress.finished) {
+                        pushFinish = true;
+                        c8oFullSync.c8o.log._debug("handleFullSyncRequest pushFinish = true: " + progress.toString());
+                    }
+                    if (c8oResponseListener instanceof C8oResponseJsonListener) {
+                        c8oFullSync.c8o.log._debug("handleFullSyncRequest onJsonResponse: " + progress.toString());
+                        let varNull: JSON = null;
+                        (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, parameters);
+                    }
+                    if (pullFinish || pushFinish) {
+                        resolve({"ok": true});
+                    }
                 }
-                if (c8oResponseListener instanceof C8oResponseJsonListener) {
-                    c8oFullSync.c8o.log._debug("handleFullSyncRequest onJsonResponse: " + progress.toString());
-                    let varNull: JSON = null;
-                    (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, parameters);
-                }
-                if (pullFinish || pushFinish) {
-                    resolve({"ok": true});
-                }
+                
             })).catch((error) => {
                 reject(error);
             });
@@ -142,6 +148,10 @@ export class FullSyncRequestable {
     static REPLICATE_PULL: FullSyncRequestable = new FullSyncRequestable("replicate_pull", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve, reject) => {
             c8oFullSync.handleReplicatePullRequest(databaseName, parameters, new C8oResponseProgressListener((progress, param) => {
+                if(parameters["cancel"] == true){
+                    resolve({ok: true});
+                }
+                else{
                 if (progress.finished) {
                     resolve({"ok": true});
                 }
@@ -149,6 +159,7 @@ export class FullSyncRequestable {
                     let varNull: JSON = null;
                     (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, param);
                 }
+            }
             })).catch((error) => {
                 reject(error);
             });
@@ -162,6 +173,10 @@ export class FullSyncRequestable {
     static REPLICATE_PUSH: FullSyncRequestable = new FullSyncRequestable("replicate_push", (c8oFullSync: C8oFullSyncCbl, databaseName: string, parameters: Object, c8oResponseListener: C8oResponseListener) => {
         return new Promise((resolve, reject) => {
             c8oFullSync.handleReplicatePushRequest(databaseName, parameters, new C8oResponseProgressListener((progress, param) => {
+                if(parameters["cancel"] == true){
+                    resolve({ok: true});
+                }
+                else{
                 if (progress.finished) {
                     resolve({"ok": true});
                 }
@@ -169,6 +184,7 @@ export class FullSyncRequestable {
                     let varNull: JSON = null;
                     (c8oResponseListener as C8oResponseJsonListener).onJsonResponse(varNull, param);
                 }
+            }
             })).catch((error) => {
                 reject(error);
             });

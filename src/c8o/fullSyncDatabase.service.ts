@@ -266,7 +266,7 @@ export class C8oFullSyncDatabase {
                     rep.cancel();
                     progress.finished = true;
                     if (c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener) {
-                        c8oResponseListener.onProgressResponse(progress, null);
+                        c8oResponseListener.onProgressResponse(progress, parameters);
                     }
                 }
             }
@@ -391,7 +391,7 @@ export class C8oFullSyncDatabase {
                     rep.cancel();
                     progress.finished = true;
                     if (c8oResponseListener != null && c8oResponseListener instanceof C8oResponseProgressListener) {
-                        c8oResponseListener.onProgressResponse(progress, null);
+                        c8oResponseListener.onProgressResponse(progress, parameters);
                     }
                 }
             }
