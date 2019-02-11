@@ -18,6 +18,7 @@
   - [About Convertigo Platform](#about-convertigo-platform)
 - [Requirements](#requirements)
 - [Installation](#installation)
+  - [Support of Angular 6 & 7](#support-of-angular-6--7)
 - [Documentation](#documentation)
   - [Creating a C8o instance](#creating-a-c8o-instance)
   - [Advanced instance settings](#advanced-instance-settings)
@@ -86,6 +87,23 @@ Convertigo Mobility Platform supports Angular developers. Services brought by th
 ```shell
 $ npm install --save c8osdkangular@latest
 ```
+
+### Support of Angular 6 & 7 ###
+
+Support of angular 6 & 7 is being improved.
+
+From now please use version 2.2.7-beta8
+```shell
+$ npm install --save c8osdkangular@2.2.7-beta8
+```
+
+Then add the folowing lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts
+
+```typescript
+(window as any).global = window;
+(window as any).process = window;
+```
+
 ## Documentation ##
 
 ### Creating a C8o instance ###
