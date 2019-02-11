@@ -120,7 +120,7 @@ export class MyClass {
 		this.c8o.init(new C8oSettings().setEndPoint("http://localhost:18080/convertigo/projects/template_Ionic2"));
 		
 		// Use the specific method to be sure that init has been finished 
-		this.c8o.finalizeInit(()=>{
+		this.c8o.finalizeInit().then(()=>{
 			// Do stuff with c8o object
 		});
 	}
