@@ -41,3 +41,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/node_modules
+/projects/c8osdkangular/node_modules
