@@ -36,6 +36,11 @@
   - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
   - [Full Sync FS_LIVE requests](#full-sync-fslive-requests)
   - [Full Sync Change Listener](#full-sync-change-listener)
+- [Internal Technical documentation](#internal-technical-documentation)
+  - [Project description](#project-description)
+  - [Build of project](#build-of-project)
+  - [Test of project](#test-of-project)
+  - [Release of project](#release-of-project)
 
 
 ## Introduction ##
@@ -600,3 +605,51 @@ c8o.addFullSyncChangeListener("databaseName", changeListener); // add this liste
 c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this listener for the database "base" ; null or "" while use the default database.
 
 ```
+## Internal Technical documentation ##
+
+### Project description ###
+
+This project is a angular basic sample.
+
+It is organized by a workspace that holds the whole project.
+
+Into this workspace there can be severals projects.
+
+Actually c8osdkangular is the only one project.
+
+For technical reasons, [c8osdkjscore](https://github.com/convertigo/c8osdk-js-core) is linked to this repo as a submodule into projects/src/c8osdk-js-core.
+
+c8osdkangular source content is under projects/src/lib.
+
+### Build of project ###
+
+To build project please run the following command from root of workspace
+
+```shell
+npm run build-sdk
+```
+This command will build the project into dist/ and copy README.md from projects/c8osdkangular/README.md to root of project and dist folder.
+
+### Test of project ###
+
+To test project please run the following command from root of workspace
+
+```shell
+npm run test-sdk
+```
+### Release of project ###
+The README.md that has to be edited is under projects/README.md if you want the changes to be taken into account
+
+To publish the package please run the following command
+
+```shell
+npm run publish-sdk
+```
+
+To publish beta the package please run the following command
+
+```shell
+npm run publish-beta-sdk
+```
+
+
