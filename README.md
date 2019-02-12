@@ -61,7 +61,7 @@ This current package is the Angular SDK. For others SDKs see official [Convertig
 
 ### About Convertigo Platform ###
 
-Convertigo Mobility Platform supports Angular developers. Services brought by the platform are available for Angular clients applications thanks to the Convertigo MBaaS SDK. SDK provides an Angular framework you can use to access Convertigo Server’s services such as:
+Convertigo Mobility Platform supports Angular developers. Services brought by the platform are available for Angular clients applications thanks to the Convertigo MBaaS SDK. SDK provides an Angular framework you can use to access Convertigo Serverâ€™s services such as:
 
 - Connectors to back-end data (SQL, NoSQL, REST/SOAP, SAP, - WEB HTML, AS/400, Mainframes)
 - Server Side Business Logic (Protocol transform, Business logic augmentation, ...)
@@ -92,9 +92,9 @@ $ npm install --save c8osdkangular@latest
 
 Support of angular 6 & 7 is being improved.
 
-From now please use version 2.2.7-beta8
+From now please use version 2.2.7-beta12
 ```shell
-$ npm install --save c8osdkangular@2.2.7-beta8
+$ npm install --save c8osdkangular@2.2.7-beta12
 ```
 
 Then add the folowing lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts
@@ -157,7 +157,7 @@ In order to finish the c8o initialization you must use init method from c8o obje
 
 ```typescript
 import { C8o, C8oSettings } from "c8osdkangular";
-…
+â€¦
 // The only way
 let settings: C8oSettings = new C8oSettings();
 settings
@@ -594,9 +594,9 @@ Full Sync has also the ability to notify your if there is any change on the data
 let changeListener : C8oFullSyncChangeListener = new C8oFullSyncChangeListener((changes:Object)=>{
 	checkChanges(changes);
 });
-…
+â€¦
 c8o.addFullSyncChangeListener("databaseName", changeListener); // add this listener for the database "base" ; null or "" while use the default database.
-…
+â€¦
 c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this listener for the database "base" ; null or "" while use the default database.
 
 ```

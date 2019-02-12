@@ -1,55 +1,43 @@
-#################
-## Misc
-#################
-**/.DS_Store
-package-lock.json
-nbproject
-manifest.mf
-build.xml
-node_modules/*
-!config/*
-!karma.conf.js
-!webpack.config.js
-!make.js
-!examples/**/*.js
-coverage
-*.metadata.json
-bundles
-src/*.js
-src/c8o/*.js
-src/c8o/Exception/*.js
-tests/*.js
-*.map
-*.d.ts
-*.ngsummary.json
-# Node generated files
-node_modules
-debug.log
-npm-debug.log
-# Typings generated files
-typings
-doc/*
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-#################
-## JetBrains
-#################
-.idea
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events.json
+speed-measure-plugin.json
+
+# IDEs and editors
+/.idea
 .project
-.settings
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-############
-## Windows
-############
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# Windows image file caches
-Thumbs.db
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
 
-# Folder config file
-Desktop.ini
-
-############
-## Mac
-############
-
-# Mac crap
+# System Files
 .DS_Store
+Thumbs.db

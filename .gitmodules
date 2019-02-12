@@ -1,0 +1,3 @@
+[submodule "projects/c8osdkangular/src/c8osdk-js-core"]
+	path = projects/c8osdkangular/src/c8osdk-js-core
+	url = https://github.com/convertigo/c8osdk-js-core
