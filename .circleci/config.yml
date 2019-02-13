@@ -7,99 +7,93 @@ jobs:
       - checkout
       # getsubmodules
       - run:
-          name: "Pull Submodules"
+          name: "pull-submodules"
           command: |
             git submodule init
             git submodule update --remote
       # Installing ionic cli
       - run:
-          name: update-ionic
+          name: install-angular/cli
           command: 'sudo yarn global add @angular/cli'
           when: always
-      # Installing ionic cli
-      - run:
-          name: set-chrome
-          command: 'env | grep CHROME_BIN && which google-chrome && CHROME_BIN=/usr/bin/google-chrome'
-          when: always
-          
       # Creating result folder
       - run:
-          name: create result folder
+          name: create-result-folder
           command: 'mkdir result'
           when: always
       # Deleting dependencies and lock files
       - run:
-          name: prepare_ang7
+          name: prepare-ang7
           command: 'cd ./projects/c8osdkangular && ([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
           when: always
       # Get package.json
       - run:
-          name: copyPackageDotJSON_ANG7
+          name: copy-package-ang7
           command: 'cd ./projects/c8osdkangular && rm ./package.json && cp ./packages/packageANG7.json ./package.json &&  echo "project will be build with the following package.json: " && cat ./package.json'
           when: always
       # Installing dependencies
       - run:
-          name: installDependencies_ANG7
+          name: install-dep-ang7
           command: 'yarn install && cd ./projects/c8osdkangular && yarn install'
           when: always
       # TESTANGULAR7
       - run:
-          name: buildJIT__testang7
-          command: 'cd ./projects/c8osdkangular && ng test c8osdkangular 2>&1 | tee -a ../../result/angular7.txt'
+          name: test-ang7
+          command: 'cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular7.txt'
           when: always
       # Check for results
       - run:
-          name: evaluates_testang7
+          name: eval-ang7
           command: '(grep -qs "TOTAL: 48 SUCCESS" in ./result/angular7.txt && cp ./circleci/results/icons/passed.png ./result/angular7.png || cp ./circleci/results/icons/failed.png ./result/angular7.png)'
           when: always
     # Deleting dependencies and lock files
       - run:
-          name: prepare_ang6
+          name: prepare-ang6
           command: '([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
           when: always
       # Get package.json
       - run:
-          name: copyPackageDotJSON_ANG6
+          name: copy-package-ang6
           command: 'rm ./package.json && cp ./packages/packageANG6.json ./package.json &&  echo "project will be build with the following package.json: " && cat ./package.json'
           when: always
       # Installing dependencies
       - run:
-          name: installDependencies_ANG6
+          name: install-dep-ang6
           command: 'cd ./projects/c8osdkangular && yarn install'
           when: always
       # TESTANGULAR7
       - run:
-          name: buildJIT_testAng6
-          command: 'ng test c8osdkangular 2>&1 | tee -a ../../result/angular6.txt'
+          name: test-ang6
+          command: 'ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular6.txt'
           when: always
       # Check for results
       - run:
-          name: evaluates_testang6
+          name: eval-ang6
           command: '(grep -qs "TOTAL: 48 SUCCESS" in ../../.result/angular6.txt && cp ../../.circleci/results/icons/passed.png ../../.result/angular6.png || cp ../../.circleci/results/icons/failed.png ../../.result/angular6.png)'
           when: always
     # Deleting dependencies and lock files
       - run:
-          name: prepare_ang5
+          name: prepare-ang5
           command: '([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
           when: always
       # Get package.json
       - run:
-          name: copyPackageDotJSON_ANG5
+          name: copy-package-ang5
           command: 'rm ./package.json && cp ./packages/packageANG5.json ./package.json &&  echo "project will be build with the following package.json: " && cat ./package.json'
           when: always
       # Installing dependencies
       - run:
-          name: installDependencies_ANG5
+          name: install-dep-ang5
           command: 'yarn install'
           when: always
       # TESTANGULAR7
       - run:
-          name: buildJIT_testAng5
-          command: 'ng test c8osdkangular 2>&1 | tee -a ../../result/angular5.txt'
+          name: test-ang5
+          command: 'ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular5.txt'
           when: always
       # Check for results
       - run:
-          name: evaluates_testang5
+          name: eval-ang5
           command: '(grep -qs "TOTAL: 48 SUCCESS" in ../../.result/angular5.txt && cp ../../.circleci/results/icons/passed.png ../../.result/angular5.png || cp ../../.circleci/results/icons/failed.png ../../.result/angular5.png)'
           when: always
       - store_artifacts:
