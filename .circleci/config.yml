@@ -3,8 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.15.1
-    steps:
-    - checkout
+    steps
+      - checkout
       # Installing ionic cli
       - run:
           name: update-ionic
