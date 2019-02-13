@@ -44,7 +44,7 @@ jobs:
       # Check for results
       - run:
           name: eval-ang7
-          command: '(grep -qs "TOTAL: 48 SUCCESS" in ./result/angular7.txt && cp ./circleci/results/icons/passed.png ./result/angular7.png || cp ./circleci/results/icons/failed.png ./result/angular7.png)'
+          command: '(grep -qs "TOTAL: 48 SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
           when: always
     # Deleting dependencies and lock files
       - run:
