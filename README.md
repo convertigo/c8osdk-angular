@@ -645,6 +645,8 @@ To test project please run the following command from root of workspace
 ```shell
 npm run test-sdk
 ```
+Build status on README.md is linked to circle-ci build version please update version number before commiting.
+ 
 ### Release of project ###
 The README.md that has to be edited is under projects/README.md if you want the changes to be taken into account
 

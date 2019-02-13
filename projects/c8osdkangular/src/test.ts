@@ -2096,7 +2096,7 @@ it("should check that Fullsync Put attachment works (C8oFsPutAttachment)", funct
   })();
 }
 );
-/** 
+/**/
 
 it("should check that Fullsync get attachment works ans sequence upload to (C8oSequencePutAttachmentFSGetAttachment)", function(done) {
 inject([C8o], (c8o: C8o) => {
