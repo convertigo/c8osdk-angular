@@ -14,7 +14,7 @@ jobs:
       # Installing ionic cli
       - run:
           name: update-ionic
-          command: 'sudo yarn global add @angular/cli'
+          command: 'sudo yarn global add @angular/cli && env | grep CHROME_BIN'
           when: always
       # Creating result folder
       - run:
@@ -34,7 +34,7 @@ jobs:
       # Installing dependencies
       - run:
           name: installDependencies_ANG7
-          command: 'yarn install'
+          command: 'yarn install && cd ./projects/c8osdkangular && yarn install'
           when: always
       # TESTANGULAR7
       - run:
@@ -59,7 +59,7 @@ jobs:
       # Installing dependencies
       - run:
           name: installDependencies_ANG6
-          command: 'yarn install'
+          command: 'cd ./projects/c8osdkangular && yarn install'
           when: always
       # TESTANGULAR7
       - run:
