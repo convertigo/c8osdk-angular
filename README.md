@@ -10,10 +10,18 @@
   src="https://travis-ci.org/convertigo/c8osdk-angular.svg?branch=master" alt="Travis Status"></a>
 </p>
 
-## TOC ##
+## Test status ##
+Angular 7.X : ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
-- [TOC](#toc)
+Angular 6.X: ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
+
+Angular 5.X: ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
+
+
+## Table of contents ##
+
 - [Test status](#test-status)
+- [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
   - [About SDKs](#about-sdks)
   - [About Convertigo Platform](#about-convertigo-platform)
@@ -43,12 +51,6 @@
   - [Test of project](#test-of-project)
   - [Release of project](#release-of-project)
 
-## Test status ##
-Angular 7.X : ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
-
-Angular 6.X: ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
-
-Angular 5.X: ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
 ## Introduction ##
 
 ### About SDKs ###
