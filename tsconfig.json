@@ -1,31 +1,30 @@
 {
-  "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "target": "es5",
-    "lib": [
-      "dom",
-      "es2015"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "removeComments": true,
-    "sourceMap": true,
-    "noImplicitAny": false
-  },
   "compileOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  },
-  "files" :[
-    "src/index.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts",
-    "bundles"
-  ]
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "c8osdkangular": [
+        "dist/c8osdkangular"
+      ],
+      "c8osdkangular/*": [
+        "dist/c8osdkangular/*"
+      ]
+    }
+  }
 }
