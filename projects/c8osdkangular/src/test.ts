@@ -521,6 +521,7 @@ describe("provider: basic calls verifications", () => {
       })
       })();
   });
+  /*
   it("should check sdk version (CheckVersion)", function (done) {
       inject([C8o], (c8o: C8o) => {
           let settings: any = new C8oSettings();
@@ -536,7 +537,7 @@ describe("provider: basic calls verifications", () => {
           })
       })();
   });
-
+*/
 
   it("should check someParams (CheckParams)", function (done) {
           inject([C8o], (c8o: C8o) => {
@@ -1047,6 +1048,7 @@ it("should check that Fullsync Post on existing with policy create works (C8oFsP
   })();
 }
 );
+
 
 it("should check that Fullsync Post on existing with policy override works (C8oFsPostExistingPolicyOverride)", function (done) {
   inject([C8o], function (c8o: C8o) {
