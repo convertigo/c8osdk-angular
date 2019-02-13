@@ -6,8 +6,8 @@
   <a href="/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
   <a href="https://www.npmjs.com/package/c8osdkangular"><img
   src="https://img.shields.io/npm/v/c8osdkangular.svg" alt="Travis Status"></a>
-  <a href="https://travis-ci.org/convertigo/c8osdk-angular"><img
-  src="https://travis-ci.org/convertigo/c8osdk-angular.svg?branch=master" alt="Travis Status"></a>
+  <a href="https://circleci.com/gh/convertigo/c8osdk-angular/tree/master"><img
+  src="https://circleci.com/gh/convertigo/c8osdk-angular/tree/master.svg?style=svg" alt="Travis Status"></a>
 </p>
 
 ## Test status ##
