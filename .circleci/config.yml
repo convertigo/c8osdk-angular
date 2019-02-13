@@ -19,7 +19,7 @@ jobs:
       # Installing ionic cli
       - run:
           name: set-chrome
-          command: 'env | grep CHROME_BIN && which google-chrome && CHROME_BIN=/usr/bin/google-chrome karma start --single-run'
+          command: 'env | grep CHROME_BIN && which google-chrome && CHROME_BIN=/usr/bin/google-chrome'
           when: always
           
       # Creating result folder
