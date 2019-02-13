@@ -13,6 +13,7 @@
 ## TOC ##
 
 - [TOC](#toc)
+- [Test status](#test-status)
 - [Introduction](#introduction)
   - [About SDKs](#about-sdks)
   - [About Convertigo Platform](#about-convertigo-platform)
@@ -42,7 +43,12 @@
   - [Test of project](#test-of-project)
   - [Release of project](#release-of-project)
 
+## Test status ##
+Angular 7.X : ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
+Angular 6.X: ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
+
+Angular 5.X: ![status](https://17-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
 ## Introduction ##
 
 ### About SDKs ###
