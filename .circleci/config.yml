@@ -23,7 +23,7 @@ jobs:
       # Get package.json
       - run:
           name: copyPackageDotJSON_ANG7
-          command: 'rm ./package.json && cp ./packages/packageANG7.json ./package.json &&  echo "project will be build with the following package.json: " && cat ./package.json'
+          command: 'ls && rm ./package.json && cp ./packages/packageANG7.json ./package.json &&  echo "project will be build with the following package.json: " && cat ./package.json'
           when: always
       # Installing dependencies
       - run:
