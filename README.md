@@ -13,6 +13,7 @@
 ## TOC ##
 
 - [TOC](#toc)
+- [Build status](#build-status)
 - [Introduction](#introduction)
   - [About SDKs](#about-sdks)
   - [About Convertigo Platform](#about-convertigo-platform)
@@ -42,7 +43,8 @@
   - [Test of project](#test-of-project)
   - [Release of project](#release-of-project)
 
-
+## Build status ##
+=======>
 ## Introduction ##
 
 ### About SDKs ###
