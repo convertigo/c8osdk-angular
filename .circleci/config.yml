@@ -14,8 +14,14 @@ jobs:
       # Installing ionic cli
       - run:
           name: update-ionic
-          command: 'sudo yarn global add @angular/cli && CHROME_BIN=/usr/bin/google-chrome karma start --single-run'
+          command: 'sudo yarn global add @angular/cli'
           when: always
+      # Installing ionic cli
+      - run:
+          name: set-chrome
+          command: 'env | grep CHROME_BIN && which google-chrome && CHROME_BIN=/usr/bin/google-chrome karma start --single-run'
+          when: always
+          
       # Creating result folder
       - run:
           name: create result folder
