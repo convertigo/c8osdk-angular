@@ -500,11 +500,11 @@ let resultGet = await this.c8o.callJson("fs://base.put_attachment",
 // Get this attachment from our document
 let resultGet = await this.c8o.callJson("fs://base.get", "docid", id, "attachments", true).async();
 
-// Get information form a local database
+// Get information from a local database
 let resultInfo = await this.c8o.callJson("fs://base.info").async();
 
 // Bulk load of database with an url as data argument
-let resultBulk = await this.c8o.callJson("fs://base.bulk", "data", "http://myurl.com/dump.json");
+let resultBulk = await this.c8o.callJson("fs://base.bulk", "data", "http://myurl.com/dump.json").async();
 
 ```
 
