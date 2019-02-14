@@ -11,11 +11,11 @@
 </p>
 
 ## Test status ##
-Angular 7.X : ![status](https://27-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
+Angular 7.X : ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
-Angular 6.X: ![status](https://27-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
+Angular 6.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
 
-Angular 5.X: ![status](https://27-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
+Angular 5.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
 
 
 ## Table of contents ##
@@ -89,11 +89,9 @@ Convertigo Mobility Platform supports Angular developers. Services brought by th
 [Access Convertigo mBaaS technical documentation](http://www.convertigo.com/document/latest/)
 
 [Access Convertigo SDK Documentations](https://www.convertigo.com/document/all/cmp-7/7-5-1/reference-manual/convertigo-mbaas-server/convertigo-client-sdk/)
-
 ## Requirements ##
 
-* node LTS
-* npm 5.6.0
+* node.js LTS
 
 ## Installation ##
 
@@ -103,11 +101,9 @@ $ npm install --save c8osdkangular@latest
 
 ### Support of Angular 6 & 7 ###
 
-Support of angular 6 & 7 is being improved.
-
-From now please use version 2.2.7-beta12
+From now please use at least version 2.2.8
 ```shell
-$ npm install --save c8osdkangular@2.2.7-beta12
+$ npm install --save c8osdkangular@2.2.8
 ```
 
 Then add the folowing lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts

@@ -11,7 +11,8 @@
     "build-sdk": "ng build c8osdkangular && cp ./projects/c8osdkangular/README.md ./dist/c8osdkangular/README.md && rm ./README.md && cp ./projects/c8osdkangular/README.md ./README.md",
     "test-sdk": "ng test c8osdkangular",
     "publish-sdk": "npm publish",
-    "publish-beta-sdk": "npm publish --tag beta"
+    "publish-beta-sdk": "npm publish --tag beta",
+    "submodules":"git submodule update --recursive --remote"
   },
   "private": true,
   "dependencies": {

@@ -524,7 +524,7 @@ describe("provider: basic calls verifications", () => {
       })
       })();
   });
-
+/*
   it("should check sdk version (CheckVersion)", function (done) {
       inject([C8o], (c8o: C8o) => {
           let settings: any = new C8oSettings();
@@ -540,7 +540,7 @@ describe("provider: basic calls verifications", () => {
           })
       })();
   });
-
+*/
 
   it("should check someParams (CheckParams)", function (done) {
           inject([C8o], (c8o: C8o) => {
