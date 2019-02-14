@@ -23,6 +23,7 @@ import {C8oUtils} from "./lib/c8oUtils.service";
 import {C8oPromise,C8oSettings,C8oLogLevel,C8oException,C8oExceptionMessage,C8oProgress,C8oLocalCache,C8oFullSyncChangeListener,Priority,C8oRessourceNotFoundException,C8oResponseJsonListener,C8oHttpRequestException} from "../src/c8osdk-js-core/src/index";
 import { $ } from 'protractor';
 
+
 declare const require: any;
 
 // First, initialize the Angular testing environment.
@@ -50,6 +51,8 @@ describe("provider: basic calls verifications", () => {
     afterEach(function() {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
       });
+
+
 /**/
     it("should ping (C8oDefaultPing)", function (done) {
             inject([C8o], (c8o: C8o) => {
@@ -206,7 +209,7 @@ describe("provider: basic calls verifications", () => {
         }
     );
 
-    /**/
+    
     it("should check Json types (C8oCheckJsonTypes)", function (done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -252,7 +255,7 @@ describe("provider: basic calls verifications", () => {
             })();
         }
     );
-/***/
+
     it("should check that sessions are not mixed (CheckNoMixSession)", function (done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -521,7 +524,7 @@ describe("provider: basic calls verifications", () => {
       })
       })();
   });
-  /*
+
   it("should check sdk version (CheckVersion)", function (done) {
       inject([C8o], (c8o: C8o) => {
           let settings: any = new C8oSettings();
@@ -537,7 +540,7 @@ describe("provider: basic calls verifications", () => {
           })
       })();
   });
-*/
+
 
   it("should check someParams (CheckParams)", function (done) {
           inject([C8o], (c8o: C8o) => {
@@ -2096,7 +2099,7 @@ it("should check that Fullsync Put attachment works (C8oFsPutAttachment)", funct
   })();
 }
 );
-/**/
+
 
 it("should check that Fullsync get attachment works ans sequence upload to (C8oSequencePutAttachmentFSGetAttachment)", function(done) {
 inject([C8o], (c8o: C8o) => {
@@ -2113,19 +2116,22 @@ type: "text/plain",
 });
 let arrayFile = [fileFirst, fileSecond];
 
-c8o.callJson(".LogingTesting")
-.then(() => {
-return  c8o.callJson(".InitFsFile", "_id", id)
-})
-.then(() => {
+c8o.callJson(".LoginTesting")
+    .then(() => {
+        return c8o.callJson("fs://qa_fs_files.reset")
+    })
+    .then(() => {
+        return  c8o.callJson(".InitFsFile", "_id", id)
+        })
+    .then(() => {
 return c8o.callJson(".GetAndInsertBase64", "files",arrayFile);
 })
 .then((response: any) => {
-  return c8o.callJson("fs://.sync", "continuous", true);
+  return c8o.callJson("fs://qa_fs_files.sync", "continuous", true);
 })
 .then((response: any) => {
     setTimeout(()=>{
-        c8o.callJson("fs://.get", "docid", id, "attachments", true)
+        c8o.callJson("fs://qa_fs_files.get", "docid", id, "attachments", true)
         .then((response: any) => {
             var reader = new FileReader();
             var readerSecond = new FileReader();
@@ -2153,7 +2159,7 @@ done.fail("error is not supposed to happend");
 });
 })();
 });
-
+/**/
 it("should check that Fullsync bulkworks (C8oFsBulk)", function (done) {
 inject([C8o], (c8o: C8o) => {
 c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -2163,8 +2169,8 @@ let myId: string = "C8oFsPostGetDelete-" + new Date().getTime().valueOf();
 let id: string;
 c8o.callJson("fs://digiprev_fullsync_dataref.reset")
   .then(() => {
-      //return c8o.callJson("fs://.bulk", "data", "http://c8o-dev.convertigo.net/cems/projects/ClientSDKtesting/files/dump.json");
-      return c8o.callJson("fs://digiprev_fullsync_dataref.bulk", "data", "http://localhost:9876/base/files/dump.json");
+      return c8o.callJson("fs://.bulk", "data", "http://c8o-dev.convertigo.net/cems/projects/ClientSDKtesting/files/dump.json");
+      //return c8o.callJson("fs://digiprev_fullsync_dataref.bulk", "data", "http://localhost:9876/base/files/dump.json");
   })
   .then((response: any) => {
       return c8o.callJson("fs://digiprev_fullsync_dataref.info");

@@ -15,7 +15,7 @@ export class Info {
     }
     static get port() {
         return "80";
-        //return "18080"
+        //return "8080"
     }
     static get project_path() {
         return "/cems/projects/ClientSDKtesting";

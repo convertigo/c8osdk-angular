@@ -16,7 +16,7 @@ export class C8o extends C8oCore {
     }
 
     public get sdkVersion(): string {
-        return "0.0.0"//require("../../package.json").version;
+        return require("../../package.json").version;
     }
     public init(c8oSettings?: C8oSettings): Promise<any> {
         let nullableEndpoint = true;
