@@ -2169,8 +2169,8 @@ let myId: string = "C8oFsPostGetDelete-" + new Date().getTime().valueOf();
 let id: string;
 c8o.callJson("fs://digiprev_fullsync_dataref.reset")
   .then(() => {
-      return c8o.callJson("fs://.bulk", "data", "http://c8o-dev.convertigo.net/cems/projects/ClientSDKtesting/files/dump.json");
-      //return c8o.callJson("fs://digiprev_fullsync_dataref.bulk", "data", "http://localhost:9876/base/files/dump.json");
+      //return c8o.callJson("fs://digiprev_fullsync_dataref.bulk", "data", "http://c8o-dev.convertigo.net/cems/projects/ClientSDKtesting/files/dump.json");
+      return c8o.callJson("fs://digiprev_fullsync_dataref.bulk", "data", "http://localhost:9876/base/files/dump.json");
   })
   .then((response: any) => {
       return c8o.callJson("fs://digiprev_fullsync_dataref.info");
@@ -2185,11 +2185,9 @@ c8o.callJson("fs://digiprev_fullsync_dataref.reset")
       })
       .progress((progress)=>{
           // Do stuff with progress
-          if(progress.toString() == "pull: 0/0 (done)"){
-              expect(progress.toString()).toBe("pull: 0/0 (done)")
+          if(progress.current == "0" || progress.current == "1"){
           }
-          else if(progress.toString() == "push: 0/0 (done)"){
-              expect(progress.toString()).toBe("push: 0/0 (done)");
+          else if(progress.current == "0" || progress.current == "1"){
           }
           else{
               done.fail("C8oFsBulk");
