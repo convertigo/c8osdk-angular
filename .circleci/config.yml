@@ -44,7 +44,7 @@ jobs:
       # Check for results
       - run:
           name: eval-ang7
-          command: '(grep -qs "TOTAL: 49 SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
+          command: '(grep -qs "TOTAL: 50 SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
           when: always
     # Deleting dependencies and lock files
       - run:
@@ -69,7 +69,7 @@ jobs:
       # Check for results
       - run:
           name: eval-ang6
-          command: '(grep -qs "TOTAL: 49 SUCCESS" in ./result/angular6.txt && cp ./.circleci/results/icons/passed.png ./result/angular6.png || cp ./.circleci/results/icons/failed.png ./result/angular6.png)'
+          command: '(grep -qs "TOTAL: 50 SUCCESS" in ./result/angular6.txt && cp ./.circleci/results/icons/passed.png ./result/angular6.png || cp ./.circleci/results/icons/failed.png ./result/angular6.png)'
           when: always
     # Deleting dependencies and lock files
       - run:
@@ -94,7 +94,7 @@ jobs:
       # Check for results
       - run:
           name: eval-ang5
-          command: '(grep -qs "TOTAL: 49 SUCCESS" in ./result/angular5.txt && cp ./.circleci/results/icons/passed.png ./result/angular5.png || cp ./.circleci/results/icons/failed.png ./result/angular5.png)'
+          command: '(grep -qs "TOTAL: 50 SUCCESS" in ./result/angular5.txt && cp ./.circleci/results/icons/passed.png ./result/angular5.png || cp ./.circleci/results/icons/failed.png ./result/angular5.png)'
           when: always
       - store_artifacts:
           path: ./result/

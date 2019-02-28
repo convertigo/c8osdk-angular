@@ -31,6 +31,8 @@ Angular 5.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circle
 - [Documentation](#documentation)
   - [Creating a C8o instance](#creating-a-c8o-instance)
   - [Advanced instance settings](#advanced-instance-settings)
+    - [General](#general)
+    - [Normalize parameters](#normalize-parameters)
   - [Calling a Convertigo requestable](#calling-a-convertigo-requestable)
   - [Calling a Convertigo requestable with parameters](#calling-a-convertigo-requestable-with-parameters)
   - [Calling a Convertigo requestable uploading a files](#calling-a-convertigo-requestable-uploading-a-files)
@@ -154,6 +156,7 @@ export class MyClass {
 }
 ```
 ### Advanced instance settings ###
+#### General ####
  The endpoint is the mandatory setting to get a C8o instance correctly initialized but there is additional settings through the C8oSettings class.
 
 A C8oSettings instance should be passed after the endpoint. Settings are copied inside the C8o instance and a C8oSettings instance can be modified and reused.
@@ -166,7 +169,7 @@ In order to finish the c8o initialization you must use init method from c8o obje
 
 ```typescript
 import { C8o, C8oSettings } from "c8osdkangular";
-â€¦
+
 // The only way
 let settings: C8oSettings = new C8oSettings();
 settings
@@ -179,7 +182,24 @@ c8o.init(settings);
 // all settings can be retrieve from a C8o or C8oSettings instance
 let timeout : number = c8o.timeout;
 ```
+#### Normalize parameters ####
 
+If you want to normalize parameters of every call you can set it throw  C8osettings setNormalizeParameters method.
+setNormalizeParameters
+
+```typescript
+import { C8o, C8oSettings } from "c8osdkangular";
+
+// The only way
+let settings: C8oSettings = new C8oSettings();
+settings
+        .setNormalizeParameters(true);
+//Then we need to assign C8oSettings object to our C8o object
+c8o.init(settings);
+
+// all settings can be retrieve from a C8o or C8oSettings instance
+let normalizeParameters : boolean = c8o.normalizeParameters;
+```
 ### Calling a Convertigo requestable ###
 
 With a C8o instance you can call Convertigo Sequence and Transaction or make query to your local FullSync database.

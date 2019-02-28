@@ -28,14 +28,15 @@ export class Info {
 
 //noinspection TsLint
 export class Stuff {
-    static get C8o() {
+    static get C8o() : C8oSettings {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
             .setLogRemote(true)
             .setLogLevelLocal(C8oLogLevel.ERROR)
-            .addHeader("x-convertigo-mb", "7.5.0-beta");
-        return c8oSettings as any;
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setNormalizeParameters(true);
+        return c8oSettings;
     }
 
     static get C8o_FS() {

@@ -53,7 +53,6 @@ describe("provider: basic calls verifications", () => {
       });
 
 
-/**/
     it("should ping (C8oDefaultPing)", function (done) {
             inject([C8o], (c8o: C8o) => {
                 c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -80,15 +79,22 @@ describe("provider: basic calls verifications", () => {
                 c8o.init(Stuff.C8o).catch((err: C8oException) => {
                     expect(err).toBeUndefined();
                 });
-                await c8o.callJson(".Ping", "var1", "val1").async()
+                await c8o.finalizeInit();
+                var date2 = new Date('1995-12-17T03:24:00');
+                await c8o.callJson(".Ping", "var1", "val1", "var2", date2).async()
                     .then((resp) => {
-                        expect(resp["document"]["pong"].var1).toBe("val1")
+                        expect(resp["document"]["pong"].var1).toBe("val1");
+                        expect(resp["document"]["pong"].var2).toBe('1995-12-17T02:24:00.000Z');
+                        done();
+                        return null;
                     })
                     .catch((err) => {
                         expect(err).toBeNull();
                     });
+    
 
-                done();
+
+                
             })().catch(() => {
                 done.fail("error is not supposed to happend");
             });
@@ -524,7 +530,7 @@ describe("provider: basic calls verifications", () => {
       })
       })();
   });
-/*
+
   it("should check sdk version (CheckVersion)", function (done) {
       inject([C8o], (c8o: C8o) => {
           let settings: any = new C8oSettings();
@@ -540,7 +546,6 @@ describe("provider: basic calls verifications", () => {
           })
       })();
   });
-*/
 
   it("should check someParams (CheckParams)", function (done) {
           inject([C8o], (c8o: C8o) => {
