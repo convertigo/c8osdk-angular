@@ -80,7 +80,7 @@ describe("provider: basic calls verifications", () => {
                     expect(err).toBeUndefined();
                 });
                 await c8o.finalizeInit();
-                var date2 = new Date('1995-12-17T03:24:00');
+                var date2 = new Date('1995-12-17T02:24:00');
                 await c8o.callJson(".Ping", "var1", "val1", "var2", date2).async()
                     .then((resp) => {
                         expect(resp["document"]["pong"].var1).toBe("val1");
