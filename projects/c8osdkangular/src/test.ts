@@ -51,7 +51,7 @@ describe("provider: basic calls verifications", () => {
     afterEach(function() {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
       });
-
+/*
 
     it("should ping (C8oDefaultPing)", function (done) {
             inject([C8o], (c8o: C8o) => {
@@ -70,7 +70,7 @@ describe("provider: basic calls verifications", () => {
             })();
         }
     );
-
+/**/
 
     it("should ping async (C8oDefaultPingAsync)", (done) => {
 
@@ -85,13 +85,24 @@ describe("provider: basic calls verifications", () => {
                     .then((resp) => {
                         expect(resp["document"]["pong"].var1).toBe("val1");
                         expect(resp["document"]["pong"].var2).toBe('1995-12-17T02:24:00.000Z');
-                        done();
-                        return null;
+                        //done();
+                        //return null;
                     })
                     .catch((err) => {
                         expect(err).toBeNull();
                     });
-    
+                    // check reference circular
+                    let a: Object = {id:"a"};
+                    let b: Object = {id:"b"};
+                    a["b"] = b;
+                    b["a"] = a;
+                    await c8o.callJson(".Ping", "var3",a).async()
+                    .then((resp)=>{
+                        done();
+                    })
+                    .catch((err) => {
+                        expect(err).toBeNull();
+                    });
 
 
                 
@@ -101,7 +112,7 @@ describe("provider: basic calls verifications", () => {
         })();
 
     });
-
+/**
     it("should ping Observable (C8oDefaultPingObservable)", (done) => {
         inject([C8o], (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -2164,7 +2175,7 @@ done.fail("error is not supposed to happend");
 });
 })();
 });
-/**/
+
 it("should check that Fullsync bulkworks (C8oFsBulk)", function (done) {
 inject([C8o], (c8o: C8o) => {
 c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {

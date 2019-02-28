@@ -33,7 +33,7 @@ export class Stuff {
         c8oSettings
             .setEndPoint(Info.endpoint)
             .setLogRemote(true)
-            .setLogLevelLocal(C8oLogLevel.ERROR)
+            .setLogLevelLocal(C8oLogLevel.DEBUG)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true);
         return c8oSettings;
