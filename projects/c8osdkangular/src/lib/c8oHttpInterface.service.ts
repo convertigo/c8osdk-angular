@@ -3,6 +3,7 @@ import {C8oHttpInterfaceCore, C8oResponseJsonListener, C8oResponseListener, C8oP
 //import {C8oHttpInterfaceCore, C8oResponseJsonListener, C8oResponseListener, C8oProgress,C8oHttpRequestException,C8oExceptionMessage} from "c8osdkjscore";
 import {HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from "@angular/common/http";
 import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 
@@ -11,6 +12,36 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
 
     constructor(c8o: C8o) {
         super(c8o);
+    }
+
+    private getUserService(headers:any): Observable<any>{
+        return this.c8o.httpPublic.post(this.c8o.endpointConvertigo+"/services/user.Get", {}, {
+            headers: headers,
+            withCredentials: true
+        });
+    }
+    /**
+     * Check if session is ok
+     * @param parameters 
+     */
+    private checkSession(headers: any, time: number = 0, first: boolean = false){
+        setTimeout(()=>{
+            this.c8o.log.debug("[C8o][C8oHttpsession][checkSession] pooling for session with time to " + time + " seconds");
+            this.c8o.httpPublic.post(this.c8o.endpointConvertigo+"/services/user.Get", {}, {
+                headers: headers,
+                withCredentials: true
+            })
+            .retry(1)
+            .subscribe(
+                response => {
+                    let timeR = +response['maxInactive'] * 0.85 * 1000;
+                    this.checkSession(headers, timeR);
+                },
+                error => {
+                    this.c8o.log.error("[C8o][C8oHttpsession][checkSession] error happened pooling session", error);
+                 }
+            );
+        }, time)
     }
 
     /**
@@ -249,6 +280,7 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
         Object.assign(headersObject, this.c8o.headers);
         let headers = new HttpHeaders(headersObject);
         if (this.firstCall) {
+            //this.checkSession(headers, 0, true);
             this.p1 = new Promise((resolve, reject) => {
                 this.firstCall = false;
                 this.c8o.httpPublic.post(url, parameters, {
@@ -303,6 +335,7 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
 
 
         if (this.firstCall) {
+            //this.checkSession(headers, 0, true);
             this.p1 = new Promise((resolve) => {
                 this.firstCall = false;
                 const httpRequest = new HttpRequest('POST', url, form, {reportProgress: true, withCredentials: true, headers: headers});
