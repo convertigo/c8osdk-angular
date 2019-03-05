@@ -83,7 +83,7 @@ describe("provider: basic calls verifications", () => {
                 await c8o.callJson(".Ping", "var1", "val1", "var2", date2).async()
                     .then((resp) => {
                         expect(resp["document"]["pong"].var1).toBe("val1");
-                        expect(resp["document"]["pong"].var2).toBe('1995-12-17T01:24:00.000Z');
+                        expect(resp["document"]["pong"].var2).toBe('1995-12-17T00:24:00.000Z');
                         //done();
                         //return null;
                     })
