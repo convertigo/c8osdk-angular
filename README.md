@@ -225,6 +225,21 @@ this.c8o.callJson(".login")
       //handle result
     });
 
+// Using RxJS Observables that allow for example progress and Live. 
+this.c8o.callJson(".login")
+    .toObservable()
+    .subscribe(next => {
+        // handle results
+        // console.log(next.response);
+        //console.log(next.parameters)
+    },
+    error =>{
+        // handle errors
+    },
+    () =>{
+      // handle complete
+    });
+
 // Using C8oPromise that allow for example progress and Live. C8oPromise is described in Api doc in section Api documentation of this README
 this.c8o.callJson(".login")
     .then((response)=>{
@@ -361,6 +376,21 @@ this.c8o.callJsonObject('.login', {
             .catch((error)=>{
               // Do something with the error
             })
+
+// Here using Rxjs Observables
+this.c8o.callJson(".login")
+    .toObservable()
+    .subscribe(next => {
+        // handle results
+        // console.log(next.response);
+        //console.log(next.parameters)
+    },
+    error =>{
+        // handle errors
+    },
+    () =>{
+      // handle complete
+    });
 
 // Using C8oPromise that allow for example progress and Live. C8oPromise is described in Api doc in section Api documentation of this README.
 this.c8o.callJsonObject('.login', {
