@@ -12,7 +12,9 @@
     "test-sdk": "ng test c8osdkangular",
     "publish-sdk": "npm publish",
     "publish-beta-sdk": "npm publish --tag beta",
-    "submodules":"git submodule update --recursive --remote"
+    "submodules": "git submodule update --recursive --remote",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude 'projects/c8osdkangular/src/**/*.spec.ts' --readme './projects/c8osdkangular/src/README.md' ./projects/c8osdkangular/src/",
+    "typedoc": "typedoc"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +55,7 @@
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "typedoc": "0.14.2"
   }
 }

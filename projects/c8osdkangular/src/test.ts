@@ -51,7 +51,7 @@ describe("provider: basic calls verifications", () => {
     afterEach(function() {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
       });
-/*
+
 
     it("should ping (C8oDefaultPing)", function (done) {
             inject([C8o], (c8o: C8o) => {
@@ -70,7 +70,6 @@ describe("provider: basic calls verifications", () => {
             })();
         }
     );
-/**/
 
     it("should ping async (C8oDefaultPingAsync)", (done) => {
 
@@ -84,7 +83,7 @@ describe("provider: basic calls verifications", () => {
                 await c8o.callJson(".Ping", "var1", "val1", "var2", date2).async()
                     .then((resp) => {
                         expect(resp["document"]["pong"].var1).toBe("val1");
-                        expect(resp["document"]["pong"].var2).toBe('1995-12-17T02:24:00.000Z');
+                        expect(resp["document"]["pong"].var2).toBe('1995-12-17T01:24:00.000Z');
                         //done();
                         //return null;
                     })
@@ -112,27 +111,42 @@ describe("provider: basic calls verifications", () => {
         })();
 
     });
-/**
-    it("should ping Observable (C8oDefaultPingObservable)", (done) => {
-        inject([C8o], (c8o: C8o) => {
+
+
+   it("should ping observable (C8oDefaultPingObs)", (done) => {
+
+    inject([C8o], (c8o: C8o) => {
+        (async (): Promise<any> => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
                 expect(err).toBeUndefined();
             });
-            let observable = c8o.callJson(".Ping", "var1", "val1").toObservable();
-            observable.subscribe(
-                (response) => {
-                    expect(response["document"]["pong"].var1).toBe("val1");
-                },
-                (error) => {
-                    expect(error).toBeNull();
-                },
-                () => {
-                    done();
-                }
-            )
-        })();
+            await c8o.finalizeInit();
+            var date2 = new Date('1995-12-17T02:24:00');
+            c8o.callJson(".Ping", "var1", "val1", "var2", date2)
+            .toObservable()
+            .subscribe(next => {
+                console.log("next");
+                console.log(next);
+                expect(next.response["document"]["pong"].var1).toBe("val1");
+                expect(next.response["document"]["pong"].var2).toBe('1995-12-17T01:24:00.000Z');
+            },
+            error =>{
+                console.log("error");
+                console.log(error);
+                expect(error).toBeNull();
+            },
+            () =>{
+                console.log("end");
+                done();
+            });
+            
+            
+        })().catch(() => {
+            done.fail("error is not supposed to happend");
+        });
+    })();
 
-    });
+});
 
 
     it("should ping one single value (C8oDefaultPingOneSingleValue)", function (done) {
@@ -854,6 +868,65 @@ it("should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)", func
               expect(error instanceof C8oException).toBeTruthy();
               done();
           });
+  })();
+}
+);
+
+it("should check that Fullsync Post Get Delete works with observable (C8oFsPostGetDeleteObs)", function (done) {
+  inject([C8o], (c8o: C8o) => {
+      c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
+          expect(err).toBeUndefined();
+      });
+      let myId: string = "C8oFsPostGetDelete-" + new Date().getTime().valueOf();
+      let id: string;
+      c8o.callJson("fs://.reset")
+      .toObservable()
+      .subscribe(() => { 
+        c8o.callJson("fs://.post", "_id", myId)
+        .toObservable()
+        .subscribe(next=>{
+            expect(next.response["ok"]).toBeTruthy();
+            id = next.response["id"];
+            expect(id).toBe(myId);
+        },
+        error=>{
+            done.fail("error is not supposed to happend");
+        },
+        ()=>{
+            c8o.callJson("fs://.get", "docid", id)
+            .toObservable()
+            .subscribe(next=>{
+                expect(next.response["_id"]).toBe(myId);
+            },
+            error=>{
+                done.fail("error is not supposed to happend");
+            },
+            ()=>{
+                c8o.callJson("fs://.delete", "docid", id)
+                .toObservable()
+                .subscribe(next=>{
+                    expect(next.response["ok"]).toBeTruthy();
+                },
+                error=>{
+                    done.fail("error is not supposed to happend");
+                },
+                ()=>{
+                    c8o.callJson("fs://.get", "docid", id)
+                    .toObservable()
+                    .subscribe(next=>{
+                        done.fail("this \"then\" is not supposed to be executed");
+                    },
+                    error=>{
+                        expect(error instanceof C8oException).toBeTruthy();
+                        done();
+                    },
+                    ()=>{
+                       
+                    });
+                });
+            });
+        })
+       });
   })();
 }
 );
