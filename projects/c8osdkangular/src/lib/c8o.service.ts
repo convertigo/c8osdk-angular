@@ -133,43 +133,48 @@ export class C8o extends C8oCore {
      *
      */
     public finalizeInit(): Promise<any>{
-        this.promiseFinInit = new Promise((resolve)=>{
-            Promise.all([this.promiseInit]).then(() => {
-                /**
-                 * Looking for splashScreen timeOut
-                 */
-                if (this._automaticRemoveSplashsCreen) {
-                    if (navigator["splashscreen"] !== undefined) {
-                        navigator["splashscreen"].hide();
+        if(this.promiseFinInit != null){
+            return this.promiseFinInit;
+        }
+        else{
+            this.promiseFinInit = new Promise((resolve)=>{
+                Promise.all([this.promiseInit]).then(() => {
+                    /**
+                     * Looking for splashScreen timeOut
+                     */
+                    if (this._automaticRemoveSplashsCreen) {
+                        if (navigator["splashscreen"] !== undefined) {
+                            navigator["splashscreen"].hide();
+                        }
                     }
-                }
-                /**
-                 * Looking for wkWebView
-                 */
-                if (window["wkWebView"] != undefined) {
-                    window["wkWebView"].injectCookie(this.endpointConvertigo)
-                    this.log.debug("[C8O] wkWebView detected: We will inject Cookie for endpoint: "+ this.endpointConvertigo);
-                }
-                /**
-                 * Looking for cblite
-                 */
-                if (window["cblite"] != undefined) {
-                    window["cblite"].getURL((err, url) => {
-                        if (err) {
-                            resolve();
-                        }
-                        else{
-                            url = url.replace(new RegExp("/$"), "");
-                            this.couchUrl = url;
-                            resolve();
-                        }
-                    });
-                }
-                else {
-                    resolve();
-                }
+                    /**
+                     * Looking for wkWebView
+                     */
+                    if (window["wkWebView"] != undefined) {
+                        window["wkWebView"].injectCookie(this.endpointConvertigo)
+                        this.log.debug("[C8O] wkWebView detected: We will inject Cookie for endpoint: "+ this.endpointConvertigo);
+                    }
+                    /**
+                     * Looking for cblite
+                     */
+                    if (window["cblite"] != undefined) {
+                        window["cblite"].getURL((err, url) => {
+                            if (err) {
+                                resolve();
+                            }
+                            else{
+                                url = url.replace(new RegExp("/$"), "");
+                                this.couchUrl = url;
+                                resolve();
+                            }
+                        });
+                    }
+                    else {
+                        resolve();
+                    }
+                });
             });
-        });
-        return this.promiseFinInit;
+            return this.promiseFinInit;
+        }
     }
 }
