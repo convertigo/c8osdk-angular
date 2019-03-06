@@ -144,6 +144,13 @@ export class C8o extends C8oCore {
                     }
                 }
                 /**
+                 * Looking for wkWebView
+                 */
+                if (window["wkWebView"] != undefined) {
+                    window["wkWebView"].injectCookie(this.endpointConvertigo)
+                    this.log.debug("[C8O] wkWebView detected: We will inject Cookie for endpoint: "+ this.endpointConvertigo);
+                }
+                /**
                  * Looking for cblite
                  */
                 if (window["cblite"] != undefined) {
