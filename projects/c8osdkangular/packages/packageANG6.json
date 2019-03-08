@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "2.2.10-beta6",
+  "version": "2.2.10-beta9",
   "description": "convertigo's MBaaS client API service",
   "repository": {
     "type": "git",
@@ -30,8 +30,8 @@
     "@angular/http": ">= 4.4.4 <=7.2.4"
   },
   "dependencies": {
-    "@types/pouchdb": "6.3.2",
-    "pouchdb-browser": "6.4.3",
+    "@types/pouchdb": "6.3.3",
+    "pouchdb-browser": "7.0.0",
     "pouchdb-load": "1.4.6",
     "rxjs": "~6.3.3",
     "typescript": "~3.1.6",

@@ -1,6 +1,6 @@
 {
     "name": "MyIonicProject",
-    "version": "2.2.10-beta6",
+    "version": "2.2.10-beta9",
     "author": "Ionic Framework",
     "homepage": "http://ionicframework.com/",
     "private": true,
@@ -23,8 +23,8 @@
       "rxjs": "5.5.11",
       "sw-toolbox": "3.6.0",
       "zone.js": "0.8.29",
-      "@types/pouchdb": "6.3.2",
-      "pouchdb-browser": "6.4.3",
+      "@types/pouchdb": "6.3.3",
+      "pouchdb-browser": "7.0.0",
       "pouchdb-load": "1.4.6"
     },
     "devDependencies": {
