@@ -283,13 +283,22 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
             //this.checkSession(headers, 0, true);
             this.p1 = new Promise((resolve, reject) => {
                 this.firstCall = false;
+                //parameters['observe'] = 'response';
                 this.c8o.httpPublic.post(url, parameters, {
                     headers: headers,
-                    withCredentials: true
+                    withCredentials: true,
+                    observe: 'response'
                 })
                     .retry(1)
                     .subscribe(
-                        response => resolve(response),
+                        response =>{
+                            const keys = response.headers.keys();
+                                let headersResp = keys.map(key =>
+                                    `${key}: ${response.headers.get(key)}`);
+
+                                console.log(headersResp);
+                            resolve(response.body)
+                        },
                         error => {resolve({"error" : (new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))}); }
                     );
             });
@@ -298,13 +307,22 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
         else {
             return new Promise((resolve, reject) => {
                 Promise.all([this.p1]).then(() => {
+                    //parameters['observe'] = 'response';
                     this.c8o.httpPublic.post(url, parameters, {
                         headers: headers,
-                        withCredentials: true
+                        withCredentials: true,
+                        observe: 'response'
                     })
                         .retry(1)
                         .subscribe(
-                            response => { resolve(response); },
+                            response =>{
+                                const keys = response.headers.keys();
+                                let headersResp = keys.map(key =>
+                                    `${key}: ${response.headers.get(key)}`);
+
+                                console.log(headersResp);
+                                resolve(response.body)
+                            },
                             error => { reject((new C8oHttpRequestException(C8oExceptionMessage.runHttpRequest(), error))); }
                         );
 

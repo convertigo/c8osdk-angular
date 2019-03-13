@@ -6,6 +6,10 @@ import {C8o} from "./lib/c8o.service";
 export class Info {
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
 
+    // Set this property to use local studio for tests
+    static local = true;
+
+    // Remote infos
     static get http() {
         return "http://";
     }
@@ -19,10 +23,29 @@ export class Info {
     }
     static get project_path() {
         return "/cems/projects/ClientSDKtesting";
-        //return "/convertigo/projects/ClientSDKtesting";
+    }
+
+    // Local infos
+    static get httpLocal() {
+        return "http://";
+    }
+    static get hostLocal() {
+        return "localhost";
+    }
+    static get portLocal() {
+        return "18080"
+    }
+    static get project_pathLocal() {
+        return "/convertigo/projects/ClientSDKtesting";
     }
     static get endpoint() {
-        return Info.http + Info.host + ":" + Info.port + Info.project_path;
+        if(!Info.local){
+            return Info.http + Info.host + ":" + Info.port + Info.project_path;
+        }
+        else{
+            return Info.httpLocal + Info.hostLocal + ":" + Info.portLocal + Info.project_pathLocal;
+        }
+        
     }
 }
 

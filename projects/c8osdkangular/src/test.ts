@@ -55,10 +55,15 @@ describe("provider: basic calls verifications", () => {
 
     it("should ping (C8oDefaultPing)", function (done) {
             inject([C8o], (c8o: C8o) => {
-                c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                c8o.init(Stuff.C8o)
+                .catch((err: C8oException) => {
                     expect(err).toBeUndefined();
                 });
-                c8o.callJson(".Ping")
+                c8o.finalizeInit().then(()=>{
+                    c8o.callJson(".LoginTesting")
+                    .then((response, paramrs)=>{
+                        return c8o.callJson(".Ping");
+                    })
                     .then((response: any) => {
                             expect(response["document"]["pong"]).not.toBeNull();
                             done();
@@ -67,10 +72,12 @@ describe("provider: basic calls verifications", () => {
                     ).fail((error) => {
                     done.fail("error is not supposed to happend");
                 });
+                });
+                
             })();
         }
     );
-
+/*
     it("should ping async (C8oDefaultPingAsync)", (done) => {
 
         inject([C8o], (c8o: C8o) => {
