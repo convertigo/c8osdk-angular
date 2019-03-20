@@ -1,9 +1,9 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { C8o } from "c8osdkangular";
-import { HttpClient } from 'selenium-webdriver/http';
+import { AppComponent } from './app.component'
+import {C8oSettings, C8o } from "../../dist/c8osdkangular/fesm5/c8osdkangular";
 import {HttpClientModule} from "@angular/common/http"
 
 @NgModule({
@@ -17,4 +17,6 @@ import {HttpClientModule} from "@angular/common/http"
   providers: [C8o],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

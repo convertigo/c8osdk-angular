@@ -33,7 +33,7 @@ export class Info {
         return "localhost";
     }
     static get portLocal() {
-        return "18080"
+        return "8080"
     }
     static get project_pathLocal() {
         return "/convertigo/projects/ClientSDKtesting";
@@ -56,6 +56,7 @@ export class Stuff {
         c8oSettings
             .setEndPoint(Info.endpoint)
             .setLogRemote(true)
+            .setLogC8o(true)
             .setLogLevelLocal(C8oLogLevel.DEBUG)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true);
@@ -76,11 +77,13 @@ export class Stuff {
     static get C8o_FS_PULL() {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
-            .setDefaultDatabaseName("qa_fs_pull")
             .setEndPoint(Info.endpoint)
-            .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.ERROR)
-            .addHeader("x-convertigo-mb", "7.5.0-beta");
+            .setDefaultDatabaseName("qa_fs_pull")
+            .setLogRemote(true)
+            .setLogC8o(true)
+            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setNormalizeParameters(true);
         return c8oSettings;
     }
     static get C8o_FS_PUSH() {

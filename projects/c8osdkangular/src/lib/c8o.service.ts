@@ -1,13 +1,16 @@
-import {C8oCore, C8oLogger, C8oSettings, C8oException, C8oExceptionMessage, C8oFullSyncCbl, C8oFullSync} from "../c8osdk-js-core/src/index";
+import {C8oCore, C8oLogger, C8oSettings, C8oException, C8oExceptionMessage, C8oFullSyncCbl, C8oFullSync, C8oFullSyncDatabase} from "../c8osdk-js-core/src/index";
 //import {C8oCore, C8oLogger, C8oSettings, C8oException, C8oExceptionMessage, C8oFullSyncCbl, C8oFullSync} from "c8osdkjscore";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import {C8oHttpInterface} from "./c8oHttpInterface.service";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root' 
+})
 export class C8o extends C8oCore {
 
+    private replicationsToRestart : Array<any>;
     constructor(private http: HttpClient) {
         super();
         this._http = http;
@@ -15,6 +18,7 @@ export class C8o extends C8oCore {
         this.c8oLogger = new C8oLogger(this, true);
     }
 
+    
     public get sdkVersion(): string {
         return "2.2.10-beta9";//require("../package.json").version;
     }
@@ -66,23 +70,6 @@ export class C8o extends C8oCore {
                                 return Observable.throw(errMsg);
                             }
                         );
-
-                    /*
-                    suscribe()
-                        .map(res => res.json())
-                        .catch((error: Response | any) => {
-                            alert("Missing env.json file");
-                            let errMsg: string;
-                            if (error instanceof Response) {
-                                const body = error.json() || "";
-                                const err = body.error || JSON.stringify(body);
-                                errMsg = `${error.status} - ${error.statusText || ""} ${err}`;
-                            } else {
-                                errMsg = error.message ? error.message : error.toString();
-                            }
-                            return Observable.throw(errMsg);
-                        })
-                     */
                 }
             }).then(() => {
                 this.extractendpoint();
@@ -104,20 +91,43 @@ export class C8o extends C8oCore {
                 this.c8oLogger.affect_val(this, false);
                 this.c8oLogger.logRemoteInit();
 
-                document.addEventListener("offline", () => {
-                    this.c8oLogger.info("Network offline");
-                    this.c8oLogger.info("Setting remote logs to false");
+                window.addEventListener("offline", () => {
                     this.logRemote = false;
                     if (this.logOnFail != null) {
                         this.logOnFail(new C8oException(C8oExceptionMessage.RemoteLogFail()), null);
                     }
+                    this.c8oLogger.info("[C8o] Network offline detected");
+                    this.c8oLogger.info("[C8o] Setting remote logs to false");
+                    (this.c8oFullSync as C8oFullSyncCbl).cancelActiveReplications();
+
+
+
                 }, false);
-                document.addEventListener("online", () => {
-                    this.log.info("Network online");
+                window.addEventListener("online", () => {
+                    (this.httpInterface as C8oHttpInterface).firstcheckSessionR  = false;
                     if (this._initialLogRemote && !this.logRemote) {
                         this.logRemote = true;
-                        this.log.info("Setting remote logs to true");
+                        this.log.info("[C8o][online] Notwork online Setting remote logs to true");
                     }
+                    this.log.info("[C8o][online] We will check for an existing session");
+                    (this.httpInterface as C8oHttpInterface).checkSession()
+                    .retry(1)
+                    .subscribe(
+                        response => {
+                            if(!response["authenticated"]){
+                                this.log.debug("[C8o][online][checkSession] Session has been dropped");
+                                this.subscriber_session.next(true);
+                            }
+                            else{
+                                this.log.debug("[C8o][online][checkSession] Session still Alive we will restart replications");
+                                (this.c8oFullSync as C8oFullSyncCbl).restartStoppedReplications();
+                            }
+                        },
+                        error => {
+                            this.log.error("[C8o][online][checkSession][online] error happened pooling session", error);
+                        }
+                    );
+                    this.log.info("Network online");
                 }, false);
 
                 this.c8oLogger.logMethodCall("C8o Constructor");
