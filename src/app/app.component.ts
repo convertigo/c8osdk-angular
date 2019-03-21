@@ -17,23 +17,31 @@ export class AppComponent {
             .setLogC8o(true)
             .setLogLevelLocal(C8oLogLevel.DEBUG)
             .addHeader("x-convertigo-mb", "7.6.0-beta")
-            .setNormalizeParameters(true);
+            .setNormalizeParameters(true)
+            .setKeepSessionAlive(true);
+            
+
     c8o.init(c8oSettings)
     .catch((err: C8oException) => {
         console.error(err);
     });
     c8o.finalizeInit().then(()=>{
 
+// on network on
+// > checkauthenticate
+// auto login
+// > start replication
 
+// on network off
+// > stop replication
 
-      c8o.handleSessionLost().subscribe((number) => {
-        console.log("Subject");
-        console.log(number);
-        c8o.callJson(".LoginTesting")
-        .then((response, paramrs)=>{
-          this.c8o.reply().next({abc: 'salutmec'});
-          console.log("relogged");
-        });
+// on session lost
+// > stop replication
+
+      c8o.handleSessionLost()
+      .subscribe(() => {
+        console.log("callbackSubject")
+
     });
 
 

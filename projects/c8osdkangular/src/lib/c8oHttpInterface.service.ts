@@ -49,6 +49,7 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
                 .subscribe(
                     response => {
                         if(!response["authenticated"]){
+                            this.c8o.subscriber_session.next();
                             this.c8o.log.debug("[C8o][C8oHttpsession][checkSessionR] Session dropped");
                         }
                         else{
@@ -83,6 +84,32 @@ export class C8oHttpInterface extends C8oHttpInterfaceCore{
                     this.c8o.log.debug("[C8o][C8oHttpsession][checkSessionR] Remove ChecksessionR for older session");
                 }
                 this.checkSessionR(headers, 0, val);
+            }
+        }
+        else{
+            if(!this.firstcheckSessionR){
+                this.firstcheckSessionR = true;
+                this.checkSession()
+                .retry(1)
+                .subscribe(
+                    response => {
+                        if(!response["authenticated"]){
+                            this.c8o.log.debug("[C8o][C8oHttpsession][checkSessionR] Session dropped");
+                            this.firstcheckSessionR = false;
+                            this.c8o.subscriber_session.next();
+                        }
+                        else{
+                            let timeR = +response['maxInactive'] * 0.85 * 1000;
+                            setTimeout(()=>{
+                                this.c8o.log.debug("[C8o][triggerSessionCheck] session will be down");
+                                this.c8o.subscriber_session.next();
+                            },timeR );
+                        }
+                    },
+                    error => {
+                        this.c8o.log.error("[C8o][triggerSessionCheck] checking session", error);
+                    }
+                );
             }
         }
     }

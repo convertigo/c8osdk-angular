@@ -116,7 +116,7 @@ export class C8o extends C8oCore {
                         response => {
                             if(!response["authenticated"]){
                                 this.log.debug("[C8o][online][checkSession] Session has been dropped");
-                                this.subscriber_session.next(true);
+                                this.subscriber_session.next();
                             }
                             else{
                                 this.log.debug("[C8o][online][checkSession] Session still Alive we will restart replications");
