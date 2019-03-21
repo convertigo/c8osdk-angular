@@ -55,7 +55,7 @@ describe("provider: basic calls verifications", () => {
 
     it("should ping (C8oDefaultPing)", function (done) {
             inject([C8o], (c8o: C8o) => {
-                c8o.init(Stuff.C8o_FS_PULL)
+                c8o.init(Stuff.C8o)
                 .catch((err: C8oException) => {
                     expect(err).toBeUndefined();
                 });
@@ -66,17 +66,10 @@ describe("provider: basic calls verifications", () => {
                     })
                     .then((response: any) => {
                             expect(response["document"]["pong"]).not.toBeNull();
-                            return c8o.callJson("fs://.sync", "continuous", true);
-                    })
-                    .progress((c8oProgress: C8oProgress) => {
-                        console.log(c8oProgress.toString());
-                    })
-                    .then((response:any)=>{
-                        console.log(JSON.stringify(response));
-                        done();
-                        return null;
-                    })
-                    .fail((error) => {
+                            done();
+                            return null;
+                        }
+                    ).fail((error) => {
                     done.fail("error is not supposed to happend");
                 });
                 });
@@ -84,9 +77,7 @@ describe("provider: basic calls verifications", () => {
             })();
         }
     );
-    
-    
-/*
+
     it("should ping async (C8oDefaultPingAsync)", (done) => {
 
         inject([C8o], (c8o: C8o) => {
@@ -291,8 +282,8 @@ describe("provider: basic calls verifications", () => {
                     isBool = complex["isBoolTrue"];
                     expect(isBool).toBeTruthy();
                     //noinspection JSNonASCIINames
-                    value = complex["Ã‰lÅ¸z@-node"];
-                    expect(value).toBe("that's Ã‰lÅ¸z@");
+                    value = complex["ÉlŸz@-node"];
+                    expect(value).toBe("that's ÉlŸz@");
                     done();
                     return null;
                 }).fail(() => {
@@ -2313,5 +2304,3 @@ c8o.callJson("fs://digiprev_fullsync_dataref.reset")
 /***/
 
 });
-
-

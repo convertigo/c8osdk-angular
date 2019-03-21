@@ -45,8 +45,9 @@ Angular 5.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circle
   - [Using the Full Sync](#using-the-full-sync)
   - [Replicating Full Sync databases](#replicating-full-sync-databases)
   - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
-  - [Full Sync FS_LIVE requests](#full-sync-fslive-requests)
+  - [Full Sync FS_LIVE requests](#full-sync-fs_live-requests)
   - [Full Sync Change Listener](#full-sync-change-listener)
+  - [Keep Alive session](#keep-alive-session)
 - [Internal Technical documentation](#internal-technical-documentation)
   - [Project description](#project-description)
   - [Build of project](#build-of-project)
@@ -76,7 +77,7 @@ This current package is the Angular SDK. For others SDKs see official [Convertig
 
 ### About Convertigo Platform ###
 
-Convertigo Mobility Platform supports Angular developers. Services brought by the platform are available for Angular clients applications thanks to the Convertigo MBaaS SDK. SDK provides an Angular framework you can use to access Convertigo Serverâ€™s services such as:
+Convertigo Mobility Platform supports Angular developers. Services brought by the platform are available for Angular clients applications thanks to the Convertigo MBaaS SDK. SDK provides an Angular framework you can use to access Convertigo Servers services such as:
 
 - Connectors to back-end data (SQL, NoSQL, REST/SOAP, SAP, - WEB HTML, AS/400, Mainframes)
 - Server Side Business Logic (Protocol transform, Business logic augmentation, ...)
@@ -108,7 +109,7 @@ From now please use at least version 2.2.8
 $ npm install --save c8osdkangular@2.2.8
 ```
 
-Then add the folowing lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts
+Then add the following lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts
 
 ```typescript
 (window as any).global = window;
@@ -175,7 +176,8 @@ let settings: C8oSettings = new C8oSettings();
 settings
         .setEndPoint("https://demo.convertigo.net/cems/projects/sampleMobileCtfGallery")
         .setDefaultDatabaseName("mydb_fullsync")
-        .setTimeout(30000);
+        .setTimeout(30000)
+        .setKeepSessionAlive(true);
 //Then we need to assign C8oSettings object to our C8o object
 c8o.init(settings);
 
@@ -248,7 +250,7 @@ this.c8o.callJson(".login")
 ```
 
 ### Calling a Convertigo requestable with parameters ###
-Convertigo requestables generally needs key/value parameters encapsuled in a simple javascript object. 
+Convertigo requestables generally needs key/value parameters encapsulated in a simple javascript object. 
 
 The key is always a string and the value can be any object but a string is the standard case.
 ```typescript
@@ -325,7 +327,7 @@ this.c8o.callJson(".sequenceThatReceiveAFile",{
 
 ### Chaining calls ###
 
-The .then() returns a C8oPromise that can be use to chain other promise methods, such as .then() or failure handlers. The last .then() must return a null value. .then() can be mixed but the returning type must be the same: Xml or Json.
+The .then() returns a C8oPromise that can be use to chain other promise methods, such as .then() or failure handlers. The last .then() must return a null value. .then() can be mixed but the returning type must be the same: XML or JSON.
 
 ```typescript
 c8o.callJson(".getSimpleData", "callNumber", 1)
@@ -659,6 +661,37 @@ c8o.addFullSyncChangeListener("databaseName", changeListener); // add this liste
 c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this listener for the database "base" ; null or "" while use the default database.
 
 ```
+
+### Keep Alive session ###
+
+Sdk has the ability to detect when your session will be dropped, and notify you.
+This is really helpful, because it can prevent you, in the case of fullsync authenticated replications, from lost of session and so a broken replication.
+
+By default, SDK keep alive your session.
+
+In case of lost of network, we will stop fullsync replications.
+
+And when network come back, we will check if your session is still existing.
+
+In this case we will restart automatically replication.
+
+And if session do not exist anymore we will notify you by a handler.
+
+```typescript
+ // set keep sessionAlive active
+ c8oSettings
+    .setKeepSessionAlive(true);
+```
+
+``` typescript
+  // Handle sesion lost event
+  c8o.handleSessionLost()
+    .subscribe(() => {
+      // Do something
+  });
+```
+
+
 ## Internal Technical documentation ##
 
 ### Project description ###
@@ -667,7 +700,7 @@ This project is a angular basic sample.
 
 It is organized by a workspace that holds the whole project.
 
-Into this workspace there can be severals projects.
+Into this workspace there can be several projects.
 
 Actually c8osdkangular is the only one project.
 
@@ -691,7 +724,7 @@ To test project please run the following command from root of workspace
 ```shell
 npm run test-sdk
 ```
-Build status on README.md is linked to circle-ci build version please update version number before commiting.
+Build status on README.md is linked to circle-ci build version please update version number before committing.
  
 ### Release of project ###
 The README.md that has to be edited is under projects/README.md if you want the changes to be taken into account
