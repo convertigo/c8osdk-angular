@@ -282,8 +282,8 @@ describe("provider: basic calls verifications", () => {
                     isBool = complex["isBoolTrue"];
                     expect(isBool).toBeTruthy();
                     //noinspection JSNonASCIINames
-                    value = complex["ÉlŸz@-node"];
-                    expect(value).toBe("that's ÉlŸz@");
+                    value = complex["Ã‰lÅ¸z@-node"];
+                    expect(value).toBe("that's Ã‰lÅ¸z@");
                     done();
                     return null;
                 }).fail(() => {

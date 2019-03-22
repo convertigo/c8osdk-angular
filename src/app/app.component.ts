@@ -8,8 +8,43 @@ import {C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress } from "../../dis
 })
 export class AppComponent {
   title = 'angularWorkspace';
-  constructor(private c8o: C8o){
+  public onClickMe(){
     let c8oSettings: C8oSettings = new C8oSettings();
+        c8oSettings
+            .setEndPoint("http://localhost:8080/convertigo/projects/ClientSDKtesting")
+            .setDefaultDatabaseName("qa_fs_pull")
+            .setLogRemote(true)
+            .setLogC8o(true)
+            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .addHeader("x-convertigo-mb", "7.6.0-beta")
+            .setNormalizeParameters(true)
+            .setKeepSessionAlive(true);
+            
+
+    this.c8o.init(c8oSettings)
+    .catch((err: C8oException) => {
+        console.error(err);
+    });
+    this.c8o.finalizeInit().then(()=>{
+      console.log("finalize Init");
+      this.c8o.callJson('fs://.sync',"continuous",true)
+      .then((response)=>{
+        // Do stuff with response
+        console.log(response);
+      })
+      .progress((progress)=>{
+        // Do stuff with progress
+        console.log(progress);
+      })
+      .fail((err)=>{
+        console.log(err);
+      })
+    });
+
+    
+  }
+  constructor(private c8o: C8o){
+   /* let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint("http://localhost:8080/convertigo/projects/ClientSDKtesting")
             .setDefaultDatabaseName("qa_fs_pull")
@@ -26,7 +61,7 @@ export class AppComponent {
         console.error(err);
     });
     c8o.finalizeInit().then(()=>{
-
+      console.log("finalize Init");
 // on network on
 // > checkauthenticate
 // auto login
@@ -38,7 +73,7 @@ export class AppComponent {
 // on session lost
 // > stop replication
 
-      c8o.handleSessionLost()
+      /*c8o.handleSessionLost()
       .subscribe(() => {
         console.log("callbackSubject")
 
@@ -139,6 +174,6 @@ export class AppComponent {
               return null;
             });*/
     
-    });
+    //});
   }
 }
