@@ -53,6 +53,6 @@
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
     "rxjs-compat": "~6.3.3",
-    "@types/pouchdb": "2.2.10-beta11"
+    "@types/pouchdb": "6.3.3"
   }
 }
