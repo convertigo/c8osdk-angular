@@ -27,7 +27,6 @@ export class C8o extends C8oCore {
      */
     public httpGetObservable(uri){
         return this.httpPublic.get(uri);
-        
     }
 
     /**

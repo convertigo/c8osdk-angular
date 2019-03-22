@@ -30,12 +30,12 @@
     "@angular/http": ">= 4.4.4 <=7.2.4"
   },
   "dependencies": {
-    "@types/pouchdb": "2.2.10-beta11",
-    "pouchdb-browser": "2.2.10-beta11",
-    "pouchdb-load": "2.2.10-beta11",
+    "@types/pouchdb": "6.3.3",
+    "pouchdb-browser": "7.0.0",
+    "pouchdb-load": "1.4.6",
     "rxjs": "~6.3.3",
     "typescript": "~3.1.6",
-    "zone.js": "2.2.10-beta11",
+    "zone.js": "0.8.26",
     "rxjs-compat": "~6.3.3"
   },
   "devDependencies": {
@@ -53,6 +53,6 @@
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
     "rxjs-compat": "~6.3.3",
-    "@types/pouchdb": "6.3.3"
+    "@types/pouchdb": "6.3.2"
   }
 }
