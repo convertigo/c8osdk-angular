@@ -16,7 +16,7 @@ export class C8o extends C8oCore {
     }
 
     public get sdkVersion(): string {
-        return "2.2.9";//require("../package.json").version;
+        return "2.2.9-latest2";//require("../package.json").version;
     }
     public init(c8oSettings?: C8oSettings): Promise<any> {
         let nullableEndpoint = true;
@@ -56,14 +56,31 @@ export class C8o extends C8oCore {
                                 resolve();
                             },
                             error=>{
-                                alert("Missing env.json file");
-                                let errMsg: string;
-                                if (error instanceof Error) {
-                                    errMsg = error.message;
-                                } else {
-                                    errMsg = `${error.status} - ${error.statusText || ""} ${error}`;
-                                }
-                                return Observable.throw(errMsg);
+                                this.log.debug("[C8o] cannot find env.json on origin. We will try on href");
+                                    uri = window.location.href + "/env.json";
+                                    this.http.get(uri)
+                                    .subscribe(
+                                        data => {
+                                            this.data = data;
+                                            //noinspection TypeScriptUnresolvedVariable
+                                            let remoteBase = data["remoteBase"].toString();
+                                            let n = remoteBase.indexOf("/_private");
+                                            this.endpoint = remoteBase.substring(0, n);
+                                            this._automaticRemoveSplashsCreen = data["splashScreenRemoveMode"] !== "manual";
+                                            resolve();
+                                        },
+                                        error=>{
+                                            alert("Missing env.json file");
+                                            let errMsg: string;
+                                            if (error instanceof Error) {
+                                                errMsg = error.message;
+                                            } else {
+                                                errMsg = `${error.status} - ${error.statusText || ""} ${error}`;
+                                            }
+                                            return Observable.throw(errMsg);
+                                        });
+
+                                
                             }
                         );
 

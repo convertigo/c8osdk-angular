@@ -70,7 +70,7 @@ describe("provider: basic calls verifications", () => {
             })();
         }
     );
-/**/
+/**
 
     it("should ping async (C8oDefaultPingAsync)", (done) => {
 
@@ -112,7 +112,7 @@ describe("provider: basic calls verifications", () => {
         })();
 
     });
-/**
+*/
     it("should ping Observable (C8oDefaultPingObservable)", (done) => {
         inject([C8o], (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
