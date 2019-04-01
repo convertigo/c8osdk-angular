@@ -15,7 +15,7 @@
     "submodules": "git submodule update --recursive --remote",
     "docs": "npm run typedoc -- --options typedoc.json --exclude 'projects/c8osdkangular/src/**/*.spec.ts' --readme './projects/c8osdkangular/src/README.md' ./projects/c8osdkangular/src/",
     "typedoc": "typedoc",
-    "wv":"node ./version.js"
+    "wv": "node ./version.js"
   },
   "private": true,
   "dependencies": {

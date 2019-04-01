@@ -108,6 +108,7 @@ describe("provider: basic calls verifications", () => {
                     })
                     .catch((err) => {
                         expect(err).toBeNull();
+                        done.fail();
                     });
 
 

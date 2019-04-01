@@ -1,6 +1,6 @@
 {
   "name": "MyIonicProject",
-  "version": "2.2.10-beta11",
+  "version": "2.2.10-beta18",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
@@ -20,8 +20,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
-    "rxjs": "~6.3.3",
-    "rxjs-compat": "~6.3.3",
+    "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.29",
     "@types/pouchdb": "6.3.3",

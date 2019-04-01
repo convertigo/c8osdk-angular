@@ -5,9 +5,7 @@ import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import {C8oHttpInterface} from "./c8oHttpInterface.service";
 
-@Injectable({
-    providedIn: 'root' 
-})
+@Injectable()
 export class C8o extends C8oCore {
 
     constructor(private http: HttpClient) {
@@ -19,7 +17,7 @@ export class C8o extends C8oCore {
      * get current sdk version
      */
     public get sdkVersion(): string {
-        return "2.2.10-beta11";
+        return "2.2.10-beta18";
     }
     /**
      * Method to bastract http get
