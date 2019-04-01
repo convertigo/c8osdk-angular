@@ -2,7 +2,6 @@ import {C8o} from "./c8o.service";
 import {C8oHttpInterfaceCore, C8oResponseJsonListener, C8oResponseListener, C8oProgress,C8oHttpRequestException,C8oExceptionMessage} from "../c8osdk-js-core/src/index";
 //import {C8oHttpInterfaceCore, C8oResponseJsonListener, C8oResponseListener, C8oProgress,C8oHttpRequestException,C8oExceptionMessage} from "c8osdkjscore";
 import {HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from "@angular/common/http";
-import { catchError, retry } from 'rxjs/operators';
 
 
 
