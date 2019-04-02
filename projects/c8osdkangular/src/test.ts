@@ -2282,9 +2282,7 @@ c8o.callJson("fs://digiprev_fullsync_dataref.reset")
       })
       .progress((progress)=>{
           // Do stuff with progress
-          if(progress.current == "0" || progress.current == "1"){
-          }
-          else if(progress.current == "0" || progress.current == "1"){
+          if(+progress.current < 5){
           }
           else{
               done.fail("C8oFsBulk");
