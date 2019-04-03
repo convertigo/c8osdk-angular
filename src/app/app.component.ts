@@ -20,30 +20,40 @@ export class AppComponent {
             .setNormalizeParameters(true)
             .setKeepSessionAlive(true);
             
-
     this.c8o.init(c8oSettings)
     .catch((err: C8oException) => {
+      console.log("err");
         console.error(err);
     });
     this.c8o.finalizeInit().then(()=>{
       console.log("finalize Init");
-      this.c8o.callJson('fs://.sync',"continuous",true)
+      this.c8o.callJson(".LoginTesting")
+        .then((response, paramrs)=>{
+          console.log("resp login")
+          console.log(response);
+            return this.c8o.callJson('fs://.sync',"continuous",true)
+        })
       .then((response)=>{
         // Do stuff with response
+        console.log("resp");
         console.log(response);
       })
       .progress((progress)=>{
         // Do stuff with progress
+        console.log("progress");
         console.log(progress);
       })
       .fail((err)=>{
+        console.log("err");
         console.log(err);
       })
     });
 
     
   }
+
   constructor(private c8o: C8o){
+    
    /* let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint("http://localhost:8080/convertigo/projects/ClientSDKtesting")
