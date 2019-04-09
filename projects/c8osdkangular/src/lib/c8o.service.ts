@@ -5,9 +5,7 @@ import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import {C8oHttpInterface} from "./c8oHttpInterface.service";
 
-@Injectable({
-        providedIn: 'root'
-})
+@Injectable()
 export class C8o extends C8oCore {
 
     constructor(private http: HttpClient) {
