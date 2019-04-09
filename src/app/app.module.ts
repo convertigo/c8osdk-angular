@@ -4,7 +4,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component'
 import {HttpClientModule} from "@angular/common/http"
-import {C8oSettings, C8o } from "../../dist/c8osdkangular/fesm5/c8osdkangular";
+import {C8o } from "c8osdkangular";
+import {MatButtonModule} from '@angular/material/button';
+/*
+
+    */
 
 
 @NgModule({
@@ -13,7 +17,8 @@ import {C8oSettings, C8o } from "../../dist/c8osdkangular/fesm5/c8osdkangular";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [C8o],
   bootstrap: [AppComponent]

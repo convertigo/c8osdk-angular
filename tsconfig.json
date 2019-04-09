@@ -22,9 +22,6 @@
     "paths": {
       "c8osdkangular": [
         "dist/c8osdkangular"
-      ],
-      "c8osdkangular/*": [
-        "dist/c8osdkangular/*"
       ]
     }
   }
