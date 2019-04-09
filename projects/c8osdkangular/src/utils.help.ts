@@ -59,7 +59,8 @@ export class Stuff {
             .setLogC8o(true)
             .setLogLevelLocal(C8oLogLevel.DEBUG)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
-            .setNormalizeParameters(true);
+            .setNormalizeParameters(true)
+            .setKeepSessionAlive(false);
         return c8oSettings;
     }
 
@@ -70,7 +71,8 @@ export class Stuff {
             .setEndPoint(Info.endpoint)
             .setLogRemote(false)
             .setLogLevelLocal(C8oLogLevel.ERROR)
-            .addHeader("x-convertigo-mb", "7.5.0-beta");
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setKeepSessionAlive(false);
         return c8oSettings;
     }
 
@@ -83,7 +85,8 @@ export class Stuff {
             .setLogC8o(true)
             .setLogLevelLocal(C8oLogLevel.DEBUG)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
-            .setNormalizeParameters(true);
+            .setNormalizeParameters(true)
+            .setKeepSessionAlive(false);
         return c8oSettings;
     }
     static get C8o_FS_PUSH() {
@@ -93,7 +96,8 @@ export class Stuff {
             .setEndPoint(Info.endpoint)
             .setLogRemote(false)
             .setLogLevelLocal(C8oLogLevel.ERROR)
-            .addHeader("x-convertigo-mb", "7.5.0-beta");
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setKeepSessionAlive(false);
         return c8oSettings;
     }
 
@@ -103,7 +107,8 @@ export class Stuff {
             .setEndPoint(Info.endpoint)
             .setLogRemote(false)
             .setLogLevelLocal(C8oLogLevel.ERROR)
-            .addHeader("x-convertigo-mb", "7.5.0-beta");
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setKeepSessionAlive(false);
         return c8oSettings;
     }
     static get C8o_FS_FILES() {
@@ -113,7 +118,8 @@ export class Stuff {
             .setEndPoint(Info.endpoint)
             .setLogRemote(false)
             .setLogLevelLocal(C8oLogLevel.DEBUG)
-            .addHeader("x-convertigo-mb", "7.5.0-beta");
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setKeepSessionAlive(false);
         return c8oSettings;
     }
 }
