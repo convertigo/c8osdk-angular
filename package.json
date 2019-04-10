@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-sdk": "npm run wv && ng build c8osdkangular && cp ./projects/c8osdkangular/README.md ./dist/c8osdkangular/README.md && rm ./README.md && cp ./projects/c8osdkangular/README.md ./README.md",
+    "build-sdk": "cd projects/c8osdkangular/src/c8osdk-js-core/ && npm run prepare && cd ../../../.. && npm run wv && ng build c8osdkangular && cp ./projects/c8osdkangular/README.md ./dist/c8osdkangular/README.md && rm ./README.md && cp ./projects/c8osdkangular/README.md ./README.md",
     "test-sdk": "ng test c8osdkangular",
     "publish-sdk": "npm publish",
     "publish-beta-sdk": "npm publish --tag beta",

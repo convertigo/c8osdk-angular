@@ -93,4 +93,11 @@ export class AppComponent {
     });
   }
 
+  public notifNet(){
+    this.c8o.handleNetworkEvents()
+    .subscribe((resp)=>{
+      alert("Session Lost");
+    });
+  }
+
 }
