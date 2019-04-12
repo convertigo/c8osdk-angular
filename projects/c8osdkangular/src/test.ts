@@ -317,7 +317,7 @@ describe("provider: basic calls verifications", () => {
         );
     
     
-        it("should check that log remote works (CheckLogRemote)", async (done) => {
+        /*it("should check that log remote works (CheckLogRemote)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 let c8oSettings: C8oSettings = new C8oSettings();
                 c8oSettings.setLogC8o(false);
@@ -359,7 +359,7 @@ describe("provider: basic calls verifications", () => {
                     });
             })();
         }
-        );
+        );*/
     
         it("should check that one default promise works (C8oDefaultPromiseXmlOne)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
