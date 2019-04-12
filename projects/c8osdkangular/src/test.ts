@@ -56,7 +56,7 @@ describe("provider: basic calls verifications", () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
-/**
+
     
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
@@ -2361,7 +2361,7 @@ describe("provider: basic calls verifications", () => {
                     });
             })();
         });
-*/
+
 
         it("should check that handleLostSession works(C8oHandleSessionLost)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
