@@ -70,9 +70,9 @@ export class Stuff {
             .setDefaultDatabaseName("clientsdktesting")
             .setEndPoint(Info.endpoint)
             .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.ERROR)
+            .setLogLevelLocal(C8oLogLevel.DEBUG)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
-            .setKeepSessionAlive(false);
+            .setKeepSessionAlive(true);
         return c8oSettings;
     }
 

@@ -12,6 +12,7 @@ export class AppComponent {
 
 
   constructor(private c8o: C8o){
+    this.initAllLoginSync();
   }
 
   public callSequencePing(){
