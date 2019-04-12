@@ -7,7 +7,7 @@ export class Info {
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
 
     // Set this property to use local studio for tests
-    static local = false;
+    static local = true;
 
     // Remote infos
     static get http() {
@@ -120,6 +120,32 @@ export class Stuff {
             .setLogLevelLocal(C8oLogLevel.DEBUG)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setKeepSessionAlive(false);
+        return c8oSettings;
+    }
+
+    static get C8o_Sessions() : C8oSettings {
+        let c8oSettings: C8oSettings = new C8oSettings();
+        c8oSettings
+            .setEndPoint(Info.endpoint)
+            .setLogRemote(true)
+            .setLogC8o(true)
+            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setNormalizeParameters(true)
+            .setKeepSessionAlive(false);
+        return c8oSettings;
+    }
+
+    static get C8o_SessionsKeepAlive() : C8oSettings {
+        let c8oSettings: C8oSettings = new C8oSettings();
+        c8oSettings
+            .setEndPoint(Info.endpoint)
+            .setLogRemote(true)
+            .setLogC8o(true)
+            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .addHeader("x-convertigo-mb", "7.5.0-beta")
+            .setNormalizeParameters(true)
+            .setKeepSessionAlive(true);
         return c8oSettings;
     }
 }

@@ -56,7 +56,7 @@ describe("provider: basic calls verifications", () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
-
+/**
     
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
@@ -360,7 +360,7 @@ describe("provider: basic calls verifications", () => {
             })();
         }
         );*/
-    
+    /*
         it("should check that one default promise works (C8oDefaultPromiseXmlOne)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -2360,6 +2360,66 @@ describe("provider: basic calls verifications", () => {
                         done.fail("C8oFsBulk");
                     });
             })();
+        });
+*/
+
+        it("should check that handleLostSession works(C8oHandleSessionLost)", async (done) => {
+            inject([C8o], async (c8o: C8o) => {
+                try{
+                    let timeout;
+                    await c8o.init(Stuff.C8o_Sessions);
+                    await c8o.finalizeInit();
+                    let response = await c8o.callJson(".LoginTesting").async();
+                    expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+                    c8o.handleSessionLost().subscribe(()=>{
+                        if(timeout != undefined){
+                            clearTimeout(timeout);
+                        }
+                        done();
+                    });
+                    await c8o.callJson(".RemoveSession");
+                    c8o.log.debug("log Debug");
+                    await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
+                    timeout = setTimeout(()=>{
+                        done.fail("C8oHandleSessionLost: We haven't been notified by session lost");
+                    },10000);
+                
+                }
+                catch(error){
+                    done.fail("C8oHandleSessionLost " + error.message);
+                }
+            })();;
+        });
+
+        it("should check that keepAlive and autologin works works(C8oHandleSessionLost)", async (done) => {
+            inject([C8o], async (c8o: C8o) => {
+                try{
+                    let timeout;
+                    await c8o.init(Stuff.C8o_SessionsKeepAlive);
+                    await c8o.finalizeInit();
+                    let response = await c8o.callJson(".LoginTesting").async();
+                    expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+                    c8o.handleSessionLost().subscribe(()=>{
+                        if(timeout != undefined){
+                            clearTimeout(timeout);
+                        }
+                        done.fail();
+                    });
+                    await c8o.callJson(".RemoveSession");
+                    await new Promise(resolve => setTimeout(resolve, 5000));
+
+                    c8o.log.debug("log Debug");
+                    await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
+                    timeout = setTimeout(()=>{
+                        done();
+                        //done.fail("C8oHandleSessionLost: We haven't been notified by session lost");
+                    },10000);
+                
+                }
+                catch(error){
+                    done.fail("C8oHandleSessionLost " + error.message);
+                }
+            })();;
         });
     
         /***/
