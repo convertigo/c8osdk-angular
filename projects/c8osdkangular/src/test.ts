@@ -56,7 +56,7 @@ describe("provider: basic calls verifications", () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
-/*
+
     
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
@@ -2390,7 +2390,6 @@ describe("provider: basic calls verifications", () => {
                 }
             })();;
         });
-        */
 
         it("should check that keepAlive and autologin works works(C8oHandleSessionLost)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
@@ -2399,9 +2398,6 @@ describe("provider: basic calls verifications", () => {
                     await c8o.init(Stuff.C8o_SessionsKeepAlive);
                     await c8o.finalizeInit();
                     c8o.log.debug("Init finished");
-                    let resp = await c8o.callJson(".RemoveSession");
-                    c8o.log.debug("Remove session: ok");
-                    await new Promise(resolve => setTimeout(resolve, 5000));
                     let response = await c8o.callJson(".LoginTesting").async();
                     expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
                     c8o.handleSessionLost().subscribe(()=>{
