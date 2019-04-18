@@ -38,7 +38,7 @@ export class Info {
     static get project_pathLocal() {
         return "/convertigo/projects/ClientSDKtesting";
     }
-    static get endpoint() {
+    public static get endpoint() {
         if(!Info.local){
             return Info.http + Info.host + ":" + Info.port + Info.project_path;
         }
