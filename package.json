@@ -13,7 +13,7 @@
     "publish-sdk": "npm publish",
     "publish-beta-sdk": "npm publish --tag beta",
     "submodules": "git submodule update --recursive --remote",
-    "docs": "npm run typedoc -- --options typedoc.json --exclude 'projects/c8osdkangular/src/**/*.spec.ts' --readme './projects/c8osdkangular/src/README.md' ./projects/c8osdkangular/src/",
+    "docs": "npm run typedoc -- --options typedoc.json --exclude projects/c8osdkangular/src/**/*.spec.ts projects/c8osdkangular/src/c8osdk-js-core/node_modules/ --readme './projects/c8osdkangular/src/README.md' ./projects/c8osdkangular/src/",
     "typedoc": "typedoc",
     "wv": "node ./version.js"
   },

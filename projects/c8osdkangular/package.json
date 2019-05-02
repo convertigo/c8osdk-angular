@@ -39,6 +39,7 @@
     "rxjs-compat": "6.3.3"
   },
   "devDependencies": {
+    "js-cookie": "2.2.0",
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
     "@angular/http": "~7.1.0",

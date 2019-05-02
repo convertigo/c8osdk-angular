@@ -1,8 +1,12 @@
 //noinspection TsLint
 /*import {C8oSettings} from "./c8osdk-js-core/src/c8o/c8oSettings";
 import {C8oLogLevel} from "./c8osdk-js-core/src/c8o/c8oLogLevel";*/
-import {C8oSettings,C8oLogLevel} from "../src/c8osdk-js-core/src/index";
-import {C8o} from "./lib/c8o.service";
+import { C8oSettings, C8oLogLevel } from "../src/c8osdk-js-core/src/index";
+import { C8o } from "./lib/c8o.service";
+import * as Cookies from "js-cookie";
+import { HttpHeaders } from '@angular/common/http';
+import { C8oHttpInterface } from 'dist/c8osdkangular/public_api';
+import { C8oCore } from "../src/c8osdk-js-core/src/index";
 export class Info {
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
 
@@ -39,19 +43,19 @@ export class Info {
         return "/convertigo/projects/ClientSDKtesting";
     }
     public static get endpoint() {
-        if(!Info.local){
+        if (!Info.local) {
             return Info.http + Info.host + ":" + Info.port + Info.project_path;
         }
-        else{
+        else {
             return Info.httpLocal + Info.hostLocal + ":" + Info.portLocal + Info.project_pathLocal;
         }
-        
+
     }
 }
 
 //noinspection TsLint
 export class Stuff {
-    static get C8o() : C8oSettings {
+    static get C8o(): C8oSettings {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
@@ -123,26 +127,26 @@ export class Stuff {
         return c8oSettings;
     }
 
-    static get C8o_Sessions() : C8oSettings {
+    static get C8o_Sessions(): C8oSettings {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
             .setLogRemote(true)
             .setLogC8o(true)
-            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .setLogLevelLocal(C8oLogLevel.TRACE)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true)
             .setKeepSessionAlive(false);
         return c8oSettings;
     }
 
-    static get C8o_SessionsKeepAlive() : C8oSettings {
+    static get C8o_SessionsKeepAlive(): C8oSettings {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
             .setLogRemote(true)
             .setLogC8o(true)
-            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .setLogLevelLocal(C8oLogLevel.TRACE)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true)
             .setKeepSessionAlive(true);
@@ -168,9 +172,43 @@ export class Functions {
             }
         );
     }
-    static async pingasync(){
+    static async pingasync() {
 
     }
+
+    static async wait(time) {
+        console.log("Waiting for " + time + " ms");
+        return await new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    static delete_cookie(name) {
+        //document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        Cookies.remove('name', { domain: 'convertigo.net', path: '/cems/' });
+    };
+
+    static get_cookie(name) {
+        //document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        Cookies.get(name);
+    };
+    static async removesess(c8o, resolve) {
+        console.log("Removing session");
+        let params: any = { "__sequence": "RemoveSession", "__uuid": C8oCore.deviceUUID };
+        params = c8o.httpInterface.transformRequest(params);
+        let headersObject = { "Content-Type": "application/x-www-form-urlencoded", "x-convertigo-sdk": c8o.sdkVersion };
+        Object.assign(headersObject, c8o.headers);
+        let headers = new HttpHeaders(headersObject);
+        await Functions.wait(5000);
+        let a = await c8o.httpPublic.post(Info.endpoint + "/.json", params, {
+            headers: headers,
+            withCredentials: true
+        });
+        a.subscribe(async (re) => {
+            await Functions.wait(10000);
+            resolve();
+        })
+
+    }
+
 }
 
 export class PlainObjectA {
