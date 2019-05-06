@@ -59,321 +59,321 @@ describe("provider: basic calls verifications", () => {
     afterEach(function () {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
+
+
+
+    it("should ping (C8oDefaultPing)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            console.log("exec of C8oDefaultPing")
+            c8o.init(Stuff.C8o)
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+            await c8o.finalizeInit();
+            console.log("finalizeInit")
+            c8o.callJson(".LoginTesting")
+                .then((response, paramrs) => {
+                    return c8o.callJson(".Ping");
+                })
+                .then((response: any) => {
+                    expect(response["document"]["pong"]).not.toBeNull();
+                    done();
+                    return null;
+                }
+                ).fail((error) => {
+                    done.fail("error is not supposed to happend");
+                });
+
+        })();
+    }
+    );
+
+    it("should ping async (C8oDefaultPingAsync)", (done) => {
+
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            var date2 = new Date('1995-12-17T02:24:00');
+            await c8o.callJson(".Ping", "var1", "val1", "var2", date2).async()
+                .then((resp) => {
+                    expect(resp["document"]["pong"].var1).toBe("val1");
+                    expect((resp["document"]["pong"].var2).substring(0, 10)).toBe('1995-12-17');
+                    //done();
+                    //return null;
+                })
+                .catch((err) => {
+                    expect(err).toBeNull();
+                });
+            // check reference circular
+            let a: Object = { id: "a" };
+            let b: Object = { id: "b" };
+            a["b"] = b;
+            b["a"] = a;
+            await c8o.callJson(".Ping", "var3", a).async()
+                .then((resp) => {
+                    done();
+                })
+                .catch((err) => {
+                    expect(err).toBeNull();
+                    done.fail();
+                });
+        })();
+
+    });
+
+
+    it("should ping observable (C8oDefaultPingObs)", (done) => {
+
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            var date2 = new Date('1995-12-17T02:24:00');
+            c8o.callJson(".Ping", "var1", "val1", "var2", date2)
+                .toObservable()
+                .subscribe(next => {
+                    console.log("next");
+                    console.log(next);
+                    expect(next.response["document"]["pong"].var1).toBe("val1");
+                    expect(next.response["document"]["pong"].var2.substring(0, 10)).toBe('1995-12-17');
+                },
+                    error => {
+                        console.log("error");
+                        console.log(error);
+                        expect(error).toBeNull();
+                    },
+                    () => {
+                        console.log("end");
+                        done();
+                    });
+        })();
+
+    });
+
+
+    it("should ping one single value (C8oDefaultPingOneSingleValue)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            c8o.callJson(".Ping", "var1", "value one")
+                .then((response: any) => {
+                    expect(response["document"]["pong"]["var1"]).toBe("value one");
+                    done();
+                    return null;
+                })
+                .fail(() => {
+                    done.fail("error is not supposed to happend");
+                });
+        })();
+    }
+    );
+
+    it("should ping two single value (C8oDefaultPingTwoSingleValues)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            c8o.callJson(".Ping",
+                "var1", "value one",
+                "var2", "value two"
+            ).then((response: any) => {
+                expect(response["document"]["pong"]["var1"]).toBe("value one");
+                expect(response["document"]["pong"]["var2"]).toBe("value two");
+                done();
+                return null;
+            })
+                .fail(() => {
+                    done.fail("error is not supposed to happend");
+                });
+        })();
+    }
+    );
+
+    it("should ping two single value and one value multi (C8oDefaultPingTwoSingleValuesOneMulti)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            c8o.callJson(".Ping",
+                "var1", "value one",
+                "var2", "value two",
+                "mvar1", ["mvalue one", "mvalue two", "mvalue three"]
+            ).then((response: any) => {
+                expect(response["document"]["pong"]["var1"]).toBe("value one");
+                expect(response["document"]["pong"]["var2"]).toBe("value two");
+                expect(response["document"]["pong"]["mvar1"][0]).toBe("mvalue one");
+                expect(response["document"]["pong"]["mvar1"][1]).toBe("mvalue two");
+                expect(response["document"]["pong"]["mvar1"][2]).toBe("mvalue three");
+                expect((response["document"]["pong"]["mvar1"]).length).toBe(3);
+                done();
+                return null;
+            }).fail(() => {
+                done.fail("error is not supposed to happend");
+            });
+        })();
+    }
+    );
+
+    it("should ping two single value and two value multi (C8oDefaultPingTwoSingleValuesTwoMulti)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            c8o.callJson(".Ping",
+                "var1", "value one",
+                "var2", "value two",
+                "mvar1", ["mvalue one", "mvalue two", "mvalue three"],
+                "mvar2", ["mvalue2 one"]
+            ).then((response: any) => {
+                expect(response["document"]["pong"]["var1"]).toBe("value one");
+                expect(response["document"]["pong"]["var2"]).toBe("value two");
+                expect(response["document"]["pong"]["mvar1"][0]).toBe("mvalue one");
+                expect(response["document"]["pong"]["mvar1"][1]).toBe("mvalue two");
+                expect(response["document"]["pong"]["mvar1"][2]).toBe("mvalue three");
+                expect((response["document"]["pong"]["mvar1"]).length).toBe(3);
+                expect(response["document"]["pong"]["mvar2"]).toBe("mvalue2 one");
+                done();
+                return null;
+            }).fail(() => {
+                done.fail("error is not supposed to happend");
+            });
+        })();
+    }
+    );
+
+
+    it("should check Json types (C8oCheckJsonTypes)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            c8o.callJson(".JsonTypes",
+                "var1", "value one",
+                "mvar1", ["mvalue one", "mvalue two", "mvalue three"]
+            ).then((response: any) => {
+                let json = response["document"];
+                let pong = json["pong"];
+                let value = pong["var1"];
+                expect(value).toBe("value one");
+                let mvar1 = pong["mvar1"];
+                value = mvar1[0];
+                expect(value).toBe("mvalue one");
+                value = mvar1[1];
+                expect(value).toBe("mvalue two");
+                value = mvar1[2];
+                expect(value).toBe("mvalue three");
+                value = mvar1.length;
+                expect(value).toBe(3);
+                let complex = json["complex"];
+                let isBool: boolean = (complex["isNull"] == null || complex["isNull"] === undefined);
+                expect(isBool).toBeTruthy();
+                value = complex["isInt3615"];
+                expect(value).toBe(3615);
+                value = complex["isStringWhere"];
+                expect("where is my string?!").toBe(value);
+                value = complex["isDoublePI"];
+                expect(value).toBe(3.141592653589793);
+                isBool = complex["isBoolTrue"];
+                expect(isBool).toBeTruthy();
+                //noinspection JSNonASCIINames
+                value = complex["ÉlŸz@-node"];
+                expect(value).toBe("that's ÉlŸz@");
+                done();
+                return null;
+            }).fail(() => {
+                done.fail("error is not supposed to happend");
+            });
+
+        })();
+    }
+    );
+
+    it("should check that sessions are not mixed (CheckNoMixSession)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+            let ts = new Date().getTime().valueOf() + "";
+            c8o.callJson(".SetInSession",
+                "ts", ts
+            ).then((response: any) => {
+                expect(response["document"]["pong"]["ts"]).toBe(ts);
+                return c8o.callJson(".GetFromSession");
+            })
+                .then((response: any) => {
+                    expect(response["document"]["session"]["expression"]).toBe(ts);
+                    done();
+                    return null;
+                }).fail(() => {
+                    done.fail("error is not supposed to happend");
+                });
+
+        })();
+    }
+    );
     /*
     
-    
-            it("should ping (C8oDefaultPing)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    console.log("exec of C8oDefaultPing")
-                    c8o.init(Stuff.C8o)
-                        .catch((err: C8oException) => {
-                            expect(err).toBeUndefined();
-                        });
-                    await c8o.finalizeInit();
-                    console.log("finalizeInit")
-                    c8o.callJson(".LoginTesting")
-                        .then((response, paramrs) => {
-                            return c8o.callJson(".Ping");
-                        })
-                        .then((response: any) => {
-                            expect(response["document"]["pong"]).not.toBeNull();
-                            done();
-                            return null;
-                        }
-                        ).fail((error) => {
-                            done.fail("error is not supposed to happend");
-                        });
-        
-                })();
-            }
-            );
-        
-            it("should ping async (C8oDefaultPingAsync)", (done) => {
-        
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    var date2 = new Date('1995-12-17T02:24:00');
-                    await c8o.callJson(".Ping", "var1", "val1", "var2", date2).async()
-                        .then((resp) => {
-                            expect(resp["document"]["pong"].var1).toBe("val1");
-                            expect((resp["document"]["pong"].var2).substring(0, 10)).toBe('1995-12-17');
-                            //done();
-                            //return null;
-                        })
-                        .catch((err) => {
-                            expect(err).toBeNull();
-                        });
-                    // check reference circular
-                    let a: Object = { id: "a" };
-                    let b: Object = { id: "b" };
-                    a["b"] = b;
-                    b["a"] = a;
-                    await c8o.callJson(".Ping", "var3", a).async()
-                        .then((resp) => {
-                            done();
-                        })
-                        .catch((err) => {
-                            expect(err).toBeNull();
-                            done.fail();
-                        });
-                })();
-        
-            });
-        
-        
-            it("should ping observable (C8oDefaultPingObs)", (done) => {
-        
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    var date2 = new Date('1995-12-17T02:24:00');
-                    c8o.callJson(".Ping", "var1", "val1", "var2", date2)
-                        .toObservable()
-                        .subscribe(next => {
-                            console.log("next");
-                            console.log(next);
-                            expect(next.response["document"]["pong"].var1).toBe("val1");
-                            expect(next.response["document"]["pong"].var2.substring(0, 10)).toBe('1995-12-17');
-                        },
-                            error => {
-                                console.log("error");
-                                console.log(error);
-                                expect(error).toBeNull();
-                            },
-                            () => {
-                                console.log("end");
-                                done();
-                            });
-                })();
-        
-            });
-        
-        
-            it("should ping one single value (C8oDefaultPingOneSingleValue)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    c8o.callJson(".Ping", "var1", "value one")
-                        .then((response: any) => {
-                            expect(response["document"]["pong"]["var1"]).toBe("value one");
-                            done();
-                            return null;
-                        })
-                        .fail(() => {
-                            done.fail("error is not supposed to happend");
-                        });
-                })();
-            }
-            );
-        
-            it("should ping two single value (C8oDefaultPingTwoSingleValues)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    c8o.callJson(".Ping",
-                        "var1", "value one",
-                        "var2", "value two"
-                    ).then((response: any) => {
-                        expect(response["document"]["pong"]["var1"]).toBe("value one");
-                        expect(response["document"]["pong"]["var2"]).toBe("value two");
-                        done();
-                        return null;
-                    })
-                        .fail(() => {
-                            done.fail("error is not supposed to happend");
-                        });
-                })();
-            }
-            );
-        
-            it("should ping two single value and one value multi (C8oDefaultPingTwoSingleValuesOneMulti)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    c8o.callJson(".Ping",
-                        "var1", "value one",
-                        "var2", "value two",
-                        "mvar1", ["mvalue one", "mvalue two", "mvalue three"]
-                    ).then((response: any) => {
-                        expect(response["document"]["pong"]["var1"]).toBe("value one");
-                        expect(response["document"]["pong"]["var2"]).toBe("value two");
-                        expect(response["document"]["pong"]["mvar1"][0]).toBe("mvalue one");
-                        expect(response["document"]["pong"]["mvar1"][1]).toBe("mvalue two");
-                        expect(response["document"]["pong"]["mvar1"][2]).toBe("mvalue three");
-                        expect((response["document"]["pong"]["mvar1"]).length).toBe(3);
-                        done();
-                        return null;
-                    }).fail(() => {
-                        done.fail("error is not supposed to happend");
-                    });
-                })();
-            }
-            );
-        
-            it("should ping two single value and two value multi (C8oDefaultPingTwoSingleValuesTwoMulti)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    c8o.callJson(".Ping",
-                        "var1", "value one",
-                        "var2", "value two",
-                        "mvar1", ["mvalue one", "mvalue two", "mvalue three"],
-                        "mvar2", ["mvalue2 one"]
-                    ).then((response: any) => {
-                        expect(response["document"]["pong"]["var1"]).toBe("value one");
-                        expect(response["document"]["pong"]["var2"]).toBe("value two");
-                        expect(response["document"]["pong"]["mvar1"][0]).toBe("mvalue one");
-                        expect(response["document"]["pong"]["mvar1"][1]).toBe("mvalue two");
-                        expect(response["document"]["pong"]["mvar1"][2]).toBe("mvalue three");
-                        expect((response["document"]["pong"]["mvar1"]).length).toBe(3);
-                        expect(response["document"]["pong"]["mvar2"]).toBe("mvalue2 one");
-                        done();
-                        return null;
-                    }).fail(() => {
-                        done.fail("error is not supposed to happend");
-                    });
-                })();
-            }
-            );
-        
-        
-            it("should check Json types (C8oCheckJsonTypes)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    c8o.callJson(".JsonTypes",
-                        "var1", "value one",
-                        "mvar1", ["mvalue one", "mvalue two", "mvalue three"]
-                    ).then((response: any) => {
-                        let json = response["document"];
-                        let pong = json["pong"];
-                        let value = pong["var1"];
-                        expect(value).toBe("value one");
-                        let mvar1 = pong["mvar1"];
-                        value = mvar1[0];
-                        expect(value).toBe("mvalue one");
-                        value = mvar1[1];
-                        expect(value).toBe("mvalue two");
-                        value = mvar1[2];
-                        expect(value).toBe("mvalue three");
-                        value = mvar1.length;
-                        expect(value).toBe(3);
-                        let complex = json["complex"];
-                        let isBool: boolean = (complex["isNull"] == null || complex["isNull"] === undefined);
-                        expect(isBool).toBeTruthy();
-                        value = complex["isInt3615"];
-                        expect(value).toBe(3615);
-                        value = complex["isStringWhere"];
-                        expect("where is my string?!").toBe(value);
-                        value = complex["isDoublePI"];
-                        expect(value).toBe(3.141592653589793);
-                        isBool = complex["isBoolTrue"];
-                        expect(isBool).toBeTruthy();
-                        //noinspection JSNonASCIINames
-                        value = complex["ÉlŸz@-node"];
-                        expect(value).toBe("that's ÉlŸz@");
-                        done();
-                        return null;
-                    }).fail(() => {
-                        done.fail("error is not supposed to happend");
-                    });
-        
-                })();
-            }
-            );
-        
-            it("should check that sessions are not mixed (CheckNoMixSession)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    c8o.init(Stuff.C8o).catch((err: C8oException) => {
-                        expect(err).toBeUndefined();
-                    });
-                    await c8o.finalizeInit();
-                    let ts = new Date().getTime().valueOf() + "";
-                    c8o.callJson(".SetInSession",
-                        "ts", ts
-                    ).then((response: any) => {
-                        expect(response["document"]["pong"]["ts"]).toBe(ts);
-                        return c8o.callJson(".GetFromSession");
-                    })
-                        .then((response: any) => {
-                            expect(response["document"]["session"]["expression"]).toBe(ts);
-                            done();
+        it("should check that log remote works (CheckLogRemote)", async (done) => {
+            inject([C8o], async (c8o: C8o) => {
+                let c8oSettings: C8oSettings = new C8oSettings();
+                c8oSettings.setLogC8o(false);
+                c8oSettings.setEndPoint(Info.endpoint);
+                c8o.init(c8oSettings as any)
+                    .then(async () => {
+                        await c8o.finalizeInit();
+                        let id: string = "logID=" + new Date().getTime().valueOf();
+                        c8o.callJson(".GetLogs",
+                            "init", id
+                        ).then(() => {
+                            setTimeout(() => {
+                                c8o.log.error(id);
+                                let arg = ["ERROR", "WARN", "INFO", "DEBUG", "TRACE", "FATAL"];
+                                c8o.log.warn(id);
+                                c8o.log.info(id);
+                                c8o.log.debug(id);
+                                c8o.log.trace(id);
+                                c8o.log.fatal(id);
+                                Functions.CheckLogRemoteHelper(c8o, arg, id);
+                                c8o.logRemote = false;
+                                c8o.log.info(id);
+                                setTimeout(() => {
+                                    c8o.callJson(".GetLogs")
+                                        .then((response: any) => {
+                                            expect(response["document"]["line"]).toBeUndefined();
+                                            done();
+                                            return null;
+                                        });
+                                }, 2000);
+                            }, 2000);
                             return null;
                         }).fail(() => {
                             done.fail("error is not supposed to happend");
                         });
-        
-                })();
-            }
-            );
-        /*
-        
-            it("should check that log remote works (CheckLogRemote)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    let c8oSettings: C8oSettings = new C8oSettings();
-                    c8oSettings.setLogC8o(false);
-                    c8oSettings.setEndPoint(Info.endpoint);
-                    c8o.init(c8oSettings as any)
-                        .then(async () => {
-                            await c8o.finalizeInit();
-                            let id: string = "logID=" + new Date().getTime().valueOf();
-                            c8o.callJson(".GetLogs",
-                                "init", id
-                            ).then(() => {
-                                setTimeout(() => {
-                                    c8o.log.error(id);
-                                    let arg = ["ERROR", "WARN", "INFO", "DEBUG", "TRACE", "FATAL"];
-                                    c8o.log.warn(id);
-                                    c8o.log.info(id);
-                                    c8o.log.debug(id);
-                                    c8o.log.trace(id);
-                                    c8o.log.fatal(id);
-                                    Functions.CheckLogRemoteHelper(c8o, arg, id);
-                                    c8o.logRemote = false;
-                                    c8o.log.info(id);
-                                    setTimeout(() => {
-                                        c8o.callJson(".GetLogs")
-                                            .then((response: any) => {
-                                                expect(response["document"]["line"]).toBeUndefined();
-                                                done();
-                                                return null;
-                                            });
-                                    }, 2000);
-                                }, 2000);
-                                return null;
-                            }).fail(() => {
-                                done.fail("error is not supposed to happend");
-                            });
-                        })
-                        .catch((err: C8oException) => {
-                            expect(err).toBeUndefined();
-                        });
-                })();
-            }
-            );
-        */
-    /*
+                    })
+                    .catch((err: C8oException) => {
+                        expect(err).toBeUndefined();
+                    });
+            })();
+        }
+        );
+    */
+
     it("should check that one default promise works (C8oDefaultPromiseXmlOne)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
                 expect(err).toBeUndefined();
             });
- 
+
             await c8o.finalizeInit();
             c8o.callJson(".Ping", "var1", "step 1").then((response: any, parameters: any) => {
                 expect(response["document"]["pong"]["var1"]).toBe("step 1");
@@ -386,7 +386,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that three default promises works (C8oDefaultPromiseJsonThree)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -413,9 +413,9 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that a promise could fail (C8oDefaultPromiseFail)", async (done) => {
- 
+
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
                 expect(err).toBeUndefined();
@@ -445,7 +445,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that a promise could be nested (C8oDefaultPromiseNested)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -485,7 +485,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that a promise could be nested and failed (C8oDefaultPromiseNestedFail)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -523,7 +523,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that a promise could stored in var (C8oDefaultPromiseInVar)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o).catch((err: C8oException) => {
@@ -551,8 +551,8 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
- 
+
+
     it("should check bad requestable (badRequest)", function (done) {
         inject([C8o], async (c8o: C8o) => {
             const settings: any = new C8oSettings().setLogLevelLocal(C8oLogLevel.DEBUG);
@@ -574,7 +574,7 @@ describe("provider: basic calls verifications", () => {
             })
         })();
     });
- 
+
     it("should check sdk version (CheckVersion)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             let settings: any = new C8oSettings();
@@ -591,7 +591,7 @@ describe("provider: basic calls verifications", () => {
             })
         })();
     });
- 
+
     it("should check someParams (CheckParams)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             let settings: any = new C8oSettings();
@@ -655,37 +655,37 @@ describe("provider: basic calls verifications", () => {
                             expect(error.message).not.toBeNull();
                             done();
                         }
- 
+
                     });
                 });
             });
         })();
     }
     );
- 
- 
+
+
     it("should log after init (c8ologAfterinit)", (done) => {
         inject([C8o], async (c8o: C8o) => {
- 
+
             c8o.log.info("Test log after init");
             setTimeout(() => {
- 
+
                 c8o.init(Stuff.C8o).then(async () => {
                     await c8o.finalizeInit();
                     setTimeout(() => { done(); }, 2000);
                 }).catch((err: C8oException) => {
                     expect(err).toBeUndefined();
                 });
- 
- 
+
+
             }, 5000);
- 
+
         })();
- 
+
     });
- 
- 
- 
+
+
+
     it("should verify C8oExceptionMessages (C8oExceptionsMessages)", async (done) => {
         new C8oRessourceNotFoundException("a", new Error("abc"));
         expect(C8oExceptionMessage.notImplementedFullSyncInterface()).toBe("You are using the default FullSyncInterface which is not implemented");
@@ -804,7 +804,7 @@ describe("provider: basic calls verifications", () => {
         done();
     }
     );
- 
+
     it("should returns and IllegalArgument Exception (C8oBadEndpoint)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             let settings: any = new C8oSettings();
@@ -819,9 +819,9 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
- 
- 
+
+
+
     it("should genrerates exceptions (C8oUnknownHostCallAndLog)",
         async(inject([C8o], async (c8o: C8o) => {
             let exceptionLog;
@@ -857,7 +857,7 @@ describe("provider: basic calls verifications", () => {
                 });
         }))
     );
- 
+
     it("should check that Fullsync Post Get Delete works (C8oFsPostGetDelete)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -895,7 +895,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post Get Delete works with observable (C8oFsPostGetDeleteObs)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -946,7 +946,7 @@ describe("provider: basic calls verifications", () => {
                                                                     done();
                                                                 },
                                                                 () => {
- 
+
                                                                 });
                                                     });
                                         });
@@ -955,9 +955,9 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post Get Delete works with rev (C8oFsPostGetDeleteRev)", async (done) => {
-        inject([C8o], async (c8o: C8o) =>{
+        inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
                 expect(err).toBeUndefined();
             });
@@ -998,7 +998,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post Get Destoy Create works (C8oFsPostGetDestroyCreate)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -1048,7 +1048,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post Reset works (C8oFsPostReset)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -1081,7 +1081,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post on existing is not working(C8oFsPostExisting)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -1110,7 +1110,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post on existing with policy none is not working(C8oFsPostExistingPolicyNone)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -1139,7 +1139,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post on existing with policy create works (C8oFsPostExistingPolicyCreate)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch(() => {
@@ -1171,8 +1171,8 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
- 
+
+
     it("should check that Fullsync Post on existing with policy override works (C8oFsPostExistingPolicyOverride)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch(() => {
@@ -1221,7 +1221,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post on existing with policy merge works (C8oFsPostExistingPolicyMerge)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch(() => {
@@ -1270,14 +1270,14 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Post on existing with policy merge works with sub values (C8oFsPostExistingPolicyMergeSub)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch(() => {
                 done.fail("error is not supposed to happend");
             });
             await c8o.finalizeInit();
- 
+
             let myId: string = "C8oFsPostExistingPolicyMergeSub-" + new Date().getTime().valueOf();
             let sub_c: Object = {};
             let sub_f: Object = {};
@@ -1286,7 +1286,7 @@ describe("provider: basic calls verifications", () => {
             sub_c["d"] = 3;
             sub_c["e"] = "four";
             sub_c["f"] = sub_f;
- 
+
             c8o.callJson("fs://.reset")
                 .then((response: any) => {
                     expect(response["ok"]).toBeTruthy();
@@ -1337,37 +1337,37 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync Merge object works (C8oFsMergeObject)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch(() => {
                 done.fail("error is not supposed to happend");
             });
- 
+
             await c8o.finalizeInit();
- 
+
             let myId: string = "C8oFsPostExistingPolicyMergeSub-" + new Date().getTime().valueOf();
             let plainObjectA: PlainObjectA = new PlainObjectA();
             plainObjectA.name = "plain A";
             plainObjectA.bObjects = [];
- 
+
             plainObjectA.bObject = new PlainObjectB();
             plainObjectA.bObject.name = "plain B 1";
             plainObjectA.bObject.num = 1;
             plainObjectA.bObject.enabled = true;
             plainObjectA.bObjects.push(plainObjectA.bObject);
- 
+
             plainObjectA.bObject = new PlainObjectB();
             plainObjectA.bObject.name = "plain B 2";
             plainObjectA.bObject.num = 2;
             plainObjectA.bObject.enabled = false;
             plainObjectA.bObjects.push(plainObjectA.bObject);
- 
+
             plainObjectA.bObject = new PlainObjectB();
             plainObjectA.bObject.name = "plain B -777";
             plainObjectA.bObject.num = -777;
             plainObjectA.bObject.enabled = true;
- 
+
             c8o.callJson("fs://.reset")
                 .then((response: any) => {
                     expect(response["ok"]).toBeTruthy();
@@ -1391,7 +1391,7 @@ describe("provider: basic calls verifications", () => {
                     plainObjectA.bObject.name = "plain B -666";
                     plainObjectA.bObject.num = -666;
                     plainObjectA.bObject.enabled = false;
- 
+
                     return c8o.callJson("fs://.post",
                         C8o.FS_POLICY, C8o.FS_POLICY_MERGE,
                         "_id", myId,
@@ -1427,7 +1427,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync post get works on several bases (C8oFsPostGetMultibase)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch(() => {
@@ -1473,7 +1473,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PULL).catch(() => {
@@ -1512,7 +1512,7 @@ describe("provider: basic calls verifications", () => {
                             expect(error2 instanceof C8oException).toBeTruthy();
                             c8o.callJson("fs://.reset").then((resp) => {
                                 c8o.callJson(".LoginTesting")
- 
+
                                     .then((response: any) => {
                                         expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
                                         return c8o.callJson("fs://.replicate_pull");
@@ -1534,13 +1534,13 @@ describe("provider: basic calls verifications", () => {
                                     });
                                 return null;
                             })
- 
+
                         });
                 });
         })();
     }
     );
- 
+
     it("should check that Fullsync replicate pull with progess(C8oFsReplicatePullProgress)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PULL).catch(() => {
@@ -1593,7 +1593,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync replicate pull ano auth and view works(C8oFsReplicatePullAnoAndAuthView)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PULL).catch(() => {
@@ -1679,7 +1679,7 @@ describe("provider: basic calls verifications", () => {
                     expect(1000.0).toBe(valueN);
                     return c8o.callJson(".LogoutTesting");
                 })
- 
+
                 .then(() => {
                     done();
                 })
@@ -1690,7 +1690,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
- 
+
     it("should check that Fullsync view array key works(C8oFsViewArrayKey)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PULL).catch(() => {
@@ -1727,11 +1727,11 @@ describe("provider: basic calls verifications", () => {
                     c8o.callJson(".LogoutTesting");
                     done.fail("error is not supposed to happend");
                 });
- 
+
         })();
     }
     );
- 
+
     it("should check that Fullsync repliacte pull get all works(C8oFsReplicatePullGetAll)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PULL).catch(() => {
@@ -1790,11 +1790,11 @@ describe("provider: basic calls verifications", () => {
                     c8o.callJson(".LogoutTesting");
                     done.fail("error is not supposed to happend");
                 });
- 
+
         })();
     }
     );
- 
+
     it("should check that Fullsync repliacte push auth works(C8oFsReplicatePushAuth)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PUSH).catch(() => {
@@ -1840,11 +1840,11 @@ describe("provider: basic calls verifications", () => {
                     c8o.callJson(".LogoutTesting");
                     done.fail("error is not supposed to happend");
                 });
- 
+
         })();
     }
     );
- 
+
     it("should check that Fullsync repliacte push auth progress works(C8oFsReplicatePushAuthProgress)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PUSH).catch(() => {
@@ -1890,11 +1890,11 @@ describe("provider: basic calls verifications", () => {
                     c8o.callJson(".LogoutTesting");
                     done.fail("error is not supposed to happend");
                 });
- 
+
         })();
     }
     );
- 
+
     it("should check that Fullsync repliacte sync continuous progress works(C8oFsReplicateSyncContinuousProgress)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PUSH).catch(() => {
@@ -1917,7 +1917,7 @@ describe("provider: basic calls verifications", () => {
                 })
                 .then((response: any) => {
                     expect(response["ok"]).toBeTruthy();
- 
+
                     for (let _i = 0; _i < 10; _i++) {
                         c8o.callJson("fs://.post",
                             "_id", id + "-" + _i,
@@ -1988,41 +1988,41 @@ describe("provider: basic calls verifications", () => {
                     c8o.callJson(".LogoutTesting");
                     done.fail("error is not supposed to happend");
                 });
- 
+
         })();
     }, 50000
     );
- 
 
- 
 
-it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)", async (done) => {
-    inject([C8o], async (c8o: C8o) => {
-        try{
-            await c8o.init(Stuff.C8o_FS);
-            c8o.httpInterface.forceInit();
-            await c8o.finalizeInit();
-            let response = await c8o.callJson("fs://.reset").async();
-            console.log("reset");
-            expect(response["ok"]).toBeTruthy();
-            response = await c8o.callJson("fs://.replicate_pull", "cancel", true, "continuous", "true").async();
-            expect(response["ok"]).toBeTruthy();
-            response = await c8o.callJson("fs://.replicate_push", "cancel", true, "continuous", "true").async();
-            expect(response["ok"]).toBeTruthy();
-            response = await c8o.callJson("fs://.sync", "cancel", true, "continuous", "true").async();
-            expect(response["ok"]).toBeTruthy();
-            done();
-        }
-        catch(error){
-            console.log('err')
-            done.fail("C8oFsReplicateCancel2 " + error.message);
-        }
-        
 
-    })();;
-});
- 
- 
+
+    it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            try {
+                await c8o.init(Stuff.C8o_FS);
+                c8o.httpInterface.forceInit();
+                await c8o.finalizeInit();
+                let response = await c8o.callJson("fs://.reset").async();
+                console.log("reset");
+                expect(response["ok"]).toBeTruthy();
+                response = await c8o.callJson("fs://.replicate_pull", "cancel", true, "continuous", "true").async();
+                expect(response["ok"]).toBeTruthy();
+                response = await c8o.callJson("fs://.replicate_push", "cancel", true, "continuous", "true").async();
+                expect(response["ok"]).toBeTruthy();
+                response = await c8o.callJson("fs://.sync", "cancel", true, "continuous", "true").async();
+                expect(response["ok"]).toBeTruthy();
+                done();
+            }
+            catch (error) {
+                console.log('err')
+                done.fail("C8oFsReplicateCancel2 " + error.message);
+            }
+
+
+        })();;
+    });
+
+
     it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancel)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch(() => {
@@ -2063,7 +2063,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                         .fail((error) => {
                             done.fail("error is not supposed to happend");
                         });
- 
+
                     return null;
                 })
                 .fail((error) => {
@@ -2072,7 +2072,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
         })();
     }
     );
- 
+
     it("should check that Fullsync repliacte cancel when lauching two replication works(C8oFsReplicateCancelOnDoublon)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             let state: string;
@@ -2087,7 +2087,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                         .progress((progress: any) => {
                             state = progress["_raw"]["cancelled"];
                             return null;
- 
+
                         });
                     c8o.callJson("fs://.replicate_pull")
                         .then((response, parameters) => {
@@ -2095,7 +2095,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                                 expect(state).toBeTruthy();
                                 done();
                             }, 3000);
- 
+
                             return null;
                         });
                     return null;
@@ -2103,7 +2103,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
         }
         )();
     });
- 
+
     it("should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_LC).catch(() => {
@@ -2113,7 +2113,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
             let id = "C8oLocalCacheXmlPriorityLocal-" + new Date().getTime().valueOf();
             let signature: string;
             let signature2: string;
- 
+
             c8o.callJson(".Ping",
                 C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 3000),
                 "var1", id)
@@ -2153,7 +2153,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
         })();
     }
     );
- 
+
     it("should check that c8o fs live changes works (C8oFsLiveChanges)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PUSH).catch(() => {
@@ -2162,7 +2162,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
             await c8o.finalizeInit();
             let lastChanges: Array<Object> = [];
             lastChanges[0] = null;
- 
+
             let cptlive: number = 0;
             let firstPass = true;
             let changeListener: any = new C8oFullSyncChangeListener((changes: Object) => {
@@ -2190,7 +2190,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                 .fail((error) => {
                     done.fail("error is not supposed to happend");
                 });
- 
+
             setTimeout(() => {
                 c8o.callJson(".qa_fs_push.PostDocument", "_id", "ghi").then(() => {
                     setTimeout(() => {
@@ -2230,7 +2230,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
         })();
     }
     );
- 
+
     it("should check that Fullsync Put attachment works (C8oFsPutAttachment)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -2265,8 +2265,8 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
         })();
     }
     );
- 
- 
+
+
     it("should check that Fullsync get attachment works ans sequence upload to (C8oSequencePutAttachmentFSGetAttachment)", function (done) {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_FILES).catch((err: C8oException) => {
@@ -2274,7 +2274,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
             });
             await c8o.finalizeInit();
             const id: string = "documentFile";
- 
+
             let fileFirst = new File(["Hello Convertigo First !"], "fileFirst.txt", {
                 type: "text/plain",
             });
@@ -2282,7 +2282,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                 type: "text/plain",
             });
             let arrayFile = [fileFirst, fileSecond];
- 
+
             c8o.callJson(".LoginTesting")
                 .then(() => {
                     return c8o.callJson("fs://qa_fs_files.reset")
@@ -2326,7 +2326,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                 });
         })();
     });
- 
+
     it("should check that Fullsync bulkworks (C8oFsBulk)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -2364,46 +2364,14 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                         });
                     return null;
                 })
- 
+
                 .fail((error) => {
                     done.fail("C8oFsBulk");
                 });
         })();
     });
 
-*/
-    /*it("should check that handleLostSession works(C8oHandleSessionLost)", async (done) => {
-        inject([C8o], async (c8o: C8o) => {
-            try{
-                let timeout;
-                await c8o.init(Stuff.C8o_Sessions);
-                await c8o.finalizeInit();
-                let response = await c8o.callJson(".LoginTesting").async();
-                expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-                c8o.handleSessionLost().subscribe(()=>{
-                    if(timeout != undefined){
-                        clearTimeout(timeout);
-                    }
-                    done();
-                });
-                setTimeout(async()=>{
-                await c8o.callJson(".RemoveSession");
-                c8o.log.debug("log Debug");
-                await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
-                timeout = setTimeout(()=>{
-                    done.fail("C8oHandleSessionLost: We haven't been notified by session lost");
-                },10000);
-                },2000);
-            
-            }
-            catch(error){
-                done.fail("C8oHandleSessionLost " + error.message);
-            }
-        })();;
-    });
-*/
 
-/*
     it("should check that handle Network Events works (C8oHandleNetworkEvent)", async (done) => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
             try {
@@ -2434,8 +2402,8 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                             let c8oNotReachable = new C8o(http);
                             await c8oNotReachable.init(Stuff.C8o_SessionsKeepAlive.setEndPoint("http://localhost:9999/convertigo/projects/abc"));
                             c8oNotReachable.handleNetworkEvents().subscribe((network) => {
-                                    expect(network).toBe("NotReachable");
-                                    done();
+                                expect(network).toBe("NotReachable");
+                                done();
                             });
                             await c8oNotReachable.finalizeInit();
                         }, 4000);
@@ -2443,105 +2411,164 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                 }, 4000);
             }
             catch (error) {
-                done.fail("C8oHandleSessionLost " + error.message);
+                done.fail("C8oHandleNetworkEvent " + error.message);
             }
         })();;
     });
 
-     it("should check that keepAlive and autologin works works(C8oHandleSessionLost)", async (done) => {
+    
+    it("should check that keepAlive and autologin works works(C8oHandleSessionLost)", async (done) => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
-            try{
+            try {
                 let timeout;
-                new Promise(async (resolve)=>{
+                new Promise(async (resolve) => {
                     await c8o.init(Stuff.C8o_SessionsKeepAlive);
                     await c8o.finalizeInit();
                     c8o.log.debug("Init finished");
                     let response = await c8o.callJson(".LoginTesting").async();
                     expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-                    c8o.handleSessionLost().subscribe(()=>{
-                        if(timeout != undefined){
+                    c8o.handleSessionLost().subscribe(() => {
+                        if (timeout != undefined) {
                             clearTimeout(timeout);
                         }
                         done.fail();
                     });
                     Functions.removesess(c8o, resolve);
-                }).then(async()=>{
+                }).then(async () => {
                     c8o.log.debug("log Debug");
                     await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
-                    timeout = setTimeout(()=>{
+                    timeout = setTimeout(() => {
                         done();
-                    },10000);
+                    }, 10000);
                 })
-                .catch((error)=>{
-                    done.fail();
-                })           
+                    .catch((error) => {
+                        done.fail();
+                    })
             }
-            catch(error){
+            catch (error) {
                 done.fail("C8oHandleSessionLost " + error.message);
             }
-        })();;
+        })();
     });
-//replicationsToRestart
-*/
+    //replicationsToRestart
+
+    it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
+        inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
+        console.log("done");
+        done();
+    })();
+    })
+
 
     it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
             try {
                 let timeout;
                 let p = new Promise(async (resolve) => {
+
+                    // init
                     await c8o.init(Stuff.C8o_Sessions);
                     await c8o.finalizeInit();
+                    // set an handler of lost session
                     c8o.handleSessionLost().subscribe(() => {
                         console.log('handle a lost session');
                     });
 
+                    // launch 3 syncs simple not authetificated
                     await c8o.callJson("fs://databasea1.sync");
-                    await c8o.callJson("fs://databaseb1.replicate_pull", "continuous", true);
-
-                    await Functions.wait(3000);
-                    expect(c8o.database.registeredReplications["anonymous"].length).toBe(2);
-                    expect(c8o.database.registeredReplications["anonymous"][0]["authenticated"] && c8o.database.registeredReplications["anonymous"][1]["authenticated"]).toBeFalsy();
-                    expect(c8o.database.registeredReplications["anonymous"][0].finished).toBe(true);
-                    expect(c8o.database.registeredReplications["anonymous"][1].finished).toBe(false);
-                    let response = await c8o.callJson(".LoginTesting").async();
-                    expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-
-                    await c8o.callJson("fs://databaseb2.sync", "continuous", true);
-                    await Functions.wait(1000);
-                    await c8o.callJson("fs://databaseb2.replicate_pull", "continuous", true);
-                    await Functions.wait(1000);
-                    await c8o.callJson("fs://databasec2.replicate_push", "continuous", true);
                     await Functions.wait(1000);
                     await c8o.callJson("fs://databasea2.replicate_pull");
                     await Functions.wait(1000);
-                    await c8o.callJson("fs://databaseb2.replicate_push");
+                    await c8o.callJson("fs://databasea3.replicate_push");
                     await Functions.wait(1000);
-                    await c8o.callJson("fs://databasec2.sync");
+
+                    // launch 3 syncs continous not authetificated
+
+                    await c8o.callJson("fs://databaseb1.sync", "continuous", true);
                     await Functions.wait(1000);
+                    await c8o.callJson("fs://databaseb2.replicate_pull", "continuous", true);
+                    await Functions.wait(1000);
+                    await c8o.callJson("fs://databaseb3.replicate_push", "continuous", true);
 
                     await Functions.wait(3000);
 
-                    expect(c8o.database.registeredReplications["testing_user"].length).toBe(6);
-                    expect(c8o.database.registeredReplications["testing_user"].length).toBe(6);
-                    for(let registRep of c8o.database.registeredReplications["testing_user"]){
-                        expect(registRep["authenticated"]).toBeTruthy();
-                    }
-                    expect(c8o.database.registeredReplications["testing_user"][0].finished).toBe(false);
-                    expect(c8o.database.registeredReplications["testing_user"][1].finished).toBe(false);
-                    expect(c8o.database.registeredReplications["testing_user"][2].finished).toBe(false);
-                    expect(c8o.database.registeredReplications["testing_user"][3].finished).toBe(true);
-                    expect(c8o.database.registeredReplications["testing_user"][4].finished).toBe(true);
-                    expect(c8o.database.registeredReplications["testing_user"][5].finished).toBe(true);
 
+                    // Check that we have six rep and each one is in its expected state
+
+                    let cpt = 0;
+                    expect(c8o.database.registeredReplications["anonymous"].length).toBe(6);
+                    for (let rep of c8o.database.registeredReplications["anonymous"]) {
+                        expect(rep["authenticated"]).toBeFalsy();
+                        expect(rep["canceled"]).toBeFalsy();
+                        if (cpt < 3) {
+                            expect(rep.finished).toBe(true);
+                        }
+                        else {
+                            expect(rep.finished).toBe(false);
+                        }
+                        cpt = cpt + 1;
+                    }
+
+                    // Logging and check that we are effectivly logged in
+                    let response = await c8o.callJson(".LoginTesting").async();
+                    expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+
+
+                    // launch 3 syncs simple authetificated
+                    await c8o.callJson("fs://databasec1.sync");
+                    await Functions.wait(1000);
+                    await c8o.callJson("fs://databasec2.replicate_pull");
+                    await Functions.wait(1000);
+                    await c8o.callJson("fs://databasec3.replicate_push");
+                    await Functions.wait(1000);
+
+                    // launch 3 syncs continous authetificated
+
+                    await c8o.callJson("fs://databased1.sync", "continuous", true);
+                    await Functions.wait(1000);
+                    await c8o.callJson("fs://databased2.replicate_pull", "continuous", true);
+                    await Functions.wait(1000);
+                    await c8o.callJson("fs://databased3.replicate_push", "continuous", true);
+                    //=> causes net::ERR_INCOMPLETE_CHUNKED_ENCODING 200 (OK)
+                    await Functions.wait(3000);
+
+
+                    // Check that we have six rep and each one is in its expected state
+
+                    cpt = 0;
+                    expect(c8o.database.registeredReplications["testing_user"].length).toBe(6);
+                    for (let rep of c8o.database.registeredReplications["testing_user"]) {
+                        expect(rep["authenticated"]).toBeTruthy();
+                        expect(rep["canceled"]).toBeFalsy();
+                        if (cpt < 3) {
+                            expect(rep.finished).toBe(true);
+                        }
+                        else {
+                            expect(rep.finished).toBe(false);
+                        }
+                        cpt = cpt + 1;
+                    }
+                    // remove session
                     Functions.removesess(c8o, resolve);
 
                 });
                 p.then(async () => {
-
                     await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
-                    await c8o.callJson("fs://databasec1.replicate_push", "continous", true);
-                    expect(c8o.database.registeredReplications["testing_user"].length).toBe(7);
-                    
+                    expect(c8o.database.registeredReplications["testing_user"].length).toBe(6);
+
+                    let cpt = 0;
+                    for (let rep of c8o.database.registeredReplications["testing_user"]) {
+                        if (cpt < 3) {
+                            expect(rep["canceled"]).toBeFalsy();
+                            expect(rep.finished).toBe(true);
+                        }
+                        else {
+                            expect(rep["canceled"]).toBeTruthy();
+                            expect(rep.finished).toBe(false, "la1")
+                        }
+                        cpt = cpt + 1;
+                    }
+
                     c8o.log.debug("after ping 1");
                     await Functions.wait(3000);
                     console.log(c8o.database.registeredReplications)
@@ -2551,14 +2578,20 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
                     let response = await c8o.callJson(".LoginTesting").async();
                     expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
                     await Functions.wait(3000);
+                    cpt = 0;
+                    for (let rep of c8o.database.registeredReplications["testing_user"]) {
+                        if (cpt < 3) {
+                            expect(rep["canceled"]).toBeFalsy();
+                            expect(rep.finished).toBe(true);
+                        }
+                        else {
+                            expect(rep["canceled"]).toBeFalsy();
+                            expect(rep.finished).toBe(false, "la2");
+                        }
+                        cpt = cpt + 1;
+                    }
                     done();
                 })
-
-
-
-
-
-
             }
             catch (error) {
                 done.fail("C8oHandleSessionLost " + error.message);
@@ -2566,34 +2599,7 @@ it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)
         })();;
     });
 
-    /*it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
-        inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
-            try{
-                let timeout;
-                let p = new Promise(async (resolve)=>{
-    
-                
-                await c8o.init(Stuff.C8o_Sessions);
-                await c8o.finalizeInit();
-                c8o.log.debug("Init finished");
-                let response = await c8o.callJson(".LoginTesting").async();
-                console.log("then Logging");
-                await c8o.callJson("fs://abd.sync", "continous", true);
-                console.log(Functions.get_cookie("io"))
-                //console.log(window.cookies.get("io"))
-                setTimeout(()=>{
-                    Functions.delete_cookie("JSESSIONID");
-                    done()
-                }, 5000)
-                
-                })
-    
-            }
-            catch(error){
-                done.fail("C8oHandleSessionLost " + error.message);
-            }
-        })();
-    });*/
+
 
 
     /***/
