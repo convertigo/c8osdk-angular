@@ -27,10 +27,10 @@ import * as ts from "typescript";
 import { Utils } from 'handlebars';
 import { HttpHeaders } from '@angular/common/http';
 import { C8oHttpInterface } from 'dist/c8osdkangular/public_api';
+import { ConditionalExpr } from '@angular/compiler';
 
 
 declare const require: any;
-
 
 
 // First, initialize the Angular testing environment.
@@ -367,6 +367,7 @@ describe("provider: basic calls verifications", () => {
         }
         );
     */
+
 
     it("should check that one default promise works (C8oDefaultPromiseXmlOne)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
@@ -1969,7 +1970,12 @@ describe("provider: basic calls verifications", () => {
                                             expect(pattern.test(lastPull)).toBeTruthy();
                                             c8o.callJson(".LogoutTesting")
                                                 .then(() => {
-                                                    done();
+                                                    c8o.callJson("fs://.sync", "cancel", true)
+                                                    .then((res)=>{
+                                                        done();
+                                                        return null;
+                                                    })
+                                                    
                                                     return null;
                                                 })
                                                 .fail(() => {
@@ -2216,6 +2222,9 @@ describe("provider: basic calls verifications", () => {
                                                 expect(lastChanges[0]["changes"].length).toBe(1);
                                                 expect(lastChanges[0]["changes"][0]["id"]).toBe("mno");
                                                 c8o.removeFullSyncChangeListener("", changeListener);
+                                                c8o.callJson("fs://.replicate_pull", "cancel", true)
+                                                c8o.database.removeReplications("anonymous");
+                                                c8o.database.removeReplications("testing_user");
                                                 done();
                                             }, 2000);
                                             return null;
@@ -2231,12 +2240,14 @@ describe("provider: basic calls verifications", () => {
     }
     );
 
+
     it("should check that Fullsync Put attachment works (C8oFsPutAttachment)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
                 expect(err).toBeUndefined();
             });
             await c8o.finalizeInit();
+
             let myId: string = "C8oFsPutAttachment";
             let id: string;
             c8o.callJson("fs://.reset")
@@ -2310,18 +2321,25 @@ describe("provider: basic calls verifications", () => {
                                     readerSecond.onloadend = () => {
                                         let base64dataSecond = (<string>readerSecond.result).split(",")[1];
                                         expect(response["_attachments"]["fileSecond.txt"]["data"]).toBe(base64dataSecond);
-                                        done();
+                                        c8o.callJson("fs://qa_fs_files.sync", "cancel",true)
+                                        .then((res)=>{
+                                            done();    
+                                            return null;
+                                        })
+                                        
                                     };
                                 }
                                 return null;
                             })
                             .fail((error) => {
+                                c8o.callJson("fs://qa_fs_files.sync", "cancel",true);
                                 done.fail("error is not supposed to happend");
                             });
                     }, 3000)
                     return null;
                 })
                 .fail((error) => {
+                    c8o.callJson("fs://qa_fs_files.sync", "cancel",true);
                     done.fail("error is not supposed to happend");
                 });
         })();
@@ -2450,15 +2468,6 @@ describe("provider: basic calls verifications", () => {
             }
         })();
     });
-    //replicationsToRestart
-
-    it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
-        inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
-        console.log("done");
-        done();
-    })();
-    })
-
 
     it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
@@ -2476,21 +2485,13 @@ describe("provider: basic calls verifications", () => {
 
                     // launch 3 syncs simple not authetificated
                     await c8o.callJson("fs://databasea1.sync");
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databasea2.replicate_pull");
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databasea3.replicate_push");
-                    await Functions.wait(1000);
 
                     // launch 3 syncs continous not authetificated
-
                     await c8o.callJson("fs://databaseb1.sync", "continuous", true);
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databaseb2.replicate_pull", "continuous", true);
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databaseb3.replicate_push", "continuous", true);
-
-                    await Functions.wait(3000);
 
 
                     // Check that we have six rep and each one is in its expected state
@@ -2516,25 +2517,16 @@ describe("provider: basic calls verifications", () => {
 
                     // launch 3 syncs simple authetificated
                     await c8o.callJson("fs://databasec1.sync");
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databasec2.replicate_pull");
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databasec3.replicate_push");
-                    await Functions.wait(1000);
 
                     // launch 3 syncs continous authetificated
 
                     await c8o.callJson("fs://databased1.sync", "continuous", true);
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databased2.replicate_pull", "continuous", true);
-                    await Functions.wait(1000);
                     await c8o.callJson("fs://databased3.replicate_push", "continuous", true);
-                    //=> causes net::ERR_INCOMPLETE_CHUNKED_ENCODING 200 (OK)
-                    await Functions.wait(3000);
-
 
                     // Check that we have six rep and each one is in its expected state
-
                     cpt = 0;
                     expect(c8o.database.registeredReplications["testing_user"].length).toBe(6);
                     for (let rep of c8o.database.registeredReplications["testing_user"]) {
@@ -2570,14 +2562,11 @@ describe("provider: basic calls verifications", () => {
                     }
 
                     c8o.log.debug("after ping 1");
-                    await Functions.wait(3000);
                     console.log(c8o.database.registeredReplications)
                     await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
                     c8o.log.debug("after ping 2");
-                    await Functions.wait(3000);
                     let response = await c8o.callJson(".LoginTesting").async();
                     expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-                    await Functions.wait(3000);
                     cpt = 0;
                     for (let rep of c8o.database.registeredReplications["testing_user"]) {
                         if (cpt < 3) {
