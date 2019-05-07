@@ -34,12 +34,12 @@ jobs:
       # Installing dependencies
       - run:
           name: install-dep-ang7
-          command: 'yarn install && cd ./projects/c8osdkangular && yarn install'
+          command: 'yarn install && cd ./projects/c8osdkangular && yarn install && cd ./src/c8osdk-js-core && yarn install'
           when: always
       # TESTANGULAR7
       - run:
           name: test-ang7
-          command: 'cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular7.txt'
+          command: 'yarn run build-sdk && cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular7.txt'
           when: always
       # Check for results
       - run:
