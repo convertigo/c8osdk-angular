@@ -3,9 +3,7 @@
 import {C8oLogLevel} from "./c8osdk-js-core/src/c8o/c8oLogLevel";*/
 import { C8oSettings, C8oLogLevel } from "../src/c8osdk-js-core/src/index";
 import { C8o } from "./lib/c8o.service";
-import * as Cookies from "js-cookie";
 import { HttpHeaders } from '@angular/common/http';
-import { C8oHttpInterface } from 'dist/c8osdkangular/public_api';
 import { C8oCore } from "../src/c8osdk-js-core/src/index";
 export class Info {
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
@@ -180,16 +178,6 @@ export class Functions {
         console.log("Waiting for " + time + " ms");
         return await new Promise(resolve => setTimeout(resolve, time));
     }
-
-    static delete_cookie(name) {
-        //document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        Cookies.remove('name', { domain: 'convertigo.net', path: '/cems/' });
-    };
-
-    static get_cookie(name) {
-        //document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        Cookies.get(name);
-    };
     static async removesess(c8o, resolve) {
         console.log("Removing session");
         let params: any = { "__sequence": "RemoveSession", "__uuid": C8oCore.deviceUUID };
