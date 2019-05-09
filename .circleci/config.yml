@@ -49,7 +49,7 @@ jobs:
       # TESTANGULAR7
       - run:
           name: test-ang7
-          command: 'npm run build-sdk && cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular7.txt'
+          command: 'npm run build-sdk && npm run test-sdk-nowatch 2>&1 | tee -a ./result/angular7.txt'
           when: always
       # Check for results
       - run:
