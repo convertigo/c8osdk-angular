@@ -13,8 +13,8 @@ jobs:
             git submodule update --remote
       # Installing yarn
       - run:
-          name: install-yarn
-          command: 'sudo apt remove cmdtest && sudo apt remove yarn && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && sudo apt-get update && sudo apt-get install yarn'
+          name: remove-yarn
+          command: 'sudo apt install apt-transport-https -y && sudo apt remove cmdtest && sudo apt remove yarn && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && sudo apt-get update && sudo apt-get install yarn'
           when: always
       # Installing ionic cli
       - run:
