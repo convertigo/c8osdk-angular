@@ -14,37 +14,7 @@ jobs:
       # Installing apt transport hhtps
       - run:
           name: install-app-transport-https
-          command: 'sudo apt install apt-transport-https -y'
-          when: always
-      # Removing cmdtest
-      - run:
-          name: remove-cmdtest
-          command: 'sudo apt remove cmdtest -y '
-          when: always
-      # Removing yarn
-      - run:
-          name: remove-yarn
-          command: 'sudo apt remove yarn -y'
-          when: always
-      # Adding key
-      - run:
-          name: add-key
-          command: 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -'
-          when: always
-      # Writing deb
-      - run:
-          name: writing-deb
-          command: 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list'
-          when: always
-      # Updating apt
-      - run:
-          name: updating-apt
-          command: 'sudo apt-get update'
-          when: always
-      # Installing yarn
-      - run:
-          name: installing-yarn
-          command: 'sudo apt-get install yarn'
+          command: 'rm -rf ~/.yarn && sudo npm install -g yarn && yarn - v'
           when: always
       # Installing ionic cli
       - run:
