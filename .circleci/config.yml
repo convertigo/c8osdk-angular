@@ -44,7 +44,7 @@ jobs:
       # Installing dependencies
       - run:
           name: install-dep-ang7
-          command: 'npm install && cd ./projects/c8osdkangular && npm install'
+          command: 'npm install && cd ./projects/c8osdkangular && npm install && cd ./src/c8o/c8osdk-js-core && npm install'
           when: always
       # TESTANGULAR7
       - run:
