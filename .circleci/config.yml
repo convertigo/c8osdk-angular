@@ -11,15 +11,15 @@ jobs:
           command: |
             git submodule init
             git submodule update --remote
-      # Installing apt transport hhtps
+      # Checking npm version
       - run:
-          name: install-app-transport-https
-          command: 'rm -rf ~/.yarn && sudo npm install -g yarn && yarn - v'
+          name: check-npm-version
+          command: 'npm -v'
           when: always
       # Installing ionic cli
       - run:
           name: install-angular/cli
-          command: 'sudo yarn global add @angular/cli'
+          command: 'sudo npm i -g @angular/cli'
           when: always
       # Creating result folder
       - run:
@@ -29,7 +29,7 @@ jobs:
       # Deleting dependencies and lock files
       - run:
           name: prepare-ang7
-          command: 'cd ./projects/c8osdkangular && ([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
+          command: 'cd ./projects/c8osdkangular && ([ -f ./package-lock.json ] && rm package-lock.json || echo "No package-lock.json file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
           when: always
       # Get package.json
       - run:
@@ -39,12 +39,12 @@ jobs:
       # Installing dependencies
       - run:
           name: install-dep-ang7
-          command: 'yarn install && cd ./projects/c8osdkangular && yarn install && cd ./src/c8osdk-js-core && yarn install'
+          command: 'npm install && cd ./projects/c8osdkangular && npm install && cd ./src/c8osdk-js-core && npm install'
           when: always
       # TESTANGULAR7
       - run:
           name: test-ang7
-          command: 'yarn run build-sdk && cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular7.txt'
+          command: 'npm run build-sdk && cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular7.txt'
           when: always
       # Check for results
       - run:
