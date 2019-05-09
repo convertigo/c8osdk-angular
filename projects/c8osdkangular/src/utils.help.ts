@@ -96,8 +96,9 @@ export class Stuff {
         c8oSettings
             .setDefaultDatabaseName("qa_fs_push")
             .setEndPoint(Info.endpoint)
-            .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.ERROR)
+            .setLogRemote(true)
+            .setLogC8o(true)
+            .setLogLevelLocal(C8oLogLevel.TRACE)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setKeepSessionAlive(false);
         return c8oSettings;
