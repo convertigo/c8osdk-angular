@@ -102,7 +102,7 @@ describe("provider: basic calls verifications", () => {
             );
         */
 
-    /** 
+    
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 console.log("exec of C8oDefaultPing")
@@ -1795,7 +1795,6 @@ describe("provider: basic calls verifications", () => {
             })();
         }
         );
-    */
         it("should check that Fullsync repliacte push auth works(C8oFsReplicatePushAuth)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 c8o.init(Stuff.C8o_FS_PUSH).catch(() => {
@@ -1845,7 +1844,7 @@ describe("provider: basic calls verifications", () => {
             })();
         }
         );
-    /*
+
         it("should check that Fullsync repliacte push auth progress works(C8oFsReplicatePushAuthProgress)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 c8o.init(Stuff.C8o_FS_PUSH).catch(() => {
@@ -2000,7 +1999,7 @@ describe("provider: basic calls verifications", () => {
         );
     
     
-    /*
+
     
         it("should check that Fullsync repliacte cancel works(C8oFsReplicateCancelAsync)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
