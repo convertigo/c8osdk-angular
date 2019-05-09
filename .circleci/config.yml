@@ -21,6 +21,11 @@ jobs:
           name: install-angular/cli
           command: 'sudo npm i -g @angular/cli'
           when: always
+      # Installing webpack cli
+      - run:
+          name: install-webpack-cli
+          command: 'sudo npm i -g webpack-cli'
+          when: always
       # Creating result folder
       - run:
           name: create-result-folder
