@@ -102,7 +102,6 @@ describe("provider: basic calls verifications", () => {
             );
         */
 
-    
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 console.log("exec of C8oDefaultPing")
@@ -2586,7 +2585,9 @@ describe("provider: basic calls verifications", () => {
                 }
             })();;
         });
-    it("should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)", async (done) => {
+
+        
+    it("should check that Fullsync reset database works (C8oFsResetBase)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
                 console.log(error)
@@ -2605,6 +2606,29 @@ describe("provider: basic calls verifications", () => {
             await Functions.wait(5000);
             result = await c8o.callJson("fs://databasec1.sync");
             expect(result["ok"]).toBeTruthy();
+
+            result = await c8o.callJson("fs://databasec1.get", "docid", "myidLocal").async();
+            expect(result["_id"]).toBe("myidLocal");
+            expect(result["ping"]).toBe("pong");
+
+            result = await c8o.callJson("fs://databasec1.get", "docid", "myID");
+            expect(result["_id"]).toBe("myID");
+            expect(result["data"]).toBe("mydata");
+
+            await c8o.callJson(".UpdateBaseVersion");
+
+            result = await c8o.callJson("fs://databasec1.reset");
+            expect(result["ok"]).toBeTruthy();
+            result = await c8o.callJson("fs://databasec1.post", "_id", "_design/c8o");
+            expect(result["ok"]).toBeTruthy();
+
+            result = await c8o.callJson("fs://databasec1.get", "docid", "_design/c8o");
+            expect(result["_id"]).toBe("_design/c8o");
+            expect(result["~c8oDbVersion"]).toBeUndefined();
+
+            result = await c8o.callJson("fs://databasec1.sync");
+            expect(result["ok"]).toBeTruthy();
+
             try{
                 result = await c8o.callJson("fs://databasec1.get", "docid", "myidLocal").async();
                 expect(true).toBeFalsy("supposed to be unreachable")
