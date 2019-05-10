@@ -55,52 +55,7 @@ describe("provider: basic calls verifications", () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
-    /*
-        
-            it("should check that log remote works (CheckLogRemote)", async (done) => {
-                inject([C8o], async (c8o: C8o) => {
-                    let c8oSettings: C8oSettings = new C8oSettings();
-                    c8oSettings.setLogC8o(false);
-                    c8oSettings.setEndPoint(Info.endpoint);
-                    c8o.init(c8oSettings as any)
-                        .then(async () => {
-                            await c8o.finalizeInit();
-                            let id: string = "logID=" + new Date().getTime().valueOf();
-                            c8o.callJson(".GetLogs",
-                                "init", id
-                            ).then(() => {
-                                setTimeout(() => {
-                                    c8o.log.error(id);
-                                    let arg = ["ERROR", "WARN", "INFO", "DEBUG", "TRACE", "FATAL"];
-                                    c8o.log.warn(id);
-                                    c8o.log.info(id);
-                                    c8o.log.debug(id);
-                                    c8o.log.trace(id);
-                                    c8o.log.fatal(id);
-                                    Functions.CheckLogRemoteHelper(c8o, arg, id);
-                                    c8o.logRemote = false;
-                                    c8o.log.info(id);
-                                    setTimeout(() => {
-                                        c8o.callJson(".GetLogs")
-                                            .then((response: any) => {
-                                                expect(response["document"]["line"]).toBeUndefined();
-                                                done();
-                                                return null;
-                                            });
-                                    }, 2000);
-                                }, 2000);
-                                return null;
-                            }).fail(() => {
-                                done.fail("error is not supposed to happend");
-                            });
-                        })
-                        .catch((err: C8oException) => {
-                            expect(err).toBeUndefined();
-                        });
-                })();
-            }
-            );
-        */
+
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 console.log("exec of C8oDefaultPing")
@@ -2430,8 +2385,7 @@ describe("provider: basic calls verifications", () => {
                 }
             })();;
         });
-    
-        
+
         it("should check that keepAlive and autologin works works(C8oHandleSessionLost)", async (done) => {
             inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
                 try {
@@ -2465,7 +2419,7 @@ describe("provider: basic calls verifications", () => {
                 }
             })();
         });
-    
+
         it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
             inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
                 try {
@@ -2721,6 +2675,7 @@ describe("provider: basic calls verifications", () => {
         })();
     });
 
+
     it("should check that Fullsync reset database is not effective on DB with setting  setDisableResetBase (C8oFsResetNotEffective with setDisableResetBase)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
@@ -2767,6 +2722,54 @@ describe("provider: basic calls verifications", () => {
             done();
         })();
     });
+
+    
+        
+    it("should check that log remote works (CheckLogRemote)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            await Functions.wait(10000) 
+            let c8oSettings: C8oSettings = new C8oSettings();
+            c8oSettings.setLogC8o(false);
+            c8oSettings.setEndPoint(Info.endpoint);
+            c8o.init(c8oSettings as any)
+                .then(async () => {
+                    await c8o.finalizeInit();
+                    let id: string = "logID=" + new Date().getTime().valueOf();
+                    c8o.callJson(".GetLogs",
+                        "init", id
+                    ).then(() => {
+                        setTimeout(() => {
+                            c8o.log.error(id);
+                            let arg = ["ERROR", "WARN", "INFO", "DEBUG", "TRACE", "FATAL"];
+                            c8o.log.warn(id);
+                            c8o.log.info(id);
+                            c8o.log.debug(id);
+                            c8o.log.trace(id);
+                            c8o.log.fatal(id);
+                            Functions.CheckLogRemoteHelper(c8o, arg, id);
+                            c8o.logRemote = false;
+                            c8o.log.info(id);
+                            setTimeout(() => {
+                                c8o.callJson(".GetLogs")
+                                    .then((response: any) => {
+                                        expect(response["document"]["line"]).toBeUndefined();
+                                        done();
+                                        return null;
+                                    });
+                            }, 2000);
+                        }, 2000);
+                        return null;
+                    }).fail(() => {
+                        done.fail("error is not supposed to happend");
+                    });
+                })
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+        })();
+    }
+    );
+        
     
 
 
