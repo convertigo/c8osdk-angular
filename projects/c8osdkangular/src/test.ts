@@ -55,16 +55,13 @@ describe("provider: basic calls verifications", () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
-
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
-                console.log("exec of C8oDefaultPing")
                 c8o.init(Stuff.C8o)
                     .catch((err: C8oException) => {
                         expect(err).toBeUndefined();
                     });
                 await c8o.finalizeInit();
-                console.log("finalizeInit")
                 c8o.callJson(".LoginTesting")
                     .then((response, paramrs) => {
                         return c8o.callJson(".Ping");
@@ -129,18 +126,13 @@ describe("provider: basic calls verifications", () => {
                 c8o.callJson(".Ping", "var1", "val1", "var2", date2)
                     .toObservable()
                     .subscribe(next => {
-                        console.log("next");
-                        console.log(next);
                         expect(next.response["document"]["pong"].var1).toBe("val1");
                         expect(next.response["document"]["pong"].var2.substring(0, 10)).toBe('1995-12-17');
                     },
                         error => {
-                            console.log("error");
-                            console.log(error);
                             expect(error).toBeNull();
                         },
                         () => {
-                            console.log("end");
                             done();
                         });
             })();
@@ -618,8 +610,17 @@ describe("provider: basic calls verifications", () => {
     
                 c8o.log.info("Test log after init");
                 setTimeout(() => {
+                    let c8oSettings: C8oSettings = new C8oSettings();
+                    c8oSettings
+                        .setEndPoint(Info.endpoint)
+                        .setLogRemote(true)
+                        .setLogC8o(true)
+                        .setLogLevelLocal(C8oLogLevel.DEBUG)
+                        .addHeader("x-convertigo-mb", "7.5.0-beta")
+                        .setNormalizeParameters(true)
+                        .setKeepSessionAlive(false);
     
-                    c8o.init(Stuff.C8o).then(async () => {
+                    c8o.init(c8oSettings).then(async () => {
                         await c8o.finalizeInit();
                         setTimeout(() => { done(); }, 2000);
                     }).catch((err: C8oException) => {
@@ -1426,7 +1427,6 @@ describe("provider: basic calls verifications", () => {
     it("should check that Fullsync replicate ano and auth (C8oFsReplicateAnoAndAuth)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS_PULL).catch((error) => {
-                console.log(error)
                 done.fail("error is not supposed to happend during init");
             });
             await c8o.finalizeInit();
@@ -1480,7 +1480,6 @@ describe("provider: basic calls verifications", () => {
                                         return null;
                                     })
                                     .fail((error) => {
-                                        console.log(error)
                                         done.fail("error is not supposed to happend");
                                     });
                                 return null;
@@ -1961,7 +1960,6 @@ describe("provider: basic calls verifications", () => {
                     c8o.httpInterface.forceInit();
                     await c8o.finalizeInit();
                     let response = await c8o.callJson("fs://.reset").async();
-                    console.log("reset");
                     expect(response["ok"]).toBeTruthy();
                     response = await c8o.callJson("fs://.replicate_pull", "cancel", true, "continuous", "true").async();
                     expect(response["ok"]).toBeTruthy();
@@ -1972,7 +1970,6 @@ describe("provider: basic calls verifications", () => {
                     done();
                 }
                 catch (error) {
-                    console.log('err')
                     done.fail("C8oFsReplicateCancel2 " + error.message);
                 }
     
@@ -2352,7 +2349,6 @@ describe("provider: basic calls verifications", () => {
                     c8o.handleNetworkEvents().subscribe((network) => {
                         cpt++;
                         array.push(network);
-                        console.log(network);
                         if (cpt == 1) {
                             expect(array[0]).toBe("Reachable");
                         }
@@ -2431,7 +2427,7 @@ describe("provider: basic calls verifications", () => {
                         await c8o.finalizeInit();
                         // set an handler of lost session
                         c8o.handleSessionLost().subscribe(() => {
-                            console.log('handle a lost session');
+                            c8o.log.debug('handle a lost session');
                         });
     
                         // launch 3 syncs simple not authetificated
@@ -2513,7 +2509,6 @@ describe("provider: basic calls verifications", () => {
                         }
     
                         c8o.log.debug("after ping 1");
-                        console.log(c8o.database.registeredReplications)
                         await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
                         c8o.log.debug("after ping 2");
                         let response = await c8o.callJson(".LoginTesting").async();
@@ -2542,7 +2537,6 @@ describe("provider: basic calls verifications", () => {
     it("should check that Fullsync reset database is not applied on local created database (C8oFsResetNotForLocalCreatedDB)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
-                console.log(error)
                 done.fail("error is not supposed to happend during init");
             });
             let result;
@@ -2566,9 +2560,7 @@ describe("provider: basic calls verifications", () => {
 
 
             // sync base
-            console.log("before sync");
             result = await c8o.callJson("fs://databasec1.sync");
-            console.log("then sync");
             expect(result["ok"]).toBeTruthy();
 
             // check that my idlocal is still present
@@ -2587,7 +2579,6 @@ describe("provider: basic calls verifications", () => {
     it("should check that Fullsync reset database is effective on older DB (without db Versions) (C8oFsResetWorksOlderDB)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
-                console.log(error)
                 done.fail("error is not supposed to happend during init");
             });
             let result;
@@ -2632,7 +2623,6 @@ describe("provider: basic calls verifications", () => {
     it("should check that Fullsync reset database is effective on DB with diffrent version (C8oFsResetWorksDiffrentDBVersions)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
-                console.log(error)
                 done.fail("error is not supposed to happend during init");
             });
             let result;
@@ -2679,12 +2669,11 @@ describe("provider: basic calls verifications", () => {
     it("should check that Fullsync reset database is not effective on DB with setting  setDisableResetBase (C8oFsResetNotEffective with setDisableResetBase)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
-                console.log(error)
                 done.fail("error is not supposed to happend during init");
             });
             let result;
             await c8o.finalizeInit();
-            c8o.disableResetBase = true;
+            c8o.resetBase = false;
             // re run update version base 
             await c8o.callJson(".UpdateBaseVersion");
             let response = await c8o.callJson(".LoginTesting").async();

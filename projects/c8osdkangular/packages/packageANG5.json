@@ -1,8 +1,8 @@
 {
   "name": "MyIonicProject",
   "version": "2.2.10-beta21",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "test":"testing version",
+  "author": "Convertigo",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",

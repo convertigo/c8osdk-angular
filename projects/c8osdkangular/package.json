@@ -2,6 +2,7 @@
   "name": "c8osdkangular",
   "version": "2.2.10-beta21",
   "description": "convertigo's MBaaS client API service",
+  "test":"testing version",
   "repository": {
     "type": "git",
     "url": "https://github.com/convertigo/C8oSDKAngular"

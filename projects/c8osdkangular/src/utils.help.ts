@@ -5,6 +5,7 @@ import { C8oSettings, C8oLogLevel } from "../src/c8osdk-js-core/src/index";
 import { C8o } from "./lib/c8o.service";
 import { HttpHeaders } from '@angular/common/http';
 import { C8oCore } from "../src/c8osdk-js-core/src/index";
+import { Utils } from 'handlebars';
 export class Info {
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
 
@@ -49,6 +50,25 @@ export class Info {
         }
 
     }
+
+    public static get logLevelLocal():C8oLogLevel {
+        if(require("../package.json").test == "testing version"){
+            return C8oLogLevel.ERROR
+        }
+        else{
+            return C8oLogLevel.TRACE;
+        }
+        
+    }
+    public static get log():boolean {
+        if(require("../package.json").test == "testing version"){
+            return false;
+        }
+        else{
+            return true;
+        }
+        
+    }
 }
 
 //noinspection TsLint
@@ -57,9 +77,9 @@ export class Stuff {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
-            .setLogRemote(true)
-            .setLogC8o(true)
-            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true)
             .setKeepSessionAlive(false);
@@ -69,10 +89,11 @@ export class Stuff {
     static get C8o_FS() {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
-            .setDefaultDatabaseName("clientsdktesting")
             .setEndPoint(Info.endpoint)
-            .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .setDefaultDatabaseName("clientsdktesting")
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setKeepSessionAlive(true);
         return c8oSettings;
@@ -83,9 +104,9 @@ export class Stuff {
         c8oSettings
             .setEndPoint(Info.endpoint)
             .setDefaultDatabaseName("qa_fs_pull")
-            .setLogRemote(true)
-            .setLogC8o(true)
-            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true)
             .setKeepSessionAlive(false);
@@ -95,12 +116,13 @@ export class Stuff {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setDefaultDatabaseName("qa_fs_push")
-            .setEndPoint(Info.endpoint)
-            .setLogRemote(true)
-            .setLogC8o(true)
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .setLogLevelLocal(C8oLogLevel.TRACE)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
-            .setKeepSessionAlive(false);
+            .setKeepSessionAlive(false)
+            .setEndPoint(Info.endpoint);
         return c8oSettings;
     }
 
@@ -108,8 +130,9 @@ export class Stuff {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
-            .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.ERROR)
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setKeepSessionAlive(false);
         return c8oSettings;
@@ -119,8 +142,9 @@ export class Stuff {
         c8oSettings
             .setDefaultDatabaseName("qa_fs_files")
             .setEndPoint(Info.endpoint)
-            .setLogRemote(false)
-            .setLogLevelLocal(C8oLogLevel.DEBUG)
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setKeepSessionAlive(false);
         return c8oSettings;
@@ -130,9 +154,9 @@ export class Stuff {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
-            .setLogRemote(true)
-            .setLogC8o(true)
-            .setLogLevelLocal(C8oLogLevel.TRACE)
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true)
             .setKeepSessionAlive(false);
@@ -143,9 +167,9 @@ export class Stuff {
         let c8oSettings: C8oSettings = new C8oSettings();
         c8oSettings
             .setEndPoint(Info.endpoint)
-            .setLogRemote(true)
-            .setLogC8o(true)
-            .setLogLevelLocal(C8oLogLevel.TRACE)
+            .setLogRemote(Info.log)
+            .setLogC8o(Info.log)
+            .setLogLevelLocal(Info.logLevelLocal)
             .addHeader("x-convertigo-mb", "7.5.0-beta")
             .setNormalizeParameters(true)
             .setKeepSessionAlive(true);
