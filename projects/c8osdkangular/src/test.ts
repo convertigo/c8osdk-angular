@@ -101,7 +101,6 @@ describe("provider: basic calls verifications", () => {
             }
             );
         */
-
         it("should ping (C8oDefaultPing)", async (done) => {
             inject([C8o], async (c8o: C8o) => {
                 console.log("exec of C8oDefaultPing")
@@ -2586,8 +2585,7 @@ describe("provider: basic calls verifications", () => {
             })();;
         });
 
-        
-    it("should check that Fullsync reset database works (C8oFsResetBase)", async (done) => {
+    it("should check that Fullsync reset database is not applied on local created database (C8oFsResetNotForLocalCreatedDB)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
                 console.log(error)
@@ -2595,40 +2593,72 @@ describe("provider: basic calls verifications", () => {
             });
             let result;
             await c8o.finalizeInit();
+            let response = await c8o.callJson(".LoginTesting").async();
+            expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+
+            // reset remote base and upgrade base version
+            await c8o.callJson(".UpdateBaseVersion");
+            // reset base locally
             result = await c8o.callJson("fs://databasec1.reset");
             expect(result["ok"]).toBeTruthy();
+            // insert a document
             result = await c8o.callJson("fs://databasec1.post", "_id", "myidLocal", "ping", "pong");
             expect(result["ok"]).toBeTruthy();
+            // check that is was successfully inseryed
             result = await c8o.callJson("fs://databasec1.get", "docid", "myidLocal");
             expect(result["_id"]).toBe("myidLocal");
             expect(result["ping"]).toBe("pong");
-            await c8o.callJson(".UpdateBaseVersion");
-            await Functions.wait(5000);
+
+
+
+            // sync base
+            console.log("before sync");
             result = await c8o.callJson("fs://databasec1.sync");
+            console.log("then sync");
             expect(result["ok"]).toBeTruthy();
 
+            // check that my idlocal is still present
             result = await c8o.callJson("fs://databasec1.get", "docid", "myidLocal").async();
             expect(result["_id"]).toBe("myidLocal");
             expect(result["ping"]).toBe("pong");
 
+            // check that remote document is present locally
             result = await c8o.callJson("fs://databasec1.get", "docid", "myID");
             expect(result["_id"]).toBe("myID");
             expect(result["data"]).toBe("mydata");
+            done();
+        })();
+    });
 
-            await c8o.callJson(".UpdateBaseVersion");
-
+    it("should check that Fullsync reset database is effective on older DB (without db Versions) (C8oFsResetWorksOlderDB)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o_Sessions).catch((error) => {
+                console.log(error)
+                done.fail("error is not supposed to happend during init");
+            });
+            let result;
+            await c8o.finalizeInit();
+            // re run update version base 
+            await c8o.callJson(".UpdateBaseVersion");            
+            let response = await c8o.callJson(".LoginTesting").async();
+            expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+            // reset local base
             result = await c8o.callJson("fs://databasec1.reset");
             expect(result["ok"]).toBeTruthy();
+            // post a design document, that is not containing a base version
             result = await c8o.callJson("fs://databasec1.post", "_id", "_design/c8o");
             expect(result["ok"]).toBeTruthy();
 
+            // check that insertion was successfull
             result = await c8o.callJson("fs://databasec1.get", "docid", "_design/c8o");
             expect(result["_id"]).toBe("_design/c8o");
             expect(result["~c8oDbVersion"]).toBeUndefined();
 
+            // sync base
             result = await c8o.callJson("fs://databasec1.sync");
             expect(result["ok"]).toBeTruthy();
 
+            // since now our base don't contains version we arre supposed to have reset it during before the sync
             try{
                 result = await c8o.callJson("fs://databasec1.get", "docid", "myidLocal").async();
                 expect(true).toBeFalsy("supposed to be unreachable")
@@ -2636,15 +2666,113 @@ describe("provider: basic calls verifications", () => {
             catch(error){
                 expect(true).toBeTruthy();
             }
+            // check that remote document has arrived
             result = await c8o.callJson("fs://databasec1.get", "docid", "myID");
             expect(result["_id"]).toBe("myID");
             expect(result["data"]).toBe("mydata");
+    
             done();
         })();
-    }
-    );
+    });
+
+    it("should check that Fullsync reset database is effective on DB with diffrent version (C8oFsResetWorksDiffrentDBVersions)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o_Sessions).catch((error) => {
+                console.log(error)
+                done.fail("error is not supposed to happend during init");
+            });
+            let result;
+            await c8o.finalizeInit();
+            // re run update version base
+            await c8o.callJson(".UpdateBaseVersion");
+
+            let response = await c8o.callJson(".LoginTesting").async();
+            expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+            // reset local base
+            result = await c8o.callJson("fs://databasec1.reset");
+            expect(result["ok"]).toBeTruthy();
+            // post a design document, that is not containing a base version
+            result = await c8o.callJson("fs://databasec1.post", "_id", "_design/c8o", "~c8oDbVersion", "abc");
+            expect(result["ok"]).toBeTruthy();
+
+            // check that insertion was successfull
+            result = await c8o.callJson("fs://databasec1.get", "docid", "_design/c8o");
+            expect(result["_id"]).toBe("_design/c8o");
+            expect(result["~c8oDbVersion"]).toBe("abc");
+
+            // sync base
+            result = await c8o.callJson("fs://databasec1.sync");
+            expect(result["ok"]).toBeTruthy();
+
+            // since now our base don't contains version we arre supposed to have reset it during before the sync
+            try{
+                result = await c8o.callJson("fs://databasec1.get", "docid", "myidLocal").async();
+                expect(true).toBeFalsy("supposed to be unreachable")
+            }
+            catch(error){
+                expect(true).toBeTruthy();
+            }
+            // check that remote document has arrived
+            result = await c8o.callJson("fs://databasec1.get", "docid", "myID");
+            expect(result["_id"]).toBe("myID");
+            expect(result["data"]).toBe("mydata");
     
+            done();
+        })();
+    });
+
+    it("should check that Fullsync reset database is not effective on DB with setting  setDisableResetBase (C8oFsResetNotEffective with setDisableResetBase)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o_Sessions).catch((error) => {
+                console.log(error)
+                done.fail("error is not supposed to happend during init");
+            });
+            let result;
+            await c8o.finalizeInit();
+            c8o.disableResetBase = true;
+            // re run update version base 
+            await c8o.callJson(".UpdateBaseVersion");
+            let response = await c8o.callJson(".LoginTesting").async();
+            expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+            // reset local base
+            result = await c8o.callJson("fs://databasec1.reset");
+            expect(result["ok"]).toBeTruthy();
+            // post a design document, that is not containing a base version
+            result = await c8o.callJson("fs://databasec1.post", "_id", "_design/c8o", "~c8oDbVersion", "abc");
+            expect(result["ok"]).toBeTruthy();
+
+            // check that insertion was successfull
+            result = await c8o.callJson("fs://databasec1.get", "docid", "_design/c8o");
+            expect(result["_id"]).toBe("_design/c8o");
+            expect(result["~c8oDbVersion"]).toBe("abc");
+
+            // insert a document
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myidLocal", "ping", "pong");
+            expect(result["ok"]).toBeTruthy();
+
+            // sync base
+            result = await c8o.callJson("fs://databasec1.sync");
+            expect(result["ok"]).toBeTruthy();
+
+            // check that my idlocal is still present
+            result = await c8o.callJson("fs://databasec1.get", "docid", "myidLocal").async();
+            expect(result["_id"]).toBe("myidLocal");
+            expect(result["ping"]).toBe("pong");
+
+            // check that remote document is present locally
+            result = await c8o.callJson("fs://databasec1.get", "docid", "myID");
+            expect(result["_id"]).toBe("myID");
+            expect(result["data"]).toBe("mydata");
     
+            done();
+        })();
+    });
+    
+
+
+
+    //
+            
     
         /***/
 });
