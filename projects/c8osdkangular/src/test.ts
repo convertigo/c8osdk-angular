@@ -55,6 +55,7 @@ describe("provider: basic calls verifications", () => {
     afterEach(function () {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
+/*
     it("should ping (C8oDefaultPing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
@@ -2189,7 +2190,7 @@ describe("provider: basic calls verifications", () => {
     }
     );
 
-
+*/
     it("should check that Fullsync Put attachment works (C8oFsPutAttachment)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -2270,6 +2271,7 @@ describe("provider: basic calls verifications", () => {
                                     readerSecond.onloadend = () => {
                                         let base64dataSecond = (<string>readerSecond.result).split(",")[1];
                                         expect(response["_attachments"]["fileSecond.txt"]["data"]).toBe(base64dataSecond);
+                                        console.log(base64dataSecond);
                                         c8o.callJson("fs://qa_fs_files.sync", "cancel", true)
                                             .then((res) => {
                                                 done();
@@ -2294,6 +2296,15 @@ describe("provider: basic calls verifications", () => {
         })();
     });
 
+    it("should really check that Fullsync get attachment works", function (done) {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o_FS_FILES).catch((err: C8oException) => {
+                expect(err).toBeUndefined();
+            });
+            await c8o.finalizeInit();
+        })();
+    });
+/*
     it("should check that Fullsync bulkworks (C8oFsBulk)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {

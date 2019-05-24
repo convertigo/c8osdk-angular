@@ -10,34 +10,30 @@ import {C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress, C8oPromise } fro
 export class AppComponent {
   title = 'Convertigo Workspace';
 
+/*
+756 / 230 pas ok quand database attachment
+756 / 230 ok quand pas attachement
 
+760 / 230 pas ok quand database attachment
+760 / 230 ok quand pas attachement
+*/
   constructor(private c8o: C8o){
-    this.initAllLoginSync();
+    ///this.initAllLoginSync();
   }
+  public url756 = "http://192.168.99.100:28080/convertigo/projects/ClientSDKtesting";
+  public baseName756 = "testatt2";
 
-  public callSequencePing(){
-      this.c8o.callJson(".Ping")
-      .then((response: any) => {
-        console.log("response Ping");
-        console.log(response);
-        return null;
-      })
-      .fail((error) => {
-        console.error("error");
-        console.error(error);
-      });
+  public url760 = "http://localhost:8080/convertigo/projects/ClientSDKtesting";
+  public baseName760 = "testatt21";
 
-
-}
-  public initAll():Promise<any> {
+  public initAll(url):Promise<any> {
     return new Promise((resolve)=>{
       let c8oSettings: C8oSettings = new C8oSettings();
       c8oSettings
-          .setEndPoint("http://localhost:8080/convertigo/projects/ClientSDKtesting")
-          .setDefaultDatabaseName("qa_fs_pull")
+          .setEndPoint(url)
           .setLogRemote(true)
           .setLogC8o(true)
-          .setLogLevelLocal(C8oLogLevel.DEBUG)
+          .setLogLevelLocal(C8oLogLevel.TRACE)
           .addHeader("x-convertigo-mb", "7.6.0-beta")
           .setNormalizeParameters(true)
           .setKeepSessionAlive(true);
@@ -55,38 +51,46 @@ export class AppComponent {
   }
 
 
-  public login(): C8oPromise<JSON>{
-      return this.c8o.callJson(".LoginTesting")
-      
-  }
-
-  public sync(): C8oPromise<JSON>{
-    return this.c8o.callJson('fs://.sync',"continuous",true);
-  }
-
-  public initAllLoginSync(){
-    //init all
-    this.initAll()
+  public test760(){
+    this.initAll(this.url760)
     .then(()=>{
-      this.login()
-      .then((response: any, parameters: Object) =>{
-        this.c8o.log.debug("[app][initAllLoginSync][then login]" + response.toString());
-        return this.sync();
+      console.log("before 760");
+      this.c8o.callJson("fs://"+ this.baseName760+".sync")
+      .then((res)=>{
+        console.log("then 760")
+        console.log(res)
+        return this.c8o.callJson("fs://"+ this.baseName760+".info");
+        //return this.c8o.callJson("fs://abcdef.get", "docid", "29bc3f5c56e270ad8ae627e8c40020b7", "attachments", true)
       })
-      .then((response: any, parameters: Object) =>{
-        this.c8o.log.debug("[app][initAllLoginSync][then Sync]" + response.toString());
-        return null;
+      
+      .then((res)=>{
+        console.log(res);
       })
-      .progress((progress: C8oProgress)=>{
-        this.c8o.log.debug("[app][initAllLoginSync][progress Sync]" + progress.toString());
+      .fail((err)=>{
+        console.error(err);
       })
-      .fail((error)=>{
-        this.c8o.log.error("[app][initAllLoginSync][error]" + error.toString());
-      });
-    });
-   
+    })
   }
-
+  public test756(){
+    this.initAll(this.url756)
+    .then(()=>{
+      console.log("before 756");
+      this.c8o.callJson("fs://"+ this.baseName756+".sync")
+      .then((res)=>{
+        console.log("then 756")
+        console.log(res)
+        return this.c8o.callJson("fs://"+ this.baseName756+".info");
+        //return this.c8o.callJson("fs://abcdef.get", "docid", "29bc3f5c56e270ad8ae627e8c40020b7", "attachments", true)
+      })
+      
+      .then((res)=>{
+        console.log(res);
+      })
+      .fail((err)=>{
+        console.error(err);
+      })
+    })
+  }
   public notifs(){
     this.c8o.handleSessionLost()
     .subscribe((resp)=>{

@@ -17,15 +17,16 @@ export class Info {
         return "http://";
     }
     static get host() {
-        return "c8o-dev.convertigo.net";
+        return "192.168.99.100"
+        //return "c8o-dev.convertigo.net";
         //return "localhost";
     }
     static get port() {
-        return "80";
+        return "28080";
         //return "8080"
     }
     static get project_path() {
-        return "/cems/projects/ClientSDKtesting";
+        return "/convertigo/projects/ClientSDKtesting2";
     }
 
     // Local infos
