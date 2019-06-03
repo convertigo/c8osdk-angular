@@ -675,6 +675,8 @@ See the following example.
 c8o.get_attachment("docid", "attachment_name")
 .then((response)=>{
   // get a buffer
+  // URL can be 'sanitized' by :
+  // ... sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(response))
 })
 .catch(()=>{
   // catch error
