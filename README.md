@@ -115,6 +115,7 @@ Then add the following lines into your polyfill.ts located at /ProjectRoot/src/p
 ```typescript
 (window as any).global = window;
 (window as any).process = window;
+window["browser"] = true;
 ```
 
 ## Documentation ##
