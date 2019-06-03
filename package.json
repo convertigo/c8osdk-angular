@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-sdk": "cd projects/c8osdkangular/src/c8osdk-js-core/ && npm run prepare && cd ../../../.. && npm run wv && ng build c8osdkangular && cp ./projects/c8osdkangular/README.md ./dist/c8osdkangular/README.md && rm ./README.md && cp ./projects/c8osdkangular/README.md ./README.md",
-    "install-sdk":"cd projects/c8osdkangular/ && npm install && cd src/c8osdk-js-core/ && npm i",
+    "install-sdk": "cd projects/c8osdkangular/ && npm install && cd src/c8osdk-js-core/ && npm i",
     "test-sdk": "ng test c8osdkangular",
     "test-sdk-nowatch": "ng test c8osdkangular --watch=false",
     "publish-sdk": "npm publish",
