@@ -20,8 +20,8 @@ export class AppComponent {
   constructor(private c8o: C8o){
     ///this.initAllLoginSync();
   }
-  public url756 = "http://192.168.99.100:28080/convertigo/projects/ClientSDKtesting";
-  public baseName756 = "testatt2";
+  public url756 = "http://192.168.99.100:28080/convertigo/projects/ClientSDKtesting2";
+  public baseName756 = "testatt21";
 
   public url760 = "http://localhost:8080/convertigo/projects/ClientSDKtesting";
   public baseName760 = "testatt21";
@@ -54,27 +54,36 @@ export class AppComponent {
   public test760(){
     this.initAll(this.url760)
     .then(()=>{
+      this.c8o.callJson("ClientSDKtesting.LoginTesting")
+      .then((res)=>{
+        this.c8o.callJson("fs://"+ this.baseName760+".sync", "continuous", true)
+        .then((res)=>{
+          console.log("then 760")
+          console.log(res)
+          return this.c8o.callJson("fs://"+ this.baseName760+".info");
+          //return this.c8o.callJson("fs://abcdef.get", "docid", "29bc3f5c56e270ad8ae627e8c40020b7", "attachments", true)
+        })
+        
+        .then((res)=>{
+          console.log(res);
+        })
+        .fail((err)=>{
+          console.error(err);
+        })
+        return null;
+      })
+    })
+    .then(()=>{
       console.log("before 760");
-      this.c8o.callJson("fs://"+ this.baseName760+".sync")
-      .then((res)=>{
-        console.log("then 760")
-        console.log(res)
-        return this.c8o.callJson("fs://"+ this.baseName760+".info");
-        //return this.c8o.callJson("fs://abcdef.get", "docid", "29bc3f5c56e270ad8ae627e8c40020b7", "attachments", true)
-      })
       
-      .then((res)=>{
-        console.log(res);
-      })
-      .fail((err)=>{
-        console.error(err);
-      })
     })
   }
   public test756(){
     this.initAll(this.url756)
     .then(()=>{
-      console.log("before 756");
+      this.c8o.callJson("ClientSDKtesting2.login")
+      .then((res)=>{
+        console.log("before 756");
       this.c8o.callJson("fs://"+ this.baseName756+".sync")
       .then((res)=>{
         console.log("then 756")
@@ -89,6 +98,9 @@ export class AppComponent {
       .fail((err)=>{
         console.error(err);
       })
+        return null;
+      })
+      
     })
   }
   public notifs(){

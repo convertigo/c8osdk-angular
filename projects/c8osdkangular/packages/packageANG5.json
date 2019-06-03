@@ -1,6 +1,10 @@
 {
   "name": "MyIonicProject",
+<<<<<<< HEAD
   "version": "3.0.0-beta5",
+=======
+  "version": "3.0.0-beta7",
+>>>>>>> d7ef601353bddee3073bc3d110dfec2a33859687
   "test":"testing version",
   "author": "Convertigo",
   "private": true,
