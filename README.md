@@ -47,6 +47,7 @@ Angular 5.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circle
   - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
   - [Full Sync FS_LIVE requests](#full-sync-fs_live-requests)
   - [Full Sync Change Listener](#full-sync-change-listener)
+  - [Get an attachment](#get-an-attachment)
   - [Keep Alive session](#keep-alive-session)
 - [Internal Technical documentation](#internal-technical-documentation)
   - [Project description](#project-description)
@@ -660,6 +661,24 @@ c8o.addFullSyncChangeListener("databaseName", changeListener); // add this liste
 â€¦
 c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this listener for the database "base" ; null or "" while use the default database.
 
+```
+
+### Get an attachment ###
+
+If you want to get an attachment you can use get_attachment method from c8o class. You need an id of document and the name of the given attachment.
+
+See the following example.
+
+``` typescript
+c8o.get_attachment("docid", "attachment_name")
+.then((response)=>{
+  // get a buffer
+  // URL can be 'sanitized' by :
+  // ... sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(response))
+})
+.catch(()=>{
+  // catch error
+})
 ```
 
 ### Keep Alive session ###
