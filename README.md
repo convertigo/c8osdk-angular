@@ -47,6 +47,7 @@ Angular 5.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circle
   - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
   - [Full Sync FS_LIVE requests](#full-sync-fs_live-requests)
   - [Full Sync Change Listener](#full-sync-change-listener)
+  - [Get an attachment](#get-an-attachment)
   - [Keep Alive session](#keep-alive-session)
 - [Internal Technical documentation](#internal-technical-documentation)
   - [Project description](#project-description)
@@ -521,6 +522,7 @@ Convertigo Client SDK provides a high level access to local data following the s
 * fs://<database>.bulk Bulk loads a database from a file 
 * fs://<database>.info Get info for a given database
 
+
 Where fs://<database> is the name of a specific FullSync Connector in the project specified in the endpoint. The fs://<database> name is optional only if the default database name is specified with the method setDefaultDatabaseName on the C8oSetting.
 
 An application can have many databases. On mobile (Android, iOS and Xamarin based) they are stored in the secure storage of the application. On Windows desktop application, they are stored in the user AppData/Local folder, without application isolation.
@@ -662,6 +664,21 @@ c8o.addFullSyncChangeListener("databaseName", changeListener); // add this liste
 â€¦
 c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this listener for the database "base" ; null or "" while use the default database.
 
+```
+### Get an attachment ###
+
+If you want to get an attachment you can use get_attachment method from c8o class. You need an id of document and the name of the given attachment.
+
+See the following example.
+
+``` typescript
+c8o.get_attachment("docid", "attachment_name")
+.then((response)=>{
+  // get a buffer
+})
+.catch(()=>{
+  // catch error
+})
 ```
 
 ### Keep Alive session ###
