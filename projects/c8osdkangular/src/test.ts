@@ -2296,15 +2296,6 @@ describe("provider: basic calls verifications", () => {
         })();
     });
 
-    it("should really check that Fullsync get attachment works", function (done) {
-        inject([C8o], async (c8o: C8o) => {
-            c8o.init(Stuff.C8o_FS_FILES).catch((err: C8oException) => {
-                expect(err).toBeUndefined();
-            });
-            await c8o.finalizeInit();
-        })();
-    });
-
     it("should check that Fullsync bulkworks (C8oFsBulk)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
