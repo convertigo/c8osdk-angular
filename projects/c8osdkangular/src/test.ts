@@ -56,6 +56,47 @@ describe("provider: basic calls verifications", () => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
+    it("should remove null parameters (C8oRemovePing)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o)
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+            await c8o.finalizeInit();
+            c8o.callJson(".LoginTesting")
+                .then((response, paramrs) => {
+                    return c8o.callJson(".Ping", "var1", "val1", "var2", null);
+                })
+                .then((response, paramrs) => {
+                    expect(response["document"]["pong"]["var1"]).toBe("val1");
+                    expect(response["document"]["pong"]["var2"]).toBeUndefined();
+                    return c8o.callJson(".Ping", "var1", undefined, "var2", "val2");
+                })
+                .then((response: any) => {
+                    expect(response["document"]["pong"]["var2"]).toBe("val2");
+                    expect(response["document"]["pong"]["var1"]).toBeUndefined();
+                    return c8o.callJsonObject(".Ping", {"var1": "val1", "var2": null});
+                })
+                .then((response: any) => {
+                    expect(response["document"]["pong"]["var1"]).toBe("val1");
+                    expect(response["document"]["pong"]["var2"]).toBeUndefined();
+                    return c8o.callJsonObject(".Ping", {"var2": undefined, "var1": "val1"});
+                })
+                .then((response: any) => {
+                    expect(response["document"]["pong"]["var1"]).toBe("val1");
+                    expect(response["document"]["pong"]["var2"]).toBeUndefined();
+                    done();
+                    return null;
+                })
+                .fail((error) => {
+                    done.fail("error is not supposed to happend");
+                });
+
+        })();
+    }
+    );
+
+
     it("should ping (C8oDefaultPing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
