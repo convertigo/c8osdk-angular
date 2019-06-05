@@ -35,7 +35,10 @@
     "zone.js": "0.8.26",
     "rxjs-compat": "6.3.3",
     "pouchdb-browser": "7.0.0",
-    "@types/pouchdb": "6.3.3"
+    "@types/pouchdb": "6.3.3",
+    "pouchdb-checkpointer": "7.0.0",
+    "pouchdb-extend": "0.1.2",
+    "pouchdb-generate-replication-id": "7.0.0"
   },
   "devDependencies": {
     "js-cookie": "2.2.0",
