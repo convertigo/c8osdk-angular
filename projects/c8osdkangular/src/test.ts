@@ -55,7 +55,7 @@ describe("provider: basic calls verifications", () => {
     afterEach(function () {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
-/*
+
     it("should ping (C8oDefaultPing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
@@ -2295,7 +2295,7 @@ describe("provider: basic calls verifications", () => {
                 });
         })();
     });
-*/
+
     it("should check that Fullsync bulkworks (C8oFsBulk)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -2339,7 +2339,6 @@ describe("provider: basic calls verifications", () => {
                 });
         })();
     });
-/*
 
     it("should check that handle Network Events works (C8oHandleNetworkEvent)", async (done) => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {

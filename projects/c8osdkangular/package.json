@@ -33,7 +33,7 @@
   "dependencies": {
     "typescript": "3.1.6",
     "zone.js": "0.8.26",
-    "rxjs-compat": "6.3.3",
+    "rxjs-compat": "6.5.2",
     "pouchdb-browser": "7.0.0",
     "@types/pouchdb": "6.3.3"
   },
