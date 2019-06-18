@@ -20,40 +20,40 @@ Angular 5.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circle
 
 ## Table of contents ##
 
-- [Test status](#test-status)
-- [Table of contents](#table-of-contents)
-- [Introduction](#introduction)
-  - [About SDKs](#about-sdks)
-  - [About Convertigo Platform](#about-convertigo-platform)
-- [Requirements](#requirements)
-- [Installation](#installation)
-  - [Support of Angular 6 & 7](#support-of-angular-6--7)
-- [Documentation](#documentation)
-  - [Creating a C8o instance](#creating-a-c8o-instance)
-  - [Advanced instance settings](#advanced-instance-settings)
-    - [General](#general)
-    - [Normalize parameters](#normalize-parameters)
-  - [Calling a Convertigo requestable](#calling-a-convertigo-requestable)
-  - [Calling a Convertigo requestable with parameters](#calling-a-convertigo-requestable-with-parameters)
-  - [Calling a Convertigo requestable uploading a files](#calling-a-convertigo-requestable-uploading-a-files)
-  - [Chaining calls](#chaining-calls)
-  - [Handling failures](#handling-failures)
-  - [Writing the device logs to the Convertigo server](#writing-the-device-logs-to-the-convertigo-server)
-    - [Basic](#basic)
-    - [Advanced](#advanced)
-  - [Using the Local Cache](#using-the-local-cache)
-  - [Using the Full Sync](#using-the-full-sync)
-  - [Replicating Full Sync databases](#replicating-full-sync-databases)
-  - [Replicating Full Sync databases with continuous flag](#replicating-full-sync-databases-with-continuous-flag)
-  - [Full Sync FS_LIVE requests](#full-sync-fs_live-requests)
-  - [Full Sync Change Listener](#full-sync-change-listener)
-  - [Get an attachment](#get-an-attachment)
-  - [Keep Alive session](#keep-alive-session)
-- [Internal Technical documentation](#internal-technical-documentation)
-  - [Project description](#project-description)
-  - [Build of project](#build-of-project)
-  - [Test of project](#test-of-project)
-  - [Release of project](#release-of-project)
+- [Test status](#Test-status)
+- [Table of contents](#Table-of-contents)
+- [Introduction](#Introduction)
+  - [About SDKs](#About-SDKs)
+  - [About Convertigo Platform](#About-Convertigo-Platform)
+- [Requirements](#Requirements)
+- [Installation](#Installation)
+  - [Support of Angular 6, 7, 8](#Support-of-Angular-6-7-8)
+- [Documentation](#Documentation)
+  - [Creating a C8o instance](#Creating-a-C8o-instance)
+  - [Advanced instance settings](#Advanced-instance-settings)
+    - [General](#General)
+    - [Normalize parameters](#Normalize-parameters)
+  - [Calling a Convertigo requestable](#Calling-a-Convertigo-requestable)
+  - [Calling a Convertigo requestable with parameters](#Calling-a-Convertigo-requestable-with-parameters)
+  - [Calling a Convertigo requestable uploading a files](#Calling-a-Convertigo-requestable-uploading-a-files)
+  - [Chaining calls](#Chaining-calls)
+  - [Handling failures](#Handling-failures)
+  - [Writing the device logs to the Convertigo server](#Writing-the-device-logs-to-the-Convertigo-server)
+    - [Basic](#Basic)
+    - [Advanced](#Advanced)
+  - [Using the Local Cache](#Using-the-Local-Cache)
+  - [Using the Full Sync](#Using-the-Full-Sync)
+  - [Replicating Full Sync databases](#Replicating-Full-Sync-databases)
+  - [Replicating Full Sync databases with continuous flag](#Replicating-Full-Sync-databases-with-continuous-flag)
+  - [Full Sync FS_LIVE requests](#Full-Sync-FS_LIVE-requests)
+  - [Full Sync Change Listener](#Full-Sync-Change-Listener)
+  - [Get an attachment](#Get-an-attachment)
+  - [Keep Alive session](#Keep-Alive-session)
+- [Internal Technical documentation](#Internal-Technical-documentation)
+  - [Project description](#Project-description)
+  - [Build of project](#Build-of-project)
+  - [Test of project](#Test-of-project)
+  - [Release of project](#Release-of-project)
 
 ## Introduction ##
 
@@ -103,11 +103,16 @@ Convertigo Mobility Platform supports Angular developers. Services brought by th
 $ npm install --save c8osdkangular@latest
 ```
 
-### Support of Angular 6 & 7 ###
+### Support of Angular 6, 7, 8 ###
 
-From now please use at least version 2.2.8
+To target angular 6 & 7 please use at least version 2.2.8
 ```shell
 $ npm install --save c8osdkangular@2.2.8
+```
+
+To target angular  8 please use at least version 3.0.0-beta17
+```shell
+$ npm install --save c8osdkangular@3.0.0-beta17
 ```
 
 Then add the following lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts
