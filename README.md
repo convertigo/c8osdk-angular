@@ -11,13 +11,13 @@
 </p>
 
 ## Test status ##
-Angular 8.X : ![status](https://147-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular8.png)
+Angular 8.X : ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular8.png)
 
-Angular 7.X : ![status](https://147-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
+Angular 7.X : ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
-Angular 6.X: ![status](https://147-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
+Angular 6.X: ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
 
-Angular 5.X: ![status](https://147-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
+Angular 5.X: ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
 
 
 ## Table of contents ##
