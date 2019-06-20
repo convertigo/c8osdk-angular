@@ -34,11 +34,10 @@
     "typescript": "3.1.6",
     "zone.js": "0.8.26",
     "rxjs-compat": "6.3.3",
-    "pouchdb-browser": "7.0.0",
-    "@types/pouchdb": "6.3.3",
-    "pouchdb-checkpointer": "7.0.0",
+    "pouchdb-browser": "7.1.1",
+    "pouchdb-checkpointer": "7.1.1",
     "pouchdb-extend": "0.1.2",
-    "pouchdb-generate-replication-id": "7.0.0"
+    "pouchdb-generate-replication-id": "7.1.1"
   },
   "devDependencies": {
     "js-cookie": "2.2.0",

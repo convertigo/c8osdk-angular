@@ -24,7 +24,7 @@
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.29",
     "@types/pouchdb": "6.3.3",
-    "pouchdb-browser": "7.0.0",
+    "pouchdb-browser": "7.1.1",
     "pouchdb-load": "1.4.6"
   },
   "devDependencies": {
