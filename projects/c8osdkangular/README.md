@@ -11,13 +11,13 @@
 </p>
 
 ## Test status ##
-Angular 8.X : ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular8.png)
+Angular 8.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
-Angular 7.X : ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
+Angular 7.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
-Angular 6.X: ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
+Angular 6.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular6.png)
 
-Angular 5.X: ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
+Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
 
 
 ## Table of contents ##
@@ -46,6 +46,10 @@ Angular 5.X: ![status](https://151-69371506-gh.circle-artifacts.com/0/home/circl
   - [Using the Local Cache](#Using-the-Local-Cache)
   - [Using the Full Sync](#Using-the-Full-Sync)
   - [Creating a FullSync database](#Creating-a-FullSync-database)
+  - [Post a document into FullSync database (create/update)](#Post-a-document-into-FullSync-database-createupdate)
+  - [Get a document from a FullSync database (fetch)](#Get-a-document-from-a-FullSync-database-fetch)
+  - [Delete a document from a FullSync database (remove)](#Delete-a-document-from-a-FullSync-database-remove)
+  - [Synchronize client side database and server database (sync/replicate_pull/replicate_push/replications)](#Synchronize-client-side-database-and-server-database-syncreplicate_pullreplicate_pushreplications)
   - [Replicating FullSync databases](#Replicating-FullSync-databases)
   - [Replicating Full Sync databases with continuous flag](#Replicating-Full-Sync-databases-with-continuous-flag)
   - [Full Sync FS_LIVE requests](#Full-Sync-FS_LIVE-requests)
@@ -522,12 +526,12 @@ Convertigo Client SDK provides a high level access to local data following the s
 * fs://<database>.post writes/update an object to the database (client side)
 * fs://<database>.get reads an object from the database (client side)
 * fs://<database>.delete deletes an object from the database (client side)
-* fs://<database>.view queries a view from the database (client side)
-* fs://<database>.all gets all objects from the database (client side)
-* fs://<database>.all_local gets all local objects (which one having id starting by "_local/") from the database (client side)
 * fs://<database>.sync synchronizes the client side database with server database 
 * fs://<database>.replicate_push pushes client side modifications on the database server
 * fs://<database>.replicate_pull replicate on client side database, all database server modifications
+* fs://<database>.view queries a view from the database (client side)
+* fs://<database>.all gets all objects from the database (client side)
+* fs://<database>.all_local gets all local objects (which one having id starting by "_local/") from the database (client side)
 * fs://<database>.reset resets a client side database by removing all the data in it
 * fs://<database>.put_attachment Puts (add) an attachment to a document in the database (client side)
 * fs://<database>.bulk Bulk loads a client side database from a file 
@@ -580,13 +584,137 @@ let resultGet = await this.c8o.callJson("fs://base.all_local").async();
 
 ```
 
-### Creating a FullSync database
+### Creating a FullSync database ###
 If you wants to create programmatically a new database, you must use ```fs://baseName.create``` verb.
 
 ```typescript
 let resultCreate = await this.c8o.callJson("fs://mabase.create").async();
 ```
 
+### Post a document into FullSync database (create/update) ###
+If you wants to post a document into a given database, you must use ```fs://baseName.post``` verb.
+
+You can use the following options:
+* **_id**: (optional) you can specify an id, if its not specified, an id will be generated. Also if you want to override a document, you must provide its id
+* **_rev**: (optional) if you want to update an existing document you must specify its revision
+* **_use_policy**: (optional) if you want to update an existing document, you must provide a policy, that will define the behaviour.
+  * **none**: This is the default post policy that don't alter the document before the insertion.
+  * **create**: This post policy remove the "_id" and "_rev" of the document before the insertion.
+  * **override**: This post policy inserts the document in database even if a document with the same "_id" already exists.
+  * **merge**: This post policy merge the document with an existing document with the same "_id" before the insertion.
+
+```typescript
+// here we post a document, with a given id 
+let resultPost = await this.c8o.callJson("fs://mabase.post", "id", "myId").async();
+```
+
+
+### Get a document from a FullSync database (fetch) ###
+If you wants to fetch a document from a given database, you must use ```fs://baseName.get``` verb.
+
+You can use the following options:
+* **docid**: The id of the document
+* **rev**: Fetch specific revision of a document. Defaults to winning revision (see the CouchDB guide).
+* **revs**: Include revision history of the document.
+* **revs_info**: Include a list of revisions of the document, and their availability.
+* **open_revs**: Fetch all leaf revisions if open_revs="all" or fetch all leaf revisions specified in open_revs array. Leaves will be returned in the same order as specified in input array.
+* **conflicts**: If specified, conflicting leaf revisions will be attached in _conflicts array.
+* **attachments**: Include attachment data.
+  * **binary** : Return attachment data as Blobs/Buffers, instead of as base64-encoded strings.
+* **latest**: Forces retrieving latest “leaf” revision, no matter what rev was requested. Default is false.
+
+```typescript
+// here we fetch a document with its attachments
+let resultGet = await this.c8o.callJson("fs://mabase.get", "attachments", true).async();
+```
+
+
+### Delete a document from a FullSync database (remove) ###
+If you wants to delete a document from a given database, you must use ```fs://baseName.delete``` verb.
+
+You can use the following options:
+* **docid**: The id of the document
+* **rev**: Fetch specific revision of a document. Defaults to winning revision (see the CouchDB guide).
+
+```typescript
+// here we fetch a document with its attachments
+let resultGet = await this.c8o.callJson("fs://mabase.delete", "docid", "myId", "_rev", "myRevision").async();
+```
+
+### Synchronize client side database and server database (sync/replicate_pull/replicate_push/replications) ###
+FullSync has the ability to replicate mobile and Convertigo server databases over unreliable connections still preserving integrity. Data can be replicated in upload or download or both directions. The replication can also be continuous: a new document is instantaneously replicated to the other side.
+
+The client SDK offers the progress event to monitor the replication progression thanks to a C8oProgress instance.
+
+A device cannot pull private documents or push any document without authentication. A session must be established before and the Convertigo server must authenticate the session (using the Set authenticated user step for example).
+
+
+There is 3 ways for the replication:
+* **sync**: a bi-directional replication (same that doing replicate_pull and replicate_push at the same time)
+* **replicate_pull**: an unidirectional replication from the server to the client.
+* **replicate_push**: a unidirectional replication from the client to the server 
+
+Also you can monitor the progress of the replications, and be notified of any error or result...
+
+You can use the following options:
+
+* **continuous**: If true, starts subscribing to future changes in the source database and continue replicating them.
+* **retry**: If true will attempt to retry replications in the case of failure (due to being offline), using a backoff algorithm that retries at longer and longer intervals until a connection is re-established, with a maximum delay of 10 minutes. Only applicable if options.live is also true.
+* **filter**: Reference a filter function from a design document to selectively get updates. To use a view function, pass _view here and provide a reference to the view function in options.view. See filtered replication for details.
+* **doc_ids**: Only show changes for docs with these ids (array of strings).
+* **query_params**: Object containing properties that are passed to the filter function, e.g. {"foo":"bar"}, where "bar" will be available in the filter function as params.query.foo. To access the params, define your filter function like function (doc, params) {/* ... */}.
+* **view**: Specify a view function (e.g. 'design_doc_name/view_name' or 'view_name' as shorthand for 'view_name/view_name') to act as a filter. Documents counted as “passed” for a view filter if a map function emits at least one record for them. Note: options.filter must be set to '_view' for this option to work.
+* **selector**: Filter using a query/pouchdb-find selector. Note: Selectors are not supported in CouchDB 1.x.
+* **since**: Replicate changes after the given sequence number.
+* **heartbeat**: Configure the heartbeat supported by CouchDB which keeps the change connection alive.
+* **timeout**: Request timeout (in milliseconds).
+* **batch_size**: Number of change feed items to process at a time. Defaults to 100. This affects the number of docs and attachments held in memory and the number sent at a time to the target server. You may need to adjust downward if targeting devices with low amounts of memory (e.g. phones) or if the documents and/or attachments are large in size or if there are many conflicted revisions. If your documents are small in size, then increasing this number will probably speed replication up.
+* **batches_limit**: Number of batches to process at a time. Defaults to 10. This (along wtih batch_size) controls how many docs are kept in memory at a time, so the maximum docs in memory at once would equal batch_size × batches_limit.
+* **back_off_function**: backoff function to be used in retry replication. This is a function that takes the current backoff as input (or 0 the first time) and returns a new backoff in milliseconds. You can use this to tweak when and how replication will try to reconnect to a remote database when the user goes offline. Defaults to a function that chooses a random backoff between 0 and 2 seconds and doubles every time it fails to connect. The default delay will never exceed 10 minutes.
+* **checkpoint**: Can be used if you want to disable checkpoints on the source, target, or both. Setting this option to false will prevent writing checkpoints on both source and target. Setting it to source will only write checkpoints on the source. Setting it to target will only write checkpoints on the target.
+
+
+```typescript
+// here we sync (bi-directional) fullsync bases
+this.c8o.callJson("fs://mabase.sync", "continuous", true)
+.then((response, paremeters)=>{
+  // in a continous sync, then will be triggered after initial replication
+})
+.progress((progress: C8oProgress)=>{
+  // handle progress 
+})
+.fail((error: C8oException)=>{
+// handle errors 
+})
+```
+
+```typescript
+// here we pull (uni-directional) fullsync bases from server to client
+this.c8o.callJson("fs://mabase.replicate_pull", "continuous", true)
+.then((response, paremeters)=>{
+ // in a continous replicate_pull, then will be triggered after initial replication
+})
+.progress((progress: C8oProgress)=>{
+  // handle progress 
+})
+.fail((error: C8oException)=>{
+// handle errors 
+})
+```
+
+```typescript
+// here we push (uni-directional) fullsync bases from client to server
+this.c8o.callJson("fs://mabase.sync", "continuous", true)
+.then((response, paremeters)=>{
+ // in a continous replicate_push, then will be triggered after initial replication
+})
+.progress((progress: C8oProgress)=>{
+  // handle progress 
+})
+.fail((error: C8oException)=>{
+// handle errors 
+})
+```
 
 ### Replicating FullSync databases
 FullSync has the ability to replicate mobile and Convertigo server databases over unreliable connections still preserving integrity. Data can be replicated in upload or download or both directions. The replication can also be continuous: a new document is instantaneously replicated to the other side.
