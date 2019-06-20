@@ -8,5 +8,6 @@
         "markdown",
         "latex",
         "plaintext"
-    ]
+    ],
+    "markdown.extension.toc.githubCompatibility": true
 }

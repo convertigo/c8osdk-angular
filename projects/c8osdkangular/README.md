@@ -46,13 +46,11 @@ Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circl
   - [Using the Local Cache](#Using-the-Local-Cache)
   - [Using the Full Sync](#Using-the-Full-Sync)
   - [Creating a FullSync database](#Creating-a-FullSync-database)
-  - [Post a document into FullSync database (create/update)](#Post-a-document-into-FullSync-database-createupdate)
+  - [Post a document into FullSync database (create / update)](#Post-a-document-into-FullSync-database-create--update)
   - [Get a document from a FullSync database (fetch)](#Get-a-document-from-a-FullSync-database-fetch)
   - [Delete a document from a FullSync database (remove)](#Delete-a-document-from-a-FullSync-database-remove)
-  - [Synchronize client side database and server database (sync/replicate_pull/replicate_push/replications)](#Synchronize-client-side-database-and-server-database-syncreplicate_pullreplicate_pushreplications)
-  - [Replicating FullSync databases](#Replicating-FullSync-databases)
-  - [Replicating Full Sync databases with continuous flag](#Replicating-Full-Sync-databases-with-continuous-flag)
-  - [Full Sync FS_LIVE requests](#Full-Sync-FS_LIVE-requests)
+  - [Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications)](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications)
+  - [Perform a Query View (Map / Reduce)](#Perform-a-Query-View-Map--Reduce)
   - [Full Sync Change Listener](#Full-Sync-Change-Listener)
   - [Get an attachment](#Get-an-attachment)
   - [Get all documents](#Get-all-documents)
@@ -522,14 +520,15 @@ Full Sync enables mobile apps to handle fully disconnected scenarios, still havi
 
 Convertigo Client SDK provides a high level access to local data following the standard Convertigo Sequence paradigm. They differ from standard sequences by a fs:// prefix. Calling these local Full Sync requestable will enable the app to read, write, query and delete data from the local database:
 
-* fs://<database>.create creates the database (client side) if not already exist
-* fs://<database>.post writes/update an object to the database (client side)
-* fs://<database>.get reads an object from the database (client side)
-* fs://<database>.delete deletes an object from the database (client side)
-* fs://<database>.sync synchronizes the client side database with server database 
-* fs://<database>.replicate_push pushes client side modifications on the database server
-* fs://<database>.replicate_pull replicate on client side database, all database server modifications
-* fs://<database>.view queries a view from the database (client side)
+* Fullsync verbs:
+* fs://<database>.[create](#Creating-a-FullSync-database) creates the database (client side) if not already exist
+* fs://<database>.[post](#Post-a-document-into-FullSync-database-create--update) writes/update an object to the database (client side)
+* fs://<database>.[get](#Get-a-document-from-a-FullSync-database-fetch) reads an object from the database (client side)
+* fs://<database>.[delete](#Delete-a-document-from-a-FullSync-database-remove) deletes an object from the database (client side)
+* fs://<database>.[sync](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications) synchronizes the client side database with server database
+* fs://<database>.[replicate_push](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications) pushes client side modifications on the database server
+* fs://<database>.[replicate_pull](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications) replicate on client side database, all database server modifications
+* fs://<database>.[view](#Perform-a-Query-View-Map--Reduce) queries a view from the database (client side)
 * fs://<database>.all gets all objects from the database (client side)
 * fs://<database>.all_local gets all local objects (which one having id starting by "_local/") from the database (client side)
 * fs://<database>.reset resets a client side database by removing all the data in it
@@ -591,7 +590,7 @@ If you wants to create programmatically a new database, you must use ```fs://bas
 let resultCreate = await this.c8o.callJson("fs://mabase.create").async();
 ```
 
-### Post a document into FullSync database (create/update) ###
+### Post a document into FullSync database (create / update) ###
 If you wants to post a document into a given database, you must use ```fs://baseName.post``` verb.
 
 You can use the following options:
@@ -641,7 +640,7 @@ You can use the following options:
 let resultGet = await this.c8o.callJson("fs://mabase.delete", "docid", "myId", "_rev", "myRevision").async();
 ```
 
-### Synchronize client side database and server database (sync/replicate_pull/replicate_push/replications) ###
+### Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications) ###
 FullSync has the ability to replicate mobile and Convertigo server databases over unreliable connections still preserving integrity. Data can be replicated in upload or download or both directions. The replication can also be continuous: a new document is instantaneously replicated to the other side.
 
 The client SDK offers the progress event to monitor the replication progression thanks to a C8oProgress instance.
@@ -653,6 +652,8 @@ There is 3 ways for the replication:
 * **sync**: a bi-directional replication (same that doing replicate_pull and replicate_push at the same time)
 * **replicate_pull**: an unidirectional replication from the server to the client.
 * **replicate_push**: a unidirectional replication from the client to the server 
+
+Theses replications can be done in mode continuous, so if a new document is created its instantaneously replicated to the other side.
 
 Also you can monitor the progress of the replications, and be notified of any error or result...
 
@@ -716,73 +717,55 @@ this.c8o.callJson("fs://mabase.sync", "continuous", true)
 })
 ```
 
-### Replicating FullSync databases
-FullSync has the ability to replicate mobile and Convertigo server databases over unreliable connections still preserving integrity. Data can be replicated in upload or download or both directions. The replication can also be continuous: a new document is instantaneously replicated to the other side.
+### Perform a Query View  (Map / Reduce) ####
+Thanks to the FullSync, you can invoke a map/reduce function, which allows you to perform more complex queries on client side.
 
-The client SDK offers the progress event to monitor the replication progression thanks to a C8oProgress instance.
-
-A device cannot pull private documents or push any document without authentication. A session must be established before and the Convertigo server must authenticate the session (using the Set authenticated user step for example).
-
-```typescript
-// Assuming c8o is a C8o instance properly instanciated and initiated as describe above.
-
-this.c8o.callJson('.login')
-.then((response)=>{
-    if(response == "ok"){
-      // The progress can be handled only with C8oPromise,
-      // replication_pull can also be sync or replication_push
-      this.c8o.callJson('fs://base.replication_pull')
-        .then((response)=>{
-          // Do stuff with response
-        })
-        .progress((progress)=>{
-          // Do stuff with progress
-        });
-    }
-});
-
-```
-
-### Replicating Full Sync databases with continuous flag ###
-As mentioned above, a replication can also be continuous: a new document is instantaneously replicated to the other side.
-
-Progress will be called at each entering replication during the all life of the application until that you explicitly cancel that one
-
-```typescript
-// Assuming c8o is a C8o instance properly instanciated and initiated as describe above.
-
-// The progress can be handled only with C8oPromise
-this.c8o.callJsonObject('fs://base.replication_pull', {"continuous": true})
-    .then((response)=>{
-      // Do stuff with response
-    })
-    .progress((progress)=>{
-      // Do stuff with progress
-    })
-
-// this will cancel the previous replication
-this.c8o.callJsonObject('fs://base.replication_pull', {"cancel": true})
-    .then((response)=>{
-      // Do stuff with response
-    })
-```
-
-### Full Sync FS_LIVE requests
-
- Full Sync has the ability to re-execute your fs:// calls if the database is modified. The then or thenUI following a FS_LIVE parameter is re-executed after each database update. Database update can be local modification or remote modification replicated.
+ Also, it's has the ability to re-execute your query view if the database is modified, it can be local or remote modification, so your data displayed is never out of date, in fact, the callback (then) is called after each modification.
 
 This allow you keep your UI synchronized with database documents.
 
-A FS_LIVE parameter must have a string value, its liveid. The liveid allow to cancel a FS_LIVE request.
+You can use the following options:
 
-```javascript
-// Assuming c8o is a C8o instance properly instanciated and initiated as describe above.
 
+
+* **docid**: The name of a view in an existing design document (e.g. 'mydesigndoc/myview', or 'myview' as a shorthand for 'myview/myview').
+* **__live**: This allow the view to update itself after a database modification. this must be a string value, this an id. It will be useful to cancel view to cancel a FS_LIVE request.
+* **reduce**: Defaults to true when a reduce function is defined, or false otherwise. Valid values:
+  * **true** - calls the defined reduce function, or the map function if no reduce is defined.
+  * **false** - calls the defined map function.
+  * A reduce function.
+    * The string name of a built-in function: '_sum', '_count', or '_stats'.
+    * Tip: if you’re not using a built-in, you’re probably doing it wrong.
+* **include_docs**: Include the document in each row in the doc field.
+* **conflicts**: Include conflicts in the _conflicts field of a doc.
+* **attachments**: Include attachment data.
+* **binary**: Return attachment data as Blobs/Buffers, instead of as base64-encoded strings.
+* **startkey** & **endkey**: Get rows with keys in a certain range (inclusive/inclusive).
+* **inclusive_end**: Include rows having a key equal to the given options.endkey. Default: true.
+* **limit**: Maximum number of rows to return.
+* **skip**: Number of rows to skip before returning (warning: poor performance on IndexedDB/LevelDB!).
+* **descending**: Reverse the order of the output rows.
+* **key**: Only return rows matching this key.
+* **keys**: Array of keys to fetch in a single shot.
+  * Neither startkey nor endkey can be specified with this option.
+  * The rows are returned in the same order as the supplied keys array.
+  * The row for a deleted document will have the revision ID of the deletion, and an extra key "deleted":true in the value property.
+  * The row for a nonexistent document will just contain an "error" property with the value "not_found".
+* **group**: True if you want the reduce function to group results by keys, rather than returning a single result. Defaults to false.
+* **group_level**: Number of elements in a key to group by, assuming the keys are arrays. Defaults to the full length of the array.
+* **stale**: One of 'ok' or 'update_after'. Only applies to saved views. Can be one of:
+  * unspecified (default): Returns the latest results, waiting for the view to build if necessary.
+  * 'ok': Returns results immediately, even if they’re out-of-date.
+  * 'update_after': Returns results immediately, but kicks off a build afterwards.
+* update_seq: Include an update_seq value indicating which sequence id of the underlying database the view reflects.
+
+
+```typescript
 // The then of the live requests can be handled only with C8oPromise
 this.c8o.callJsonObject("fs://base.view",{
     "ddoc": "design",
     "view": "customers",
-    C8o["FS_LIVE"]: "customers"
+    "__live": "customers"
     })
     .then((response)=>{
       // will be call now and after each database update
