@@ -48,7 +48,7 @@ Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circl
   - [Creating a FullSync database](#Creating-a-FullSync-database)
   - [Having info on a FullSync database](#Having-info-on-a-FullSync-database)
   - [Destroying a FullSync database](#Destroying-a-FullSync-database)
-- [Resetting a FullSync database](#Resetting-a-FullSync-database)
+  - [Resetting a FullSync database](#Resetting-a-FullSync-database)
   - [Post a document into FullSync database (create / update)](#Post-a-document-into-FullSync-database-create--update)
   - [Get a document from a FullSync database (fetch)](#Get-a-document-from-a-FullSync-database-fetch)
   - [Delete a document from a FullSync database (remove)](#Delete-a-document-from-a-FullSync-database-remove)
@@ -572,7 +572,7 @@ If you wants to destroy programmatically a database, you must use ```fs://baseNa
 let resultDestroy = await this.c8o.callJson("fs://mabase.destroy").async();
 ```
 
-## Resetting a FullSync database ###
+### Resetting a FullSync database ####
 If you wants to delete all data from a database and the re-create it, you must use ```fs://baseName.reset``` verb.
 
 ```typescript
