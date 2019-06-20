@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress, C8oPromise } from "c8osdkangular";
+import {C8oAlldocsLocal,C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress, C8oPromise } from "c8osdkangular";
 
 
 @Component({
@@ -23,7 +23,7 @@ export class AppComponent {
   public url756 = "http://192.168.99.100:28080/convertigo/projects/ClientSDKtesting2";
   public baseName756 = "testatt21";
 
-  public url760 = "http://localhost:8080/convertigo/projects/ClientSDKtesting";
+  public url760 = "http://c8o-dev.convertigo.net:80/cems/projects/ClientSDKtesting";
   public baseName760 = "testatt21";
 
   public initAll(url):Promise<any> {
@@ -50,6 +50,33 @@ export class AppComponent {
     
   }
 
+  public integALLDOCSLOCAL(){
+    let idLoc = "_local/"+new Date().getTime();
+    this.initAll(this.url760)
+    .then(()=>{
+      this.c8o.callJson("fs://mabaseLoc.post", "_id", idLoc)
+      .then((res)=>{
+        console.log(JSON.stringify(res))
+        return this.c8o.callJson("fs://mabaseLoc.post", "_id", "paslocal_"+new Date().getTime());
+      })
+      .then((res)=>{
+        console.log(JSON.stringify(res))
+        return this.c8o.callJson("fs://mabaseLoc.all");
+      })
+      .then((res)=>{
+        console.log(JSON.stringify(res))
+              console.log("starting test");
+              let baseName = "_pouch_mabaseLoc_device"
+              let db = new PouchDB("_mabaseLoc_device");
+
+              let c8oAlldocsLocal = new C8oAlldocsLocal();
+              c8oAlldocsLocal.alldocs({},db, baseName)
+      })
+      .fail((err)=>{
+        console.log(JSON.stringify(err));
+      })
+    });
+  }
 
   public test760(){
     this.initAll(this.url760)

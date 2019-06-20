@@ -6,8 +6,8 @@
   <a href="/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
   <a href="https://www.npmjs.com/package/c8osdkangular"><img
   src="https://img.shields.io/npm/v/c8osdkangular.svg" alt="Travis Status"></a>
-  <a href="https://circleci.com/gh/convertigo/c8osdk-angular/tree/master"><img
-  src="https://circleci.com/gh/convertigo/c8osdk-angular/tree/master.svg?style=svg" alt="Travis Status"></a>
+  <a href="https://circleci.com/gh/convertigo/c8osdk-angular/tree/develop"><img
+  src="https://circleci.com/gh/convertigo/c8osdk-angular/tree/develop.svg?style=svg" alt="Travis Status"></a>
 </p>
 
 ## Test status ##
@@ -43,11 +43,15 @@ Angular 5.X: ![status](https://28-69371506-gh.circle-artifacts.com/0/home/circle
     - [Advanced](#Advanced)
   - [Using the Local Cache](#Using-the-Local-Cache)
   - [Using the Full Sync](#Using-the-Full-Sync)
-  - [Replicating Full Sync databases](#Replicating-Full-Sync-databases)
+  - [Creating a FullSync database](#Creating-a-FullSync-database)
+  - [Replicating FullSync databases](#Replicating-FullSync-databases)
   - [Replicating Full Sync databases with continuous flag](#Replicating-Full-Sync-databases-with-continuous-flag)
   - [Full Sync FS_LIVE requests](#Full-Sync-FS_LIVE-requests)
   - [Full Sync Change Listener](#Full-Sync-Change-Listener)
   - [Get an attachment](#Get-an-attachment)
+  - [Get all documents](#Get-all-documents)
+    - [Get all documents](#Get-all-documents-1)
+    - [Get all local documents ("_local/")](#Get-all-local-documents-_local)
   - [Keep Alive session](#Keep-Alive-session)
 - [Internal Technical documentation](#Internal-Technical-documentation)
   - [Project description](#Project-description)
@@ -512,19 +516,20 @@ Full Sync enables mobile apps to handle fully disconnected scenarios, still havi
 
 Convertigo Client SDK provides a high level access to local data following the standard Convertigo Sequence paradigm. They differ from standard sequences by a fs:// prefix. Calling these local Full Sync requestable will enable the app to read, write, query and delete data from the local database:
 
-* fs://<database>.create creates the local database if not already exist
-* fs://<database>.view queries a view from the local database
-* fs://<database>.get reads an object from the local database
-* fs://<database>.post writes/update an object to the local database
-* fs://<database>.delete deletes an object from the local database
-* fs://<database>.all gets all objects from the local database
-* fs://<database>.sync synchronizes with server database
-* fs://<database>.replicate_push pushes local modifications on the database server
-* fs://<database>.replicate_pull gets all database server modifications
-* fs://<database>.reset resets a database by removing all the data in it
-* fs://<database>.put_attachment Puts (add) an attachment to a document in the database
-* fs://<database>.bulk Bulk loads a database from a file 
-* fs://<database>.info Get info for a given database
+* fs://<database>.create creates the database (client side) if not already exist
+* fs://<database>.post writes/update an object to the database (client side)
+* fs://<database>.get reads an object from the database (client side)
+* fs://<database>.delete deletes an object from the database (client side)
+* fs://<database>.view queries a view from the database (client side)
+* fs://<database>.all gets all objects from the database (client side)
+* fs://<database>.all_local gets all local objects (which one having id starting by "_local/") from the database (client side)
+* fs://<database>.sync synchronizes the client side database with server database 
+* fs://<database>.replicate_push pushes client side modifications on the database server
+* fs://<database>.replicate_pull replicate on client side database, all database server modifications
+* fs://<database>.reset resets a client side database by removing all the data in it
+* fs://<database>.put_attachment Puts (add) an attachment to a document in the database (client side)
+* fs://<database>.bulk Bulk loads a client side database from a file 
+* fs://<database>.info Get info for a given database (client side)
 
 Where fs://<database> is the name of a specific FullSync Connector in the project specified in the endpoint. The fs://<database> name is optional only if the default database name is specified with the method setDefaultDatabaseName on the C8oSetting.
 
@@ -565,9 +570,23 @@ let resultInfo = await this.c8o.callJson("fs://base.info").async();
 // Bulk load of database with an url as data argument
 let resultBulk = await this.c8o.callJson("fs://base.bulk", "data", "http://myurl.com/dump.json").async();
 
+// get all documents
+let resultGet = await this.c8o.callJson("fs://base.all").async();
+
+// get all local ("_local/" documents)
+let resultGet = await this.c8o.callJson("fs://base.all_local").async();
+
 ```
 
-### Replicating Full Sync databases
+### Creating a FullSync database
+If you wants to create programmatically a new database, you must use ```fs://baseName.create``` verb.
+
+```typescript
+let resultCreate = await this.c8o.callJson("fs://mabase.create").async();
+```
+
+
+### Replicating FullSync databases
 FullSync has the ability to replicate mobile and Convertigo server databases over unreliable connections still preserving integrity. Data can be replicated in upload or download or both directions. The replication can also be continuous: a new document is instantaneously replicated to the other side.
 
 The client SDK offers the progress event to monitor the replication progression thanks to a C8oProgress instance.
@@ -686,6 +705,66 @@ c8o.get_attachment("docid", "attachment_name")
   // catch error
 })
 ```
+
+
+### Get all documents ###
+
+If you wants to get all documents present in your client side database, you must use .all, or .all_local verbs.
+
+Typically, there is two kind of documents, first kind that are synchronized, and second one that will never be.
+
+If you wants to create local document that will never be synchronized just use prefix _local/ for the id.
+
+To access to (client side) synchronized documents use .all verb, on the other hand if you wants to access to all local documents that will never be synchronised use .all_local.
+
+#### Get all documents ####
+
+"fs://.all" verb support the following options:
+
+* **include_docs**: Include the document itself in each row in the doc field. Otherwise by default you only get the _id and _rev properties.
+* **conflicts**: Include conflict information in the _conflicts field of a doc.
+* **attachments**: Include attachment data as base64-encoded string.
+* **binary**: Return attachment data as Blobs/Buffers, instead of as base64-encoded strings.
+* **startkey** & **endkey**: Get documents with IDs in a certain range (inclusive/inclusive).
+* **inclusive_end**: Include documents having an ID equal to the given options.endkey. Default: true.
+* **limit**: Maximum number of documents to return.
+* **skip**: Number of docs to skip before returning (warning: poor performance on IndexedDB/LevelDB!).
+* **descending**: Reverse the order of the output documents. Note that the order of startkey and endkey is reversed when descending:true.
+* **key**: Only return documents with IDs matching this string key.
+* **keys**: Array of string keys to fetch in a single shot.
+  * Neither startkey nor endkey can be specified with this option.
+  * The rows are returned in the same order as the supplied keys array.
+  * The row for a deleted document will have the revision ID of the deletion, and an extra key "deleted":true in the value property.
+  * The row for a nonexistent document will just contain an "error" property with the value "not_found".
+
+``` typescript
+// get all documents including docs 
+let resultGet = await this.c8o.callJson("fs://base.all", include_docs: true).async();
+```
+#### Get all local documents ("_local/") ####
+
+
+"fs://.all_local" verb support the following options:
+
+* **include_docs**: Include the document itself in each row in the doc field. Otherwise by default you only get the _id and _rev properties.
+* **startkey** & **endkey**: Get documents with IDs in a certain range (inclusive/inclusive).
+* **inclusive_end**: Include documents having an ID equal to the given options.endkey. Default: true.
+* **limit**: Maximum number of documents to return.
+* **skip**: Number of docs to skip before returning (warning: poor performance on IndexedDB/LevelDB!).
+* **descending**: Reverse the order of the output documents. Note that the order of startkey and endkey is reversed when descending:true.
+* **key**: Only return documents with IDs matching this string key.
+* **keys**: Array of string keys to fetch in a single shot.
+  * Neither startkey nor endkey can be specified with this option.
+  * The rows are returned in the same order as the supplied keys array.
+  * The row for a deleted document will have the revision ID of the deletion, and an extra key "deleted":true in the value property.
+  * The row for a nonexistent document will just contain an "error" property with the value "not_found".
+
+``` typescript
+// get all local ("_local/" documents) descending
+let resultGet = await this.c8o.callJson("fs://base.all_local", "descending", true).async();
+```
+
+
 
 ### Keep Alive session ###
 
