@@ -35,7 +35,7 @@
         "pouchdb-load": "1.4.6",
         "typescript": "~3.4.3",
         "zone.js": "~0.9.1",
-        "rxjs": "~6.3.3"
+        "rxjs-compat": "6.4.0"
     },
     "devDependencies": {
         "@angular/animations": "~8.0.1",
@@ -50,6 +50,8 @@
         "zone.js": "~0.9.1",
         "js-cookie": "2.2.0",
         "core-js": "^2.5.4",
-        "@types/pouchdb": "6.3.2"
+        "@types/pouchdb": "6.3.2",
+        "rxjs": "6.4.0",
+        "rxjs-compat": "6.4.0"
     }
 }
