@@ -46,16 +46,22 @@ Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circl
   - [Using the Local Cache](#Using-the-Local-Cache)
   - [Using the Full Sync](#Using-the-Full-Sync)
   - [Creating a FullSync database](#Creating-a-FullSync-database)
+  - [Having info on a FullSync database](#Having-info-on-a-FullSync-database)
+  - [Destroying a FullSync database](#Destroying-a-FullSync-database)
+- [Resetting a FullSync database](#Resetting-a-FullSync-database)
   - [Post a document into FullSync database (create / update)](#Post-a-document-into-FullSync-database-create--update)
   - [Get a document from a FullSync database (fetch)](#Get-a-document-from-a-FullSync-database-fetch)
   - [Delete a document from a FullSync database (remove)](#Delete-a-document-from-a-FullSync-database-remove)
-  - [Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications)](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications)
-  - [Perform a Query View (Map / Reduce)](#Perform-a-Query-View-Map--Reduce)
-  - [Full Sync Change Listener](#Full-Sync-Change-Listener)
+  - [Put attachment into a document (put / save)](#Put-attachment-into-a-document-put--save)
   - [Get an attachment](#Get-an-attachment)
+  - [Delete an attachment](#Delete-an-attachment)
+  - [Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications)](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications)
+  - [Perform a Bulk load on a database](#Perform-a-Bulk-load-on-a-database)
+  - [Perform a Query View (Map / Reduce)](#Perform-a-Query-View-Map--Reduce)
   - [Get all documents](#Get-all-documents)
-    - [Get all documents](#Get-all-documents-1)
+    - [Get all synchronised documents](#Get-all-synchronised-documents)
     - [Get all local documents ("_local/")](#Get-all-local-documents-_local)
+  - [Full Sync Change Listener](#Full-Sync-Change-Listener)
   - [Keep Alive session](#Keep-Alive-session)
 - [Internal Technical documentation](#Internal-Technical-documentation)
   - [Project description](#Project-description)
@@ -516,72 +522,34 @@ this.c8o.callJsonObject(".getSimpleData",
             });
 ```
 ### Using the Full Sync ###
-Full Sync enables mobile apps to handle fully disconnected scenarios, still having data handled and controlled by back end business logic. See the presentation of the Full Sync architecture for more details.
+FullSync enables mobile apps to handle fully disconnected scenarios, still having data handled and controlled by back end business logic. See the presentation of the Full Sync architecture for more details.
 
 Convertigo Client SDK provides a high level access to local data following the standard Convertigo Sequence paradigm. They differ from standard sequences by a fs:// prefix. Calling these local Full Sync requestable will enable the app to read, write, query and delete data from the local database:
 
 * Fullsync verbs:
 * fs://<database>.[create](#Creating-a-FullSync-database) creates the database (client side) if not already exist
+* fs://<database>.[info](#Having-info-on-a-FullSync-database) Get info for a given database (client side)
+* fs://<database>.[destroy](#Destroying-a-FullSync-database) destroys a database (client side).
+* fs://<database>.[reset](#Resetting-a-FullSync-database) resets the database (client side) by deleting it and re-create it
 * fs://<database>.[post](#Post-a-document-into-FullSync-database-create--update) writes/update an object to the database (client side)
 * fs://<database>.[get](#Get-a-document-from-a-FullSync-database-fetch) reads an object from the database (client side)
 * fs://<database>.[delete](#Delete-a-document-from-a-FullSync-database-remove) deletes an object from the database (client side)
+* fs://<database>.[put_attachment](#Put-attachment-into-a-document) Puts (add) an attachment to a document in the database (client side)
+* fs://<database>.[get_attachment](#Get-an-attachment) Get an attachment from a document in the database (client side)
+* fs://<database>.[delete_attachment](#Delete-an-attachment) Delete an attachment from a document in the database (client side)
 * fs://<database>.[sync](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications) synchronizes the client side database with server database
 * fs://<database>.[replicate_push](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications) pushes client side modifications on the database server
 * fs://<database>.[replicate_pull](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications) replicate on client side database, all database server modifications
+* fs://<database>.[bulk](#Perform-a-Bulk-load-on-a-database) Bulk loads a client side database from a file 
 * fs://<database>.[view](#Perform-a-Query-View-Map--Reduce) queries a view from the database (client side)
-* fs://<database>.all gets all objects from the database (client side)
-* fs://<database>.all_local gets all local objects (which one having id starting by "_local/") from the database (client side)
-* fs://<database>.reset resets a client side database by removing all the data in it
-* fs://<database>.put_attachment Puts (add) an attachment to a document in the database (client side)
-* fs://<database>.bulk Bulk loads a client side database from a file 
-* fs://<database>.info Get info for a given database (client side)
+* fs://<database>.[all](#Get-all-synchronised-documents) gets all objects from the database (client side)
+* fs://<database>.[all_local](#Get-all-local-documents-_local) gets all local objects (which one having id starting by "_local/") from the database (client side)
 
 Where fs://<database> is the name of a specific FullSync Connector in the project specified in the endpoint. The fs://<database> name is optional only if the default database name is specified with the method setDefaultDatabaseName on the C8oSetting.
 
 An application can have many databases. On mobile (Android, iOS and Xamarin based) they are stored in the secure storage of the application. On Windows desktop application, they are stored in the user AppData/Local folder, without application isolation.
 
-All platforms can specify a local database prefix that allows many local database copies of the same remote database. Use the method setFullSyncLocalSuffix on the C8oSetting.
-
-```typescript
-// Assuming c8o is a C8o instance properly instanciated and initiated as describe above.
-
-// clear or create the "base" database
-// resultReset mustbe equal to { "ok" : true }
-let resultReset = await this.c8o.callJson('fs://base.reset').async();
-
-// creates a new document on "base", with 2 key/value pairs
-// resultPost mustbe equal to { "ok": true, "id": "6f1b52df","rev":  "1-b0620371" }
-let resultPost = await this.c8o.callJsonObject('fs://base.post', {
-              firstname: "Jhonn",
-              lastname: "Doe"
-          }).async();
-
-// retrieves the complet document from its "docid"
-// resultGet mustbe equal to { "lastname": "Doe", "rev": "1-b0620371", "firstname": "John", "_id": "6f1b52df" }
-let resultGet = await this.c8o.callJsonObject('fs://base.get', {
-              docid: resultPost['id']
-          }).async();
-
-// Put an attachment into our document 
-let resultGet = await this.c8o.callJson("fs://base.put_attachment", 
-            "docid", id, "name", "text2.txt", "content_type", "text/plain", "content", new Blob(["Hello Convertigo !"], {type: "text/plain"})).async();
-
-// Get this attachment from our document
-let resultGet = await this.c8o.callJson("fs://base.get", "docid", id, "attachments", true).async();
-
-// Get information from a local database
-let resultInfo = await this.c8o.callJson("fs://base.info").async();
-
-// Bulk load of database with an url as data argument
-let resultBulk = await this.c8o.callJson("fs://base.bulk", "data", "http://myurl.com/dump.json").async();
-
-// get all documents
-let resultGet = await this.c8o.callJson("fs://base.all").async();
-
-// get all local ("_local/" documents)
-let resultGet = await this.c8o.callJson("fs://base.all_local").async();
-
-```
+All platforms can specify a local database prefix that allows many local database copies of the same remote database. Use the method setFullSyncLocalSuffix on the C8oSettings.
 
 ### Creating a FullSync database ###
 If you wants to create programmatically a new database, you must use ```fs://baseName.create``` verb.
@@ -590,6 +558,26 @@ If you wants to create programmatically a new database, you must use ```fs://bas
 let resultCreate = await this.c8o.callJson("fs://mabase.create").async();
 ```
 
+### Having info on a FullSync database ###
+If you wants to get informations about a database programmatically , you must use ```fs://baseName.info``` verb.
+
+```typescript
+let resultInfo = await this.c8o.callJson("fs://mabase.info").async();
+```
+
+### Destroying a FullSync database ###
+If you wants to destroy programmatically a database, you must use ```fs://baseName.destroy``` verb.
+
+```typescript
+let resultDestroy = await this.c8o.callJson("fs://mabase.destroy").async();
+```
+
+## Resetting a FullSync database ###
+If you wants to delete all data from a database and the re-create it, you must use ```fs://baseName.reset``` verb.
+
+```typescript
+let resultReset = await this.c8o.callJson('fs://base.reset').async();
+```
 ### Post a document into FullSync database (create / update) ###
 If you wants to post a document into a given database, you must use ```fs://baseName.post``` verb.
 
@@ -606,7 +594,6 @@ You can use the following options:
 // here we post a document, with a given id 
 let resultPost = await this.c8o.callJson("fs://mabase.post", "id", "myId").async();
 ```
-
 
 ### Get a document from a FullSync database (fetch) ###
 If you wants to fetch a document from a given database, you must use ```fs://baseName.get``` verb.
@@ -640,7 +627,82 @@ You can use the following options:
 let resultGet = await this.c8o.callJson("fs://mabase.delete", "docid", "myId", "_rev", "myRevision").async();
 ```
 
+### Put attachment into a document (put / save) ###
+
+If you wants to put an attachments into a document, you must use ```fs://baseName.put_attachment``` verb.
+
+FullSync allows us to attaches a binary object to a document.
+This method will update an existing document to add the attachment, so it requires a rev if the document already exists. If the document doesn’t already exist, then this method will create an empty document containing the attachment.
+What’s the point of attachments? If you’re dealing with large binary data (such as PNGs), you may incur a performance or storage penalty if you naïvely include them as base64- or hex-encoded strings inside your documents.
+
+You can use the following options:
+* **docid**: The id of the document
+* **name**: the name of the attachment
+
+You can:
+* Save a **base64** attachment
+* Save a **Blob/Buffer** attachment
+* save several at once
+
+```typescript
+// Put an attachment into a given document 
+let resultPut = await this.c8o.callJson("fs://base.put_attachment", 
+            "docid", id, "name", "text2.txt", "content_type", "text/plain", "content", new Blob(["Hello Convertigo !"], {type: "text/plain"})).async();
+
+```
+
+### Get an attachment ###
+
+If you wants to get an attachment from a document, you must use ```fs://baseName.get_attachment``` verb.
+
+You can use the following options:
+* **docid**: The id of the document
+* **name**: the name of the attachment
+* **rev**: you can pass a rev in and get back an attachment for the document at that particular revision.
+
+Alternatively you can also use get_attachment method from c8o class. You need an id of document and the name of the given attachment.
+
+See the following example.
+
+``` typescript
+// Put an attachment into a given document 
+let resultGet = await this.c8o.callJson("fs://baseName.get_attachment", 
+            "docid", id, "name", "text2.txt").async();
+
+
+// Or alternative api
+c8o.get_attachment("docid", "attachment_name")
+.then((response)=>{
+  // get a buffer
+  // URL can be 'sanitized' by :
+  // ... sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(response))
+})
+.catch(()=>{
+  // catch error
+})
+```
+### Delete an attachment ###
+If you wants to get an attachment from a document, you must use ```fs://baseName.delete_attachment``` verb.
+
+You can use the following options:
+* **docid**: The id of the document
+* **name**: the name of the attachment
+* **rev**: you can pass a rev in and get back an attachment for the document at that particular revision.
+
+``` typescript
+// Put an attachment into a given document 
+let resultdelete = await this.c8o.callJson("fs://baseName.delete_attachment", 
+            "docid", id, "name", "text2.txt", "rev": "myRev").async();
+
+```
+
+
 ### Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications) ###
+
+If you wants to synchronize a database, you must use ```fs://baseName.sync``` verb.
+If you wants to replicate pull a database, you must use ```fs://baseName.replicate_pull``` verb.
+If you wants to replicate push a database, you must use ```fs://baseName.replicate_push``` verb.
+
 FullSync has the ability to replicate mobile and Convertigo server databases over unreliable connections still preserving integrity. Data can be replicated in upload or download or both directions. The replication can also be continuous: a new document is instantaneously replicated to the other side.
 
 The client SDK offers the progress event to monitor the replication progression thanks to a C8oProgress instance.
@@ -717,15 +779,32 @@ this.c8o.callJson("fs://mabase.sync", "continuous", true)
 })
 ```
 
+### Perform a Bulk load on a database ###
+If you wants to bulk load a database, you must use ```fs://baseName.bulk``` verb.
+
+FullSync allow you to bulk load a database from a file.
+
+You can use tools as [pouchdb-dump-cli](https://github.com/pouchdb-community/pouchdb-dump-cli) to create a dump file from a couchdb/pouchdb database.
+
+You can use the following options:
+* **data**: The dump => a string or an url from of a file
+* **proxy** the url of remote base
+
+```typescript
+// Bulk load of database with an url as data argument
+let resultBulk = await this.c8o.callJson("fs://base.bulk", "data", "http://myurl.com/dump.json", "proxy": "https://myserver:5984/mybase").async();
+```
 ### Perform a Query View  (Map / Reduce) ####
+
+If you wants to perform a view query, you must use ```fs://baseName.view``` verb.
+
 Thanks to the FullSync, you can invoke a map/reduce function, which allows you to perform more complex queries on client side.
 
- Also, it's has the ability to re-execute your query view if the database is modified, it can be local or remote modification, so your data displayed is never out of date, in fact, the callback (then) is called after each modification.
+Also, it's has the ability to re-execute your query view if the database is modified, it can be local or remote modification, so your data displayed is never out of date, in fact, the callback (then) is called after each modification.
 
 This allow you keep your UI synchronized with database documents.
 
 You can use the following options:
-
 
 
 * **docid**: The name of a view in an existing design document (e.g. 'mydesigndoc/myview', or 'myview' as a shorthand for 'myview/myview').
@@ -781,45 +860,6 @@ this.c8o.callJsonObject("fs://base.view",{
     });
 ```
 
-
-### Full Sync Change Listener ###
-Full Sync has also the ability to notify your if there is any change on the database. The progress following a FS_LIVE parameter is triggered  after each database update. The changes contains the origin of the change, and other attributes :
-* isExternal
-* isCurrentRevision
-* isConflict
-* id
-* revisionId
- 
-```typescript
-let changeListener : C8oFullSyncChangeListener = new C8oFullSyncChangeListener((changes:Object)=>{
-	checkChanges(changes);
-});
-â€¦
-c8o.addFullSyncChangeListener("databaseName", changeListener); // add this listener for the database "base" ; null or "" while use the default database.
-â€¦
-c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this listener for the database "base" ; null or "" while use the default database.
-
-```
-
-### Get an attachment ###
-
-If you want to get an attachment you can use get_attachment method from c8o class. You need an id of document and the name of the given attachment.
-
-See the following example.
-
-``` typescript
-c8o.get_attachment("docid", "attachment_name")
-.then((response)=>{
-  // get a buffer
-  // URL can be 'sanitized' by :
-  // ... sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(response))
-})
-.catch(()=>{
-  // catch error
-})
-```
-
-
 ### Get all documents ###
 
 If you wants to get all documents present in your client side database, you must use .all, or .all_local verbs.
@@ -830,7 +870,13 @@ If you wants to create local document that will never be synchronized just use p
 
 To access to (client side) synchronized documents use .all verb, on the other hand if you wants to access to all local documents that will never be synchronised use .all_local.
 
-#### Get all documents ####
+#### Get all synchronised documents ####
+
+If you wants to get all document from a given database, you must use ```fs://baseName.all``` verb.
+
+Fetch multiple documents, indexed and sorted by the _id. Deleted documents are only included if options.keys is specified.
+
+This will return document from the store that is not local.
 
 "fs://.all" verb support the following options:
 
@@ -856,6 +902,11 @@ let resultGet = await this.c8o.callJson("fs://base.all", include_docs: true).asy
 ```
 #### Get all local documents ("_local/") ####
 
+If you wants to get all locals document from a given database, you must use ```fs://baseName.all_local``` verb.
+
+Thanks to the FullSync, you can fetch multiple documents, indexed and sorted by the _id. Deleted documents are only included if options.keys is specified.
+
+This will return document from the local store.
 
 "fs://.all_local" verb support the following options:
 
@@ -876,6 +927,30 @@ let resultGet = await this.c8o.callJson("fs://base.all", include_docs: true).asy
 // get all local ("_local/" documents) descending
 let resultGet = await this.c8o.callJson("fs://base.all_local", "descending", true).async();
 ```
+
+
+
+
+### Full Sync Change Listener ###
+Full Sync has also the ability to notify your if there is any change on the database. The progress following a FS_LIVE parameter is triggered  after each database update. The changes contains the origin of the change, and other attributes :
+* isExternal
+* isCurrentRevision
+* isConflict
+* id
+* revisionId
+ 
+```typescript
+let changeListener : C8oFullSyncChangeListener = new C8oFullSyncChangeListener((changes:Object)=>{
+	checkChanges(changes);
+});
+â€¦
+c8o.addFullSyncChangeListener("databaseName", changeListener); // add this listener for the database "base" ; null or "" while use the default database.
+â€¦
+c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this listener for the database "base" ; null or "" while use the default database.
+
+```
+
+
 
 
 

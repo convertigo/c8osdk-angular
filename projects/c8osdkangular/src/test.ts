@@ -2238,7 +2238,6 @@ describe("provider: basic calls verifications", () => {
     }
     );
 
-
     it("should check that Fullsync Put attachment works (C8oFsPutAttachment)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_FS).catch((err: C8oException) => {
@@ -2265,6 +2264,11 @@ describe("provider: basic calls verifications", () => {
                     expect(response["_id"]).toBe(myId);
                     expect(response["_attachments"]["text2.txt"]).not.toBeNull();
                     expect(response["_attachments"]["text2.txt"]["content_type"]).toBe("text/plain");
+                    return c8o.callJson("fs://.get_attachment", "docid", id, "name", "text2.txt");
+                })
+                .then((response:any)=>{
+                    expect(response["type"]).toBe("text/plain");
+                    expect(response["size"]).toBe(18);                    
                     done();
                     return null;
                 })
