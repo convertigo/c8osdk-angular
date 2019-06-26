@@ -69,8 +69,8 @@ export class AppComponent {
               let baseName = "_pouch_mabaseLoc_device"
               let db = new PouchDB("_mabaseLoc_device");
 
-              let c8oAlldocsLocal = new C8oAlldocsLocal();
-              c8oAlldocsLocal.alldocs({},db, baseName)
+              let c8oAlldocsLocal = new C8oAlldocsLocal(this.c8o);
+              //c8oAlldocsLocal.alldocs({},db, baseName)
       })
       .fail((err)=>{
         console.log(JSON.stringify(err));
