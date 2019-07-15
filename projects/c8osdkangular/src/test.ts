@@ -2439,9 +2439,14 @@ describe("provider: basic calls verifications", () => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
             try {
                 let timeout;
+                let triggerautologinresponse = false;
                 new Promise(async (resolve) => {
+                    
                     await c8o.init(Stuff.C8o_SessionsKeepAlive);
                     await c8o.finalizeInit();
+                    c8o.handleAutoLoginResponse().subscribe((res)=>{
+                        triggerautologinresponse = true;
+                    });
                     c8o.log.debug("Init finished");
                     let response = await c8o.callJson(".LoginTesting").async();
                     expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
@@ -2456,6 +2461,7 @@ describe("provider: basic calls verifications", () => {
                     c8o.log.debug("log Debug");
                     await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
                     timeout = setTimeout(() => {
+                        expect(triggerautologinresponse).toBeTruthy();
                         done();
                     }, 10000);
                 })
