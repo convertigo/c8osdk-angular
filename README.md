@@ -956,18 +956,18 @@ c8o.removeFullSyncChangeListener("databaseName", changeListener); // remove this
 
 ### Keep Alive session ###
 
-Sdk has the ability to detect when your session is dropped, and notify you.
-This is really helpful, because this prevents, in the case of fullsync authenticated replications, from session losts and so a broken replication.
+Sdk has the ability to detect when your session will be dropped, and notify you.
+This is really helpful, because it can prevent you, in the case of fullsync authenticated replications, from lost of session and so a broken replication.
 
-By default, SDK will keep alive your session.
+By default, SDK keep alive your session.
 
-In case of network lost, we will stop fullsync replications.
+In case of lost of network, we will stop fullsync replications.
 
-And when network comes back, sdk will check if your session is still existing.
+And when network come back, we will check if your session is still existing.
 
 In this case we will restart automatically replication.
 
-And if session doese not exist anymore, the sdk will notify you by a handler.
+And if session do not exist anymore we will notify you by a handler.
 
 ```typescript
  // set keep sessionAlive active
