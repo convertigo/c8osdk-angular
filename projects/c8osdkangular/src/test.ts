@@ -56,7 +56,7 @@ describe("provider: basic calls verifications", () => {
     });
 
     
-/**
+/**/
     it("should remove null parameters (C8oRemovePing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
@@ -2932,7 +2932,7 @@ describe("provider: basic calls verifications", () => {
     }
     );
 
-*/
+
     it("should fs://.all_local works(C8oFsAllLocal)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
@@ -2941,7 +2941,7 @@ describe("provider: basic calls verifications", () => {
                 });
                 c8o.finalizeInit();
                 try {
-                    /*
+                    
                     let baseName = "localBase";
                     let arrayIndex= ["_local/a", "_local/b", "_local/c", "_local/d", "_local/e", "_local/f", "_local/g"];
                     let arrayValues= ["a", "b", "c", "d", "e", "f", "g"];
@@ -2953,14 +2953,13 @@ describe("provider: basic calls verifications", () => {
                         let rep = await c8o.callJson("fs://"+ baseName +".post", "_id", arrayIndex[i], "vars",arrayValues[i])
                         expect(rep["ok"]).toBeTruthy();
                     }
-                    */
-                   let rep,arrayValues;
-                   let baseName = "localBase";
+                    
+                   
                    rep = await c8o.callJson("fs://"+ baseName +".reset");
 
                     // test all_local
                      rep = await c8o.callJson("fs://"+ baseName +".all_local");
-                    /*expect(rep["total_rows"]).toBe(7);
+                    expect(rep["total_rows"]).toBe(7);
                     expect(rep["offset"]).toBe(0);
                     expect(rep["rows"]).toBeDefined();
                     expect(rep["rows"][0]["value"]["rev"]).toBeDefined();
@@ -3026,7 +3025,7 @@ describe("provider: basic calls verifications", () => {
                     expect(rep["rows"]).toBeDefined();
                     expect(rep["rows"].length).toBe(2);
                     expect(rep["rows"][0]["id"]).toBe("_local/f");
-                    expect(rep["rows"][1]["id"]).toBe("_local/g");*/
+                    expect(rep["rows"][1]["id"]).toBe("_local/g");
 
                     done();
                 }
@@ -3039,6 +3038,162 @@ describe("provider: basic calls verifications", () => {
                 
         })();
     })
+
+    
+    it("should check that generated error go to then", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o)
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+                await c8o.finalizeInit();
+                await c8o.callJson("moveFile.disconnect")
+                console.log("finit")
+                try {
+                    c8o.callJson("moveFile.generatesError")
+                    .then((result, params)=>{
+                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                            expect(isError).toBeTruthy();
+                        done();
+                        return null;
+                    })
+                    .fail((err)=>{
+                        console.log("err");
+                        done.fail();
+                    })
+                }
+                catch(err){
+                    console.log(err);
+                    done.fail("error happened");
+
+                }
+
+                
+        })();
+    });
+
+    it("should check that generated error go to fail", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o.setErrorConvertigoIntoFail(true))
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+                await c8o.finalizeInit();
+                await c8o.callJson("moveFile.disconnect")
+                console.log("finit")
+                try {
+                    c8o.callJson("moveFile.generatesError")
+                    .then((result, params)=>{
+                        done.fail()
+                        return null;
+                    })
+                    .fail((result)=>{
+                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        expect(isError).toBeTruthy();
+                        done();
+                    })
+                }
+                catch(err){
+                    console.log(err);
+                    done.fail("error happened");
+
+                }
+
+                
+        })();
+    });
+
+    it("should check that generated error go to then but is not saved in local cache", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o)
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+                await c8o.finalizeInit();
+                await c8o.callJson("fs://c8olocalcache.reset")
+                await c8o.callJson("moveFile.disconnect")
+                console.log("finit")
+                try {
+                    c8o.callJson("moveFile.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000))
+                    .then((result, params)=>{
+                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                            expect(isError).toBeTruthy();
+                        return c8o.callJson("moveFile.login");
+                    })
+                    .then((result, params)=>{
+                        expect(result["ok"] == true)
+                        return c8o.callJson("moveFile.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000));
+                    })
+                    .then((result, params)=>{
+                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        expect(isError).toBeFalsy();
+                        expect(result["ok"]).toBeTruthy();
+                        return c8o.callJson("moveFile.disconnect")
+                    })
+                    .then((result, params)=>{
+                        return c8o.callJson("moveFile.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000));
+                    })
+                    .then((result, params)=>{
+                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        expect(isError).toBeFalsy();
+                        expect(result["ok"]).toBeTruthy();
+                        done();
+                    })
+                    .fail((err)=>{
+                        console.log("err");
+                        done.fail();
+                    })
+                }
+                catch(err){
+                    console.log(err);
+                    done.fail("error happened");
+
+                }
+
+                
+        })();
+    });
+
+/*
+    it("should fs://.all_local works(C8oFsAllLocal)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o)
+                .catch((err: C8oException) => {
+                    expect(err).toBeUndefined();
+                });
+                await c8o.finalizeInit();
+                console.log("finit")
+                try {
+                    c8o.callJson("moveFile.login")
+                    .then((resp, params)=>{
+                        console.log("resp login");
+                        done();
+                        return c8o.callJson("moveFile.moveFile");
+                    })
+                    .then((resp, params)=>{
+                        console.log("resp");
+                        done();
+                        return null;
+                    })
+                    .fail((err)=>{
+                        console.log("err");
+                        done();
+                    })
+
+    
+
+
+                }
+                catch(err){
+                    console.log(err);
+                    done.fail("error happened");
+
+                }
+
+                
+        })();
+    });
+*/
     /***/
 
     

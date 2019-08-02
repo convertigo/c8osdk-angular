@@ -10,7 +10,7 @@ export class Info {
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
 
     // Set this property to use local studio for tests
-    static local = false;
+    static local = true;
 
     // Remote infos
     static get http() {
@@ -38,7 +38,7 @@ export class Info {
         return "localhost";
     }
     static get portLocal() {
-        return "8080"
+        return "18080"
     }
     static get project_pathLocal() {
         return "/convertigo/projects/ClientSDKtesting";

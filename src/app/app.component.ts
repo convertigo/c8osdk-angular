@@ -19,6 +19,7 @@ export class AppComponent {
 */
   constructor(private c8o: C8o){
     ///this.initAllLoginSync();
+    this.testCONV293()
   }
   public url756 = "http://192.168.99.100:28080/convertigo/projects/ClientSDKtesting2";
   public baseName756 = "testatt21";
@@ -26,6 +27,34 @@ export class AppComponent {
   public url760 = "http://c8o-dev.convertigo.net:80/cems/projects/ClientSDKtesting";
   public baseName760 = "testatt21";
 
+
+  public testCONV293(){
+    this.c8o.init(new C8oSettings().setEndPoint("http://c8o-dev.convertigo.net:80/cems/projects/ClientSDKtesting"));
+    this.c8o.finalizeInit()
+    .then((data) => {
+      console.log('ooooo');
+      return Promise.all([
+        this.c8o.callJsonObject('fs://db_not_exist.reset',{}).async(),
+      this.c8o.callJsonObject('fs://db_not_exist.all_local', {}).async()
+      ]).then(() =>
+        { console.log('bbbb'); }
+      ).catch((e) =>{
+        console.log("e")
+        console.log(e)
+         // ne rentre jamais ici console.log('cccc', e);
+      })
+    });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  }
+  
   public initAll(url):Promise<any> {
     return new Promise((resolve)=>{
       let c8oSettings: C8oSettings = new C8oSettings();
@@ -67,7 +96,7 @@ export class AppComponent {
         console.log(JSON.stringify(res))
               console.log("starting test");
               let baseName = "_pouch_mabaseLoc_device"
-              let db = new PouchDB("_mabaseLoc_device");
+              //let db = new PouchDB("_mabaseLoc_device");
 
               let c8oAlldocsLocal = new C8oAlldocsLocal(this.c8o);
               //c8oAlldocsLocal.alldocs({},db, baseName)
