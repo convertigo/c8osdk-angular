@@ -22,52 +22,53 @@ Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circl
 
 ## Table of contents ##
 
-- [Test status](#Test-status)
-- [Table of contents](#Table-of-contents)
-- [Introduction](#Introduction)
-  - [About SDKs](#About-SDKs)
-  - [About Convertigo Platform](#About-Convertigo-Platform)
-- [Requirements](#Requirements)
-- [Installation](#Installation)
-  - [Support of Angular 6, 7, 8](#Support-of-Angular-6-7-8)
-- [Documentation](#Documentation)
-  - [Creating a C8o instance](#Creating-a-C8o-instance)
-  - [Advanced instance settings](#Advanced-instance-settings)
-    - [General](#General)
-    - [Normalize parameters](#Normalize-parameters)
-  - [Calling a Convertigo requestable](#Calling-a-Convertigo-requestable)
-  - [Calling a Convertigo requestable with parameters](#Calling-a-Convertigo-requestable-with-parameters)
-  - [Calling a Convertigo requestable uploading a files](#Calling-a-Convertigo-requestable-uploading-a-files)
-  - [Chaining calls](#Chaining-calls)
-  - [Handling failures](#Handling-failures)
-  - [Writing the device logs to the Convertigo server](#Writing-the-device-logs-to-the-Convertigo-server)
-    - [Basic](#Basic)
-    - [Advanced](#Advanced)
-  - [Using the Local Cache](#Using-the-Local-Cache)
-  - [Using the Full Sync](#Using-the-Full-Sync)
-  - [Creating a FullSync database](#Creating-a-FullSync-database)
-  - [Having info on a FullSync database](#Having-info-on-a-FullSync-database)
-  - [Destroying a FullSync database](#Destroying-a-FullSync-database)
-  - [Resetting a FullSync database](#Resetting-a-FullSync-database)
-  - [Post a document into FullSync database (create / update)](#Post-a-document-into-FullSync-database-create--update)
-  - [Get a document from a FullSync database (fetch)](#Get-a-document-from-a-FullSync-database-fetch)
-  - [Delete a document from a FullSync database (remove)](#Delete-a-document-from-a-FullSync-database-remove)
-  - [Put attachment into a document (put / save)](#Put-attachment-into-a-document-put--save)
-  - [Get an attachment](#Get-an-attachment)
-  - [Delete an attachment](#Delete-an-attachment)
-  - [Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications)](#Synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications)
-  - [Perform a Bulk load on a database](#Perform-a-Bulk-load-on-a-database)
-  - [Perform a Query View (Map / Reduce)](#Perform-a-Query-View-Map--Reduce)
-  - [Get all documents](#Get-all-documents)
-    - [Get all synchronised documents](#Get-all-synchronised-documents)
-    - [Get all local documents ("_local/")](#Get-all-local-documents-_local)
-  - [Full Sync Change Listener](#Full-Sync-Change-Listener)
-  - [Keep Alive session](#Keep-Alive-session)
-- [Internal Technical documentation](#Internal-Technical-documentation)
-  - [Project description](#Project-description)
-  - [Build of project](#Build-of-project)
-  - [Test of project](#Test-of-project)
-  - [Release of project](#Release-of-project)
+- [Test status](#test-status)
+- [Table of contents](#table-of-contents)
+- [Introduction](#introduction)
+  - [About SDKs](#about-sdks)
+  - [About Convertigo Platform](#about-convertigo-platform)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [Support of Angular 6, 7, 8](#support-of-angular-6-7-8)
+- [Documentation](#documentation)
+  - [Creating a C8o instance](#creating-a-c8o-instance)
+  - [Advanced instance settings](#advanced-instance-settings)
+    - [General](#general)
+    - [Normalize parameters](#normalize-parameters)
+    - [Set Error Convertigo Into Fail handler](#set-error-convertigo-into-fail-handler)
+  - [Calling a Convertigo requestable](#calling-a-convertigo-requestable)
+  - [Calling a Convertigo requestable with parameters](#calling-a-convertigo-requestable-with-parameters)
+  - [Calling a Convertigo requestable uploading a files](#calling-a-convertigo-requestable-uploading-a-files)
+  - [Chaining calls](#chaining-calls)
+  - [Handling failures](#handling-failures)
+  - [Writing the device logs to the Convertigo server](#writing-the-device-logs-to-the-convertigo-server)
+    - [Basic](#basic)
+    - [Advanced](#advanced)
+  - [Using the Local Cache](#using-the-local-cache)
+  - [Using the Full Sync](#using-the-full-sync)
+  - [Creating a FullSync database](#creating-a-fullsync-database)
+  - [Having info on a FullSync database](#having-info-on-a-fullsync-database)
+  - [Destroying a FullSync database](#destroying-a-fullsync-database)
+  - [Resetting a FullSync database](#resetting-a-fullsync-database)
+  - [Post a document into FullSync database (create / update)](#post-a-document-into-fullsync-database-create--update)
+  - [Get a document from a FullSync database (fetch)](#get-a-document-from-a-fullsync-database-fetch)
+  - [Delete a document from a FullSync database (remove)](#delete-a-document-from-a-fullsync-database-remove)
+  - [Put attachment into a document (put / save)](#put-attachment-into-a-document-put--save)
+  - [Get an attachment](#get-an-attachment)
+  - [Delete an attachment](#delete-an-attachment)
+  - [Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications)](#synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications)
+  - [Perform a Bulk load on a database](#perform-a-bulk-load-on-a-database)
+  - [Perform a Query View (Map / Reduce)](#perform-a-query-view-map--reduce)
+  - [Get all documents](#get-all-documents)
+    - [Get all synchronised documents](#get-all-synchronised-documents)
+    - [Get all local documents ("_local/")](#get-all-local-documents-_local)
+  - [Full Sync Change Listener](#full-sync-change-listener)
+  - [Keep Alive session](#keep-alive-session)
+- [Internal Technical documentation](#internal-technical-documentation)
+  - [Project description](#project-description)
+  - [Build of project](#build-of-project)
+  - [Test of project](#test-of-project)
+  - [Release of project](#release-of-project)
 
 ## Introduction ##
 
@@ -223,6 +224,21 @@ c8o.init(settings);
 // all settings can be retrieve from a C8o or C8oSettings instance
 let normalizeParameters : boolean = c8o.normalizeParameters;
 ```
+
+#### Set Error Convertigo Into Fail handler ####
+
+If you wants convertigo's error to be throw, into fail handler, you can set the following setting:
+
+```typescript
+
+// The only way
+let settings: C8oSettings = new C8oSettings();
+settings
+        .setErrorConvertigoIntoFail(true);
+//Then we need to assign C8oSettings object to our C8o object
+c8o.init(settings);
+``` 
+
 ### Calling a Convertigo requestable ###
 
 With a C8o instance you can call Convertigo Sequence and Transaction or make query to your local FullSync database.
