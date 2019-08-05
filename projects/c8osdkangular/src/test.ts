@@ -2955,7 +2955,7 @@ describe("provider: basic calls verifications", () => {
                     }
                     
                    
-                   rep = await c8o.callJson("fs://"+ baseName +".reset");
+
 
                     // test all_local
                      rep = await c8o.callJson("fs://"+ baseName +".all_local");
@@ -3047,13 +3047,15 @@ describe("provider: basic calls verifications", () => {
                     expect(err).toBeUndefined();
                 });
                 await c8o.finalizeInit();
-                await c8o.callJson("moveFile.disconnect")
+                await c8o.callJson("ClientSDKtesting.disconnect")
                 console.log("finit")
                 try {
-                    c8o.callJson("moveFile.generatesError")
+                    c8o.callJson("ClientSDKtesting.generatesError")
                     .then((result, params)=>{
-                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
-                            expect(isError).toBeTruthy();
+                        let isErrorR = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorDoc = result["document"]["error"] != undefined ? result["document"]["error"]["code"] != undefined ? result["document"]["error"]["message"] != undefined ? result["document"]["error"]["details"] != undefined? true: false :false : false : false;
+                        let isError = (isErrorR || isErrorDoc);
+                        expect(isError).toBeTruthy();
                         done();
                         return null;
                     })
@@ -3079,16 +3081,18 @@ describe("provider: basic calls verifications", () => {
                     expect(err).toBeUndefined();
                 });
                 await c8o.finalizeInit();
-                await c8o.callJson("moveFile.disconnect")
+                await c8o.callJson("ClientSDKtesting.disconnect")
                 console.log("finit")
                 try {
-                    c8o.callJson("moveFile.generatesError")
+                    c8o.callJson("ClientSDKtesting.generatesError")
                     .then((result, params)=>{
                         done.fail()
                         return null;
                     })
                     .fail((result)=>{
-                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorR = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorDoc = result["document"]["error"] != undefined ? result["document"]["error"]["code"] != undefined ? result["document"]["error"]["message"] != undefined ? result["document"]["error"]["details"] != undefined? true: false :false : false : false;
+                        let isError = (isErrorR || isErrorDoc);
                         expect(isError).toBeTruthy();
                         done();
                     })
@@ -3111,32 +3115,38 @@ describe("provider: basic calls verifications", () => {
                 });
                 await c8o.finalizeInit();
                 await c8o.callJson("fs://c8olocalcache.reset")
-                await c8o.callJson("moveFile.disconnect")
+                await c8o.callJson("ClientSDKtesting.disconnect")
                 console.log("finit")
                 try {
-                    c8o.callJson("moveFile.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000))
+                    c8o.callJson("ClientSDKtesting.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000))
                     .then((result, params)=>{
-                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
-                            expect(isError).toBeTruthy();
-                        return c8o.callJson("moveFile.login");
+                        let isErrorR = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorDoc = result["document"]["error"] != undefined ? result["document"]["error"]["code"] != undefined ? result["document"]["error"]["message"] != undefined ? result["document"]["error"]["details"] != undefined? true: false :false : false : false;
+                        let isError = (isErrorR || isErrorDoc);
+                        expect(isError).toBeTruthy();
+                        return c8o.callJson("ClientSDKtesting.login");
                     })
                     .then((result, params)=>{
                         expect(result["ok"] == true)
-                        return c8o.callJson("moveFile.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000));
+                        return c8o.callJson("ClientSDKtesting.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000));
                     })
                     .then((result, params)=>{
-                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorR = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorDoc = result["document"]["error"] != undefined ? result["document"]["error"]["code"] != undefined ? result["document"]["error"]["message"] != undefined ? result["document"]["error"]["details"] != undefined? true: false :false : false : false;
+                        let isError = (isErrorR || isErrorDoc);
                         expect(isError).toBeFalsy();
-                        expect(result["ok"]).toBeTruthy();
-                        return c8o.callJson("moveFile.disconnect")
+                        expect(result["document"]["ok"]).toBeTruthy();
+                        return c8o.callJson("ClientSDKtesting.disconnect")
                     })
                     .then((result, params)=>{
-                        return c8o.callJson("moveFile.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000));
+                        return c8o.callJson("ClientSDKtesting.generatesError", C8oLocalCache.PARAM, new C8oLocalCache(Priority.LOCAL, 180 * 1000));
                     })
                     .then((result, params)=>{
-                        let isError = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorR = result["error"] != undefined ? result["error"]["code"] != undefined ? result["error"]["message"] != undefined ? result["error"]["details"] != undefined? true: false :false : false : false;
+                        let isErrorDoc = result["document"]["error"] != undefined ? result["document"]["error"]["code"] != undefined ? result["document"]["error"]["message"] != undefined ? result["document"]["error"]["details"] != undefined? true: false :false : false : false;
+                        let isError = (isErrorR || isErrorDoc);
                         expect(isError).toBeFalsy();
-                        expect(result["ok"]).toBeTruthy();
+                        expect(result["document"]["ok"]).toBeTruthy();
                         done();
                     })
                     .fail((err)=>{
@@ -3193,7 +3203,7 @@ describe("provider: basic calls verifications", () => {
                 
         })();
     });
-*/
+
     /***/
 
     
