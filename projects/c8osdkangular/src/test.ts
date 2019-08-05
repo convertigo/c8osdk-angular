@@ -56,7 +56,7 @@ describe("provider: basic calls verifications", () => {
     });
 
     
-/**/
+/***/
     it("should remove null parameters (C8oRemovePing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
