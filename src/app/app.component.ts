@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {C8oAlldocsLocal,C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress, C8oPromise } from "c8osdkangular";
+import PouchDB from "pouchdb-browser";
 
 
 @Component({
@@ -28,22 +29,101 @@ export class AppComponent {
   public baseName760 = "testatt21";
 
 
-  public testCONV293(){
-    this.c8o.init(new C8oSettings().setEndPoint("http://c8o-dev.convertigo.net:80/cems/projects/ClientSDKtesting"));
+  public async deleteDB(){
+    var dbDeleteRequest = window.indexedDB.deleteDatabase("_pouch_db_not_exist_device");
+            dbDeleteRequest.onerror = (event)=> {
+                console.log("Error while deleting database.", true);
+            };
+        
+            dbDeleteRequest.onsuccess = (event)=> {
+              new PouchDB("db_not_exist_device").on("error", ()=>{
+                console.log("e"); 
+              })
+                /*console.log("Success while deleting database.", true);
+                // Let us open our database
+                var DBOpenRequest = window.indexedDB.open("_pouch_db_not_exist_device", 5);
+        
+                DBOpenRequest.onsuccess = (event)=> {
+                  console.log('<li>Database initialised.</li>');
+                };
+        
+                DBOpenRequest.onupgradeneeded = (event)=> {
+                  console.log('<li>DBOpenRequest.onupgradeneeded</li>');
+                };*/
+            };
+  }
+  
+
+  public async testCONV293(){
+/*
+    try{
+
+      window.onerror = function(message, source, lineno, colno, error) { 
+        console.log("there" )
+      }
+      let db
+try {
+  db = new PouchDB("db_not_exist_device")
+  db = new PouchDB("db_not_exist_device")
+  db = new PouchDB("db_not_exist_device")
+  db = new PouchDB("db_not_exist_device")
+  db = new PouchDB("db_not_exist_device")
+}
+catch(err){
+
+}
+console.log("a")
+db.info().then((res)=>{
+  console.log("res");
+})
+.catch((err)=>{
+  console.log("err")
+})
+
+      /*let req = window.indexedDB.open("_pouch_db_not_exist_device", 5);
+            req.onsuccess = (event) => {
+              console.log("event");
+            }
+
+            req.onerror = (event) => {
+              console.log("error");
+            }*/
+      /*let p = new PouchDB("db_not_exist_device").on("error", ()=>{
+        console.log("e"); 
+      })
+    }
+    catch(err){
+      console.log("e");
+    }
+    */
+    
+    this.c8o.init(new C8oSettings().setEndPoint("http://c8o-dev.convertigo.net:80/cems/projects/ClientSDKtesting").setLogC8o(true).setLogLevelLocal(C8oLogLevel.TRACE));
     this.c8o.finalizeInit()
-    .then((data) => {
-      console.log('ooooo');
-      return Promise.all([
-        this.c8o.callJsonObject('fs://db_not_exist.reset',{}).async(),
-      this.c8o.callJsonObject('fs://db_not_exist.all_local', {}).async()
-      ]).then(() =>
+    .then( async (data) => {
+      Promise.all([
+        this.c8o.callJsonObject('fs://db_not_exist.reset',
+        { view: 'not-exist', ddoc: "FULL_SYNC_CONFIG" }
+        ).async(),
+        this.c8o.callJsonObject('fs://db_not_exist.all_local', {}).async(),
+        this.c8o.callJsonObject('fs://db_not_exist.reset', {}).async(),
+        this.c8o.callJsonObject('fs://db_not_exist.all_local', {}).async()
+        ]).then(() =>
+        
         { console.log('bbbb'); }
-      ).catch((e) =>{
+        ).catch((e) =>
+          
+        { // ne rentre jamais ici console.log('cccc', e); 
+        console.log("catch")
+        console.error(e)
+      }
+        ) 
+    }).catch((e) =>{
         console.log("e")
         console.log(e)
          // ne rentre jamais ici console.log('cccc', e);
       })
-    });
+/*      */
+
   
   
   
@@ -53,7 +133,9 @@ export class AppComponent {
   
   
   
-  }
+ }
+
+
   
   public initAll(url):Promise<any> {
     return new Promise((resolve)=>{
