@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {C8oAlldocsLocal,C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress, C8oPromise } from "c8osdkangular";
+import {C8oAlldocsLocal,C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress, C8oPromise, C8oSessionStatus } from "c8osdkangular";
 import PouchDB from "pouchdb-browser";
+import { C8oNetworkStatus } from 'projects/c8osdkangular/src/public_api';
 
 
 @Component({
@@ -20,13 +21,54 @@ export class AppComponent {
 */
   constructor(private c8o: C8o){
     ///this.initAllLoginSync();
-    this.testCONV293()
+    this.testCONV265()
+    this.c8o.network.status
+    
+  }
+  getStatus(){
+    switch(this.c8o.session.status){
+      case C8oSessionStatus.Connected:
+        return "Connected"
+        break;
+        case C8oSessionStatus.Disconnected:
+            return "Disconnected"
+            break;
+        case C8oSessionStatus.HasBeenConnected:
+        return "HasBeenConnected"
+        break;
+        case C8oSessionStatus.HasBeenDisconnected:
+        return "HasBeenDisconnected"
+        break;
+        case C8oSessionStatus.Ignore:
+        return "Ignore"
+        break;
+    }
+  }
+  getNetwork(){
+    switch(this.c8o.network.status){
+      case C8oNetworkStatus.Reachable:
+        return "Reachable"
+        break;
+        case C8oNetworkStatus.NotReachable:
+            return "NotReachable"
+            break;
+        case C8oNetworkStatus.Offline:
+        return "Offline"
+        break;
+    }
+  }
+  getUser(){
+    return "name: " + this.c8o.session.user.name+ " authenticated: " + this.c8o.session.user.authenticated+" sessionId: " + this.c8o.session.user.sessionId
+  }
+  getOldUser(){
+    return "name: " + this.c8o.session.olduser.name+ " authenticated: " + this.c8o.session.olduser.authenticated+" sessionId: " + this.c8o.session.olduser.sessionId
   }
   public url756 = "http://192.168.99.100:28080/convertigo/projects/ClientSDKtesting2";
   public baseName756 = "testatt21";
 
   public url760 = "http://c8o-dev.convertigo.net:80/cems/projects/ClientSDKtesting";
   public baseName760 = "testatt21";
+
 
 
   public async deleteDB(){
@@ -54,7 +96,30 @@ export class AppComponent {
   }
   
 
-  public async testCONV293(){
+  public async testCONV265(){
+    this.c8o.init(new C8oSettings().setEndPoint("http://localhost:8080/convertigo/projects/ClientSDKtesting").setLogC8o(true).setLogLevelLocal(C8oLogLevel.TRACE).setKeepSessionAlive(true));
+    this.c8o.finalizeInit()
+    .then( async (data) => {
+
+      this.c8o.handleSessionLost()
+      .subscribe((res)=>{
+        console.log("resUniq")
+        console.log(res)
+      })
+      await this.c8o.callJson("ClientSDKtesting.login").async();
+
+      this.c8o.callJson("fs://databasea1.sync", "continuous", true)
+      .then((res)=>{
+        console.log("res");
+        return null;
+      })
+      .fail((err)=>{
+        console.log("err");
+      })
+
+  })
+
+}
 /*
     try{
 
@@ -96,7 +161,7 @@ db.info().then((res)=>{
       console.log("e");
     }
     */
-    
+    abc(){
     this.c8o.init(new C8oSettings().setEndPoint("http://c8o-dev.convertigo.net:80/cems/projects/ClientSDKtesting").setLogC8o(true).setLogLevelLocal(C8oLogLevel.TRACE));
     this.c8o.finalizeInit()
     .then( async (data) => {

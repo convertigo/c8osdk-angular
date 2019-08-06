@@ -6,6 +6,10 @@
   <img width="300" alt="Angular Logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi10jJt3pgozAJiCQRNRxOFvTjQm4gZAw1wqv8ib0HkAHm2alN">
 </div>
 <div style="text-align:center">
+  <p>Status: {{getStatus()}}</p>
+  <p>Network: {{getNetwork()}}</p>
+  <p>User: {{ "name: " + this?.c8o?.session?.user?.name+ " authenticated: " + this?.c8o?.session?.user?.authenticated+" sessionId: " + this?.c8o?.session?.user?.sessionId}}</p>
+  <p>OldUser: {{ "name: " + this?.c8o?.session?.olduser?.name+ " authenticated: " + this?.c8o?.session?.olduser?.authenticated+" sessionId: " + this?.c8o?.session?.olduser?.sessionId}}</p>
   <button mat-button (click)="test760()">test760 </button>
   <br/>
   <button mat-button (click)="test756()">test756 </button>
