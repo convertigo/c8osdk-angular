@@ -23,9 +23,13 @@ export class AppComponent {
 
   constructor(private c8o: C8o){
     ///this.initAllLoginSync();
-    //this.testCONV265()
+    this.testCONV265()
     //this.c8o.network.status
-    let a = new Promise((resolve, reject)=>{
+    /*let a = new Promise((resolve, reject)=>{
+      console.log("a");
+      reject("woooooo")
+    })
+    let b = new Promise((resolve, reject)=>{
       console.log("a");
       reject("woooooo")
     })
@@ -36,7 +40,7 @@ export class AppComponent {
     })
     .catch((e)=>{
       console.log(e);
-    })
+    })*/
   }
   getStatus(){
     switch(this.c8o.session.status){
