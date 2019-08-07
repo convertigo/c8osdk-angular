@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {C8oAlldocsLocal,C8oSettings,C8oLogLevel, C8o,C8oException, C8oProgress, C8oPromise, C8oSessionStatus } from "c8osdkangular";
 import PouchDB from "pouchdb-browser";
 import { C8oNetworkStatus } from 'projects/c8osdkangular/src/public_api';
+import { reject } from 'q';
 
 
 @Component({
@@ -19,11 +20,23 @@ export class AppComponent {
 760 / 230 pas ok quand database attachment
 760 / 230 ok quand pas attachement
 */
+
   constructor(private c8o: C8o){
     ///this.initAllLoginSync();
-    this.testCONV265()
-    this.c8o.network.status
-    
+    //this.testCONV265()
+    //this.c8o.network.status
+    let a = new Promise((resolve, reject)=>{
+      console.log("a");
+      reject("woooooo")
+    })
+
+    Promise.all([a])
+    .then(()=>{
+      console.log("b");
+    })
+    .catch((e)=>{
+      console.log(e);
+    })
   }
   getStatus(){
     switch(this.c8o.session.status){
