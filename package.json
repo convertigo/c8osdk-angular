@@ -35,14 +35,15 @@
     "@types/pouchdb": "6.3.3",
     "core-js": "^2.5.4",
     "pouchdb-browser": "7.0.0",
+    "pouchdb-checkpointer": "7.0.0",
+    "pouchdb-extend": "0.1.2",
+    "pouchdb-generate-replication-id": "7.0.0",
     "rxjs": "^6.3.3",
     "rxjs-compat": "~6.3.3",
     "tslib": "^1.9.0",
     "typescript": "~3.1.6",
-    "zone.js": "~0.8.26",
-    "pouchdb-checkpointer": "7.0.0",
-    "pouchdb-extend": "0.1.2",
-    "pouchdb-generate-replication-id": "7.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "webpack-cli": "3.3.2",

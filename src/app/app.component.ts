@@ -11,8 +11,11 @@ import { reject } from 'q';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  mycolorvar = "#3880ff"
   title = 'Convertigo Workspace';
-
+  someFunctionThatReturnStyleObject(){
+    return { 'mycolorvar': '#3880ff'};
+  }
 /*
 756 / 230 pas ok quand database attachment
 756 / 230 ok quand pas attachement

@@ -77,6 +77,70 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 (window as any).process = window;
 window["browser"] = true;
 
+
+
+
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+import 'core-js/es6/symbol';
+/*import 'core-js/es6/object';*/
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
+import 'core-js/es6/string';
+import 'core-js/es6/date';
+import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/map';
+import 'core-js/es6/weak-map';
+import 'core-js/es6/set';
+
+/** IE10 and IE11 requires the following for the Reflect API. */
+
+import 'core-js/es6/reflect';
+
+/** Evergreen browsers require these. **/
+
+// Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators),you 
+//can remove.
+
+import 'core-js/es7/reflect';
+
+import 'whatwg-fetch'
+
+if (typeof Object.assign != 'function') {
+    // Must be writable: true, enumerable: false, configurable: true
+    Object.defineProperty(Object, "assign", {
+      value: function assign(target, varArgs) { // .length of function is 2
+        'use strict';
+        if (target == null) { // TypeError if undefined or null
+          throw new TypeError('Cannot convert undefined or null to object');
+        }
+  
+        var to = Object(target);
+  
+        for (var index = 1; index < arguments.length; index++) {
+          var nextSource = arguments[index];
+  
+          if (nextSource != null) { // Skip over if undefined or null
+            for (var nextKey in nextSource) {
+              // Avoid bugs when hasOwnProperty is shadowed
+              if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                to[nextKey] = nextSource[nextKey];
+              }
+            }
+          }
+        }
+        return to;
+      },
+      writable: true,
+      configurable: true
+    });
+  }
+
+
+

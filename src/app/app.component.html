@@ -5,8 +5,18 @@
   </h1>
   <img width="300" alt="Angular Logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi10jJt3pgozAJiCQRNRxOFvTjQm4gZAw1wqv8ib0HkAHm2alN">
 </div>
-<div style="text-align:center">
-  <p>Status: {{getStatus()}}</p>
+<div >
+
+  <ul>
+    <li [ngClass]="'danger'">Status: {{getStatus()}}</li>
+    <li>Network: {{getNetwork()}}</li>
+    <li>User: {{ "name: " + this?.c8o?.session?.user?.name+ " authenticated: " + this?.c8o?.session?.user?.authenticated+" sessionId: " + this?.c8o?.session?.user?.sessionId}}</li>
+    <li>OldUser: {{ "name: " + this?.c8o?.session?.olduser?.name+ " authenticated: " + this?.c8o?.session?.olduser?.authenticated+" sessionId: " + this?.c8o?.session?.olduser?.sessionId}}</li>
+  </ul>
+
+
+
+
   <p>Network: {{getNetwork()}}</p>
   <p>User: {{ "name: " + this?.c8o?.session?.user?.name+ " authenticated: " + this?.c8o?.session?.user?.authenticated+" sessionId: " + this?.c8o?.session?.user?.sessionId}}</p>
   <p>OldUser: {{ "name: " + this?.c8o?.session?.olduser?.name+ " authenticated: " + this?.c8o?.session?.olduser?.authenticated+" sessionId: " + this?.c8o?.session?.olduser?.sessionId}}</p>

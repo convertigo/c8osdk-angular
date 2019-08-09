@@ -125,9 +125,9 @@ To target angular 6 & 7 please use at least version 2.2.8
 $ npm install --save c8osdkangular@2.2.8
 ```
 
-To target angular  8 please use at least version 3.0.0-beta17
+To target angular  8 please use at least version 3.0.0
 ```shell
-$ npm install --save c8osdkangular@3.0.0-beta17
+$ npm install --save c8osdkangular@3.0.0
 ```
 
 Then add the following lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts
