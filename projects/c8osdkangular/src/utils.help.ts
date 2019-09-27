@@ -208,7 +208,7 @@ export class Functions {
     }
     static async removesess(c8o, resolve) {
         console.log("Removing session");
-        let params: any = { "__sequence": "RemoveSession", "__uuid": C8oCore.deviceUUID };
+        let params: any = { "__sequence": "RemoveSession", "__uuid": c8o.deviceUUID };
         params = c8o.httpInterface.transformRequest(params);
         let headersObject = { "Content-Type": "application/x-www-form-urlencoded", "x-convertigo-sdk": c8o.sdkVersion };
         Object.assign(headersObject, c8o.headers);
