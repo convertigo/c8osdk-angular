@@ -28,7 +28,7 @@
 
 \+ **new FullSyncPostDocumentParameter**(`name`: string): *[FullSyncPostDocumentParameter](fullsyncpostdocumentparameter.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:941](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L941)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:947](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L947)*
 
 **Parameters:**
 
@@ -44,7 +44,7 @@ Name | Type |
 
 • **name**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:941](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L941)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:947](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L947)*
 
 *Defined in [c8osdk-js-core/src/c8o/fullsyncpostdocumentparameter.ts:7](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/fullsyncpostdocumentparameter.ts#L7)*
 
@@ -54,7 +54,7 @@ ___
 
 ▪ **POLICY**: *FullSyncPostDocumentParameter* =  new FullSyncPostDocumentParameter(C8oCore.FS_POLICY)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:938](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L938)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:944](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L944)*
 
 *Defined in [c8osdk-js-core/src/c8o/fullsyncpostdocumentparameter.ts:4](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/fullsyncpostdocumentparameter.ts#L4)*
 
@@ -64,7 +64,7 @@ ___
 
 ▪ **SUBKEY_SEPARATOR**: *FullSyncPostDocumentParameter* =  new FullSyncPostDocumentParameter(C8oCore.FS_SUBKEY_SEPARATOR)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:939](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L939)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:945](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L945)*
 
 *Defined in [c8osdk-js-core/src/c8o/fullsyncpostdocumentparameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/fullsyncpostdocumentparameter.ts#L5)*
 
@@ -74,6 +74,6 @@ ___
 
 ▸ **values**(): *[FullSyncPostDocumentParameter](fullsyncpostdocumentparameter.md)[]*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:947](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L947)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:953](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L953)*
 
 **Returns:** *[FullSyncPostDocumentParameter](fullsyncpostdocumentparameter.md)[]*

@@ -40,7 +40,7 @@
 
 *Overrides [C8oUtilsCore](c8outilscore.md).[constructor](c8outilscore.md#constructor)*
 
-*Defined in [lib/c8oUtils.service.ts:8](https://github.com/convertigo/c8osdk-angular/blob/8877925/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L8)*
+*Defined in [lib/c8oUtils.service.ts:8](https://github.com/convertigo/c8osdk-angular/blob/f311277/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L8)*
 
 **Parameters:**
 
@@ -66,7 +66,7 @@ ___
 
 • **http**: *HttpClient*
 
-*Defined in [lib/c8oUtils.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/8877925/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L10)*
+*Defined in [lib/c8oUtils.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/f311277/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L10)*
 
 ## Methods
 

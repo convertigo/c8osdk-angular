@@ -32,7 +32,7 @@
 
 \+ **new FullSyncPolicy**(`value`: string, `action`: function): *[FullSyncPolicy](fullsyncpolicy.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:912](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L912)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:918](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L918)*
 
 **Parameters:**
 
@@ -57,7 +57,7 @@ Name | Type |
 
 • **action**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:912](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L912)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:918](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L918)*
 
 #### Type declaration:
 
@@ -76,7 +76,7 @@ ___
 
 • **value**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:911](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L911)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:917](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L917)*
 
 ___
 
@@ -96,7 +96,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:821](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L821)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:827](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L827)*
 
 ___
 
@@ -143,7 +143,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:870](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L870)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:876](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L876)*
 
 ___
 
@@ -163,7 +163,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:807](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L807)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:813](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L813)*
 
 ___
 
@@ -204,7 +204,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:835](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L835)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:841](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L841)*
 
 ## Methods
 
@@ -212,7 +212,7 @@ ___
 
 ▸ **getFullSyncPolicy**(`value`: string): *[FullSyncPolicy](fullsyncpolicy.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:924](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L924)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:930](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L930)*
 
 **Parameters:**
 
@@ -228,6 +228,6 @@ ___
 
 ▸ **values**(): *[FullSyncPolicy](fullsyncpolicy.md)[]*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:920](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L920)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:926](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oCore.ts#L926)*
 
 **Returns:** *[FullSyncPolicy](fullsyncpolicy.md)[]*

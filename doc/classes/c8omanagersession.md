@@ -209,7 +209,7 @@ Name | Type |
 
 ▸ **checkSession**(`headers`: any, `time`: number, `resolve`: any): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:302](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L302)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:309](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L309)*
 
 **Parameters:**
 
@@ -227,7 +227,7 @@ ___
 
 ▸ **checkUser**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:277](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L277)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:284](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L284)*
 
 **Returns:** *Promise‹any›*
 
@@ -237,7 +237,7 @@ ___
 
 ▸ **defineSessionStatus**(`response`: any, `headers`: any, `urlReq`: any, `parametersReq`: any, `headersReq`: any): *Promise‹[C8oSessionStatus](c8osessionstatus.md)›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:218](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L218)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:225](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L225)*
 
 defineSessionStatus
 
@@ -263,7 +263,7 @@ ___
 
 ▸ **doAuthReachable**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:173](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L173)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:180](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oManagerSession.ts#L180)*
 
 **Returns:** *Promise‹void›*
 

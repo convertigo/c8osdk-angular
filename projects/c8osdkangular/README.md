@@ -985,7 +985,7 @@ And when network come back, we will check if your session is still existing.
 
 In this case we will restart automatically replication.
 
-And if session do not exist anymore we will notify you by a handler.
+And if session do not exist anymore we will, try to authenticate you automatically if its not successful we will notify you by a handler.
 
 ```typescript
  // set keep sessionAlive active
@@ -1000,7 +1000,19 @@ And if session do not exist anymore we will notify you by a handler.
       // Do something
   });
 ```
+Sometimes, we do not want SDK to automatically process login, for example in cas of sequence that logout ourselves. So we can pass an argument to the callJSON that will disable autologin for this sequence.
 
+```typescript
+// Disable autologin in order to be able to logout
+this.c8o.callJsonObject("project.logout",{
+    "__disableAutologin": true
+    })
+    .then((response)=>{
+      // logged out
+    })
+```
+
+In this case we can 
 
 ## Internal Technical documentation ##
 
