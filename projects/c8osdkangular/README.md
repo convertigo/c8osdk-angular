@@ -19,10 +19,12 @@ Angular 6.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circl
 
 Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular5.png)
 
-
+## API documentation ##
+[Click here to see API documentation](../../doc/index.html)
 ## Table of contents ##
 
 - [Test status](#test-status)
+- [API documentation](#api-documentation)
 - [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
   - [About SDKs](#about-sdks)

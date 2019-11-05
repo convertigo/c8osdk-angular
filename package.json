@@ -13,11 +13,12 @@
     "install-sdk": "npm install && cd projects/c8osdkangular/ && npm install && cd src/c8osdk-js-core/ && npm i",
     "test-sdk": "ng test c8osdkangular",
     "test-sdk-nowatch": "ng test c8osdkangular --watch=false",
-    "publish-sdk": "npm publish",
-    "publish-beta-sdk": "npm publish --tag beta",
+    "publish-sdk": "cd dist/c8osdkangular && npm publish",
+    "publish-beta-sdk": "cd dist/c8osdkangular && npm publish --tag beta",
     "submodules": "git submodule update --init --recursive",
-    "docs": "npm run typedoc -- --options typedoc.json --exclude projects/c8osdkangular/src/**/*.spec.ts projects/c8osdkangular/src/c8osdk-js-core/node_modules/ --readme './projects/c8osdkangular/src/README.md' ./projects/c8osdkangular/src/",
-    "wv": "node ./version.js"
+    "docs": "npm run typedoc -- --options typedoc.json --excludeExternals --externalPattern '{**/node_modules/**,**/test.ts} --exclude '{**/projects/c8osdkangular/src/**/*.spec.ts,**/projects/c8osdkangular/src/c8osdk-js-core/node_modules/,**/projects/c8osdkangular/src/test.ts,**/projects/c8osdkangular/src/utils.help.ts}' --readme none --mode file ./projects/c8osdkangular/src/",
+    "wv": "node ./version.js",
+    "typedoc": "typedoc"
   },
   "private": true,
   "dependencies": {
@@ -70,7 +71,7 @@
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6",
-    "typedoc": "0.14.2",
+    "typedoc": "0.15.0",
     "node-jq": "1.5.0",
     "karma-firefox-launcher": "1.1.0"
   }

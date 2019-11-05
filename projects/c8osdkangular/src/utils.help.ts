@@ -6,6 +6,10 @@ import { C8o } from "./lib/c8o.service";
 import { HttpHeaders } from '@angular/common/http';
 import { C8oCore } from "../src/c8osdk-js-core/src/index";
 import { Utils } from 'handlebars';
+/**
+ * @class
+ * @ignore
+ */
 export class Info {
     // if you wants to use a proxy you mast change remote host and port please change configuration in Root/config/karama.conf.js
 
@@ -75,6 +79,10 @@ export class Info {
 }
 
 //noinspection TsLint
+/**
+ * @class
+ * @ignore
+ */
 export class Stuff {
     static get C8o(): C8oSettings {
         let c8oSettings: C8oSettings = new C8oSettings();
@@ -181,6 +189,10 @@ export class Stuff {
 }
 
 //noinspection TsLint
+/**
+ * @class
+ * @ignore
+ */
 export class Functions {
     static CheckLogRemoteHelper(c8o: C8o, lv: any, msg: string) {
         c8o.callJson(".GetLogs").then(
@@ -226,13 +238,19 @@ export class Functions {
     }
 
 }
-
+/**
+ * @class
+ * @ignore
+ */
 export class PlainObjectA {
     public name: string;
     public bObjects: Array<any>;
     public bObject: PlainObjectB;
 }
-
+/**
+ * @class
+ * @ignore
+ */
 export class PlainObjectB {
     public name: string;
     public num: number;
