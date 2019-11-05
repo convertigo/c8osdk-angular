@@ -38,7 +38,7 @@
 
 \+ **new C8oUtilsCore**(): *[C8oUtilsCore](c8outilscore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:6](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:6](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L6)*
 
 **Returns:** *[C8oUtilsCore](c8outilscore.md)*
 
@@ -48,7 +48,7 @@
 
 • **data**: *JSON*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:6](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:6](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L6)*
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 ▪ **USE_PARAMETER_IDENTIFIER**: *string* = "_use_"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:5](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:5](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L5)*
 
 FullSync parameters prefix.
 
@@ -66,7 +66,7 @@ FullSync parameters prefix.
 
 ▸ **checkHeaderArgument**(`response`: any, `argument`: any): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:136](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L136)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:136](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L136)*
 
 **Parameters:**
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **getNewGUIDString**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:25](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:25](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L25)*
 
 **Returns:** *string*
 
@@ -93,7 +93,7 @@ ___
 
 ▸ **getObjectClassName**(`object`: any): *"string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:17](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:17](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L17)*
 
 Returns the class name of the object as a String, if the object is null then returns the String "null".
 
@@ -113,7 +113,7 @@ ___
 
 ▸ **getParameter**(`parameters`: Object, `name`: string, `useName`: boolean): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:56](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L56)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:56](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L56)*
 
 TAG Parameter
 
@@ -133,7 +133,7 @@ ___
 
 ▸ **getParameterObjectValue**(`parameters`: Object, `name`: string, `useName`: boolean): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:85](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L85)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:85](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L85)*
 
 **Parameters:**
 
@@ -151,7 +151,7 @@ ___
 
 ▸ **getParameterStringValue**(`parameters`: Object, `name`: string, `useName`: boolean): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:77](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L77)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:77](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L77)*
 
 Searches in the list the parameter with this specific name (or the same name with the prefix '_use_') and returns it.<br/>
 Returns null if the parameter is not found.
@@ -174,7 +174,7 @@ ___
 
 ▸ **identifyC8oCallRequest**(`parameters`: Object, `responseType`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:132](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L132)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:132](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L132)*
 
 Serializes a c8o call request thanks to its parameters and response type.
 
@@ -197,7 +197,7 @@ ___
 
 ▸ **isValidUrl**(`url`: string): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:21](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:21](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L21)*
 
 **Parameters:**
 
@@ -213,7 +213,7 @@ ___
 
 ▸ **peekParameterObjectValue**(`parameters`: Object, `name`: string, `exceptionIfMissing`: boolean): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:111](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L111)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:111](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L111)*
 
 **Parameters:**
 
@@ -231,7 +231,7 @@ ___
 
 ▸ **peekParameterStringValue**(`parameters`: Object, `name`: string, `exceptionIfMissing`: boolean): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:97](https://github.com/convertigo/c8osdk-angular/blob/ffab8e3/src/c8o/c8oUtilsCore.ts#L97)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:97](https://github.com/convertigo/c8osdk-angular/blob/8ef5416/src/c8o/c8oUtilsCore.ts#L97)*
 
 **Parameters:**
 
