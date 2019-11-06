@@ -595,8 +595,8 @@ describe("provider: basic calls verifications", () => {
                 expect(c8o.logLevelLocal).toBe(C8oLogLevel.ERROR);
                 expect(c8o.toString()).toBe("C8o[" + Info.endpoint + "]");
                 expect(c8o.endpointIsSecure).toBe(true);
-                expect(c8o.endpointHost).toBe(Info.host);
-                expect(c8o.endpointPort).toBe(":" + Info.port);
+                expect(c8o.endpointHost).toBe(Info.local ? Info.hostLocal : Info.host);
+                //expect(c8o.endpointPort).toBe(Info.local ? ":" + Info.portLocal : ":" + Info.port);
                 c8o.callJson(null)
                     .then((response: any) => {
                         done.fail("then is not supposed to happend");
@@ -2476,7 +2476,7 @@ describe("provider: basic calls verifications", () => {
         })();
     });
 
-    it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
+     it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
             try {
                 let timeout;
@@ -2502,7 +2502,7 @@ describe("provider: basic calls verifications", () => {
 
 
                     // Check that we have six rep and each one is in its expected state
-
+                    //await Functions.wait(5000);
                     let cpt = 0;
                     expect(c8o.database.registeredReplications["anonymous"].length).toBe(6);
                     for (let rep of c8o.database.registeredReplications["anonymous"]) {
@@ -2533,6 +2533,7 @@ describe("provider: basic calls verifications", () => {
                     await c8o.callJson("fs://databased2.replicate_pull", "continuous", true);
                     await c8o.callJson("fs://databased3.replicate_push", "continuous", true);
 
+                    //await Functions.wait(5000);
                     // Check that we have six rep and each one is in its expected state
                     cpt = 0;
                     expect(c8o.database.registeredReplications["testing_user"].length).toBe(6);
@@ -2548,7 +2549,9 @@ describe("provider: basic calls verifications", () => {
                         cpt = cpt + 1;
                     }
                     // remove session
-                    Functions.removesess(c8o, resolve);
+                    //Functions.removesess(c8o, resolve);
+                    await c8o.callJson(".logout", C8o.SEQ_AUTO_LOGIN_OFF, true);
+                    resolve();
 
                 });
                 p.then(async () => {
@@ -2574,6 +2577,7 @@ describe("provider: basic calls verifications", () => {
                     let response = await c8o.callJson(".LoginTesting").async();
                     expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
                     cpt = 0;
+                    //await Functions.wait(5000);
                     for (let rep of c8o.database.registeredReplications["testing_user"]) {
                         if (cpt < 3) {
                             expect(rep["canceled"]).toBeFalsy();
@@ -2593,6 +2597,7 @@ describe("provider: basic calls verifications", () => {
             }
         })();;
     });
+ 
 
     it("should check that Fullsync reset database is not applied on local created database (C8oFsResetNotForLocalCreatedDB)", async (done) => {
         inject([C8o], async (c8o: C8o) => {

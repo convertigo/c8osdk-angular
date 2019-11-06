@@ -15,24 +15,27 @@ export class Info {
 
     // Set this property to use local studio for tests
     static local = false;
+    static remote: "T";
 
     // Remote infos
     static get http() {
-        return "http://";
+        return "https://";
     }
     static get host() {
-        //return "192.168.99.100"
-        return "c8o-dev.convertigo.net";
+        //return "192.168.100.70"
+        //return "c8o-dev.convertigo.net";
         //return "localhost";
-        //return "qualif-sdk.convertigo.net"
+        return "qualif-sdk.convertigo.net"
+        //return "test-convertigo.convertigo.net";
     }
     static get port() {
         //return "28080";
         //return "8080"
-        return "80"
+        return "443"
     }
     static get project_path() {
-        return "/cems/projects/ClientSDKtesting";
+        //return "/cems/projects/ClientSDKtesting";
+        return "/convertigo/projects/ClientSDKtesting";
     }
 
     // Local infos
@@ -50,7 +53,7 @@ export class Info {
     }
     public static get endpoint() {
         if (!Info.local) {
-            return Info.http + Info.host + ":" + Info.port + Info.project_path;
+            return Info.http + Info.host /*+ ":" + Info.port */ + Info.project_path;
         }
         else {
             return Info.httpLocal + Info.hostLocal + ":" + Info.portLocal + Info.project_pathLocal;
