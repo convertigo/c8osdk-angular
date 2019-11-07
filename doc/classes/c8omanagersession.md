@@ -44,7 +44,7 @@
 
 \+ **new C8oManagerSession**(`c8o`: [C8oCore](c8ocore.md)): *[C8oManagerSession](c8omanagersession.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:18](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L18)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:18](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L18)*
 
 **Parameters:**
 
@@ -60,7 +60,7 @@ Name | Type |
 
 • **_olduser**: *[C8oSessionUser](c8osessionuser.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:16](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:16](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L16)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 • **_status**: *[C8oSessionStatus](c8osessionstatus.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:11](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:11](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L11)*
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 • **_user**: *[C8oSessionUser](c8osessionuser.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:15](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:15](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L15)*
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:10](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:10](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L10)*
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 • **checker**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:14](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:14](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L14)*
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:12](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:12](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L12)*
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 • **ignored**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:17](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:17](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L17)*
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 • **loginManager**: *[C8oManagerLogin](c8omanagerlogin.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:13](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:13](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L13)*
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 • **resumeListener**: *any* =  undefined
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:18](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L18)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:18](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L18)*
 
 ## Accessors
 
@@ -132,7 +132,7 @@ ___
 
 • **get olduser**(): *[C8oSessionUser](c8osessionuser.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:74](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L74)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:74](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L74)*
 
 Get previous status of the session
 
@@ -153,7 +153,7 @@ ___
 
 • **get status**(): *[C8oSessionStatus](c8osessionstatus.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:43](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L43)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:43](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L43)*
 
 Get status of the session
 
@@ -174,7 +174,7 @@ ___
 
 • **get user**(): *[C8oSessionUser](c8osessionuser.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:59](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L59)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:59](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L59)*
 
 Get status of the session
 
@@ -191,7 +191,7 @@ C8oSessionStatus.Ignore
 
 • **set user**(`user`: [C8oSessionUser](c8osessionuser.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:78](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L78)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:78](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L78)*
 
 Get status of the session
 
@@ -209,7 +209,7 @@ Name | Type |
 
 ▸ **checkSession**(`headers`: any, `time`: number, `resolve`: any): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:309](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L309)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:316](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L316)*
 
 **Parameters:**
 
@@ -227,7 +227,7 @@ ___
 
 ▸ **checkUser**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:284](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L284)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:291](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L291)*
 
 **Returns:** *Promise‹any›*
 
@@ -237,7 +237,7 @@ ___
 
 ▸ **defineSessionStatus**(`response`: any, `headers`: any, `urlReq`: any, `parametersReq`: any, `headersReq`: any): *Promise‹[C8oSessionStatus](c8osessionstatus.md)›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:225](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L225)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:232](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L232)*
 
 defineSessionStatus
 
@@ -263,7 +263,7 @@ ___
 
 ▸ **doAuthReachable**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:180](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L180)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:187](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L187)*
 
 **Returns:** *Promise‹void›*
 
@@ -273,7 +273,7 @@ ___
 
 ▸ **sort**(`response`: any, `headers`: any, `urlReq`: any, `parametersReq`: any, `headersReq`: any, `resolve`: any): *Promise‹unknown›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:83](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oManagerSession.ts#L83)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:83](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oManagerSession.ts#L83)*
 
 **Parameters:**
 

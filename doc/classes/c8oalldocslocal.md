@@ -41,7 +41,7 @@
 
 \+ **new C8oAlldocsLocal**(`c8o`: [C8oCore](c8ocore.md)): *[C8oAlldocsLocal](c8oalldocslocal.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:4](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:4](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L4)*
 
 **Parameters:**
 
@@ -57,7 +57,7 @@ Name | Type |
 
 • **ATTACH_STORE**: *string* = "attach-store"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:10](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:10](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L10)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **DB_VERSION**: *number* = 5
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:8](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:8](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L8)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **LOCAL_STORE**: *string* = "local-store"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:9](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:9](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L9)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:6](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:6](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L6)*
 
 ## Methods
 
@@ -89,7 +89,7 @@ ___
 
 ▸ **allDocsKeys**(`keys`: any, `docStore`: any, `onBatch`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:372](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L372)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:372](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L372)*
 
 **Parameters:**
 
@@ -107,7 +107,7 @@ ___
 
 ▸ **allDocsKeysParse**(`opts`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:426](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L426)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:426](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L426)*
 
 **Parameters:**
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **alldocs**(`opts`: any, `db`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:12](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:12](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L12)*
 
 **Parameters:**
 
@@ -140,7 +140,7 @@ ___
 
 ▸ **createKeyRange**(`start`: any, `end`: any, `inclusiveEnd`: any, `key`: any, `descending`: any): *IDBKeyRange | object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:439](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L439)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:439](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L439)*
 
 **Parameters:**
 
@@ -160,7 +160,7 @@ ___
 
 ▸ **decodeMetadata**(`storedObject`: any): *object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:392](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L392)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:392](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L392)*
 
 **Parameters:**
 
@@ -176,7 +176,7 @@ ___
 
 ▸ **doOpenBase**(`DB_NAME`: any, `resolve`: any, `reject`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:71](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L71)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:71](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L71)*
 
 **Parameters:**
 
@@ -194,7 +194,7 @@ ___
 
 ▸ **getAll**(`objectStore`: any, `keyRange`: any, `onSuccess`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:346](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L346)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:346](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L346)*
 
 **Parameters:**
 
@@ -212,7 +212,7 @@ ___
 
 ▸ **idbAllDocs**(`opts`: any, `callback`: any, `DB_NAME`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:128](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L128)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:128](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L128)*
 
 **Parameters:**
 
@@ -230,7 +230,7 @@ ___
 
 ▸ **isRemote**(`db`: any): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:414](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L414)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:414](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L414)*
 
 **Parameters:**
 
@@ -246,7 +246,7 @@ ___
 
 ▸ **openBase**(`DB_NAME`: any, `resolve`: any, `reject`: any): *Promise‹unknown›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:62](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L62)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:62](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L62)*
 
 **Parameters:**
 
@@ -264,7 +264,7 @@ ___
 
 ▸ **openTransactionSafely**(`idb`: any, `stores`: any, `mode`: any): *object | object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:402](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L402)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:402](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L402)*
 
 **Parameters:**
 
@@ -282,7 +282,7 @@ ___
 
 ▸ **restaureDb**(`DB_NAME`: any): *Promise‹unknown›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:98](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L98)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:98](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L98)*
 
 **Parameters:**
 
@@ -298,7 +298,7 @@ ___
 
 ▸ **runBatchedCursor**(`objectStore`: any, `keyRange`: any, `descending`: any, `batchSize`: any, `onBatch`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:267](https://github.com/convertigo/c8osdk-angular/blob/d8ba06a/src/c8o/c8oAlldocsLocal.ts#L267)*
+*Defined in [c8osdk-js-core/src/c8o/c8oAlldocsLocal.ts:267](https://github.com/convertigo/c8osdk-angular/blob/3f9e8b7/src/c8o/c8oAlldocsLocal.ts#L267)*
 
 **Parameters:**
 
