@@ -163,7 +163,7 @@
 
 *Overrides [C8oCore](c8ocore.md).[constructor](c8ocore.md#constructor)*
 
-*Defined in [lib/c8o.service.ts:8](https://github.com/convertigo/c8osdk-angular/blob/ab67130/projects/c8osdkangular/src/lib/c8o.service.ts#L8)*
+*Defined in [lib/c8o.service.ts:8](https://github.com/convertigo/c8osdk-angular/blob/999b25a/projects/c8osdkangular/src/lib/c8o.service.ts#L8)*
 
 **Parameters:**
 
@@ -611,7 +611,7 @@ ___
 
 • **http**: *HttpClient*
 
-*Defined in [lib/c8o.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/ab67130/projects/c8osdkangular/src/lib/c8o.service.ts#L10)*
+*Defined in [lib/c8o.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/999b25a/projects/c8osdkangular/src/lib/c8o.service.ts#L10)*
 
 ___
 
@@ -1608,7 +1608,7 @@ ___
 
 *Overrides [C8oCore](c8ocore.md).[sdkVersion](c8ocore.md#sdkversion)*
 
-*Defined in [lib/c8o.service.ts:18](https://github.com/convertigo/c8osdk-angular/blob/ab67130/projects/c8osdkangular/src/lib/c8o.service.ts#L18)*
+*Defined in [lib/c8o.service.ts:18](https://github.com/convertigo/c8osdk-angular/blob/999b25a/projects/c8osdkangular/src/lib/c8o.service.ts#L18)*
 
 get current sdk version
 
@@ -1931,7 +1931,7 @@ ___
 
 *Overrides [C8oCore](c8ocore.md).[httpGetObservable](c8ocore.md#abstract-httpgetobservable)*
 
-*Defined in [lib/c8o.service.ts:25](https://github.com/convertigo/c8osdk-angular/blob/ab67130/projects/c8osdkangular/src/lib/c8o.service.ts#L25)*
+*Defined in [lib/c8o.service.ts:25](https://github.com/convertigo/c8osdk-angular/blob/999b25a/projects/c8osdkangular/src/lib/c8o.service.ts#L25)*
 
 Method to bastract http get
 
@@ -1975,7 +1975,7 @@ ___
 
 *Overrides [C8oCore](c8ocore.md).[initC8oHttInterface](c8ocore.md#abstract-initc8ohttinterface)*
 
-*Defined in [lib/c8o.service.ts:32](https://github.com/convertigo/c8osdk-angular/blob/ab67130/projects/c8osdkangular/src/lib/c8o.service.ts#L32)*
+*Defined in [lib/c8o.service.ts:32](https://github.com/convertigo/c8osdk-angular/blob/999b25a/projects/c8osdkangular/src/lib/c8o.service.ts#L32)*
 
 Init http interface in client sdk
 

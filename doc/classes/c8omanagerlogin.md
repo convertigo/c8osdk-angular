@@ -28,7 +28,7 @@
 
 \+ **new C8oManagerLogin**(`c8o`: [C8oCore](c8ocore.md)): *[C8oManagerLogin](c8omanagerlogin.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:7](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:8](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L8)*
 
 **Parameters:**
 
@@ -44,7 +44,7 @@ Name | Type |
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:6](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:7](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L7)*
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 • **requestLogin**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:7](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:8](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L8)*
 
 ## Methods
 
@@ -60,7 +60,7 @@ ___
 
 ▸ **doLogin**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:16](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:17](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L17)*
 
 **Returns:** *Promise‹any›*
 
@@ -70,7 +70,7 @@ ___
 
 ▸ **setRequestLogin**(`url`: string, `parameters`: Object, `headers`: Object): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:12](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:13](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L13)*
 
 **Parameters:**
 

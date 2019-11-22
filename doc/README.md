@@ -82,7 +82,7 @@
 
 *Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:8](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerDatabase.ts#L8)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:4](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:5](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerLogin.ts#L5)*
 
 *Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:8](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/c8oManagerSession.ts#L8)*
 

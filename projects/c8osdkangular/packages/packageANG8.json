@@ -1,6 +1,6 @@
 {
     "name": "c8osdkangular",
-    "version": "3.0.4-beta2",
+    "version": "3.0.4-beta11",
     "test": "testing version",
     "description": "convertigo's MBaaS client API service",
     "repository": {
