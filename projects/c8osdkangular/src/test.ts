@@ -2476,7 +2476,6 @@ describe("provider: basic calls verifications", () => {
             }
         })();
     });
-
      it("should check that replication restart or not when its necessary (C8oReplicationStopR)", async (done) => {
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
             try {

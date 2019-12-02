@@ -26,7 +26,7 @@
 
 \+ **new C8oFullSyncChangeListener**(`change`: function): *[C8oFullSyncChangeListener](c8ofullsyncchangelistener.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncChangeListener.ts:2](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSyncChangeListener.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncChangeListener.ts:2](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSyncChangeListener.ts#L2)*
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ Name | Type |
 
 • **_onchange**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncChangeListener.ts:2](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSyncChangeListener.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncChangeListener.ts:2](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSyncChangeListener.ts#L2)*
 
 #### Type declaration:
 
@@ -66,7 +66,7 @@ Name | Type |
 
 ▸ **onChange**(`changes`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncChangeListener.ts:6](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSyncChangeListener.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncChangeListener.ts:6](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSyncChangeListener.ts#L6)*
 
 **Parameters:**
 

@@ -37,7 +37,7 @@
 
 \+ **new C8oFullSync**(`c8o`: [C8oCore](c8ocore.md)): *[C8oFullSync](c8ofullsync.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:30](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L30)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:30](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L30)*
 
 **Parameters:**
 
@@ -53,7 +53,7 @@ Name | Type |
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:28](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L28)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:28](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L28)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **fullSyncDatabaseUrlBase**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:29](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:29](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L29)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **localSuffix**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:30](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L30)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:30](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L30)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 ▪ **FULL_SYNC_PROJECT**: *string* = "fs://"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:23](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L23)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:23](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L23)*
 
 The project requestable value to execute a fullSync request.
 
@@ -87,7 +87,7 @@ ___
 
 ▪ **FULL_SYNC_URL_PATH**: *string* = "/fullsync/"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:19](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L19)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:19](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L19)*
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 ▪ **FULL_SYNC__ATTACHMENTS**: *string* = "_attachments"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:26](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L26)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:26](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L26)*
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 ▪ **FULL_SYNC__ID**: *string* = "_id"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:24](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L24)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:24](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L24)*
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 ▪ **FULL_SYNC__REV**: *string* = "_rev"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:25](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:25](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L25)*
 
 ## Methods
 
@@ -119,7 +119,7 @@ ___
 
 ▸ **handleFullSyncRequest**(`_parameters`: Object, `listener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:47](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L47)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:47](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L47)*
 
 Handles a fullSync request.<br/>
 It determines the type of the request thanks to parameters.
@@ -143,7 +143,7 @@ ___
 
 ▸ **handleFullSyncResponse**(`response`: any, `listener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:108](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L108)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:108](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L108)*
 
 **`throws`** C8oException Failed to parse response.
 
@@ -164,7 +164,7 @@ ___
 
 ▸ **isFullSyncRequest**(`requestParameter`: Object): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:115](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/c8oFullSync.ts#L115)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:115](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oFullSync.ts#L115)*
 
 Checks if request parameters correspond to a fullSync request.
 
