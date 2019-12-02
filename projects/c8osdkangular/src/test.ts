@@ -2461,6 +2461,7 @@ describe("provider: basic calls verifications", () => {
                 }).then(async () => {
                     c8o.log.debug("log Debug");
                     await c8o.callJson(".Ping", "var1", "val1", "var2", "g").async()
+                    console.log("then");
                     timeout = setTimeout(() => {
                         expect(triggerautologinresponse).toBeTruthy();
                         done();
