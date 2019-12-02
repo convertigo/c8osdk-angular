@@ -53,7 +53,7 @@
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[constructor](c8ohttpinterfacecore.md#constructor)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:5](https://github.com/convertigo/c8osdk-angular/blob/0633fc9/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L5)*
+*Defined in [lib/c8oHttpInterface.service.ts:5](https://github.com/convertigo/c8osdk-angular/blob/2d59038/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L5)*
 
 **Parameters:**
 
@@ -192,7 +192,7 @@ ___
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[getHeaders](c8ohttpinterfacecore.md#abstract-getheaders)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:15](https://github.com/convertigo/c8osdk-angular/blob/0633fc9/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L15)*
+*Defined in [lib/c8oHttpInterface.service.ts:15](https://github.com/convertigo/c8osdk-angular/blob/2d59038/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L15)*
 
 get headers;
 
@@ -226,7 +226,7 @@ ___
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[getuploadRequester](c8ohttpinterfacecore.md#abstract-getuploadrequester)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:25](https://github.com/convertigo/c8osdk-angular/blob/0633fc9/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L25)*
+*Defined in [lib/c8oHttpInterface.service.ts:25](https://github.com/convertigo/c8osdk-angular/blob/2d59038/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L25)*
 
 Angular implementation to post with progress
 
@@ -398,7 +398,7 @@ ___
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[isHttpResponse](c8ohttpinterfacecore.md#abstract-ishttpresponse)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:35](https://github.com/convertigo/c8osdk-angular/blob/0633fc9/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L35)*
+*Defined in [lib/c8oHttpInterface.service.ts:35](https://github.com/convertigo/c8osdk-angular/blob/2d59038/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L35)*
 
 test type of request
 
