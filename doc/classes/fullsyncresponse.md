@@ -20,7 +20,7 @@
 
 ▪ **RESPONSE_KEY_DOCUMENT_ID**: *string* = "id"
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:10](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/fullSyncResponse.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:10](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/fullSyncResponse.ts#L10)*
 
 The response key indicating the document ID.
 
@@ -30,7 +30,7 @@ ___
 
 ▪ **RESPONSE_KEY_DOCUMENT_REVISION**: *string* = "rev"
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:14](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/fullSyncResponse.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:14](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/fullSyncResponse.ts#L14)*
 
 The response key indicating the document revision.
 
@@ -40,6 +40,6 @@ ___
 
 ▪ **RESPONSE_KEY_OK**: *string* = "ok"
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:6](https://github.com/convertigo/c8osdk-angular/blob/aea59f7/src/c8o/fullSyncResponse.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:6](https://github.com/convertigo/c8osdk-angular/blob/ce1ada0/src/c8o/fullSyncResponse.ts#L6)*
 
 The response key indicating the operation status.
