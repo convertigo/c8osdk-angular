@@ -48,13 +48,13 @@
 
 \+ **new C8oProgress**(): *[C8oProgress](c8oprogress.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:12](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:12](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L12)*
 
 **Returns:** *[C8oProgress](c8oprogress.md)*
 
 \+ **new C8oProgress**(`progress`: [C8oProgress](c8oprogress.md)): *[C8oProgress](c8oprogress.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:15](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:15](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L15)*
 
 **Parameters:**
 
@@ -70,7 +70,7 @@ Name | Type |
 
 • **_changed**: *boolean* = false
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:4](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:4](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L4)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 • **_continuous**: *boolean* = false
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:5](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:5](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L5)*
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 • **_current**: *number* =  -1
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:8](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:8](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L8)*
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 • **_finished**: *boolean* = false
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:6](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:6](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L6)*
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 • **_pull**: *boolean* = true
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:7](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:7](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L7)*
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 • **_raw**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:12](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:12](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L12)*
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 • **_status**: *string* = ""
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:10](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:10](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L10)*
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 • **_taskInfo**: *string* = ""
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:11](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:11](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L11)*
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 • **_total**: *number* =  -1
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:9](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:9](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L9)*
 
 ## Accessors
 
@@ -142,13 +142,13 @@ ___
 
 • **get changed**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:40](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L40)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:40](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L40)*
 
 **Returns:** *boolean*
 
 • **set changed**(`value`: boolean): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:45](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L45)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:45](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L45)*
 
 **Parameters:**
 
@@ -164,13 +164,13 @@ ___
 
 • **get continuous**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:49](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L49)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:49](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L49)*
 
 **Returns:** *boolean*
 
 • **set continuous**(`value`: boolean): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:53](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L53)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:53](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L53)*
 
 **Parameters:**
 
@@ -186,13 +186,13 @@ ___
 
 • **get current**(): *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:80](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L80)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:80](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L80)*
 
 **Returns:** *number*
 
 • **set current**(`value`: number): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:84](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L84)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:84](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L84)*
 
 **Parameters:**
 
@@ -208,7 +208,7 @@ ___
 
 • **get direction**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:98](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L98)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:98](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L98)*
 
 **Returns:** *string*
 
@@ -218,13 +218,13 @@ ___
 
 • **get finished**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:58](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L58)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:58](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L58)*
 
 **Returns:** *boolean*
 
 • **set finished**(`value`: boolean): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:62](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L62)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:62](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L62)*
 
 **Parameters:**
 
@@ -240,13 +240,13 @@ ___
 
 • **get pull**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:67](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L67)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:67](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L67)*
 
 **Returns:** *boolean*
 
 • **set pull**(`value`: boolean): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:71](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L71)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:71](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L71)*
 
 **Parameters:**
 
@@ -262,7 +262,7 @@ ___
 
 • **get push**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:76](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L76)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:76](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L76)*
 
 **Returns:** *boolean*
 
@@ -272,13 +272,13 @@ ___
 
 • **get raw**(): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:122](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L122)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:122](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L122)*
 
 **Returns:** *any*
 
 • **set raw**(`value`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:126](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L126)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:126](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L126)*
 
 **Parameters:**
 
@@ -294,13 +294,13 @@ ___
 
 • **get status**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:102](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L102)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:102](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L102)*
 
 **Returns:** *string*
 
 • **set status**(`value`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:106](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L106)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:106](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L106)*
 
 **Parameters:**
 
@@ -316,13 +316,13 @@ ___
 
 • **get taskInfo**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:112](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L112)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:112](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L112)*
 
 **Returns:** *string*
 
 • **set taskInfo**(`value`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:116](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L116)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:116](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L116)*
 
 **Parameters:**
 
@@ -338,13 +338,13 @@ ___
 
 • **get total**(): *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:89](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L89)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:89](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L89)*
 
 **Returns:** *number*
 
 • **set total**(`value`: number): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:93](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L93)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:93](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L93)*
 
 **Parameters:**
 
@@ -360,6 +360,6 @@ Name | Type |
 
 ▸ **toString**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:131](https://github.com/convertigo/c8osdk-angular/blob/5680ff1/src/c8o/c8oProgress.ts#L131)*
+*Defined in [c8osdk-js-core/src/c8o/c8oProgress.ts:131](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oProgress.ts#L131)*
 
 **Returns:** *string*
