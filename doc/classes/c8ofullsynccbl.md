@@ -72,7 +72,7 @@
 
 *Overrides [C8oFullSync](c8ofullsync.md).[constructor](c8ofullsync.md#constructor)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:132](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L132)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:132](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L132)*
 
 **Parameters:**
 
@@ -90,7 +90,7 @@ Name | Type |
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[c8o](c8ofullsync.md#c8o)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:28](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L28)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:28](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L28)*
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 • **canceled**: *boolean* = false
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:132](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L132)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:132](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L132)*
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 • **cblChangeListeners**: *any[]* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:130](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L130)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:130](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L130)*
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 • **fullSyncChangeListeners**: *[C8oFullSyncChangeListener](c8ofullsyncchangelistener.md)[][]* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:129](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L129)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:129](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L129)*
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[fullSyncDatabaseUrlBase](c8ofullsync.md#protected-fullsyncdatabaseurlbase)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:29](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:29](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L29)*
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 • **fullSyncDatabases**: *Object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:128](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L128)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:128](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L128)*
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[localSuffix](c8ofullsync.md#protected-localsuffix)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:30](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L30)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:30](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L30)*
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 • **replicationsToRestart**: *Array‹[ReplicationState](../interfaces/replicationstate.md)›* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:131](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L131)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:131](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L131)*
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 ▪ **ATTACHMENT_PROPERTY_KEY_CONTENT_URL**: *string* = "content_url"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:127](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L127)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:127](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L127)*
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[FULL_SYNC_PROJECT](c8ofullsync.md#static-full_sync_project)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:23](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L23)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:23](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L23)*
 
 The project requestable value to execute a fullSync request.
 
@@ -180,7 +180,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[FULL_SYNC__ATTACHMENTS](c8ofullsync.md#static-full_sync__attachments)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:26](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L26)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:26](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L26)*
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[FULL_SYNC__ID](c8ofullsync.md#static-full_sync__id)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:24](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L24)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:24](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L24)*
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[FULL_SYNC__REV](c8ofullsync.md#static-full_sync__rev)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:25](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:25](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L25)*
 
 ## Methods
 
@@ -208,7 +208,7 @@ ___
 
 ▸ **addFullSyncChangeListener**(`db`: string, `listener`: [C8oFullSyncChangeListener](c8ofullsyncchangelistener.md)): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:771](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L771)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:771](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L771)*
 
 **Parameters:**
 
@@ -225,7 +225,7 @@ ___
 
 ▸ **checkState**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:460](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L460)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:460](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L460)*
 
 Check network status before starting a replication
 
@@ -237,7 +237,7 @@ ___
 
 ▸ **getDocucmentFromDatabase**(`c8o`: [C8oCore](c8ocore.md), `databaseName`: string, `documentId`: string): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:652](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L652)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:652](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L652)*
 
 **Parameters:**
 
@@ -255,7 +255,7 @@ ___
 
 ▸ **getOrCreateFullSyncDatabase**(`databaseName`: string): *Promise‹[C8oFullSyncDatabase](c8ofullsyncdatabase.md)›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:150](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L150)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:150](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L150)*
 
 Returns the database with this name in the list.<br/>
 If it does not already exist yet then creates it and adds it to the list.
@@ -278,7 +278,7 @@ ___
 
 ▸ **getResponseFromLocalCache**(`c8oCallRequestIdentifier`: string): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:682](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L682)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:682](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L682)*
 
 **Parameters:**
 
@@ -294,7 +294,7 @@ ___
 
 ▸ **handleAllDocumentsRequest**(`databaseName`: string, `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:368](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L368)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:368](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L368)*
 
 **Parameters:**
 
@@ -311,7 +311,7 @@ ___
 
 ▸ **handleAllLocalDocumentsRequest**(`databaseName`: string, `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:383](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L383)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:383](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L383)*
 
 **Parameters:**
 
@@ -328,7 +328,7 @@ ___
 
 ▸ **handleBulkRequest**(`databaseName`: string, `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:524](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L524)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:524](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L524)*
 
 **Parameters:**
 
@@ -345,7 +345,7 @@ ___
 
 ▸ **handleCreateDatabaseRequest**(`databaseName`: string): *Promise‹[FullSyncDefaultResponse](fullsyncdefaultresponse.md)›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:519](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L519)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:519](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L519)*
 
 **Parameters:**
 
@@ -361,7 +361,7 @@ ___
 
 ▸ **handleDeleteAttachmentRequest**(`databaseName`: string, `docid`: string, `attachmentName`: string): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:345](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L345)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:345](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L345)*
 
 **Parameters:**
 
@@ -379,7 +379,7 @@ ___
 
 ▸ **handleDeleteDocumentRequest**(`DatabaseName`: string, `docid`: string, `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:229](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L229)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:229](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L229)*
 
 **Parameters:**
 
@@ -397,7 +397,7 @@ ___
 
 ▸ **handleDestroyDatabaseRequest**(`databaseName`: string): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:589](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L589)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:589](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L589)*
 
 **Parameters:**
 
@@ -415,7 +415,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[handleFullSyncRequest](c8ofullsync.md#handlefullsyncrequest)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:47](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L47)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:47](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L47)*
 
 Handles a fullSync request.<br/>
 It determines the type of the request thanks to parameters.
@@ -441,7 +441,7 @@ ___
 
 *Overrides [C8oFullSync](c8ofullsync.md).[handleFullSyncResponse](c8ofullsync.md#handlefullsyncresponse)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:165](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L165)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:165](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L165)*
 
 **Parameters:**
 
@@ -458,7 +458,7 @@ ___
 
 ▸ **handleGetAttachmentRequest**(`databaseName`: string, `docid`: string, `attachmentName`: string, `parameters`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:331](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L331)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:331](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L331)*
 
 **Parameters:**
 
@@ -477,7 +477,7 @@ ___
 
 ▸ **handleGetAttachmentUrlRequest**(`fullSyncDatabaseName`: string, `docid`: string, `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:180](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L180)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:180](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L180)*
 
 **Parameters:**
 
@@ -495,7 +495,7 @@ ___
 
 ▸ **handleGetDocumentRequest**(`fullSyncDatabaseName`: string, `docid`: string, `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:191](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L191)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:191](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L191)*
 
 **Parameters:**
 
@@ -513,7 +513,7 @@ ___
 
 ▸ **handleGetViewRequest**(`databaseName`: string, `ddocName`: string, `viewName`: string, `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:414](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L414)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:414](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L414)*
 
 **Parameters:**
 
@@ -532,7 +532,7 @@ ___
 
 ▸ **handleInfoRequest**(`databaseName`: string): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:576](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L576)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:576](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L576)*
 
 **Parameters:**
 
@@ -548,7 +548,7 @@ ___
 
 ▸ **handlePostDocumentRequest**(`databaseName`: string, `fullSyncPolicy`: [FullSyncPolicy](fullsyncpolicy.md), `parameters`: Object): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:262](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L262)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:262](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L262)*
 
 **Parameters:**
 
@@ -566,7 +566,7 @@ ___
 
 ▸ **handlePutAttachmentRequest**(`databaseName`: string, `docid`: string, `attachmentName`: string, `attachmentType`: string, `attachmentContent`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:306](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L306)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:306](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L306)*
 
 **Parameters:**
 
@@ -586,7 +586,7 @@ ___
 
 ▸ **handleReplicatePullRequest**(`databaseName`: string, `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:476](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L476)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:476](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L476)*
 
 **Parameters:**
 
@@ -604,7 +604,7 @@ ___
 
 ▸ **handleReplicatePushRequest**(`databaseName`: string, `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:488](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L488)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:488](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L488)*
 
 **Parameters:**
 
@@ -622,7 +622,7 @@ ___
 
 ▸ **handleResetDatabaseRequest**(`databaseName`: string): *Promise‹[FullSyncDefaultResponse](fullsyncdefaultresponse.md)›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:500](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L500)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:500](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L500)*
 
 **Parameters:**
 
@@ -638,7 +638,7 @@ ___
 
 ▸ **handleSyncRequest**(`databaseName`: string, `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:464](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L464)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:464](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L464)*
 
 **Parameters:**
 
@@ -656,7 +656,7 @@ ___
 
 ▸ **overrideDocument**(`document`: any, `properties`: Object, `databaseName`: any): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:666](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L666)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:666](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L666)*
 
 **Parameters:**
 
@@ -674,7 +674,7 @@ ___
 
 ▸ **removeFullSyncChangeListener**(`db`: string, `listener`: [C8oFullSyncChangeListener](c8ofullsyncchangelistener.md)): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:813](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L813)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:813](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L813)*
 
 **Parameters:**
 
@@ -691,7 +691,7 @@ ___
 
 ▸ **saveResponseToLocalCache**(`c8oCallRequestIdentifier`: string, `localCacheResponse`: [C8oLocalCacheResponse](c8olocalcacheresponse.md)): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:734](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L734)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:734](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L734)*
 
 **Parameters:**
 
@@ -710,7 +710,7 @@ ___
 
 *Inherited from [C8oFullSync](c8ofullsync.md).[isFullSyncRequest](c8ofullsync.md#static-isfullsyncrequest)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:115](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L115)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:115](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L115)*
 
 Checks if request parameters correspond to a fullSync request.
 
@@ -728,7 +728,7 @@ ___
 
 ▸ **mergeArrayProperties**(`newArray`: any, `oldArray`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:625](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L625)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:625](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L625)*
 
 **Parameters:**
 
@@ -745,7 +745,7 @@ ___
 
 ▸ **mergeProperties**(`newProperties`: Object, `oldProperties`: Object): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:603](https://github.com/convertigo/c8osdk-angular/blob/8cf70e2/src/c8o/c8oFullSync.ts#L603)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSync.ts:603](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oFullSync.ts#L603)*
 
 **Parameters:**
 
