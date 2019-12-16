@@ -36,7 +36,7 @@
 
 \+ **new C8oLogLevel**(`name`: string, `priority`: number): *[C8oLogLevel](c8ologlevel.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:16](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:16](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L16)*
 
 **Parameters:**
 
@@ -53,7 +53,7 @@ Name | Type |
 
 • **name**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:15](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:15](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L15)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **priority**: *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:16](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:16](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L16)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 ▪ **C8O_LOG_LEVELS**: *[C8oLogLevel](c8ologlevel.md)[]* =  [C8oLogLevel.NULL, C8oLogLevel.NONE, C8oLogLevel.TRACE, C8oLogLevel.DEBUG, C8oLogLevel.INFO, C8oLogLevel.WARN, C8oLogLevel.ERROR, C8oLogLevel.FATAL]
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:13](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:13](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L13)*
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 ▪ **DEBUG**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("debug", 3)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:7](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:7](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L7)*
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 ▪ **ERROR**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("error", 6)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:10](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:10](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L10)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 ▪ **FATAL**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("fatal", 7)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:11](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:11](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L11)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 ▪ **INFO**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("info", 4)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:8](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:8](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L8)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 ▪ **NONE**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("none", 1)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:5](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:5](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L5)*
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 ▪ **NULL**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("", 0)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:4](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:4](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L4)*
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 ▪ **TRACE**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("trace", 2)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:6](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:6](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L6)*
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 ▪ **WARN**: *[C8oLogLevel](c8ologlevel.md)* =  new C8oLogLevel("warn", 5)
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:9](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:9](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L9)*
 
 ## Methods
 
@@ -141,7 +141,7 @@ ___
 
 ▸ **getC8oLogLevel**(`name`: string): *[C8oLogLevel](c8ologlevel.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:23](https://github.com/convertigo/c8osdk-angular/blob/554de53/src/c8o/c8oLogLevel.ts#L23)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogLevel.ts:23](https://github.com/convertigo/c8osdk-angular/blob/d27563b/src/c8o/c8oLogLevel.ts#L23)*
 
 **Parameters:**
 
