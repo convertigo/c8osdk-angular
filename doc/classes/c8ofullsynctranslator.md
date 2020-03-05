@@ -33,7 +33,7 @@
 
 ▪ **FULL_SYNC_RESPONSE_KEY_COUNT**: *string* = "count"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:3](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:3](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L3)*
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_KEY_CURRENT**: *string* = "current"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:5](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:5](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L5)*
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_KEY_DIRECTION**: *string* = "direction"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:6](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:6](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L6)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_KEY_OK**: *string* = "ok"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:8](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:8](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L8)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_KEY_ROWS**: *string* = "rows"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:4](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:4](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L4)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_KEY_STATUS**: *string* = "status"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:9](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:9](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L9)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_KEY_TOTAL**: *string* = "total"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:7](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:7](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L7)*
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_VALUE_DIRECTION_PULL**: *string* = "pull"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:12](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:12](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L12)*
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 ▪ **FULL_SYNC_RESPONSE_VALUE_DIRECTION_PUSH**: *string* = "push"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:11](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:11](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L11)*
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 ▪ **XML_KEY_COUCHDB_OUTPUT**: *string* = "couchdb_output"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:15](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:15](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L15)*
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 ▪ **XML_KEY_DOCUMENT**: *string* = "document"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:14](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:14](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L14)*
 
 ## Methods
 
@@ -121,7 +121,7 @@ ___
 
 ▸ **fullSyncDefaultResponseToJson**(`fullSyncDefaultResponse`: [FullSyncDefaultResponse](fullsyncdefaultresponse.md)): *JSON*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:21](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:21](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L21)*
 
 **Parameters:**
 
@@ -137,7 +137,7 @@ ___
 
 ▸ **fullSyncDocumentOperationResponseToJson**(`fullSyncDocumentOperationResponse`: [FullSyncAbstractResponse](fullsyncabstractresponse.md)): *JSON*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:17](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oFullSyncTranslator.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oFullSyncTranslator.ts:17](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oFullSyncTranslator.ts#L17)*
 
 **Parameters:**
 

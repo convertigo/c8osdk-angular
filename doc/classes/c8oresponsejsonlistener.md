@@ -26,7 +26,7 @@
 
 \+ **new C8oResponseJsonListener**(`onJsonResponse`: function): *[C8oResponseJsonListener](c8oresponsejsonlistener.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:14](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oResponse.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:14](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oResponse.ts#L14)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **onJsonResponse**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:14](https://github.com/convertigo/c8osdk-angular/blob/e39f7bd/src/c8o/c8oResponse.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:14](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oResponse.ts#L14)*
 
 Called on c8o call JSON responses.
 
