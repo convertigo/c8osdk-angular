@@ -13,7 +13,7 @@ jobs:
       # Installing ionic cli
       - run:
           name: install-angular/cli
-          command: 'yarn global add @angular/cli'
+          command: 'sudo yarn global add @angular/cli'
           when: always
       # Creating result folder
       - run:
