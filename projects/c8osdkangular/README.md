@@ -60,7 +60,7 @@ Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circl
   - [Delete an attachment](#delete-an-attachment)
   - [Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications)](#synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications)
   - [Perform a Bulk load on a database](#perform-a-bulk-load-on-a-database)
-  - [Perform a Query View (Map / Reduce)](#perform-a-query-view-map--reduce)
+  - [Perform a Query View  (Map / Reduce)](#perform-a-query-view-map--reduce)
   - [Get all documents](#get-all-documents)
     - [Get all synchronised documents](#get-all-synchronised-documents)
     - [Get all local documents ("_local/")](#get-all-local-documents-_local)
@@ -607,10 +607,51 @@ You can use the following options:
   * **create**: This post policy remove the "_id" and "_rev" of the document before the insertion.
   * **override**: This post policy inserts the document in database even if a document with the same "_id" already exists.
   * **merge**: This post policy merge the document with an existing document with the same "_id" before the insertion.
+* **_use_merge** (optional) <ins>it only works in combination with</ins> _use_policy merge. It allows you to apply a sub policy (override, or delete) to some specific keys. To understand fully how to use it please see following example.
+  * **override** This sub policy allow you to override only a specific key
+  * **delete** This sub policy allow you to delete only a specific key
 
 ```typescript
 // here we post a document, with a given id 
-let resultPost = await this.c8o.callJson("fs://mabase.post", "id", "myId").async();
+let resultPost = await this.c8o.callJsonObject("fs://mabase.post",
+ {
+    '_id':'myID',
+    property1: 'myfirstproperty',
+    property2: ['a','b','c'],
+    property3: {
+      'e':'E',
+      'f':'F',
+      'g':{'a':['h','i','j', 'k'], 'b':'cdef', 'z':'hij'}
+      }
+}
+).async();
+// Then we wants to override a specific key of our document but merge the rest of the document
+
+let resultPost = await this.c8o.callJsonObject("fs://mabase.post",
+ {
+    '_id':'myID',
+    property4: 'myNewProp',
+    property3: {
+      'g':{'a':['k','l','m']}
+    },
+    "_use_policy":"merge",
+    "_use_merge_property3.g.a":"override",
+    "_use_merge_property3.g.z":"delete"
+}
+).async();
+
+//The following post will result into the following document
+{
+    '_id':'myID',
+    property1: 'myfirstproperty',
+    property2: ['a','b','c'],
+    property3: {
+      'e':'E',
+      'f':'F',
+      'g':{'a':['k','l','m'], 'b':'cdef'}
+    },
+    property4: 'myNewProp'
+}
 ```
 
 ### Get a document from a FullSync database (fetch) ###
