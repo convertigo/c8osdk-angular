@@ -61,23 +61,23 @@ export class Info {
 
     }
 
-    public static get logLevelLocal():C8oLogLevel {
-        if(require("../package.json").test == "testing version"){
+    public static get logLevelLocal(): C8oLogLevel {
+        if (require("../package.json").test == "testing version") {
             return C8oLogLevel.ERROR
         }
-        else{
+        else {
             return C8oLogLevel.TRACE;
         }
-        
+
     }
-    public static get log():boolean {
-        if(require("../package.json").test == "testing version"){
+    public static get log(): boolean {
+        if (require("../package.json").test == "testing version") {
             return false;
         }
-        else{
+        else {
             return true;
         }
-        
+
     }
 }
 
@@ -197,6 +197,23 @@ export class Stuff {
  * @ignore
  */
 export class Functions {
+    /**
+     * compare equality bettwen two arrays
+     * @param a array 1
+     * @param b array 2
+     */
+    static isEqual(a, b) {
+        // if length is not equal 
+        if (a.length != b.length)
+            return "False";
+        else {
+            // comapring each element of array 
+            for (var i = 0; i < a.length; i++)
+                if (a[i] != b[i])
+                    return "False";
+            return "True";
+        }
+    }
     static CheckLogRemoteHelper(c8o: C8o, lv: any, msg: string) {
         c8o.callJson(".GetLogs").then(
             (response: any) => {

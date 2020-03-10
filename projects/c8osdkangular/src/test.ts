@@ -2777,7 +2777,51 @@ describe("provider: basic calls verifications", () => {
         })();
     });
 
-    it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)", async (done) => {
+it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)", async (done) => {
+    inject([C8o], async (c8o: C8o) => {
+        c8o.init(Stuff.C8o_Sessions).catch((error) => {
+            done.fail("error is not supposed to happend during init");
+        });
+        let result;
+        await c8o.finalizeInit();
+        c8o.prefixBase = false;
+        // re run update version base 
+        await c8o.callJson(".UpdateBaseVersion");
+
+        result = await c8o.callJson("fs://databasec1.reset");
+        expect(result["ok"]).toBeTruthy();
+
+        result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "Hello", "There");
+        expect(result["ok"]).toBeTruthy();
+
+        let db = new PouchDB("databasec1_device")
+        try {
+            let resp = await db.get("myIndex");
+            expect(resp["_id"]).toBe("myIndex");
+            expect(resp["Hello"]).toBe("There");
+        }
+        catch (err) {
+            done.fail();
+        }
+
+        let response = await c8o.callJson(".LoginTesting").async();
+        expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+        result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "Salut", "Ici", C8o.FS_POLICY, C8o.FS_POLICY_MERGE).async();
+        expect(result["ok"]).toBeTruthy();
+        try {
+            let resp = await db.get("myIndex");
+            expect(resp["_id"]).toBe("myIndex");
+            expect(resp["Hello"]).toBe("There");
+            expect(resp["Salut"]).toBe("Ici");
+        }
+        catch (err) {
+            done.fail();
+        }
+        done();
+    })();
+});
+
+    it("should check that Fullsync database merge subpolicy works _use_merge_ : delete (C8oFsSubpolicy_use_merge_delete)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
                 done.fail("error is not supposed to happend during init");
@@ -2791,7 +2835,7 @@ describe("provider: basic calls verifications", () => {
             result = await c8o.callJson("fs://databasec1.reset");
             expect(result["ok"]).toBeTruthy();
 
-            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "Hello", "There");
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "Hello", "There", "property3",{"g":'this is g', "h": "this is h", "i": "this is i"}, '_use_merge_property3.i', 'delete',C8o.FS_POLICY, C8o.FS_POLICY_MERGE,);
             expect(result["ok"]).toBeTruthy();
 
             let db = new PouchDB("databasec1_device")
@@ -2799,6 +2843,10 @@ describe("provider: basic calls verifications", () => {
                 let resp = await db.get("myIndex");
                 expect(resp["_id"]).toBe("myIndex");
                 expect(resp["Hello"]).toBe("There");
+                expect(resp["property3"]["g"]).toBe("this is g");
+                expect(resp["property3"]["h"]).toBe("this is h");
+                expect(resp["property3"]["i"]).toBeUndefined();
+                console.log("result 1", resp);
             }
             catch (err) {
                 done.fail();
@@ -2806,13 +2854,72 @@ describe("provider: basic calls verifications", () => {
 
             let response = await c8o.callJson(".LoginTesting").async();
             expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "Salut", "Ici", C8o.FS_POLICY, C8o.FS_POLICY_MERGE).async();
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex",'_use_merge_property3.g', 'delete', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
             expect(result["ok"]).toBeTruthy();
             try {
                 let resp = await db.get("myIndex");
                 expect(resp["_id"]).toBe("myIndex");
-                expect(resp["Hello"]).toBe("There");
+                expect(resp["Hello"]).toBe("There2");
                 expect(resp["Salut"]).toBe("Ici");
+                expect(resp["property3"]["g"]).toBeUndefined();
+                expect(resp["property3"]["h"]).toBe("this is h");
+                expect(resp["property3"]["i"]).toBeUndefined();
+                console.log(resp);
+            }
+            catch (err) {
+                done.fail();
+            }
+            done();
+        })();
+    });
+    /**/
+    it("should check that Fullsync database merge subpolicy works _use_merge_ : override (C8oFsSubpolicy_use_merge_override)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+            c8o.init(Stuff.C8o_Sessions).catch((error) => {
+                done.fail("error is not supposed to happend during init");
+            });
+            let result;
+            await c8o.finalizeInit();
+            c8o.prefixBase = false;
+            // re run update version base 
+            await c8o.callJson(".UpdateBaseVersion");
+
+            result = await c8o.callJson("fs://databasec1.reset");
+            expect(result["ok"]).toBeTruthy();
+
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "Hello", "There", "property3",['a','b','c','z'], C8o.FS_POLICY, C8o.FS_POLICY_MERGE, "property4", {"arr1": ["abc"], "obj1": {"a": ['abcde', 'f'], "b": "2B", "c":"2C"}});
+            expect(result["ok"]).toBeTruthy();
+
+            let db = new PouchDB("databasec1_device")
+            try {
+                let resp = await db.get("myIndex");
+                expect(resp["_id"]).toBe("myIndex");
+                expect(resp["Hello"]).toBe("There");
+            
+                console.log("result 1", resp);
+            }
+            catch (err) {
+                done.fail();
+            }
+
+            let response = await c8o.callJson(".LoginTesting").async();
+            expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "property3",['d','e','f'], '_use_merge_property4.obj1.c','delete','_use_merge_property4.obj1.a','override', "property4", {"obj1": {"a": ['', 'f']}},'_use_merge_property3', 'override', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
+            expect(result["ok"]).toBeTruthy();
+            try {
+                let resp = await db.get("myIndex");
+                expect(resp["_id"]).toBe("myIndex");
+                expect(resp["Hello"]).toBe("There2");
+                expect(resp["Salut"]).toBe("Ici");
+                console.dir(resp["property3"])
+                expect(Functions.isEqual(resp["property3"],["d","e","f"])).toBeTruthy();
+                expect(resp["property4"].obj1.a.length).toBe(2);
+                expect(resp["property4"].obj1.a[0]).toBe("");
+                expect(resp["property4"].obj1.a[1]).toBe("f");
+                expect(resp["property4"].obj1.b).toBe("2B");
+                expect(resp["property4"].arr1[0]).toBe("abc");
+                expect(resp["property4"].obj1.c).toBeUndefined();
+                console.log(resp);
             }
             catch (err) {
                 done.fail();
