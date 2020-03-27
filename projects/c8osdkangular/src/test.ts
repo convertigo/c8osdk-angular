@@ -56,7 +56,7 @@ describe("provider: basic calls verifications", () => {
     });
 
     
-/***/
+/***
     it("should remove null parameters (C8oRemovePing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
@@ -2904,7 +2904,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
 
             let response = await c8o.callJson(".LoginTesting").async();
             expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "property3",['d','e','f'], '_use_merge_property4.obj1.c','delete','_use_merge_property4.obj1.a','override', '_use_merge_property4.obj2.d','override',"property4", {"obj1": {"a": ['', 'f']}},'_use_merge_property3', 'override', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "property3",['d','e','f'], '_use_merge_property4.obj1.c','delete','_use_merge_property4.obj1.a','override', '_use_merge_property4.obj2.d','override', '_use_merge_property4.obj3.d','override',"property4", {"obj1": {"a": ['', 'f']}, "obj3":{d:{"abc": "def"}}},'_use_merge_property3', 'override', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
             expect(result["ok"]).toBeTruthy();
             try {
                 let resp = await db.get("myIndex");
@@ -2914,6 +2914,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
                 console.dir(resp["property3"])
                 expect(Functions.isEqual(resp["property3"],["d","e","f"])).toBeTruthy();
                 expect(resp["property4"].obj1.a.length).toBe(2);
+                expect(resp["property4"].obj3.d.abc).toBe("def");
                 expect(resp["property4"].obj1.a[0]).toBe("");
                 expect(resp["property4"].obj1.a[1]).toBe("f");
                 expect(resp["property4"].obj1.b).toBe("2B");
@@ -2927,7 +2928,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
             done();
         })();
     });
-/**/
+/**
     it("should check that Fullsync database with prefix works(C8oFsWithPrefix)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             try {
