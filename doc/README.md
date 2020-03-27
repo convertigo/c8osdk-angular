@@ -78,12 +78,12 @@
 
 • **require**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:11](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oHttpInterfaceCore.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:11](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oHttpInterfaceCore.ts#L11)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:8](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oManagerDatabase.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:8](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerDatabase.ts#L8)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:6](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oManagerLogin.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:6](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerLogin.ts#L6)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:8](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oManagerSession.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerSession.ts:8](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerSession.ts#L8)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:23](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oCore.ts#L23)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:23](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L23)*
