@@ -31,7 +31,7 @@
 
 \+ **new Semaphore**(`max`: any): *[Semaphore](semaphore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:161](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L161)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:161](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L161)*
 
 **Parameters:**
 
@@ -47,7 +47,7 @@ Name | Type |
 
 • **counter**: *number* = 0
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:160](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L160)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:160](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L160)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **max**: *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:159](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L159)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:159](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L159)*
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **waiting**: *any[]* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:161](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L161)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:161](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L161)*
 
 ## Methods
 
@@ -71,7 +71,7 @@ ___
 
 ▸ **acquire**(): *Promise‹unknown›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:176](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L176)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:176](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L176)*
 
 **Returns:** *Promise‹unknown›*
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **purge**(): *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:194](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L194)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:194](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L194)*
 
 **Returns:** *number*
 
@@ -91,7 +91,7 @@ ___
 
 ▸ **release**(`arg`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:189](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L189)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:189](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L189)*
 
 **Parameters:**
 
@@ -107,6 +107,6 @@ ___
 
 ▸ **take**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:168](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oUtilsCore.ts#L168)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:168](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oUtilsCore.ts#L168)*
 
 **Returns:** *void*

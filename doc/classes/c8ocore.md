@@ -173,7 +173,7 @@ To use it, you have to first initialize the C8o instance with the Convertigo end
 
 \+ **new C8oCore**(): *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:335](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L335)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:335](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L335)*
 
 This is the base object representing a Convertigo Server end point. This object should be instantiated
 when the apps starts and be accessible from any class of the app. Although this is not common , you may have
@@ -191,7 +191,7 @@ several C8o objects instantiated in your app.
 
 *Inherited from [C8oBase](c8obase.md).[_authenticationCookieValue](c8obase.md#protected-_authenticationcookievalue)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:21](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:21](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L21)*
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 • **_automaticRemoveSplashsCreen**: *boolean* = true
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:150](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L150)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:150](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L150)*
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_clientCertificateBinaries](c8obase.md#protected-_clientcertificatebinaries)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:10](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:10](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L10)*
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_clientCertificateFiles](c8obase.md#protected-_clientcertificatefiles)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:9](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:9](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L9)*
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_cookies](c8obase.md#protected-_cookies)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:8](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:8](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L8)*
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 • **_couchUrl**: *string* =  null
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:178](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L178)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:178](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L178)*
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_defaultDatabaseName](c8obase.md#protected-_defaultdatabasename)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:20](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L20)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:20](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L20)*
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_disableSSL](c8obase.md#protected-_disablessl)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:29](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:29](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L29)*
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 • **_endpoint**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:144](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L144)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:144](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L144)*
 
 The Convertigo endpoint, syntax: &lt;protocol&gt;://&lt;host&gt;:&lt;port&gt;/&lt;Convertigo web app path&gt;/projects/&lt;project name&gt; (Example: http://127.0.0.1:18080/convertigo/projects/MyProject)
 
@@ -275,7 +275,7 @@ ___
 
 • **_endpointConvertigo**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:145](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L145)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:145](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L145)*
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 • **_endpointHost**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:147](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L147)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:147](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L147)*
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 • **_endpointIsSecure**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:146](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L146)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:146](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L146)*
 
 ___
 
@@ -299,7 +299,7 @@ ___
 
 • **_endpointPort**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:148](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L148)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:148](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L148)*
 
 ___
 
@@ -307,7 +307,7 @@ ___
 
 • **_endpointProject**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:149](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L149)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:149](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L149)*
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_endpointSettings](c8obase.md#protected-_endpointsettings)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:5](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:5](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L5)*
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_errorConvertigoIntoFail](c8obase.md#protected-_errorconvertigointofail)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:40](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L40)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:40](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L40)*
 
 ___
 
@@ -337,7 +337,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_fullSyncLocalSuffix](c8obase.md#protected-_fullsynclocalsuffix)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:22](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L22)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:22](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L22)*
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_fullSyncPassword](c8obase.md#protected-_fullsyncpassword)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:25](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:25](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L25)*
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_fullSyncServerUrl](c8obase.md#protected-_fullsyncserverurl)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:23](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L23)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:23](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L23)*
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_fullSyncUsername](c8obase.md#protected-_fullsyncusername)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:24](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L24)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:24](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L24)*
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_headers](c8obase.md#protected-_headers)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:46](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L46)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:46](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L46)*
 
 ___
 
@@ -385,7 +385,7 @@ ___
 
 • **_http**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:177](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L177)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:177](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L177)*
 
 ___
 
@@ -395,7 +395,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_initalLogLevel](c8obase.md#protected-_initalloglevel)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:48](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L48)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:48](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L48)*
 
 ___
 
@@ -405,7 +405,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_initialLogRemote](c8obase.md#protected-_initiallogremote)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:14](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:14](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L14)*
 
 ___
 
@@ -415,7 +415,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_keepSessionAlive](c8obase.md#protected-_keepsessionalive)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:38](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L38)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:38](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L38)*
 
 ___
 
@@ -425,7 +425,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_keyStorePassword](c8obase.md#protected-_keystorepassword)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:31](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L31)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:31](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L31)*
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_logC8o](c8obase.md#protected-_logc8o)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:16](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:16](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L16)*
 
 ___
 
@@ -445,7 +445,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_logLevelLocal](c8obase.md#protected-_loglevellocal)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:15](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:15](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L15)*
 
 ___
 
@@ -455,7 +455,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_logOnFail](c8obase.md#protected-_logonfail)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:17](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:17](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L17)*
 
 #### Type declaration:
 
@@ -476,7 +476,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_logRemote](c8obase.md#protected-_logremote)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:13](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:13](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L13)*
 
 ___
 
@@ -486,7 +486,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_normalizeParameters](c8obase.md#protected-_normalizeparameters)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:36](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L36)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:36](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L36)*
 
 ___
 
@@ -496,7 +496,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_prefixBase](c8obase.md#protected-_prefixbase)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:44](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L44)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:44](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L44)*
 
 ___
 
@@ -504,7 +504,7 @@ ___
 
 • **_reply**: *Subject‹any›* =  new Subject<any>()
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:174](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L174)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:174](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L174)*
 
 ___
 
@@ -514,7 +514,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_resetBase](c8obase.md#protected-_resetbase)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:42](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L42)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:42](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L42)*
 
 ___
 
@@ -524,7 +524,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_timeout](c8obase.md#protected-_timeout)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:6](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:6](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L6)*
 
 ___
 
@@ -534,7 +534,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_trustStorePassword](c8obase.md#protected-_truststorepassword)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:33](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L33)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:33](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L33)*
 
 ___
 
@@ -544,7 +544,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[_useEncryption](c8obase.md#protected-_useencryption)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:28](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L28)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:28](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L28)*
 
 ___
 
@@ -552,7 +552,7 @@ ___
 
 • **_waitingForInit**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:185](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L185)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:185](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L185)*
 
 ___
 
@@ -560,7 +560,7 @@ ___
 
 • **c8oFullSync**: *[C8oFullSync](c8ofullsync.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:165](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L165)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:165](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L165)*
 
 Used to run fullSync requests.
 
@@ -570,7 +570,7 @@ ___
 
 • **c8oLogger**: *[C8oLogger](c8ologger.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:160](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L160)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:160](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L160)*
 
 Allows to log locally and remotely to the Convertigo server.
 
@@ -580,7 +580,7 @@ ___
 
 • **data**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:176](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L176)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:176](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L176)*
 
 ___
 
@@ -588,7 +588,7 @@ ___
 
 • **database**: *[C8oManagerDatabase](c8omanagerdatabase.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:189](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L189)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:189](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L189)*
 
 ___
 
@@ -601,7 +601,7 @@ ___
             }
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:650](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L650)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:650](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L650)*
 
 ___
 
@@ -609,7 +609,7 @@ ___
 
 • **httpInterface**: *[C8oHttpInterfaceCore](c8ohttpinterfacecore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:155](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L155)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:155](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L155)*
 
 Used to run HTTP requests.
 
@@ -619,7 +619,7 @@ ___
 
 • **lives**: *[C8oCallTask](c8ocalltask.md)[]* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:167](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L167)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:167](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L167)*
 
 ___
 
@@ -627,7 +627,7 @@ ___
 
 • **livesDb**: *string[]* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:168](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L168)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:168](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L168)*
 
 ___
 
@@ -635,7 +635,7 @@ ___
 
 • **network**: *[C8oManagerNetwork](c8omanagernetwork.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:188](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L188)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:188](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L188)*
 
 ___
 
@@ -643,7 +643,7 @@ ___
 
 • **promiseConstructor**: *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:179](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L179)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:179](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L179)*
 
 ___
 
@@ -651,7 +651,7 @@ ___
 
 • **promiseFinInit**: *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:181](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L181)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:181](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L181)*
 
 ___
 
@@ -659,7 +659,7 @@ ___
 
 • **promiseInit**: *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:180](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L180)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:180](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L180)*
 
 ___
 
@@ -667,7 +667,7 @@ ___
 
 • **promiseManagerNetwork**: *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:183](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L183)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:183](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L183)*
 
 ___
 
@@ -675,7 +675,7 @@ ___
 
 • **promiseReachable**: *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:182](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L182)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:182](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L182)*
 
 ___
 
@@ -683,7 +683,7 @@ ___
 
 • **reachable**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:186](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L186)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:186](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L186)*
 
 ___
 
@@ -691,7 +691,7 @@ ___
 
 • **replicationsToRestart**: *Array‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:184](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L184)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:184](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L184)*
 
 ___
 
@@ -699,7 +699,7 @@ ___
 
 • **session**: *[C8oManagerSession](c8omanagersession.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:190](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L190)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:190](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L190)*
 
 ___
 
@@ -707,7 +707,7 @@ ___
 
 • **subscriber_login**: *Subject‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:172](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L172)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:172](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L172)*
 
 ___
 
@@ -715,7 +715,7 @@ ___
 
 • **subscriber_network**: *Subject‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:171](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L171)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:171](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L171)*
 
 ___
 
@@ -723,7 +723,7 @@ ___
 
 • **subscriber_session**: *Subject‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:170](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L170)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:170](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L170)*
 
 ___
 
@@ -731,7 +731,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_CONNECTOR**: *string* = "__connector"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:57](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L57)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:57](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L57)*
 
 ___
 
@@ -739,7 +739,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_DEVICE_UUID**: *string* = "__uuid"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:60](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L60)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:60](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L60)*
 
 ___
 
@@ -747,7 +747,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_ENCODED**: *string* = "__encoded"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:59](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L59)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:59](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L59)*
 
 ___
 
@@ -755,7 +755,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_FROM_LIVE**: *string* = "__fromLive"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:62](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L62)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:62](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L62)*
 
 ___
 
@@ -763,7 +763,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_PROGRESS**: *string* = "__progress"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:61](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L61)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:61](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L61)*
 
 ___
 
@@ -771,7 +771,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_PROJECT**: *string* = "__project"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:55](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L55)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:55](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L55)*
 
  Engine reserved parameters
 
@@ -781,7 +781,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_SEQUENCE**: *string* = "__sequence"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:56](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L56)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:56](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L56)*
 
 ___
 
@@ -789,7 +789,7 @@ ___
 
 ▪ **ENGINE_PARAMETER_TRANSACTION**: *string* = "__transaction"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:58](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L58)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:58](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L58)*
 
 ___
 
@@ -797,7 +797,7 @@ ___
 
 ▪ **FS_LIVE**: *string* = "__live"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:123](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L123)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:123](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L123)*
 
 Use it with "fs://" request as parameter to enable the live request feature.<br/>
 Must be followed by a string parameter, the 'liveid' that can be use to cancel the live
@@ -810,7 +810,7 @@ ___
 
 ▪ **FS_POLICY**: *string* = "_use_policy"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:79](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L79)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:79](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L79)*
 
 Constant to use as a parameter for a Call of "fs://.post" and must be followed by a FS_POLICY_* constant.
 <pre>{@code
@@ -827,7 +827,7 @@ ___
 
 ▪ **FS_POLICY_CREATE**: *string* = "create"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:91](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L91)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:91](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L91)*
 
 Use it with "fs://.post" and C8o.FS_POLICY.
 
@@ -839,7 +839,7 @@ ___
 
 ▪ **FS_POLICY_MERGE**: *string* = "merge"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:103](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L103)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:103](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L103)*
 
 Use it with "fs://.post" and C8o.FS_POLICY.
 
@@ -851,7 +851,7 @@ ___
 
 ▪ **FS_POLICY_NONE**: *string* = "none"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:85](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L85)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:85](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L85)*
 
 Use it with "fs://.post" and C8o.FS_POLICY.
 
@@ -863,7 +863,7 @@ ___
 
 ▪ **FS_POLICY_OVERRIDE**: *string* = "override"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:97](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L97)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:97](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L97)*
 
 Use it with "fs://.post" and C8o.FS_POLICY.
 
@@ -875,7 +875,7 @@ ___
 
 ▪ **FS_SUBKEY_SEPARATOR**: *string* = "_use_subkey_separator"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:109](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L109)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:109](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L109)*
 
 Use it with "fs://.post". Default value is ".".
 
@@ -887,7 +887,7 @@ ___
 
 ▪ **LOCAL_CACHE_DATABASE_NAME**: *string* = "c8olocalcache"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:130](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L130)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:130](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L130)*
 
 ___
 
@@ -895,7 +895,7 @@ ___
 
 ▪ **LOCAL_CACHE_DOCUMENT_KEY_EXPIRATION_DATE**: *string* = "expirationDate"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:128](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L128)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:128](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L128)*
 
 ___
 
@@ -903,7 +903,7 @@ ___
 
 ▪ **LOCAL_CACHE_DOCUMENT_KEY_RESPONSE**: *string* = "response"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:126](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L126)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:126](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L126)*
 
 Local cache keys
 
@@ -913,7 +913,7 @@ ___
 
 ▪ **LOCAL_CACHE_DOCUMENT_KEY_RESPONSE_TYPE**: *string* = "responseType"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:127](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L127)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:127](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L127)*
 
 ___
 
@@ -921,7 +921,7 @@ ___
 
 ▪ **RESPONSE_TYPE_JSON**: *string* = "json"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:134](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L134)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:134](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L134)*
 
 ___
 
@@ -929,7 +929,7 @@ ___
 
 ▪ **RESPONSE_TYPE_XML**: *string* = "pxml"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:133](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L133)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:133](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L133)*
 
 Response type
 
@@ -939,7 +939,7 @@ ___
 
 ▪ **RE_ENDPOINT**: *RegExp* =  /^(https?:\/\/([^:/]+)(:[0-9]+)?\/?.*?)\/projects\/([^\/]+)$/
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:50](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L50)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:50](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L50)*
 
 The regex used to get the part of the endpoint before '/projects/...'
 
@@ -949,7 +949,7 @@ ___
 
 ▪ **RE_REQUESTABLE**: *RegExp* =  /^([^.]*)\.(?:([^.]+)|(?:([^.]+)\.([^.]+)))$/
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:45](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L45)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:45](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L45)*
 
 The regex used to handle the c8o requestable syntax ("&lt;project&gt;.&lt;sequence&gt;" or "&lt;project&gt;.&lt;connector&gt;.&lt;transaction&gt;")
 
@@ -959,7 +959,7 @@ ___
 
 ▪ **SEQ_AUTO_LOGIN_OFF**: *string* = "__disableAutologin"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:115](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L115)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:115](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L115)*
 
 Use it with "project.sequence". Default value is ".".
 
@@ -971,7 +971,7 @@ ___
 
 ▪ **deviceUUID**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:137](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L137)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:137](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L137)*
 
 ___
 
@@ -979,7 +979,7 @@ ___
 
 ▪ **use_merge_prefix**: *string* = "_use_merge"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:68](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L68)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:68](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L68)*
 
 FULLSYNC parameters
 
@@ -991,7 +991,7 @@ FULLSYNC parameters
 
 *Inherited from [C8oBase](c8obase.md).[authenticationCookieValue](c8obase.md#authenticationcookievalue)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:149](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L149)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:149](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L149)*
 
 **Returns:** *string*
 
@@ -1003,7 +1003,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[cookies](c8obase.md#cookies)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:119](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L119)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:119](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L119)*
 
 Gets initial cookies to send to the Convertigo server.<br/>
 Default is <b>null</b>.
@@ -1018,7 +1018,7 @@ ___
 
 • **get coreVersion**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:333](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L333)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:333](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L333)*
 
 **Returns:** *string*
 
@@ -1028,13 +1028,13 @@ ___
 
 • **get couchUrl**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:192](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L192)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:192](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L192)*
 
 **Returns:** *string*
 
 • **set couchUrl**(`value`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:196](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L196)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:196](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L196)*
 
 **Parameters:**
 
@@ -1052,7 +1052,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[defaultDatabaseName](c8obase.md#defaultdatabasename)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:145](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L145)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:145](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L145)*
 
 **Returns:** *string*
 
@@ -1062,7 +1062,7 @@ ___
 
 • **get deviceUUID**(): *Promise‹string›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:284](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L284)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:284](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L284)*
 
 **Returns:** *Promise‹string›*
 
@@ -1074,7 +1074,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[endpoint](c8obase.md#endpoint)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:233](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L233)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:233](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L233)*
 
 **Returns:** *string*
 
@@ -1082,7 +1082,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[endpoint](c8obase.md#endpoint)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:237](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L237)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:237](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L237)*
 
 **Parameters:**
 
@@ -1098,13 +1098,13 @@ ___
 
 • **get endpointConvertigo**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:241](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L241)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:241](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L241)*
 
 **Returns:** *string*
 
 • **set endpointConvertigo**(`value`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:245](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L245)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:245](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L245)*
 
 **Parameters:**
 
@@ -1120,13 +1120,13 @@ ___
 
 • **get endpointHost**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:259](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L259)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:259](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L259)*
 
 **Returns:** *string*
 
 • **set endpointHost**(`value`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:263](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L263)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:263](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L263)*
 
 **Parameters:**
 
@@ -1142,13 +1142,13 @@ ___
 
 • **get endpointIsSecure**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:250](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L250)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:250](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L250)*
 
 **Returns:** *boolean*
 
 • **set endpointIsSecure**(`value`: boolean): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:254](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L254)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:254](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L254)*
 
 **Parameters:**
 
@@ -1164,13 +1164,13 @@ ___
 
 • **get endpointPort**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:268](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L268)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:268](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L268)*
 
 **Returns:** *string*
 
 • **set endpointPort**(`value`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:272](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L272)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:272](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L272)*
 
 **Parameters:**
 
@@ -1186,13 +1186,13 @@ ___
 
 • **get endpointProject**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:276](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L276)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:276](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L276)*
 
 **Returns:** *string*
 
 • **set endpointProject**(`value`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:280](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L280)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:280](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L280)*
 
 **Parameters:**
 
@@ -1210,7 +1210,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[errorConvertigoIntoFail](c8obase.md#errorconvertigointofail)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:73](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L73)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:73](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L73)*
 
 Gets if error convertigo are thrown into fail.<br/>
 Default is <b>false</b>.
@@ -1227,7 +1227,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[fullSyncLocalSuffix](c8obase.md#fullsynclocalsuffix)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:153](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L153)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:153](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L153)*
 
 **Returns:** *string*
 
@@ -1239,7 +1239,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[fullSyncPassword](c8obase.md#fullsyncpassword)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:168](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L168)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:168](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L168)*
 
 **Returns:** *string*
 
@@ -1251,7 +1251,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[fullSyncServerUrl](c8obase.md#fullsyncserverurl)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:158](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L158)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:158](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L158)*
 
 **Returns:** *string*
 
@@ -1263,7 +1263,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[fullSyncUsername](c8obase.md#fullsyncusername)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:163](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L163)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:163](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L163)*
 
 **Returns:** *string*
 
@@ -1275,7 +1275,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[headers](c8obase.md#headers)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:184](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L184)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:184](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L184)*
 
 **Returns:** *Object*
 
@@ -1285,7 +1285,7 @@ ___
 
 • **get httpPublic**(): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:309](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L309)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:309](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L309)*
 
 **Returns:** *any*
 
@@ -1297,7 +1297,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[keepSessionAlive](c8obase.md#keepsessionalive)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:64](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L64)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:64](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L64)*
 
 Gets if session has to be keep alive.<br/>
 Default is <b>true</b>.
@@ -1312,7 +1312,7 @@ ___
 
 • **get log**(): *[C8oLogger](c8ologger.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:225](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L225)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:225](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L225)*
 
 **Returns:** *[C8oLogger](c8ologger.md)*
 
@@ -1324,7 +1324,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[logC8o](c8obase.md#logc8o)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:200](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L200)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:200](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L200)*
 
 **Returns:** *boolean*
 
@@ -1332,7 +1332,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[logC8o](c8obase.md#logc8o)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:204](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L204)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:204](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L204)*
 
 **Parameters:**
 
@@ -1350,7 +1350,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[logLevelLocal](c8obase.md#loglevellocal)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:217](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L217)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:217](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L217)*
 
 **Returns:** *[C8oLogLevel](c8ologlevel.md)*
 
@@ -1358,7 +1358,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[logLevelLocal](c8obase.md#loglevellocal)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:221](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L221)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:221](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L221)*
 
 **Parameters:**
 
@@ -1376,7 +1376,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[logOnFail](c8obase.md#logonfail)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:172](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L172)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:172](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L172)*
 
 **Returns:** *function*
 
@@ -1397,7 +1397,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[logRemote](c8obase.md#logremote)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:208](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L208)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:208](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L208)*
 
 **Returns:** *boolean*
 
@@ -1405,7 +1405,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[logRemote](c8obase.md#logremote)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:212](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L212)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:212](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L212)*
 
 **Parameters:**
 
@@ -1423,7 +1423,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[normalizeParameters](c8obase.md#normalizeparameters)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:56](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L56)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:56](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L56)*
 
 Gets if normalize parameters.<br/>
 Default is <b>false</b>.
@@ -1440,7 +1440,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[prefixBase](c8obase.md#prefixbase)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:321](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L321)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:321](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L321)*
 
 **Returns:** *boolean*
 
@@ -1448,7 +1448,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[prefixBase](c8obase.md#prefixbase)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:325](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L325)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:325](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L325)*
 
 **Parameters:**
 
@@ -1466,7 +1466,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[resetBase](c8obase.md#resetbase)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:313](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L313)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:313](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L313)*
 
 **Returns:** *boolean*
 
@@ -1474,7 +1474,7 @@ ___
 
 *Overrides [C8oBase](c8obase.md).[resetBase](c8obase.md#resetbase)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:317](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L317)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:317](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L317)*
 
 **Parameters:**
 
@@ -1490,7 +1490,7 @@ ___
 
 • **get sdkVersion**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:331](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L331)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:331](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L331)*
 
 **Returns:** *string*
 
@@ -1502,7 +1502,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[timeout](c8obase.md#timeout)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:101](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L101)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:101](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L101)*
 
 Gets the connection timeout to Convertigo in milliseconds. A value of zero means the timeout is not used.<br/>
 Default is <b>0</b>.
@@ -1517,7 +1517,7 @@ The timeout.
 
 ▸ **_call**(`parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `c8oExceptionListener`: [C8oExceptionListener](c8oexceptionlistener.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:437](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L437)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:437](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L437)*
 
 Makes a c8o call with c8o requestable in parameters ('__project' and ('__sequence' or ('__connector' and '__transaction'))).<br/>
 To not use a C8oExceptionListener you can set the parameter to null.
@@ -1538,7 +1538,7 @@ ___
 
 ▸ **addFullSyncChangeListener**(`db`: string, `listener`: [C8oFullSyncChangeListener](c8ofullsyncchangelistener.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:614](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L614)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:614](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L614)*
 
 Add a listener to monitor all changes of the 'db'.
 
@@ -1557,7 +1557,7 @@ ___
 
 ▸ **addLive**(`liveid`: string, `db`: string, `task`: [C8oCallTask](c8ocalltask.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:628](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L628)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:628](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L628)*
 
 **Parameters:**
 
@@ -1575,7 +1575,7 @@ ___
 
 ▸ **call**(`requestable`: string, `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `c8oExceptionListener`: [C8oExceptionListener](c8oexceptionlistener.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:389](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L389)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:389](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L389)*
 
 Makes a c8o call with c8o requestable out of parameters.<br/>
 To not use a C8oExceptionListener you can set the parameter to null
@@ -1597,7 +1597,7 @@ ___
 
 ▸ **callJson**(`requestable`: string, ...`parameters`: any[]): *[C8oPromise](c8opromise.md)‹JSON›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:506](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L506)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:506](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L506)*
 
 Makes a c8o call with c8o requestable out of parameters, expecting a JSON response through a C8oPromise.<br/>
 The C8oPromise allow to register response handler with .then and .thenUI,
@@ -1622,7 +1622,7 @@ ___
 
 ▸ **callJsonObject**(`requestable`: string, `parameters`: Object): *[C8oPromise](c8opromise.md)‹JSON›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:476](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L476)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:476](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L476)*
 
 Makes a c8o call with c8o requestable out of parameters, expecting a JSON response through a C8oPromise.<br/>
 The C8oPromise allow to register response handler with .then and .thenUI,
@@ -1647,7 +1647,7 @@ ___
 
 ▸ **cancelLive**(`liveid`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:635](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L635)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:635](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L635)*
 
 **Parameters:**
 
@@ -1665,7 +1665,7 @@ ___
 
 *Inherited from [C8oBase](c8obase.md).[copy](c8obase.md#copy)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:188](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oBase.ts#L188)*
+*Defined in [c8osdk-js-core/src/c8o/c8oBase.ts:188](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oBase.ts#L188)*
 
 **Parameters:**
 
@@ -1681,7 +1681,7 @@ ___
 
 ▸ **extractendpoint**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:364](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L364)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:364](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L364)*
 
 **Returns:** *void*
 
@@ -1691,7 +1691,7 @@ ___
 
 ▸ **finalizeInit**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:764](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L764)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:764](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L764)*
 
 This should be called OnPlatform Ready to remove splashscreen if necessary
 
@@ -1703,7 +1703,7 @@ ___
 
 ▸ **get_attachment**(`id`: string, `attachment_name`: string, `database_name?`: string): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:592](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L592)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:592](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L592)*
 
 get an attachment for a given object
 
@@ -1725,7 +1725,7 @@ ___
 
 ▸ **handleAutoLoginResponse**(): *Subject‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:580](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L580)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:580](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L580)*
 
 Return an subject that call next if autologin is triggered with its result
 
@@ -1737,7 +1737,7 @@ ___
 
 ▸ **handleCallException**(`c8oExceptionListener`: [C8oExceptionListener](c8oexceptionlistener.md), `requestParameters`: Object, `exception`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:548](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L548)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:548](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L548)*
 
 Calls the exception listener callback if it is not null, else prints the exception stack trace.
 
@@ -1757,7 +1757,7 @@ ___
 
 ▸ **handleNetworkEvents**(): *Subject‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:573](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L573)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:573](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L573)*
 
 Return an subject that call next if network has change
 
@@ -1769,7 +1769,7 @@ ___
 
 ▸ **handleSessionLost**(): *Subject‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:558](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L558)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:558](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L558)*
 
 Return an subject that call next if session has been lost
 
@@ -1781,7 +1781,7 @@ ___
 
 ▸ **httpGetObservable**(`uri`: any): *Observable‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:661](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L661)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:661](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L661)*
 
 Method to bastract http get
 
@@ -1799,7 +1799,7 @@ ___
 
 ▸ **importLoginState**(`c8o`: [C8oCore](c8ocore.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:359](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L359)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:359](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L359)*
 
 **Parameters:**
 
@@ -1815,7 +1815,7 @@ ___
 
 ▸ **init**(`c8oSettings?`: [C8oSettings](c8osettings.md)): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:678](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L678)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:678](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L678)*
 
 This is the base object representing a Convertigo Server end point. This object should be instantiated
 when the apps starts and be accessible from any class of the app. Although this is not common , you may have
@@ -1837,7 +1837,7 @@ ___
 
 ▸ **initC8oHttInterface**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:666](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L666)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:666](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L666)*
 
 Init http interface in client sdk
 
@@ -1849,7 +1849,7 @@ ___
 
 ▸ **removeFullSyncChangeListener**(`db`: string, `listener`: [C8oFullSyncChangeListener](c8ofullsyncchangelistener.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:624](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L624)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:624](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L624)*
 
 Remove a listener for changes of the 'db'.
 
@@ -1868,7 +1868,7 @@ ___
 
 ▸ **removeNull**(`parameters`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:532](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L532)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:532](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L532)*
 
 Remove null value from parameters
 
@@ -1888,7 +1888,7 @@ ___
 
 ▸ **toString**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:229](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L229)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:229](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L229)*
 
 **Returns:** *string*
 
@@ -1898,7 +1898,7 @@ ___
 
 ▸ **toParameters**(`parameters`: any): *Object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:516](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oCore.ts#L516)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:516](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oCore.ts#L516)*
 
 Transforms siblings values as key/value of a Map.
 

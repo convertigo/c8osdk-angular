@@ -2904,7 +2904,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
 
             let response = await c8o.callJson(".LoginTesting").async();
             expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "property3",['d','e','f'], '_use_merge_property4.obj1.c','delete','_use_merge_property4.obj1.a','override', '_use_merge_property4.obj2.d','override', '_use_merge_property4.obj3.d','override',"property4", {"obj1": {"a": ['', 'f']}, "obj3":{d:{"abc": "def"}}},'_use_merge_property3', 'override', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "property3",['d','e','f'], '_use_merge_property4.obj1.c','delete','_use_merge_property4.obj1.a','override', '_use_merge_propertyF4.obj33.d.e.f','override', '_use_merge_property4.obj3.d','override',"property4", {"obj1": {"a": ['', 'f']}, "obj3":{d:{"abc": "def"}}},'_use_merge_property3', 'override', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
             expect(result["ok"]).toBeTruthy();
             try {
                 let resp = await db.get("myIndex");

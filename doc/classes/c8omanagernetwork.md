@@ -36,7 +36,7 @@
 
 \+ **new C8oManagerNetwork**(`c8o`: [C8oCore](c8ocore.md)): *[C8oManagerNetwork](c8omanagernetwork.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:7](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:7](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L7)*
 
 **Parameters:**
 
@@ -52,7 +52,7 @@ Name | Type |
 
 • **_listen**: *boolean* = false
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:7](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:7](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L7)*
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 • **_status**: *[C8oNetworkStatus](c8onetworkstatus.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:6](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:6](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L6)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:5](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:5](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L5)*
 
 ## Accessors
 
@@ -76,7 +76,7 @@ ___
 
 • **get status**(): *[C8oNetworkStatus](c8onetworkstatus.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:43](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L43)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:43](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L43)*
 
 get network status
 
@@ -86,7 +86,7 @@ C8oNetworkStatus
 
 • **set status**(`c8oNetworkStatus`: [C8oNetworkStatus](c8onetworkstatus.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:27](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L27)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:27](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L27)*
 
 Set network status, and notify if its had change
 
@@ -108,7 +108,7 @@ C8oNetworkStatus
 
 ▸ **checkReachable**(): *Promise‹boolean›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:95](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L95)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:95](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L95)*
 
 **Returns:** *Promise‹boolean›*
 
@@ -118,7 +118,7 @@ ___
 
 ▸ **init**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:16](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:16](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L16)*
 
 init NetworkManager
 
@@ -130,7 +130,7 @@ ___
 
 ▸ **listen**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:48](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L48)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:48](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L48)*
 
 **Returns:** *Promise‹void›*
 
@@ -140,7 +140,7 @@ ___
 
 ▸ **processOffline**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:91](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L91)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:91](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L91)*
 
 **Returns:** *Promise‹void›*
 
@@ -150,6 +150,6 @@ ___
 
 ▸ **processOnline**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:81](https://github.com/convertigo/c8osdk-angular/blob/2ff29f3/src/c8o/c8oManagerNetwork.ts#L81)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerNetwork.ts:81](https://github.com/convertigo/c8osdk-angular/blob/b02decc/src/c8o/c8oManagerNetwork.ts#L81)*
 
 **Returns:** *Promise‹void›*
