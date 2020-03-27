@@ -38,7 +38,7 @@
 
 *Overrides [C8oException](c8oexception.md).[constructor](c8oexception.md#constructor)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oRessourceNotFoundException.ts:3](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/Exception/c8oRessourceNotFoundException.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oRessourceNotFoundException.ts:3](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/Exception/c8oRessourceNotFoundException.ts#L3)*
 
 **Parameters:**
 
@@ -52,7 +52,7 @@ Name | Type |
 
 *Overrides [C8oException](c8oexception.md).[constructor](c8oexception.md#constructor)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oRessourceNotFoundException.ts:5](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/Exception/c8oRessourceNotFoundException.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oRessourceNotFoundException.ts:5](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/Exception/c8oRessourceNotFoundException.ts#L5)*
 
 **Parameters:**
 
@@ -71,7 +71,7 @@ Name | Type |
 
 *Inherited from [C8oException](c8oexception.md).[_cause](c8oexception.md#protected-_cause)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:7](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/Exception/c8oException.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:7](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/Exception/c8oException.ts#L7)*
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 *Overrides void*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:6](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/Exception/c8oException.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:6](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/Exception/c8oException.ts#L6)*
 
 ___
 
@@ -115,7 +115,7 @@ Defined in C:/Users/Charles Grimont/c8osdk-angular/node_modules/typedoc/node_mod
 
 *Inherited from [C8oException](c8oexception.md).[cause](c8oexception.md#cause)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:28](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/Exception/c8oException.ts#L28)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:28](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/Exception/c8oException.ts#L28)*
 
 **Returns:** *Error*
 
@@ -127,7 +127,7 @@ Defined in C:/Users/Charles Grimont/c8osdk-angular/node_modules/typedoc/node_mod
 
 *Inherited from [C8oException](c8oexception.md).[toJSON](c8oexception.md#tojson)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:32](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/Exception/c8oException.ts#L32)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:32](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/Exception/c8oException.ts#L32)*
 
 **Returns:** *object*
 
@@ -139,6 +139,6 @@ ___
 
 *Inherited from [C8oException](c8oexception.md).[toString](c8oexception.md#tostring)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:40](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/Exception/c8oException.ts#L40)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:40](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/Exception/c8oException.ts#L40)*
 
 **Returns:** *object*

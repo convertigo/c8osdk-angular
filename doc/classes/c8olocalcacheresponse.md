@@ -31,7 +31,7 @@
 
 \+ **new C8oLocalCacheResponse**(`response`: string, `responseType`: string, `expirationDate`: number): *[C8oLocalCacheResponse](c8olocalcacheresponse.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:4](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:4](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L4)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **expirationDate**: *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:4](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:4](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L4)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **response**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:2](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:2](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L2)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **responseType**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:3](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:3](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L3)*
 
 ## Methods
 
@@ -73,7 +73,7 @@ ___
 
 ▸ **getExpirationDate**(): *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:29](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:29](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L29)*
 
 **Returns:** *number*
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **getResponse**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:21](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:21](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L21)*
 
 **Returns:** *string*
 
@@ -93,7 +93,7 @@ ___
 
 ▸ **getResponseType**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:25](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:25](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L25)*
 
 **Returns:** *string*
 
@@ -103,6 +103,6 @@ ___
 
 ▸ **isExpired**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:12](https://github.com/convertigo/c8osdk-angular/blob/06c72df/src/c8o/c8oLocalCacheResponse.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCacheResponse.ts:12](https://github.com/convertigo/c8osdk-angular/blob/6b53dd0/src/c8o/c8oLocalCacheResponse.ts#L12)*
 
 **Returns:** *boolean*

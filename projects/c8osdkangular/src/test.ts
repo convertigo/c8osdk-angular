@@ -2820,7 +2820,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
         done();
     })();
 });
-
+/***/
     it("should check that Fullsync database merge subpolicy works _use_merge_ : delete (C8oFsSubpolicy_use_merge_delete)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
@@ -2854,7 +2854,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
 
             let response = await c8o.callJson(".LoginTesting").async();
             expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex",'_use_merge_property3.g', 'delete', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex",'_use_merge_property3~g', 'delete', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, "~").async();
             expect(result["ok"]).toBeTruthy();
             try {
                 let resp = await db.get("myIndex");
@@ -2904,7 +2904,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
 
             let response = await c8o.callJson(".LoginTesting").async();
             expect(response["document"]["authenticatedUserID"]).toBe("testing_user");
-            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "property3",['d','e','f'], '_use_merge_property4.obj1.c','delete','_use_merge_property4.obj1.a','override', "property4", {"obj1": {"a": ['', 'f']}},'_use_merge_property3', 'override', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
+            result = await c8o.callJson("fs://databasec1.post", "_id", "myIndex", "property3",['d','e','f'], '_use_merge_property4.obj1.c','delete','_use_merge_property4.obj1.a','override', '_use_merge_property4.obj2.d','override',"property4", {"obj1": {"a": ['', 'f']}},'_use_merge_property3', 'override', "Salut", "Ici", "Hello", "There2",C8o.FS_POLICY, C8o.FS_POLICY_MERGE, C8oCore.FS_SUBKEY_SEPARATOR, ".").async();
             expect(result["ok"]).toBeTruthy();
             try {
                 let resp = await db.get("myIndex");
@@ -2927,7 +2927,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
             done();
         })();
     });
-
+/**/
     it("should check that Fullsync database with prefix works(C8oFsWithPrefix)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             try {
