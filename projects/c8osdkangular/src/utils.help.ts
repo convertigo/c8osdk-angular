@@ -25,7 +25,7 @@ export class Info {
         //return "192.168.100.70"
         //return "c8o-dev.convertigo.net";
         //return "localhost";
-        return "qualif-sdk.convertigo.net"
+        return "test-convertigo.convertigo.net"
         //return "test-convertigo.convertigo.net";
     }
     static get port() {

@@ -32,7 +32,7 @@
 
 \+ **new FullSyncPolicy**(`value`: string, `action`: function): *[FullSyncPolicy](fullsyncpolicy.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:923](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L923)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:941](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L941)*
 
 **Parameters:**
 
@@ -57,11 +57,11 @@ Name | Type |
 
 • **action**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:923](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L923)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:941](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L941)*
 
 #### Type declaration:
 
-▸ (`PouchDB`: any, `Object`: any): *any*
+▸ (`PouchDB`: any, `Object`: any, `subPolicy?`: any): *any*
 
 **Parameters:**
 
@@ -69,6 +69,7 @@ Name | Type |
 ------ | ------ |
 `PouchDB` | any |
 `Object` | any |
+`subPolicy?` | any |
 
 ___
 
@@ -76,7 +77,7 @@ ___
 
 • **value**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:922](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L922)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:940](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L940)*
 
 ___
 
@@ -96,46 +97,63 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:832](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L832)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:833](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L833)*
 
 ___
 
 ### `Static` MERGE
 
-▪ **MERGE**: *[FullSyncPolicy](fullsyncpolicy.md)* =  new FullSyncPolicy(C8oCore.FS_POLICY_MERGE, (database: any, newProperties: Object) => {
+▪ **MERGE**: *[FullSyncPolicy](fullsyncpolicy.md)* =  new FullSyncPolicy(C8oCore.FS_POLICY_MERGE, (database: any, newProperties: Object, subPolicy = null) => {
         return new Promise((resolve, reject) => {
             try {
                 const documentId: string = C8oUtilsCore.getParameterStringValue(newProperties, C8oFullSync.FULL_SYNC__ID, false);
                 // delete newProperties[C8oFullSync.FULL_SYNC__ID];
                 delete newProperties[C8oFullSync.FULL_SYNC__REV];
-
+                // copy newProperties object to be able to apply subPolicy merge
+                let copyNewProperties = C8oFullSyncCbl.deepCloneObject(newProperties);
                 if (documentId == null) {
-                    database.put(newProperties).then((createdDocument) => {
-                        resolve(createdDocument);
-                    }).catch((error) => {
-                        reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
-                    });
-                } else {
-                    database.get(documentId).then((doc) => {
-                        C8oFullSyncCbl.mergeProperties(newProperties, doc);
-                        database.put(newProperties).then((createdDocument) => {
+                    // Apply subPolicy for merge (here can only be delete since, there is no previous doc)
+                    C8oFullSyncCbl.applySubPolicyForMerge(false, copyNewProperties, newProperties , subPolicy);
+                    // Put document
+                    database.put(newProperties)
+                        .then((createdDocument) => {
                             resolve(createdDocument);
-                        })
-                            .catch((error) => {
-                                reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
-                            });
-                    }).catch((error) => {
-                        if (error.status === 404) {
-                            database.put(newProperties).then((createdDocument) => {
-                                resolve(createdDocument);
-                            })
+                        }).catch((error) => {
+                            reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
+                        });
+
+                } else {
+                    database.get(documentId)
+                        .then((doc) => {
+                            // Apply Policy merge
+                            C8oFullSyncCbl.mergeProperties(newProperties, doc);
+                            // Apply subPolicy for merge
+                            C8oFullSyncCbl.applySubPolicyForMerge(true, copyNewProperties, newProperties , subPolicy);
+                            // Put document
+                            database.put(newProperties)
+                                .then((createdDocument) => {
+                                    resolve(createdDocument);
+                                })
                                 .catch((error) => {
                                     reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
                                 });
-                        } else {
-                            reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
-                        }
-                    });
+
+                        }).catch((error) => {
+                            if (error.status === 404) {
+                                // Apply subPolicy for merge (here can only be delete since, there is no previous doc)
+                                C8oFullSyncCbl.applySubPolicyForMerge(false, copyNewProperties, newProperties , subPolicy);
+                                // Put document
+                                database.put(newProperties)
+                                    .then((createdDocument) => {
+                                        resolve(createdDocument);
+                                    })
+                                    .catch((error) => {
+                                        reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
+                                    });
+                            } else {
+                                reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
+                            }
+                        });
                 }
             } catch (error) {
                 reject(new C8oCouchBaseLiteException(C8oExceptionMessage.fullSyncPutProperties(newProperties), error));
@@ -143,7 +161,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:881](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L881)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:882](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L882)*
 
 ___
 
@@ -163,7 +181,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:818](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L818)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:819](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L819)*
 
 ___
 
@@ -204,7 +222,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:846](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L846)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:847](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L847)*
 
 ## Methods
 
@@ -212,7 +230,7 @@ ___
 
 ▸ **getFullSyncPolicy**(`value`: string): *[FullSyncPolicy](fullsyncpolicy.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:935](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L935)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:953](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L953)*
 
 **Parameters:**
 
@@ -228,6 +246,6 @@ ___
 
 ▸ **values**(): *[FullSyncPolicy](fullsyncpolicy.md)[]*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:931](https://github.com/convertigo/c8osdk-angular/blob/46dcf2d/src/c8o/c8oCore.ts#L931)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:949](https://github.com/convertigo/c8osdk-angular/blob/d482dbd/src/c8o/c8oCore.ts#L949)*
 
 **Returns:** *[FullSyncPolicy](fullsyncpolicy.md)[]*

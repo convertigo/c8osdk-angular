@@ -97,7 +97,7 @@ describe("provider: basic calls verifications", () => {
     }
     );
 
-
+/***
     it("should ping (C8oDefaultPing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
