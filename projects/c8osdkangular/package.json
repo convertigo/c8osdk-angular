@@ -1,6 +1,10 @@
 {
   "name": "c8osdkangular",
+<<<<<<< HEAD
   "version": "3.0.8-beta6",
+=======
+  "version": "3.0.8-beta13",
+>>>>>>> feature/xsrf
   "description": "convertigo's MBaaS client API service",
   "repository": {
     "type": "git",

@@ -117,7 +117,7 @@ export class AppComponent {
   
 
   public async testCONV265(){
-    this.c8o.init(new C8oSettings().setEndPoint("http://localhost:8080/convertigo/projects/ClientSDKtesting").setLogC8o(true).setLogLevelLocal(C8oLogLevel.TRACE).setKeepSessionAlive(true));
+    this.c8o.init(new C8oSettings().setEndPoint("http://test-convertigo.convertigo.net/convertigo/projects/ClientSDKtesting").setLogC8o(true).setLogLevelLocal(C8oLogLevel.TRACE).setKeepSessionAlive(true));
     this.c8o.finalizeInit()
     .then( async (data) => {
 
@@ -128,14 +128,14 @@ export class AppComponent {
       })
       await this.c8o.callJson("ClientSDKtesting.login").async();
 
-      this.c8o.callJson("fs://databasea1.sync", "continuous", true)
+      /*this.c8o.callJson("fs://databasea1.sync", "continuous", true)
       .then((res)=>{
         console.log("res");
         return null;
       })
       .fail((err)=>{
         console.log("err");
-      })
+      })*/
 
   })
 
