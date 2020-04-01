@@ -19,7 +19,7 @@
     "docs": "npm run typedoc -- --options typedoc.json --excludeExternals --externalPattern '{**/node_modules/**,**/test.ts} --exclude '{**/projects/c8osdkangular/src/**/*.spec.ts,**/projects/c8osdkangular/src/c8osdk-js-core/node_modules/,**/projects/c8osdkangular/src/test.ts,**/projects/c8osdkangular/src/utils.help.ts}' --readme none --mode file --theme markdown ./projects/c8osdkangular/src/",
     "wv": "node ./version.js",
     "typedoc": "typedoc",
-    "typedoc-plugin-markdown":"typedoc-plugin-markdown"
+    "typedoc-plugin-markdown": "typedoc-plugin-markdown"
   },
   "private": true,
   "dependencies": {

@@ -14,9 +14,10 @@ import "rxjs/Rx";
 import any = jasmine.any;
 
 import { C8o } from "./lib/c8o.service";
+import { HttpXsrfInterceptor } from "./lib/c8oHttpxsrfInterceptor.service";
 
 import { Functions, Info, Stuff, PlainObjectA, PlainObjectB } from "./utils.help";
-import { HttpClientModule, HttpErrorResponse } from "@angular/common/http";
+import { HttpClientModule, HttpErrorResponse,HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HttpClient } from "@angular/common/http";
 
 import "rxjs/Rx";
@@ -47,7 +48,12 @@ describe("provider: basic calls verifications", () => {
                 BrowserModule
             ],
             providers: [
-                C8o
+                C8o,
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: HttpXsrfInterceptor,
+                    multi: true
+                  }
             ]
         });
     });
@@ -56,7 +62,7 @@ describe("provider: basic calls verifications", () => {
     });
 
     
-/***
+/***/
     it("should remove null parameters (C8oRemovePing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
@@ -97,7 +103,6 @@ describe("provider: basic calls verifications", () => {
     }
     );
 
-/***
     it("should ping (C8oDefaultPing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)
@@ -2070,7 +2075,7 @@ describe("provider: basic calls verifications", () => {
         })();
     }
     );
-
+/***
     it("should check that Fullsync repliacte cancel when lauching two replication works(C8oFsReplicateCancelOnDoublon)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             let state: string;
@@ -2107,7 +2112,7 @@ describe("provider: basic calls verifications", () => {
         }
         )();
     });
-
+/*/
     it("should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_LC).catch(() => {
@@ -2928,7 +2933,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
             done();
         })();
     });
-/**
+/**/
     it("should check that Fullsync database with prefix works(C8oFsWithPrefix)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             try {
