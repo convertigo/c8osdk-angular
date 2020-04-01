@@ -48,7 +48,7 @@ Created by charlesg on 10/01/2017.
 
 \+ **new FullSyncRequestable**(`value`: string, `handleFullSyncRequestOp`: function): *[FullSyncRequestable](fullsyncrequestable.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:278](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L278)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:278](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L278)*
 
 **Parameters:**
 
@@ -75,7 +75,7 @@ Name | Type |
 
 • **handleFullSyncRequestOp**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:278](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L278)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:278](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L278)*
 
 #### Type declaration:
 
@@ -96,7 +96,7 @@ ___
 
 • **value**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:277](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L277)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:277](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L277)*
 
 ___
 
@@ -113,7 +113,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:105](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L105)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:105](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L105)*
 
 ___
 
@@ -130,7 +130,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:116](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L116)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:116](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L116)*
 
 ___
 
@@ -144,7 +144,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:246](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L246)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:246](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L246)*
 
 ___
 
@@ -158,7 +158,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:237](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L237)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:237](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L237)*
 
 ___
 
@@ -178,7 +178,7 @@ ___
             });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:29](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:29](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L29)*
 
 ___
 
@@ -194,7 +194,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:94](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L94)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:94](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L94)*
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:264](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L264)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:264](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L264)*
 
 ___
 
@@ -228,7 +228,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:19](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L19)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:19](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L19)*
 
 ___
 
@@ -244,7 +244,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:83](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L83)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:83](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L83)*
 
 ___
 
@@ -258,7 +258,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:254](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L254)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:254](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L254)*
 
 ___
 
@@ -290,7 +290,7 @@ ___
 
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:44](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L44)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:44](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L44)*
 
 ___
 
@@ -308,7 +308,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:71](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L71)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:71](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L71)*
 
 ___
 
@@ -338,7 +338,7 @@ ___
             });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:177](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L177)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:177](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L177)*
 
 ___
 
@@ -368,7 +368,7 @@ ___
             });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:201](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L201)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:201](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L201)*
 
 ___
 
@@ -384,7 +384,7 @@ ___
         })
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:226](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L226)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:226](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L226)*
 
 ___
 
@@ -425,7 +425,7 @@ ___
             });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:142](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L142)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:142](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L142)*
 
 ___
 
@@ -445,7 +445,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:128](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L128)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:128](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L128)*
 
 ## Methods
 
@@ -453,7 +453,7 @@ ___
 
 ▸ **handleFullSyncRequest**(`c8oFullSync`: [C8oFullSync](c8ofullsync.md), `databaseName`: string, `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:285](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L285)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:285](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L285)*
 
 **Parameters:**
 
@@ -472,7 +472,7 @@ ___
 
 ▸ **getFullSyncRequestable**(`value`: string): *[FullSyncRequestable](fullsyncrequestable.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:296](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L296)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:296](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L296)*
 
 **Parameters:**
 
@@ -488,6 +488,6 @@ ___
 
 ▸ **values**(): *[FullSyncRequestable](fullsyncrequestable.md)[]*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:305](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/fullSyncRequestable.ts#L305)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncRequestable.ts:305](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncRequestable.ts#L305)*
 
 **Returns:** *[FullSyncRequestable](fullsyncrequestable.md)[]*

@@ -11,6 +11,8 @@
 </p>
 
 ## Test status ##
+Angular 9.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
+
 Angular 8.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
 Angular 7.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
@@ -31,9 +33,10 @@ Angular 5.X: ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circl
   - [About Convertigo Platform](#about-convertigo-platform)
 - [Requirements](#requirements)
 - [Installation](#installation)
-  - [Support of Angular 6, 7, 8](#support-of-angular-6-7-8)
+  - [Support of Angular 6, 7, 8, 9](#support-of-angular-6-7-8-9)
 - [Documentation](#documentation)
   - [Creating a C8o instance](#creating-a-c8o-instance)
+  - [Support Cross-Site Request Forgery](#support-cross-site-request-forgery)
   - [Advanced instance settings](#advanced-instance-settings)
     - [General](#general)
     - [Normalize parameters](#normalize-parameters)
@@ -120,14 +123,14 @@ Convertigo Mobility Platform supports Angular developers. Services brought by th
 $ npm install --save c8osdkangular@latest
 ```
 
-### Support of Angular 6, 7, 8 ###
+### Support of Angular 6, 7, 8, 9 ###
 
 To target angular 6 & 7 please use at least version 2.2.8
 ```shell
 $ npm install --save c8osdkangular@2.2.8
 ```
 
-To target angular  8 please use at least version 3.0.0
+To target angular  8 & 9 please use at least version 3.0.0
 ```shell
 $ npm install --save c8osdkangular@3.0.0
 ```
@@ -180,6 +183,33 @@ export class MyClass {
 	}
 }
 ```
+### Support Cross-Site Request Forgery ###
+This feature is supported from c8osdkangular@3.0.8 and convertigo server 7.8
+
+See [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) for more information.
+
+```typescript
+//Into app.module.ts
+import {C8o, HttpXsrfInterceptor} from "c8osdkangular";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+
+@NgModule({
+  imports: [
+      BrowserModule,
+      HttpClientModule
+  ],
+  providers: [
+    C8o,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpXsrfInterceptor,
+      multi: true
+    },
+  ]
+});
+
+```
+
 ### Advanced instance settings ###
 #### General ####
  The endpoint is the mandatory setting to get a C8o instance correctly initialized but there is additional settings through the C8oSettings class.
@@ -637,6 +667,34 @@ let resultPost = await this.c8o.callJsonObject("fs://mabase.post",
     "_use_policy":"merge",
     "_use_merge_property3.g.a":"override",
     "_use_merge_property3.g.z":"delete"
+}
+).async();
+
+//The following post will result into the following document
+{
+    '_id':'myID',
+    property1: 'myfirstproperty',
+    property2: ['a','b','c'],
+    property3: {
+      'e':'E',
+      'f':'F',
+      'g':{'a':['k','l','m'], 'b':'cdef'}
+    },
+    property4: 'myNewProp'
+}
+
+// Alternatively we can use a specific subkey separator using subkeySeparators
+let resultPost = await this.c8o.callJsonObject("fs://mabase.post",
+ {
+    '_id':'myID',
+    [C8o.FS_SUBKEY_SEPARATOR]: "~"
+    property4: 'myNewProp',
+    property3: {
+      'g':{'a':['k','l','m']}
+    },
+    "_use_policy":"merge",
+    "_use_merge_property3~g~a":"override",
+    "_use_merge_property3~g~z":"delete"
 }
 ).async();
 

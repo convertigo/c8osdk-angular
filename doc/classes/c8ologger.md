@@ -81,7 +81,7 @@
 
 \+ **new C8oLogger**(`c8o`: [C8oCore](c8ocore.md), `first`: boolean): *[C8oLogger](c8ologger.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:39](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L39)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:39](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L39)*
 
 **Parameters:**
 
@@ -98,7 +98,7 @@ Name | Type |
 
 • **alreadyRemoteLogging**: *boolean[]*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:28](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L28)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:28](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L28)*
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:36](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L36)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:36](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L36)*
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 • **env**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:38](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L38)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:38](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L38)*
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 • **initDone**: *boolean* = false
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:32](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L32)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:32](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L32)*
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 • **pInit**: *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:39](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L39)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:39](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L39)*
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 • **pending_remoteLogs**: *[Queue](queue.md)‹JSON›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:33](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L33)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:33](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L33)*
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 • **pending_remoteLogsLevel**: *[Queue](queue.md)‹[C8oLogLevel](c8ologlevel.md)›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:34](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L34)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:34](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L34)*
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 • **remoteLogLevel**: *[C8oLogLevel](c8ologlevel.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:29](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:29](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L29)*
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 • **remoteLogUrl**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:25](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:25](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L25)*
 
 Attributes
 
@@ -172,7 +172,7 @@ ___
 
 • **remoteLogs**: *[Queue](queue.md)‹JSON›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:26](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L26)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:26](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L26)*
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 • **startTimeRemoteLog**: *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:31](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L31)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:31](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L31)*
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 • **uidRemoteLogs**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:30](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L30)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:30](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L30)*
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 ▪ **JSON_KEY_ENV**: *string* = "env"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:21](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:21](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L21)*
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 ▪ **JSON_KEY_LEVEL**: *string* = "level"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:18](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L18)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:18](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L18)*
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 ▪ **JSON_KEY_LOGS**: *string* = "logs"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:20](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L20)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:20](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L20)*
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 ▪ **JSON_KEY_MESSAGE**: *string* = "msg"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:19](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L19)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:19](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L19)*
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 ▪ **JSON_KEY_REMOTE_LOG_LEVEL**: *string* = "remoteLogLevel"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:16](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:16](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L16)*
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 ▪ **JSON_KEY_TIME**: *string* = "time"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:17](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:17](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L17)*
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 ▪ **LOG_INTERNAL_PREFIX**: *string* = "[c8o] "
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:12](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:12](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L12)*
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 ▪ **REMOTE_LOG_LIMIT**: *number* = 100
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:14](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:14](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L14)*
 
 ## Accessors
 
@@ -260,7 +260,7 @@ ___
 
 • **get isDebug**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:117](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L117)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:117](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L117)*
 
 **Returns:** *boolean*
 
@@ -270,7 +270,7 @@ ___
 
 • **get isError**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:103](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L103)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:103](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L103)*
 
 **Returns:** *boolean*
 
@@ -280,7 +280,7 @@ ___
 
 • **get isFatal**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:98](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L98)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:98](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L98)*
 
 **Returns:** *boolean*
 
@@ -290,7 +290,7 @@ ___
 
 • **get isInfo**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:113](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L113)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:113](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L113)*
 
 **Returns:** *boolean*
 
@@ -300,7 +300,7 @@ ___
 
 • **get isTrace**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:121](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L121)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:121](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L121)*
 
 **Returns:** *boolean*
 
@@ -310,7 +310,7 @@ ___
 
 • **get isWarn**(): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:108](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L108)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:108](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L108)*
 
 **Returns:** *boolean*
 
@@ -320,7 +320,7 @@ ___
 
 ▸ **_debug**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:234](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L234)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:234](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L234)*
 
 **Parameters:**
 
@@ -337,7 +337,7 @@ ___
 
 ▸ **_error**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:222](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L222)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:222](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L222)*
 
 **Parameters:**
 
@@ -354,7 +354,7 @@ ___
 
 ▸ **_fatal**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:218](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L218)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:218](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L218)*
 
 **Parameters:**
 
@@ -371,7 +371,7 @@ ___
 
 ▸ **_info**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:230](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L230)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:230](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L230)*
 
 **Parameters:**
 
@@ -388,7 +388,7 @@ ___
 
 ▸ **_log**(`logLevel`: [C8oLogLevel](c8ologlevel.md), `messages`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:212](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L212)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:212](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L212)*
 
 **Parameters:**
 
@@ -406,7 +406,7 @@ ___
 
 ▸ **_trace**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:238](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L238)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:238](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L238)*
 
 **Parameters:**
 
@@ -423,7 +423,7 @@ ___
 
 ▸ **_warn**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:226](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L226)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:226](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L226)*
 
 **Parameters:**
 
@@ -440,7 +440,7 @@ ___
 
 ▸ **affect_val**(`c8o`: [C8oCore](c8ocore.md), `first`: boolean): *Promise‹unknown›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:43](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L43)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:43](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L43)*
 
 **Parameters:**
 
@@ -457,7 +457,7 @@ ___
 
 ▸ **canLog**(`logLevel`: [C8oLogLevel](c8ologlevel.md)): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:93](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L93)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:93](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L93)*
 
 **Parameters:**
 
@@ -473,7 +473,7 @@ ___
 
 ▸ **checkInitDone**(`resolve`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:305](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L305)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:305](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L305)*
 
 **Parameters:**
 
@@ -489,7 +489,7 @@ ___
 
 ▸ **debug**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:204](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L204)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:204](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L204)*
 
 **Parameters:**
 
@@ -506,7 +506,7 @@ ___
 
 ▸ **error**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:192](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L192)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:192](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L192)*
 
 **Parameters:**
 
@@ -523,7 +523,7 @@ ___
 
 ▸ **fatal**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:188](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L188)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:188](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L188)*
 
 **Parameters:**
 
@@ -540,7 +540,7 @@ ___
 
 ▸ **info**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:200](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L200)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:200](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L200)*
 
 **Parameters:**
 
@@ -557,7 +557,7 @@ ___
 
 ▸ **isLoggableConsole**(`logLevel`: [C8oLogLevel](c8ologlevel.md)): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:89](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L89)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:89](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L89)*
 
 **Parameters:**
 
@@ -573,7 +573,7 @@ ___
 
 ▸ **isLoggableRemote**(`logLevel`: [C8oLogLevel](c8ologlevel.md)): *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:85](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L85)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:85](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L85)*
 
 **Parameters:**
 
@@ -589,7 +589,7 @@ ___
 
 ▸ **log**(`logLevel`: [C8oLogLevel](c8ologlevel.md), `message`: string, `exception`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:125](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L125)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:125](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L125)*
 
 **Parameters:**
 
@@ -607,7 +607,7 @@ ___
 
 ▸ **logC8oCall**(`url`: string, `parameters`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:452](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L452)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:452](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L452)*
 
 **Parameters:**
 
@@ -624,7 +624,7 @@ ___
 
 ▸ **logC8oCallJSONResponse**(`response`: JSON, `url`: string, `parameters`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:462](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L462)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:462](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L462)*
 
 **Parameters:**
 
@@ -642,7 +642,7 @@ ___
 
 ▸ **logC8oCallResponse**(`responseStr`: string, `responseType`: string, `url`: string, `parameters`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:470](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L470)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:470](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L470)*
 
 **Parameters:**
 
@@ -661,7 +661,7 @@ ___
 
 ▸ **logC8oCallXMLResponse**(`response`: Document, `url`: string, `parameters`: Object): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:466](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L466)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:466](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L466)*
 
 **Parameters:**
 
@@ -679,7 +679,7 @@ ___
 
 ▸ **logMethodCall**(`methodName`: string, ...`parameters`: any[]): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:421](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L421)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:421](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L421)*
 
 **Parameters:**
 
@@ -696,7 +696,7 @@ ___
 
 ▸ **logRemote**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:366](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L366)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:366](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L366)*
 
 **Returns:** *Promise‹void›*
 
@@ -706,7 +706,7 @@ ___
 
 ▸ **logRemoteInit**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:242](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L242)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:242](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L242)*
 
 **Returns:** *Promise‹void›*
 
@@ -716,7 +716,7 @@ ___
 
 ▸ **logTest**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:329](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L329)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:329](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L329)*
 
 **Returns:** *Promise‹any›*
 
@@ -726,7 +726,7 @@ ___
 
 ▸ **logTestAction**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:344](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L344)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:344](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L344)*
 
 **Returns:** *Promise‹any›*
 
@@ -736,7 +736,7 @@ ___
 
 ▸ **trace**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:208](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L208)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:208](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L208)*
 
 **Parameters:**
 
@@ -753,7 +753,7 @@ ___
 
 ▸ **warn**(`message`: string, `exceptions`: Error): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:196](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oLogger.ts#L196)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLogger.ts:196](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oLogger.ts#L196)*
 
 **Parameters:**
 
