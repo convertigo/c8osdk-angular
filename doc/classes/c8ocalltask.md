@@ -37,7 +37,7 @@
 
 \+ **new C8oCallTask**(`c8o`: [C8oCore](c8ocore.md), `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `c8oExceptionListener`: [C8oExceptionListener](c8oexceptionlistener.md)): *[C8oCallTask](c8ocalltask.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:27](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L27)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:27](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L27)*
 
 **Parameters:**
 
@@ -56,7 +56,7 @@ Name | Type |
 
 • **_parameters**: *Object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:16](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:16](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L16)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:15](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:15](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L15)*
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 • **c8oCallUrl**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:19](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L19)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:19](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L19)*
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 • **c8oExceptionListener**: *[C8oExceptionListener](c8oexceptionlistener.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:18](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L18)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:18](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L18)*
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 • **c8oResponseListener**: *[C8oResponseListener](../interfaces/c8oresponselistener.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:17](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:17](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L17)*
 
 ## Accessors
 
@@ -96,13 +96,13 @@ ___
 
 • **get parameters**(): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:21](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:21](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L21)*
 
 **Returns:** *any*
 
 • **set parameters**(`value`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:25](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:25](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L25)*
 
 **Parameters:**
 
@@ -118,7 +118,7 @@ Name | Type |
 
 ▸ **executeFromLive**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:51](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L51)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:51](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L51)*
 
 **Returns:** *void*
 
@@ -128,7 +128,7 @@ ___
 
 ▸ **handleRequest**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:57](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L57)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:57](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L57)*
 
 **Returns:** *Promise‹any›*
 
@@ -138,7 +138,7 @@ ___
 
 ▸ **handleResponse**(`result`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:242](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L242)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:242](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L242)*
 
 **Parameters:**
 
@@ -154,6 +154,6 @@ ___
 
 ▸ **run**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:39](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oCallTask.ts#L39)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCallTask.ts:39](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oCallTask.ts#L39)*
 
 **Returns:** *void*

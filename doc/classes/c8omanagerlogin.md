@@ -29,7 +29,7 @@
 
 \+ **new C8oManagerLogin**(`c8o`: [C8oCore](c8ocore.md)): *[C8oManagerLogin](c8omanagerlogin.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oManagerLogin.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oManagerLogin.ts#L10)*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:8](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oManagerLogin.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:8](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oManagerLogin.ts#L8)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **mutexL**: *[Semaphore](semaphore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oManagerLogin.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oManagerLogin.ts#L10)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **requestLogin**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:9](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oManagerLogin.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:9](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oManagerLogin.ts#L9)*
 
 ## Methods
 
@@ -69,7 +69,7 @@ ___
 
 ▸ **doLogin**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:20](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oManagerLogin.ts#L20)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:20](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oManagerLogin.ts#L20)*
 
 **Returns:** *Promise‹any›*
 
@@ -79,7 +79,7 @@ ___
 
 ▸ **setRequestLogin**(`url`: string, `parameters`: Object, `headers`: Object): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:16](https://github.com/convertigo/c8osdk-angular/blob/759fcb2/src/c8o/c8oManagerLogin.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:16](https://github.com/convertigo/c8osdk-angular/blob/943dcfc/src/c8o/c8oManagerLogin.ts#L16)*
 
 **Parameters:**
 
