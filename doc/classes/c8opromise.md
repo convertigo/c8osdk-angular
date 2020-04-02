@@ -45,7 +45,7 @@
 
 \+ **new C8oPromise**(`c8o`: [C8oCore](c8ocore.md)): *[C8oPromise](c8opromise.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:16](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:16](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L16)*
 
 **Parameters:**
 
@@ -61,7 +61,7 @@ Name | Type |
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:8](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:8](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L8)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **c8oFail**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:11](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:11](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L11)*
 
 #### Type declaration:
 
@@ -88,7 +88,7 @@ ___
 
 • **c8oProgress**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:10](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:10](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L10)*
 
 #### Type declaration:
 
@@ -106,7 +106,7 @@ ___
 
 • **c8oResponse**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:9](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:9](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L9)*
 
 #### Type declaration:
 
@@ -125,7 +125,7 @@ ___
 
 • **lastFailure**: *Error*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:15](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:15](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L15)*
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 • **lastParameters**: *Object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:16](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:16](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L16)*
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 • **lastResponse**: *T*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:14](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:14](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L14)*
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 • **nextPromise**: *[C8oPromise](c8opromise.md)‹T›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:12](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:12](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L12)*
 
 ## Methods
 
@@ -157,7 +157,7 @@ ___
 
 ▸ **_onResponse**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:97](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L97)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:97](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L97)*
 
 **Returns:** *void*
 
@@ -167,7 +167,7 @@ ___
 
 ▸ **async**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:22](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L22)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:22](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L22)*
 
 **Returns:** *Promise‹any›*
 
@@ -177,7 +177,7 @@ ___
 
 ▸ **fail**(`c8oOnFail`: function): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:84](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L84)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:84](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L84)*
 
 **Parameters:**
 
@@ -200,7 +200,7 @@ ___
 
 ▸ **onFailure**(`error`: Error, `parameters`: Object): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:144](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L144)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:144](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L144)*
 
 **Parameters:**
 
@@ -217,7 +217,7 @@ ___
 
 ▸ **onProgress**(`progress`: [C8oProgress](c8oprogress.md)): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:136](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L136)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:136](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L136)*
 
 **Parameters:**
 
@@ -233,7 +233,7 @@ ___
 
 ▸ **onResponse**(`response`: T, `parameters`: Object): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:124](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L124)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:124](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L124)*
 
 **Parameters:**
 
@@ -250,7 +250,7 @@ ___
 
 ▸ **progress**(`c8oOnProgress`: function): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:74](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L74)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:74](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L74)*
 
 **Parameters:**
 
@@ -272,7 +272,7 @@ ___
 
 ▸ **then**(`c8oOnResponse`: function): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:55](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L55)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:55](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L55)*
 
 **Parameters:**
 
@@ -295,6 +295,6 @@ ___
 
 ▸ **toObservable**(): *Observable‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:33](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/c8oPromise.ts#L33)*
+*Defined in [c8osdk-js-core/src/c8o/c8oPromise.ts:33](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/c8oPromise.ts#L33)*
 
 **Returns:** *Observable‹any›*
