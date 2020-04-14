@@ -25,7 +25,7 @@
 
 \+ **new FullSyncReplication**(`pull`: boolean): *[FullSyncReplication](fullsyncreplication.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:6](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncReplication.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:6](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncReplication.ts#L6)*
 
 **Parameters:**
 
@@ -41,7 +41,7 @@ Name | Type | Default |
 
 • **changeListener**: *Event*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:6](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncReplication.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:6](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncReplication.ts#L6)*
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 • **pull**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:2](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncReplication.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:2](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncReplication.ts#L2)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **replication**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:4](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncReplication.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:4](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncReplication.ts#L4)*
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 • **sync**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:3](https://github.com/convertigo/c8osdk-angular/blob/80fcaa8/src/c8o/fullSyncReplication.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncReplication.ts:3](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncReplication.ts#L3)*
