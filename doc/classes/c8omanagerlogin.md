@@ -20,6 +20,7 @@
 
 ### Methods
 
+* [defineRequestLogin](c8omanagerlogin.md#definerequestlogin)
 * [doLogin](c8omanagerlogin.md#dologin)
 * [setRequestLogin](c8omanagerlogin.md#setrequestlogin)
 
@@ -29,7 +30,7 @@
 
 \+ **new C8oManagerLogin**(`c8o`: [C8oCore](c8ocore.md)): *[C8oManagerLogin](c8omanagerlogin.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/c8oManagerLogin.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L10)*
 
 **Parameters:**
 
@@ -45,7 +46,7 @@ Name | Type |
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:8](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/c8oManagerLogin.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:8](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L8)*
 
 ___
 
@@ -53,7 +54,7 @@ ___
 
 • **mutexL**: *[Semaphore](semaphore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/c8oManagerLogin.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:10](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L10)*
 
 ___
 
@@ -61,15 +62,31 @@ ___
 
 • **requestLogin**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:9](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/c8oManagerLogin.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:9](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L9)*
 
 ## Methods
+
+###  defineRequestLogin
+
+▸ **defineRequestLogin**(`id`: any): *Promise‹void›*
+
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:46](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L46)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | any |
+
+**Returns:** *Promise‹void›*
+
+___
 
 ###  doLogin
 
 ▸ **doLogin**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:20](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/c8oManagerLogin.ts#L20)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:73](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L73)*
 
 **Returns:** *Promise‹any›*
 
@@ -77,9 +94,9 @@ ___
 
 ###  setRequestLogin
 
-▸ **setRequestLogin**(`url`: string, `parameters`: Object, `headers`: Object): *void*
+▸ **setRequestLogin**(`url`: string, `parameters`: Object, `headers`: Object, `id`: string): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:16](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/c8oManagerLogin.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:16](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L16)*
 
 **Parameters:**
 
@@ -88,5 +105,6 @@ Name | Type |
 `url` | string |
 `parameters` | Object |
 `headers` | Object |
+`id` | string |
 
-**Returns:** *void*
+**Returns:** *Promise‹void›*

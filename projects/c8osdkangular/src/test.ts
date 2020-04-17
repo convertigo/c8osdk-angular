@@ -25,6 +25,7 @@ import PouchDB from "pouchdb-browser";
 import { C8oUtils } from "./lib/c8oUtils.service";
 import { C8oAlldocsLocal, C8oPromise, C8oSettings, C8oLogLevel, C8oException, C8oExceptionMessage, C8oProgress, C8oLocalCache, C8oFullSyncChangeListener, Priority, C8oRessourceNotFoundException, C8oResponseJsonListener, C8oHttpRequestException, C8oCore } from "../src/c8osdk-js-core/src/index";
 import { $ } from 'protractor';
+import { windowTime } from 'rxjs/operators';
 
 declare const require: any;
 
@@ -57,8 +58,29 @@ describe("provider: basic calls verifications", () => {
             ]
         });
     });
-    afterEach(function () {
+    afterEach(async (done)=> {
+        inject([C8o], async (c8o: C8o) => {
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+        if(c8o.couchUrl != "http://fakecoururl.com"){
+            c8o.callJson(".logout", "__disableAutologin", true)
+            .then((res)=>{
+                //debugger;
+                done();
+                return null;
+            })
+            .fail((err)=>{
+                //debugger;
+                done();
+            });
+            setTimeout(()=>{
+                done();
+            },5000)
+        }
+        else{
+            done();
+        }
+            
+        })();
     });
 
     
@@ -2113,6 +2135,7 @@ describe("provider: basic calls verifications", () => {
         )();
     });
 /*/
+
     it("should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_LC).catch(() => {
@@ -2441,10 +2464,12 @@ describe("provider: basic calls verifications", () => {
     });
 
     it("should check that keepAlive and autologin works works(C8oHandleSessionLost)", async (done) => {
+        debugger;
         inject([C8o, HttpClient], async (c8o: C8o, http: HttpClient) => {
             try {
                 let timeout;
                 let triggerautologinresponse = false;
+                let done2 = false;
                 new Promise(async (resolve) => {
                     
                     await c8o.init(Stuff.C8o_SessionsKeepAlive);
@@ -2460,7 +2485,9 @@ describe("provider: basic calls verifications", () => {
                         if (timeout != undefined) {
                             clearTimeout(timeout);
                         }
-                        done.fail();
+                        if(!done2){
+                            done.fail();
+                        }
                     });
                     Functions.removesess(c8o, resolve);
                 }).then(async () => {
@@ -2469,15 +2496,19 @@ describe("provider: basic calls verifications", () => {
                     console.log("then");
                     timeout = setTimeout(() => {
                         expect(triggerautologinresponse).toBeTruthy();
+                        done2 = true;
                         done();
                     }, 10000);
                 })
                     .catch((error) => {
-                        done.fail();
+                        if(!done2){
+                            done.fail();
+                        }
                     })
             }
             catch (error) {
-                done.fail("C8oHandleSessionLost " + error.message);
+                    done.fail("C8oHandleSessionLost " + error.message);
+                
             }
         })();
     });
@@ -2825,7 +2856,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
         done();
     })();
 });
-/***/
+
     it("should check that Fullsync database merge subpolicy works _use_merge_ : delete (C8oFsSubpolicy_use_merge_delete)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
@@ -2877,7 +2908,6 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
             done();
         })();
     });
-    /**/
     it("should check that Fullsync database merge subpolicy works _use_merge_ : override (C8oFsSubpolicy_use_merge_override)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_Sessions).catch((error) => {
@@ -2933,7 +2963,7 @@ it("should check that Fullsync database whitout prefix works(C8oFsWithoutPrefix)
             done();
         })();
     });
-/**/
+
     it("should check that Fullsync database with prefix works(C8oFsWithPrefix)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             try {
