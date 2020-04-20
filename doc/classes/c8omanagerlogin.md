@@ -86,7 +86,7 @@ ___
 
 ▸ **doLogin**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:73](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L73)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerLogin.ts:72](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oManagerLogin.ts#L72)*
 
 **Returns:** *Promise‹any›*
 

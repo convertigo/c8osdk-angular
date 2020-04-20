@@ -166,7 +166,7 @@
 
 *Overrides [C8oCore](c8ocore.md).[constructor](c8ocore.md#constructor)*
 
-*Defined in [lib/c8o.service.ts:7](https://github.com/convertigo/c8osdk-angular/blob/f505080/projects/c8osdkangular/src/lib/c8o.service.ts#L7)*
+*Defined in [lib/c8o.service.ts:7](https://github.com/convertigo/c8osdk-angular/blob/49c7750/projects/c8osdkangular/src/lib/c8o.service.ts#L7)*
 
 **Parameters:**
 
@@ -614,7 +614,7 @@ ___
 
 • **http**: *HttpClient*
 
-*Defined in [lib/c8o.service.ts:9](https://github.com/convertigo/c8osdk-angular/blob/f505080/projects/c8osdkangular/src/lib/c8o.service.ts#L9)*
+*Defined in [lib/c8o.service.ts:9](https://github.com/convertigo/c8osdk-angular/blob/49c7750/projects/c8osdkangular/src/lib/c8o.service.ts#L9)*
 
 ___
 
@@ -1633,7 +1633,7 @@ ___
 
 *Overrides [C8oCore](c8ocore.md).[sdkVersion](c8ocore.md#sdkversion)*
 
-*Defined in [lib/c8o.service.ts:17](https://github.com/convertigo/c8osdk-angular/blob/f505080/projects/c8osdkangular/src/lib/c8o.service.ts#L17)*
+*Defined in [lib/c8o.service.ts:17](https://github.com/convertigo/c8osdk-angular/blob/49c7750/projects/c8osdkangular/src/lib/c8o.service.ts#L17)*
 
 get current sdk version
 
@@ -1956,7 +1956,7 @@ ___
 
 *Overrides [C8oCore](c8ocore.md).[httpGetObservable](c8ocore.md#abstract-httpgetobservable)*
 
-*Defined in [lib/c8o.service.ts:24](https://github.com/convertigo/c8osdk-angular/blob/f505080/projects/c8osdkangular/src/lib/c8o.service.ts#L24)*
+*Defined in [lib/c8o.service.ts:24](https://github.com/convertigo/c8osdk-angular/blob/49c7750/projects/c8osdkangular/src/lib/c8o.service.ts#L24)*
 
 Method to bastract http get
 
@@ -2018,7 +2018,7 @@ ___
 
 *Overrides [C8oCore](c8ocore.md).[initC8oHttInterface](c8ocore.md#abstract-initc8ohttinterface)*
 
-*Defined in [lib/c8o.service.ts:31](https://github.com/convertigo/c8osdk-angular/blob/f505080/projects/c8osdkangular/src/lib/c8o.service.ts#L31)*
+*Defined in [lib/c8o.service.ts:31](https://github.com/convertigo/c8osdk-angular/blob/49c7750/projects/c8osdkangular/src/lib/c8o.service.ts#L31)*
 
 Init http interface in client sdk
 
