@@ -47,7 +47,7 @@ Thrown specific exceptions to Convertigo.
 
 \+ **new C8oException**(`message`: string): *[C8oException](c8oexception.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:7](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:7](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L7)*
 
 **Parameters:**
 
@@ -59,7 +59,7 @@ Name | Type |
 
 \+ **new C8oException**(`message`: string, `cause`: Error): *[C8oException](c8oexception.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:9](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:9](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L9)*
 
 **Parameters:**
 
@@ -72,7 +72,7 @@ Name | Type |
 
 \+ **new C8oException**(`message`: string, `cause`: Error, `all`: boolean): *[C8oException](c8oexception.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:10](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:10](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L10)*
 
 **Parameters:**
 
@@ -90,7 +90,7 @@ Name | Type |
 
 • **_cause**: *Error*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:7](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:7](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L7)*
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 *Overrides void*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:6](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:6](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L6)*
 
 ___
 
@@ -138,7 +138,7 @@ Defined in C:/dev/sdks/c8osdk-angular/node_modules/typedoc/node_modules/typescri
 
 • **get cause**(): *Error*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:28](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L28)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:28](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L28)*
 
 **Returns:** *Error*
 
@@ -148,7 +148,7 @@ Defined in C:/dev/sdks/c8osdk-angular/node_modules/typedoc/node_modules/typescri
 
 ▸ **toJSON**(): *object*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:32](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L32)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:32](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L32)*
 
 **Returns:** *object*
 
@@ -158,6 +158,6 @@ ___
 
 ▸ **toString**(): *object*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:40](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/Exception/c8oException.ts#L40)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oException.ts:40](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/Exception/c8oException.ts#L40)*
 
 **Returns:** *object*

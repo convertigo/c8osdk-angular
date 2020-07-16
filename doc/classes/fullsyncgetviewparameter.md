@@ -24,7 +24,7 @@
 
 \+ **new FullSyncGetViewParameter**(`name`: string): *[FullSyncGetViewParameter](fullsyncgetviewparameter.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/fullSyncGetViewParameter.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncGetViewParameter.ts#L5)*
 
 **Parameters:**
 
@@ -40,7 +40,7 @@ Name | Type |
 
 • **name**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/fullSyncGetViewParameter.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncGetViewParameter.ts#L5)*
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 ▪ **DDOC**: *[FullSyncGetViewParameter](fullsyncgetviewparameter.md)* =  new FullSyncGetViewParameter("ddoc")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/fullSyncGetViewParameter.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncGetViewParameter.ts#L3)*
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 ▪ **VIEW**: *[FullSyncGetViewParameter](fullsyncgetviewparameter.md)* =  new FullSyncGetViewParameter("view")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/4e0c9ba/src/c8o/fullSyncGetViewParameter.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncGetViewParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/426f1a2/src/c8o/fullSyncGetViewParameter.ts#L2)*

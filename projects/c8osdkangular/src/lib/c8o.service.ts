@@ -15,7 +15,7 @@ export class C8o extends C8oCore {
      * get current sdk version
      */
     public get sdkVersion(): string {
-        return "3.0.9";
+        return "3.0.11-beta12";
     }
     /**
      * Method to bastract http get
@@ -32,3 +32,4 @@ export class C8o extends C8oCore {
         this.httpInterface = new C8oHttpInterface(this);
     }
 }  
+
