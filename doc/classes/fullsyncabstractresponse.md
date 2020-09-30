@@ -32,7 +32,7 @@ Returned by a fullSync operation without return data.
 
 \+ **new FullSyncAbstractResponse**(`operationStatus`: boolean): *[FullSyncAbstractResponse](fullsyncabstractresponse.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:21](https://github.com/convertigo/c8osdk-angular/blob/653fcef/src/c8o/fullSyncResponse.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:21](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/fullSyncResponse.ts#L21)*
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ Name | Type |
 
 • **operationStatus**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:21](https://github.com/convertigo/c8osdk-angular/blob/653fcef/src/c8o/fullSyncResponse.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:21](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/fullSyncResponse.ts#L21)*
 
 ## Methods
 
@@ -56,6 +56,6 @@ Name | Type |
 
 ▸ **getProperties**(): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:27](https://github.com/convertigo/c8osdk-angular/blob/653fcef/src/c8o/fullSyncResponse.ts#L27)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:27](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/fullSyncResponse.ts#L27)*
 
 **Returns:** *any*
