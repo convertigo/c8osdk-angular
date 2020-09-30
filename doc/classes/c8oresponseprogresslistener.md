@@ -26,7 +26,7 @@
 
 \+ **new C8oResponseProgressListener**(`onProgressResponse`: function): *[C8oResponseProgressListener](c8oresponseprogresslistener.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:22](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oResponse.ts#L22)*
+*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:22](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oResponse.ts#L22)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **onProgressResponse**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:22](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oResponse.ts#L22)*
+*Defined in [c8osdk-js-core/src/c8o/c8oResponse.ts:22](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oResponse.ts#L22)*
 
 #### Type declaration:
 

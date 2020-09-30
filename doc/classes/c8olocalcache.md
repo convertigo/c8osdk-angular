@@ -25,7 +25,7 @@
 
 \+ **new C8oLocalCache**(`priority`: [Priority](priority.md), `ttl`: number, `enabled`: boolean): *[C8oLocalCache](c8olocalcache.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:8](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oLocalCache.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:8](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oLocalCache.ts#L8)*
 
 **Parameters:**
 
@@ -43,7 +43,7 @@ Name | Type | Default |
 
 • **enabled**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:8](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oLocalCache.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:8](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oLocalCache.ts#L8)*
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 • **priority**: *[Priority](priority.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:6](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oLocalCache.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:6](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oLocalCache.ts#L6)*
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **ttl**: *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:7](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oLocalCache.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:7](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oLocalCache.ts#L7)*
 
 ___
 
@@ -67,4 +67,4 @@ ___
 
 ▪ **PARAM**: *string* = "__localCache"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:5](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oLocalCache.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oLocalCache.ts:5](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oLocalCache.ts#L5)*

@@ -53,7 +53,7 @@
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[constructor](c8ohttpinterfacecore.md#constructor)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:5](https://github.com/convertigo/c8osdk-angular/blob/4e5acd6/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L5)*
+*Defined in [lib/c8oHttpInterface.service.ts:5](https://github.com/convertigo/c8osdk-angular/blob/c529ffb/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L5)*
 
 **Parameters:**
 
@@ -71,7 +71,7 @@ Name | Type |
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[_isCordova](c8ohttpinterfacecore.md#protected-_iscordova)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:17](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:17](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L17)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[c8o](c8ohttpinterfacecore.md#c8o)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:13](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:13](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L13)*
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[firstCall](c8ohttpinterfacecore.md#firstcall)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:15](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L15)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:15](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L15)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[firstcheckSessionR](c8ohttpinterfacecore.md#firstchecksessionr)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:18](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L18)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:18](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L18)*
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[p1](c8ohttpinterfacecore.md#p1)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:16](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L16)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:16](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L16)*
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[timeout](c8ohttpinterfacecore.md#timeout)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:14](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:14](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L14)*
 
 ## Methods
 
@@ -131,7 +131,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[checkFile](c8ohttpinterfacecore.md#checkfile)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:255](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L255)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:255](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L255)*
 
 Check type of file given in parameters
 0 : No file to upload
@@ -154,7 +154,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[execHttpPosts](c8ohttpinterfacecore.md#exechttpposts)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:178](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L178)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:178](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L178)*
 
 Execute http Posts
 
@@ -180,7 +180,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[forceInit](c8ohttpinterfacecore.md#forceinit)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:62](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L62)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:62](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L62)*
 
 **Returns:** *void*
 
@@ -192,7 +192,7 @@ ___
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[getHeaders](c8ohttpinterfacecore.md#abstract-getheaders)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:15](https://github.com/convertigo/c8osdk-angular/blob/4e5acd6/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L15)*
+*Defined in [lib/c8oHttpInterface.service.ts:15](https://github.com/convertigo/c8osdk-angular/blob/c529ffb/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L15)*
 
 get headers;
 
@@ -212,7 +212,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[getUserServiceStatus](c8ohttpinterfacecore.md#getuserservicestatus)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:113](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L113)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:113](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L113)*
 
 Call user service
 
@@ -232,7 +232,7 @@ ___
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[getuploadRequester](c8ohttpinterfacecore.md#abstract-getuploadrequester)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:25](https://github.com/convertigo/c8osdk-angular/blob/4e5acd6/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L25)*
+*Defined in [lib/c8oHttpInterface.service.ts:25](https://github.com/convertigo/c8osdk-angular/blob/c529ffb/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L25)*
 
 Angular implementation to post with progress
 
@@ -254,7 +254,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[handleProgress](c8ohttpinterfacecore.md#handleprogress)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:578](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L578)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:578](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L578)*
 
 Handle progress
 
@@ -278,7 +278,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[handleRequest](c8ohttpinterfacecore.md#handlerequest)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:408](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L408)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:408](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L408)*
 
 Handle the request
 
@@ -300,7 +300,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[handleResponseFileUpload](c8ohttpinterfacecore.md#handleresponsefileupload)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:543](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L543)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:543](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L543)*
 
 handle FileuploadResponses
 
@@ -325,7 +325,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[httpGetObservable](c8ohttpinterfacecore.md#httpgetobservable)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:71](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L71)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:71](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L71)*
 
 Method to bastract http get
 
@@ -347,7 +347,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[httpPost](c8ohttpinterfacecore.md#httppost)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:147](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L147)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:147](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L147)*
 
 Make an http post
 
@@ -368,7 +368,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[httpPostObservable](c8ohttpinterfacecore.md#httppostobservable)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:101](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L101)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:101](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L101)*
 
 Method to bastract http post
 
@@ -390,7 +390,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[isCordova](c8ohttpinterfacecore.md#protected-iscordova)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:294](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L294)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:294](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L294)*
 
 Check if we are in cordova environment
 
@@ -404,7 +404,7 @@ ___
 
 *Overrides [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[isHttpResponse](c8ohttpinterfacecore.md#abstract-ishttpresponse)*
 
-*Defined in [lib/c8oHttpInterface.service.ts:35](https://github.com/convertigo/c8osdk-angular/blob/4e5acd6/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L35)*
+*Defined in [lib/c8oHttpInterface.service.ts:35](https://github.com/convertigo/c8osdk-angular/blob/c529ffb/projects/c8osdkangular/src/lib/c8oHttpInterface.service.ts#L35)*
 
 test type of request
 
@@ -424,7 +424,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[transformRequest](c8ohttpinterfacecore.md#transformrequest)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:311](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L311)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:311](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L311)*
 
 Url encode parameters
 
@@ -444,7 +444,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[transformRequestfileNative](c8ohttpinterfacecore.md#transformrequestfilenative)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:375](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L375)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:375](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L375)*
 
 Extract file from parameters and return and array containing a file and params
 
@@ -464,7 +464,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[transformRequestformdata](c8ohttpinterfacecore.md#transformrequestformdata)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:335](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L335)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:335](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L335)*
 
 Transform FormData parameters
 
@@ -484,7 +484,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[uploadFileHttp](c8ohttpinterfacecore.md#uploadfilehttp)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:487](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L487)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:487](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L487)*
 
 Upload File using an Http client
 
@@ -507,7 +507,7 @@ ___
 
 *Inherited from [C8oHttpInterfaceCore](c8ohttpinterfacecore.md).[uploadFilePluginNative](c8ohttpinterfacecore.md#uploadfilepluginnative)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:436](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oHttpInterfaceCore.ts#L436)*
+*Defined in [c8osdk-js-core/src/c8o/c8oHttpInterfaceCore.ts:436](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oHttpInterfaceCore.ts#L436)*
 
 Upload file with native plugin
 

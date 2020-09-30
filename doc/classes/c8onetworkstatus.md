@@ -20,7 +20,7 @@
 
 ▪ **NotReachable**: *[C8oNetworkStatus](c8onetworkstatus.md)* = "NotReachable"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oNetworkStatus.ts:3](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oNetworkStatus.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/c8oNetworkStatus.ts:3](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oNetworkStatus.ts#L3)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 ▪ **Offline**: *[C8oNetworkStatus](c8onetworkstatus.md)* = "Offline"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oNetworkStatus.ts:4](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oNetworkStatus.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oNetworkStatus.ts:4](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oNetworkStatus.ts#L4)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 ▪ **Reachable**: *[C8oNetworkStatus](c8onetworkstatus.md)* = "Reachable"
 
-*Defined in [c8osdk-js-core/src/c8o/c8oNetworkStatus.ts:2](https://github.com/convertigo/c8osdk-angular/blob/f4efe5a/src/c8o/c8oNetworkStatus.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/c8oNetworkStatus.ts:2](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/c8oNetworkStatus.ts#L2)*
