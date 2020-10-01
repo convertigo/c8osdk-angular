@@ -28,7 +28,7 @@ Represents a default fullSync response.
 
 *Overrides [FullSyncAbstractResponse](fullsyncabstractresponse.md).[constructor](fullsyncabstractresponse.md#constructor)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:37](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/fullSyncResponse.ts#L37)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:37](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/fullSyncResponse.ts#L37)*
 
 **Parameters:**
 
@@ -46,6 +46,6 @@ Name | Type |
 
 *Inherited from [FullSyncAbstractResponse](fullsyncabstractresponse.md).[getProperties](fullsyncabstractresponse.md#getproperties)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:27](https://github.com/convertigo/c8osdk-angular/blob/c7655b8/src/c8o/fullSyncResponse.ts#L27)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncResponse.ts:27](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/fullSyncResponse.ts#L27)*
 
 **Returns:** *any*
