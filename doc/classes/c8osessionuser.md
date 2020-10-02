@@ -27,7 +27,7 @@
 
 \+ **new C8oSessionUser**(`user`: any): *[C8oSessionUser](c8osessionuser.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:8](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/C8oSessionUser.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:8](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/C8oSessionUser.ts#L8)*
 
 **Parameters:**
 
@@ -43,7 +43,7 @@ Name | Type | Default |
 
 • **authenticated**: *boolean* = false
 
-*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:3](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/C8oSessionUser.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:3](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/C8oSessionUser.ts#L3)*
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 • **groups**: *any[]* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:4](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/C8oSessionUser.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:4](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/C8oSessionUser.ts#L4)*
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 • **hash**: *string* = ""
 
-*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:8](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/C8oSessionUser.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:8](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/C8oSessionUser.ts#L8)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 • **maxInactive**: *number* = 0
 
-*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:5](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/C8oSessionUser.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:5](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/C8oSessionUser.ts#L5)*
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 • **name**: *string* = "anonymous"
 
-*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:7](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/C8oSessionUser.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:7](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/C8oSessionUser.ts#L7)*
 
 ___
 
@@ -83,4 +83,4 @@ ___
 
 • **sessionId**: *string* = ""
 
-*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:6](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/C8oSessionUser.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/C8oSessionUser.ts:6](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/C8oSessionUser.ts#L6)*

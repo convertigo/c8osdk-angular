@@ -24,7 +24,7 @@
 
 \+ **new FullSyncDeleteDocumentParameter**(`name`: string): *[FullSyncDeleteDocumentParameter](fullsyncdeletedocumentparameter.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/fullSyncDeleteDocumentParameter.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDeleteDocumentParameter.ts#L5)*
 
 **Parameters:**
 
@@ -40,7 +40,7 @@ Name | Type |
 
 • **name**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/fullSyncDeleteDocumentParameter.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDeleteDocumentParameter.ts#L5)*
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 ▪ **DOCID**: *[FullSyncDeleteDocumentParameter](fullsyncdeletedocumentparameter.md)* =  new FullSyncDeleteDocumentParameter("docid")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/fullSyncDeleteDocumentParameter.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDeleteDocumentParameter.ts#L2)*
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 ▪ **REV**: *[FullSyncDeleteDocumentParameter](fullsyncdeletedocumentparameter.md)* =  new FullSyncDeleteDocumentParameter("rev")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/fullSyncDeleteDocumentParameter.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDeleteDocumentParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDeleteDocumentParameter.ts#L3)*

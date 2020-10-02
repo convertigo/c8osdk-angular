@@ -48,7 +48,7 @@
 
 \+ **new FullSyncRequestParameter**(`name`: string, `type`: string): *[FullSyncRequestParameter](fullsyncrequestparameter.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L3)*
 
 **Parameters:**
 
@@ -65,7 +65,7 @@ Name | Type |
 
 • **_name**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L2)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **_type**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L3)*
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 ▪ **DESCENDING**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("descending", "boolean")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:17](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:17](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L17)*
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 ▪ **ENDKEY**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("endkey", "Object")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:18](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L18)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:18](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L18)*
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 ▪ **ENDKEY_DOCID**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("endkey_docid", "string")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:19](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L19)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:19](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L19)*
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 ▪ **GROUP**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("group", "boolean")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:28](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L28)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:28](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L28)*
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 ▪ **GROUP_LEVEL**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("group_level", "number")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:20](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L20)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:20](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L20)*
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 ▪ **INCLUDE_DELETED**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("include_deleted", "boolean")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:21](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:21](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L21)*
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 ▪ **INCLUDE_DOCS**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("include_docs", "boolean")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:26](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L26)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:26](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L26)*
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 ▪ **INDEX_UPDATE_MODE**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("index_update_mode", "string")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:22](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L22)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:22](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L22)*
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 ▪ **KEY**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("key", "Array")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:23](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L23)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:23](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L23)*
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 ▪ **KEYS**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("keys", "Array")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:24](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L24)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:24](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L24)*
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 ▪ **LIMIT**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("limit", "number")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:25](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:25](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L25)*
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 ▪ **REDUCE**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("reduce", "boolean")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:27](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L27)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:27](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L27)*
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 ▪ **SKIP**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("skip", "number")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:29](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:29](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L29)*
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 ▪ **STARTKEY**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("startkey", "Object")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:30](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L30)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:30](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L30)*
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 ▪ **STARTKEY_DOCID**: *[FullSyncRequestParameter](fullsyncrequestparameter.md)* =  new FullSyncRequestParameter("startkey_docid", "string")
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:31](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L31)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:31](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L31)*
 
 ## Accessors
 
@@ -201,7 +201,7 @@ ___
 
 • **get name**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:13](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:13](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L13)*
 
 **Returns:** *string*
 
@@ -211,7 +211,7 @@ ___
 
 • **get type**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:9](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:9](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L9)*
 
 **Returns:** *string*
 
@@ -221,7 +221,7 @@ ___
 
 ▸ **getFullSyncRequestParameter**(`name`: string): *[FullSyncRequestParameter](fullsyncrequestparameter.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:38](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L38)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:38](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L38)*
 
 **Parameters:**
 
@@ -237,6 +237,6 @@ ___
 
 ▸ **values**(): *[FullSyncRequestParameter](fullsyncrequestparameter.md)[]*
 
-*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:33](https://github.com/convertigo/c8osdk-angular/blob/0470790/src/c8o/FullSyncRequestParameter.ts#L33)*
+*Defined in [c8osdk-js-core/src/c8o/FullSyncRequestParameter.ts:33](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/FullSyncRequestParameter.ts#L33)*
 
 **Returns:** *[FullSyncRequestParameter](fullsyncrequestparameter.md)[]*
