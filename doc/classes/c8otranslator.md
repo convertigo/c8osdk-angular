@@ -18,7 +18,7 @@
 
 ▸ **stringToJSON**(`jsonValueString`: any): *JSON*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oTranslator.ts:2](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/c8oTranslator.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/c8oTranslator.ts:2](https://github.com/convertigo/c8osdk-angular/blob/41c81a4/src/c8o/c8oTranslator.ts#L2)*
 
 **Parameters:**
 

@@ -22,7 +22,7 @@
 
 ▪ **Connected**: *[C8oSessionStatus](c8osessionstatus.md)* = 1
 
-*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:3](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/c8oSessionStatus.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:3](https://github.com/convertigo/c8osdk-angular/blob/41c81a4/src/c8o/c8oSessionStatus.ts#L3)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 ▪ **Disconnected**: *[C8oSessionStatus](c8osessionstatus.md)* = 4
 
-*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:6](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/c8oSessionStatus.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:6](https://github.com/convertigo/c8osdk-angular/blob/41c81a4/src/c8o/c8oSessionStatus.ts#L6)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 ▪ **HasBeenConnected**: *[C8oSessionStatus](c8osessionstatus.md)* = 2
 
-*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:4](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/c8oSessionStatus.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:4](https://github.com/convertigo/c8osdk-angular/blob/41c81a4/src/c8o/c8oSessionStatus.ts#L4)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 ▪ **HasBeenDisconnected**: *[C8oSessionStatus](c8osessionstatus.md)* = 3
 
-*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:5](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/c8oSessionStatus.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:5](https://github.com/convertigo/c8osdk-angular/blob/41c81a4/src/c8o/c8oSessionStatus.ts#L5)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 ▪ **Ignore**: *[C8oSessionStatus](c8osessionstatus.md)* = 5
 
-*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:7](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/c8oSessionStatus.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/c8oSessionStatus.ts:7](https://github.com/convertigo/c8osdk-angular/blob/41c81a4/src/c8o/c8oSessionStatus.ts#L7)*
