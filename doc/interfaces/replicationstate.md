@@ -22,7 +22,7 @@
 
 • **database**: *[C8oFullSyncDatabase](../classes/c8ofullsyncdatabase.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:681](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDatabase.ts#L681)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:720](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/fullSyncDatabase.ts#L720)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **listener**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:678](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDatabase.ts#L678)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:717](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/fullSyncDatabase.ts#L717)*
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 • **parameters**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:679](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDatabase.ts#L679)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:718](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/fullSyncDatabase.ts#L718)*
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 • **stopped**: *Boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:682](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDatabase.ts#L682)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:721](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/fullSyncDatabase.ts#L721)*
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 • **type**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:680](https://github.com/convertigo/c8osdk-angular/blob/615d4a7/src/c8o/fullSyncDatabase.ts#L680)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:719](https://github.com/convertigo/c8osdk-angular/blob/6016c77/src/c8o/fullSyncDatabase.ts#L719)*
