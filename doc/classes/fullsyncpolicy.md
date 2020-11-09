@@ -32,7 +32,7 @@
 
 \+ **new FullSyncPolicy**(`value`: string, `action`: function): *[FullSyncPolicy](fullsyncpolicy.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:944](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L944)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:948](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L948)*
 
 **Parameters:**
 
@@ -57,7 +57,7 @@ Name | Type |
 
 • **action**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:944](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L944)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:948](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L948)*
 
 #### Type declaration:
 
@@ -77,7 +77,7 @@ ___
 
 • **value**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:943](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L943)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:947](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L947)*
 
 ___
 
@@ -97,7 +97,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:836](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L836)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:840](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L840)*
 
 ___
 
@@ -161,7 +161,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:885](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L885)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:889](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L889)*
 
 ___
 
@@ -181,7 +181,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:822](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L822)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:826](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L826)*
 
 ___
 
@@ -222,7 +222,7 @@ ___
         });
     })
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:850](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L850)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:854](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L854)*
 
 ## Methods
 
@@ -230,7 +230,7 @@ ___
 
 ▸ **getFullSyncPolicy**(`value`: string): *[FullSyncPolicy](fullsyncpolicy.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:956](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L956)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:960](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L960)*
 
 **Parameters:**
 
@@ -246,6 +246,6 @@ ___
 
 ▸ **values**(): *[FullSyncPolicy](fullsyncpolicy.md)[]*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:952](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/c8oCore.ts#L952)*
+*Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:956](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L956)*
 
 **Returns:** *[FullSyncPolicy](fullsyncpolicy.md)[]*

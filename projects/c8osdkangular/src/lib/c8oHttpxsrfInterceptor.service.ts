@@ -8,7 +8,9 @@ import {C8o} from "./c8o.service";
 export class HttpXsrfInterceptor implements HttpInterceptor {
   private headerName: string = "x-xsrf-token";
   private fetch: string = "Fetch";
-  constructor(private tokenExtractor: HttpXsrfTokenExtractor, private c8o: C8o) {}
+  constructor(private tokenExtractor: HttpXsrfTokenExtractor, private c8o: C8o) {
+    this.c8o.xsrfUsed = true;
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // get stored headerValue or fetch if the is no stored headerValue

@@ -16,6 +16,7 @@ Created by charlesg on 10/01/2017.
 
 ### Properties
 
+* [_id](c8ofullsyncdatabase.md#private-_id)
 * [c8o](c8ofullsyncdatabase.md#private-c8o)
 * [c8oFullSyncDatabaseUrl](c8ofullsyncdatabase.md#private-c8ofullsyncdatabaseurl)
 * [database](c8ofullsyncdatabase.md#private-database)
@@ -25,6 +26,7 @@ Created by charlesg on 10/01/2017.
 * [remotePouchHeader](c8ofullsyncdatabase.md#private-remotepouchheader)
 * [remotedatabaseName](c8ofullsyncdatabase.md#private-remotedatabasename)
 * [syncFullSyncReplication](c8ofullsyncdatabase.md#private-syncfullsyncreplication)
+* [to_cancel](c8ofullsyncdatabase.md#private-to_cancel)
 
 ### Accessors
 
@@ -53,7 +55,7 @@ Created by charlesg on 10/01/2017.
 
 \+ **new C8oFullSyncDatabase**(`c8o`: [C8oCore](c8ocore.md), `databaseName`: string, `fullSyncDatabases`: string, `localSuffix`: string, `localPrefix`: string): *[C8oFullSyncDatabase](c8ofullsyncdatabase.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:45](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L45)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:47](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L47)*
 
 Creates a fullSync database with the specified name and its location.
 
@@ -73,11 +75,19 @@ Name | Type |
 
 ## Properties
 
+### `Private` _id
+
+• **_id**: *any*
+
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:46](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L46)*
+
+___
+
 ### `Private` c8o
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:18](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L18)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:18](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L18)*
 
 Used to log.
 
@@ -87,7 +97,7 @@ ___
 
 • **c8oFullSyncDatabaseUrl**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:27](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L27)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:27](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L27)*
 
 ___
 
@@ -95,7 +105,7 @@ ___
 
 • **database**: *any* =  null
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:31](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L31)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:31](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L31)*
 
 The fullSync Database instance.
 
@@ -105,7 +115,7 @@ ___
 
 • **databaseName**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:25](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:25](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L25)*
 
 The fullSync database name.
 
@@ -115,7 +125,7 @@ ___
 
 • **pullFullSyncReplication**: *[FullSyncReplication](fullsyncreplication.md)* =  new FullSyncReplication(true)
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:35](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L35)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:35](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L35)*
 
 Used to make pull replication (uploads changes from the local database to the remote one).
 
@@ -125,7 +135,7 @@ ___
 
 • **pushFullSyncReplication**: *[FullSyncReplication](fullsyncreplication.md)* =  new FullSyncReplication(false)
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:39](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L39)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:39](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L39)*
 
 Used to make push replication (downloads changes from the remote database to the local one).
 
@@ -135,7 +145,7 @@ ___
 
 • **remotePouchHeader**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:45](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L45)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:45](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L45)*
 
 ___
 
@@ -143,7 +153,7 @@ ___
 
 • **remotedatabaseName**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:26](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L26)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:26](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L26)*
 
 ___
 
@@ -151,9 +161,17 @@ ___
 
 • **syncFullSyncReplication**: *[FullSyncReplication](fullsyncreplication.md)* =  new FullSyncReplication()
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:43](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L43)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:43](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L43)*
 
 Used to make pull replication (uploads changes from the local database to the remote one).
+
+___
+
+### `Private` to_cancel
+
+• **to_cancel**: *any[]* =  []
+
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:47](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L47)*
 
 ## Accessors
 
@@ -161,7 +179,7 @@ Used to make pull replication (uploads changes from the local database to the re
 
 • **get getdatabase**(): *any*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:615](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L615)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:681](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L681)*
 
 **Returns:** *any*
 
@@ -171,7 +189,7 @@ ___
 
 • **get getdatabseName**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:611](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L611)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:677](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L677)*
 
 **Returns:** *string*
 
@@ -181,7 +199,7 @@ ___
 
 ▸ **cancelPullReplication**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:642](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L642)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:708](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L708)*
 
 cancel Pull Replication
 
@@ -193,7 +211,7 @@ ___
 
 ▸ **cancelPushReplication**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:651](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L651)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:717](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L717)*
 
 cancel Push Replication
 
@@ -205,7 +223,7 @@ ___
 
 ▸ **cancelSyncReplication**(): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:660](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L660)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:726](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L726)*
 
 cancel Sync Replication
 
@@ -217,7 +235,7 @@ ___
 
 ▸ **checkResetBase**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:141](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L141)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:143](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L143)*
 
 **Returns:** *Promise‹void›*
 
@@ -227,7 +245,7 @@ ___
 
 ▸ **deleteDB**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:619](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L619)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:685](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L685)*
 
 **Returns:** *Promise‹any›*
 
@@ -237,7 +255,7 @@ ___
 
 ▸ **localDatabaseVersion**(): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:122](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L122)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:124](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L124)*
 
 **Returns:** *Promise‹any›*
 
@@ -247,7 +265,7 @@ ___
 
 ▸ **remoteDatabaseVersion**(): *Promise‹unknown›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:95](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L95)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:97](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L97)*
 
 **Returns:** *Promise‹unknown›*
 
@@ -257,7 +275,7 @@ ___
 
 ▸ **resetMyBase**(): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:171](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L171)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:173](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L173)*
 
 **Returns:** *Promise‹void›*
 
@@ -265,19 +283,21 @@ ___
 
 ###  startAllReplications
 
-▸ **startAllReplications**(`parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any): *Promise‹any›*
+▸ **startAllReplications**(`parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any, `id`: any, `mutex`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:194](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L194)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:196](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L196)*
 
 Start pull and push replications.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`parameters` | Object |
-`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) |
-`handler` | any |
+Name | Type | Default |
+------ | ------ | ------ |
+`parameters` | Object | - |
+`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) | - |
+`handler` | any | - |
+`id` | any |  null |
+`mutex` | any |  null |
 
 **Returns:** *Promise‹any›*
 
@@ -287,19 +307,21 @@ ___
 
 ###  startPullReplication
 
-▸ **startPullReplication**(`parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any): *Promise‹any›*
+▸ **startPullReplication**(`parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any, `id`: any, `mutex`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:207](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L207)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:209](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L209)*
 
 Start pull replication.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`parameters` | Object |
-`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) |
-`handler` | any |
+Name | Type | Default |
+------ | ------ | ------ |
+`parameters` | Object | - |
+`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) | - |
+`handler` | any | - |
+`id` | any |  null |
+`mutex` | any |  null |
 
 **Returns:** *Promise‹any›*
 
@@ -309,19 +331,21 @@ ___
 
 ###  startPushReplication
 
-▸ **startPushReplication**(`parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any): *Promise‹any›*
+▸ **startPushReplication**(`parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any, `id`: any, `mutex`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:220](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L220)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:222](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L222)*
 
 Start push replication.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`parameters` | Object |
-`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) |
-`handler` | any |
+Name | Type | Default |
+------ | ------ | ------ |
+`parameters` | Object | - |
+`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) | - |
+`handler` | any | - |
+`id` | any |  null |
+`mutex` | any |  null |
 
 **Returns:** *Promise‹any›*
 
@@ -331,21 +355,23 @@ ___
 
 ### `Private` startReplication
 
-▸ **startReplication**(`fullSyncReplication`: [FullSyncReplication](fullsyncreplication.md), `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any): *Promise‹any›*
+▸ **startReplication**(`fullSyncReplication`: [FullSyncReplication](fullsyncreplication.md), `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any, `id`: any, `mutex`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:449](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L449)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:481](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L481)*
 
 Starts a replication taking into account parameters.<br/>
 This action does not directly return something but setup a callback raised when the replication raises change events.
 
 **Parameters:**
 
-Name | Type | Description |
------- | ------ | ------ |
-`fullSyncReplication` | [FullSyncReplication](fullsyncreplication.md) | - |
-`parameters` | Object |   |
-`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) | - |
-`handler` | any | - |
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`fullSyncReplication` | [FullSyncReplication](fullsyncreplication.md) | - | - |
+`parameters` | Object | - |   |
+`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) | - | - |
+`handler` | any | - | - |
+`id` | any |  null | - |
+`mutex` | any |  null | - |
 
 **Returns:** *Promise‹any›*
 
@@ -353,17 +379,19 @@ ___
 
 ### `Private` startSync
 
-▸ **startSync**(`fullSyncReplication`: [FullSyncReplication](fullsyncreplication.md), `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any): *Promise‹any›*
+▸ **startSync**(`fullSyncReplication`: [FullSyncReplication](fullsyncreplication.md), `parameters`: Object, `c8oResponseListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `handler`: any, `id`: any, `mutex`: any): *Promise‹any›*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:229](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/fullSyncDatabase.ts#L229)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncDatabase.ts:231](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncDatabase.ts#L231)*
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`fullSyncReplication` | [FullSyncReplication](fullsyncreplication.md) |
-`parameters` | Object |
-`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) |
-`handler` | any |
+Name | Type | Default |
+------ | ------ | ------ |
+`fullSyncReplication` | [FullSyncReplication](fullsyncreplication.md) | - |
+`parameters` | Object | - |
+`c8oResponseListener` | [C8oResponseListener](../interfaces/c8oresponselistener.md) | - |
+`handler` | any | - |
+`id` | any |  null |
+`mutex` | any |  null |
 
 **Returns:** *Promise‹any›*

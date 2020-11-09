@@ -22,7 +22,7 @@
 
 \+ **new C8oExceptionListener**(`onException`: function): *[C8oExceptionListener](c8oexceptionlistener.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionListener.ts:7](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/Exception/c8oExceptionListener.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionListener.ts:7](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/Exception/c8oExceptionListener.ts#L7)*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 
 • **onException**: *function*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionListener.ts:7](https://github.com/convertigo/c8osdk-angular/blob/e9a73ab/src/c8o/Exception/c8oExceptionListener.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionListener.ts:7](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/Exception/c8oExceptionListener.ts#L7)*
 
 Called on thrown exceptions.
 
