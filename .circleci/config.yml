@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  prepareEnvGlobal:
     docker:
       - image: circleci/node:10.15.1-browsers
     steps:
@@ -21,6 +21,11 @@ jobs:
           command: 'mkdir result'
           when: always
       # Deleting dependencies and lock files
+
+  angular8:
+    docker:
+      - image: circleci/node:10.15.1-browsers
+    steps:
       - run:
           name: prepare-ang8
           command: 'cd ./projects/c8osdkangular && ([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
@@ -43,8 +48,13 @@ jobs:
       # Check for results
       - run:
           name: eval-ang8
-          command: '(grep -qs "TOTAL: 68 SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular8.png || cp ./.circleci/results/icons/failed.png ./result/angular8.png)'
+          command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular8.png || cp ./.circleci/results/icons/failed.png ./result/angular8.png)'
           when: always
+
+  angular7:
+    docker:
+      - image: circleci/node:10.15.1-browsers
+    steps:
       # Deleting dependencies and lock files
       - run:
           name: prepare-ang7
@@ -68,8 +78,13 @@ jobs:
       # Check for results
       - run:
           name: eval-ang7
-          command: '(grep -qs "TOTAL: 68 SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
+          command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
           when: always
+
+  angular6:
+    docker:
+      - image: circleci/node:10.15.1-browsers
+    steps:
     # Deleting dependencies and lock files
       - run:
           name: prepare-ang6
@@ -93,8 +108,13 @@ jobs:
       # Check for results
       - run:
           name: eval-ang6
-          command: '(grep -qs "TOTAL: 68 SUCCESS" in ./result/angular6.txt && cp ./.circleci/results/icons/passed.png ./result/angular6.png || cp ./.circleci/results/icons/failed.png ./result/angular6.png)'
+          command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular6.txt && cp ./.circleci/results/icons/passed.png ./result/angular6.png || cp ./.circleci/results/icons/failed.png ./result/angular6.png)'
           when: always
+
+  angular5:
+    docker:
+      - image: circleci/node:10.15.1-browsers
+    steps:
     # Deleting dependencies and lock files
       - run:
           name: prepare-ang5
@@ -118,7 +138,35 @@ jobs:
       # Check for results
       - run:
           name: eval-ang5
-          command: '(grep -qs "TOTAL: 68 SUCCESS" in ./result/angular5.txt && cp ./.circleci/results/icons/passed.png ./result/angular5.png || cp ./.circleci/results/icons/failed.png ./result/angular5.png)'
+          command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular5.txt && cp ./.circleci/results/icons/passed.png ./result/angular5.png || cp ./.circleci/results/icons/failed.png ./result/angular5.png)'
           when: always
+
+  storeArtifacts:
+    docker:
+      - image: circleci/node:10.15.1-browsers
+    steps:
       - store_artifacts:
           path: ./result/
+workflows:
+  version: 2
+  buildAndTestAll:
+    jobs:
+    - prepareEnvGlobal
+    - angular8:
+          requires:
+            - prepareEnvGlobal
+    - angular7:
+          requires:
+            - prepareEnvGlobal
+    - angular6:
+          requires:
+            - prepareEnvGlobal
+    - angular5:
+          requires:
+            - prepareEnvGlobal
+    - storeArtifacts:
+          requires:
+            - angular8
+            - angular7
+            - angular6
+            - angular5
