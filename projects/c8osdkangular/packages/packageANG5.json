@@ -1,6 +1,6 @@
 {
   "name": "MyIonicProject",
-  "version": "3.0.11-beta34",
+  "version": "3.0.11-beta35",
   "test":"testing version",
   "author": "Convertigo",
   "private": true,
@@ -22,10 +22,7 @@
     "@angular/platform-browser-dynamic": "5.2.11",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.29",
-    "@types/pouchdb": "6.3.3",
-    "pouchdb-browser": "7.1.1",
-    "pouchdb-load": "1.4.6"
+    "zone.js": "0.8.29"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.1",

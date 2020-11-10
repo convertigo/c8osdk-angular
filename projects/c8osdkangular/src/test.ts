@@ -83,8 +83,104 @@ describe("provider: basic calls verifications", () => {
         })();
     });
 
+
+    it("should test create fs createIndex (C8oFsCreateIndex)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+
+        c8o.init(Stuff.C8o)
+        .catch((err: C8oException) => {
+            expect(err).toBeUndefined();
+        });
+        await c8o.finalizeInit();
+        try{
+            await c8o.callJson("fs://mabase.post", "docid", 1, "name", "Gérard").async();
+            await c8o.callJson("fs://mabase.post", "docid", 2, "name", "Roger").async();
+            await c8o.callJson("fs://mabase.post", "docid", 1, "name", "Luc").async();
+        }
+        catch(e){
+            console.log("error", e);
+            done.fail("error is not supposed to happend");
+        }
+        try{
+            var resp = await c8o.callJson("fs://mabase.createIndex", "fields", ["name"], "name", 'myindex',"ddoc", 'mydesigndoc',).async();
+            expect(resp.result == "exists" || resp.result == "created").toBeTruthy();
+            console.log(resp);
+            done();
+        }
+        catch(e){
+            console.log("error 2", e);
+            done.fail("error is not supposed to happend");
+        }
+        })();
+    })
+
+    it("should test execute fs find (C8oFSFind)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+
+        c8o.init(Stuff.C8o)
+        .catch((err: C8oException) => {
+            expect(err).toBeUndefined();
+        });
+        await c8o.finalizeInit();
+        try{
+            var resp = await c8o.callJsonObject("fs://mabase.find", {"selector": {"name": 'Gérard'}}).async();
+            expect(resp.docs.length > 0);
+            done();
+        }
+        catch(e){
+            console.log("error 2", e);
+            done.fail("error is not supposed to happend");
+        }
+        })();
+    })
+
+    it("should test execute fs explain (C8oFSExplain)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+
+        c8o.init(Stuff.C8o)
+        .catch((err: C8oException) => {
+            expect(err).toBeUndefined();
+        });
+        await c8o.finalizeInit();
+        try{
+            var resp = await c8o.callJsonObject("fs://mabase.explain", {selector: {
+                name: 'Mario',
+                series: "mario"
+              },
+              fields: ['_id', 'name'],
+              sort: ['name']}).async();
+            expect(resp.dbname == "mabase_device").toBeTruthy();
+            done();
+        }
+        catch(e){
+            console.log("error 2", e);
+            done.fail("error is not supposed to happend");
+        }
+        })();
+    })
+
+    it("should test execute fs getIndexes (C8oFSGetIndexes)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+
+        c8o.init(Stuff.C8o)
+        .catch((err: C8oException) => {
+            expect(err).toBeUndefined();
+        });
+        await c8o.finalizeInit();
+        try{
+            var resp = await c8o.callJsonObject("fs://mabase.getIndexes",{}).async();
+            console.log(resp);
+            var deleted = await c8o.callJsonObject("fs://mabase.deleteIndex",resp.indexes[1]).async();
+            done();
+        }
+        catch(e){
+            console.log("error 2", e);
+            done.fail("error is not supposed to happend");
+        }
+        })();
+    })
     
-/***/
+
     it("should remove null parameters (C8oRemovePing)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o)

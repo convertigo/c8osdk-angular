@@ -52,6 +52,7 @@
 * [FullSyncDeleteDocumentParameter](classes/fullsyncdeletedocumentparameter.md)
 * [FullSyncDocumentOperationResponse](classes/fullsyncdocumentoperationresponse.md)
 * [FullSyncGetDocumentParameter](classes/fullsyncgetdocumentparameter.md)
+* [FullSyncGetFindParameter](classes/fullsyncgetfindparameter.md)
 * [FullSyncGetViewParameter](classes/fullsyncgetviewparameter.md)
 * [FullSyncPolicy](classes/fullsyncpolicy.md)
 * [FullSyncPostDocumentParameter](classes/fullsyncpostdocumentparameter.md)
@@ -89,4 +90,4 @@
 
 *Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:23](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oCore.ts#L23)*
 
-*Defined in [_test.ts:30](https://github.com/convertigo/c8osdk-angular/blob/57c1351/projects/c8osdkangular/src/_test.ts#L30)*
+*Defined in [_test.ts:30](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/_test.ts#L30)*

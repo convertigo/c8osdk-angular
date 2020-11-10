@@ -1,6 +1,6 @@
 {
     "name": "c8osdkangular",
-    "version": "3.0.11-beta34",
+    "version": "3.0.11-beta35",
     "test": "testing version",
     "description": "convertigo's MBaaS client API service",
     "repository": {
@@ -30,9 +30,6 @@
         "@angular/core": ">= 4.4.4"
     },
     "dependencies": {
-        "@types/pouchdb": "6.3.3",
-        "pouchdb-browser": "7.1.1",
-        "pouchdb-load": "1.4.6",
         "typescript": "3.1.6",
         "zone.js": "0.8.26",
         "rxjs-compat": "6.3.3"

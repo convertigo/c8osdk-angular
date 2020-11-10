@@ -11,6 +11,8 @@
 </p>
 
 ## Test status ##
+Angular 10.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
+
 Angular 9.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
 
 Angular 8.X : ![status](https://152-69371506-gh.circle-artifacts.com/0/home/circleci/project/result/angular7.png)
