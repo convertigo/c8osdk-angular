@@ -27,7 +27,7 @@ When the device has no network access, the local cache response is used, if exis
 
 \+ **new Priority**(`isAvailable`: boolean): *[Priority](priority.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:12](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/priority.service.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:12](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/priority.service.ts#L12)*
 
 **Parameters:**
 
@@ -43,7 +43,7 @@ Name | Type |
 
 • **isAvailable**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:6](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/priority.service.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:6](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/priority.service.ts#L6)*
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 ▪ **LOCAL**: *[Priority](priority.md)* =  new Priority(true)
 
-*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:12](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/priority.service.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:12](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/priority.service.ts#L12)*
 
 ___
 
@@ -59,4 +59,4 @@ ___
 
 ▪ **SERVER**: *[Priority](priority.md)* =  new Priority(false)
 
-*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:9](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/priority.service.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/priority.service.ts:9](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/priority.service.ts#L9)*

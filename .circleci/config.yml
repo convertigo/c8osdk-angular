@@ -35,7 +35,7 @@ jobs:
           name: install-dep-ang8
           command: 'yarn install && cd ./projects/c8osdkangular && yarn install  && cd ./src/c8osdk-js-core && yarn install'
           when: always
-      # TESTANGULAR7
+      # TESTANGULAR8
       - run:
           name: test-ang8
           command: 'cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular8.txt'
@@ -43,7 +43,7 @@ jobs:
       # Check for results
       - run:
           name: eval-ang8
-          command: '(grep -qs "TOTAL: 68 SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
+          command: '(grep -qs "TOTAL: 68 SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular8.png || cp ./.circleci/results/icons/failed.png ./result/angular8.png)'
           when: always
       # Deleting dependencies and lock files
       - run:

@@ -26,7 +26,7 @@
 
 \+ **new FullSyncAttachmentParameter**(`name`: string): *[FullSyncAttachmentParameter](fullsyncattachmentparameter.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:7](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncAttachmentParameter.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:7](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/fullSyncAttachmentParameter.ts#L7)*
 
 **Parameters:**
 
@@ -42,7 +42,7 @@ Name | Type |
 
 • **name**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:7](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncAttachmentParameter.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:7](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/fullSyncAttachmentParameter.ts#L7)*
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 ▪ **CONTENT**: *[FullSyncAttachmentParameter](fullsyncattachmentparameter.md)* =  new FullSyncAttachmentParameter("content")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncAttachmentParameter.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/fullSyncAttachmentParameter.ts#L5)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 ▪ **CONTENT_TYPE**: *[FullSyncAttachmentParameter](fullsyncattachmentparameter.md)* =  new FullSyncAttachmentParameter("content_type")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:4](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncAttachmentParameter.ts#L4)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:4](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/fullSyncAttachmentParameter.ts#L4)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 ▪ **DOCID**: *[FullSyncAttachmentParameter](fullsyncattachmentparameter.md)* =  new FullSyncAttachmentParameter("docid")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncAttachmentParameter.ts#L2)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/fullSyncAttachmentParameter.ts#L2)*
 
 ___
 
@@ -74,4 +74,4 @@ ___
 
 ▪ **NAME**: *[FullSyncAttachmentParameter](fullsyncattachmentparameter.md)* =  new FullSyncAttachmentParameter("name")
 
-*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/fullSyncAttachmentParameter.ts#L3)*
+*Defined in [c8osdk-js-core/src/c8o/fullSyncAttachmentParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/fullSyncAttachmentParameter.ts#L3)*

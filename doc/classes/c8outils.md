@@ -42,7 +42,7 @@
 
 *Overrides [C8oUtilsCore](c8outilscore.md).[constructor](c8outilscore.md#constructor)*
 
-*Defined in [lib/c8oUtils.service.ts:8](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L8)*
+*Defined in [lib/c8oUtils.service.ts:8](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L8)*
 
 **Parameters:**
 
@@ -60,7 +60,7 @@ Name | Type |
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[data](c8outilscore.md#data)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:6](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:6](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L6)*
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 • **http**: *HttpClient*
 
-*Defined in [lib/c8oUtils.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L10)*
+*Defined in [lib/c8oUtils.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oUtils.service.ts#L10)*
 
 ## Methods
 
@@ -78,7 +78,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[MD5](c8outilscore.md#static-md5)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:29](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:29](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L29)*
 
 returns 128 bits hash using MD5 algo
 
@@ -98,7 +98,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[MD5ArrayBuffer](c8outilscore.md#static-md5arraybuffer)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:38](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L38)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:38](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L38)*
 
 **Parameters:**
 
@@ -116,7 +116,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[checkHeaderArgument](c8outilscore.md#static-checkheaderargument)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:154](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L154)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:154](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L154)*
 
 **Parameters:**
 
@@ -135,7 +135,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[getNewGUIDString](c8outilscore.md#static-getnewguidstring)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:43](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L43)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:43](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L43)*
 
 **Returns:** *string*
 
@@ -147,7 +147,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[getObjectClassName](c8outilscore.md#static-getobjectclassname)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:17](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L17)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:17](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L17)*
 
 Returns the class name of the object as a String, if the object is null then returns the String "null".
 
@@ -169,7 +169,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[getParameter](c8outilscore.md#static-getparameter)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:74](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L74)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:74](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L74)*
 
 TAG Parameter
 
@@ -191,7 +191,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[getParameterObjectValue](c8outilscore.md#static-getparameterobjectvalue)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:103](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L103)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:103](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L103)*
 
 **Parameters:**
 
@@ -211,7 +211,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[getParameterStringValue](c8outilscore.md#static-getparameterstringvalue)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:95](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L95)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:95](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L95)*
 
 Searches in the list the parameter with this specific name (or the same name with the prefix '_use_') and returns it.<br/>
 Returns null if the parameter is not found.
@@ -236,7 +236,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[identifyC8oCallRequest](c8outilscore.md#static-identifyc8ocallrequest)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:150](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L150)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:150](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L150)*
 
 Serializes a c8o call request thanks to its parameters and response type.
 
@@ -261,7 +261,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[isValidUrl](c8outilscore.md#static-isvalidurl)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:21](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:21](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L21)*
 
 **Parameters:**
 
@@ -279,7 +279,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[peekParameterObjectValue](c8outilscore.md#static-peekparameterobjectvalue)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:129](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L129)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:129](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L129)*
 
 **Parameters:**
 
@@ -299,7 +299,7 @@ ___
 
 *Inherited from [C8oUtilsCore](c8outilscore.md).[peekParameterStringValue](c8outilscore.md#static-peekparameterstringvalue)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:115](https://github.com/convertigo/c8osdk-angular/blob/5eefa5e/src/c8o/c8oUtilsCore.ts#L115)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:115](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/c8oUtilsCore.ts#L115)*
 
 **Parameters:**
 

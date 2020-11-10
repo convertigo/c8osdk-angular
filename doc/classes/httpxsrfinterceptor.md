@@ -33,7 +33,7 @@
 
 \+ **new HttpXsrfInterceptor**(`tokenExtractor`: HttpXsrfTokenExtractor, `c8o`: [C8o](c8o.md)): *[HttpXsrfInterceptor](httpxsrfinterceptor.md)*
 
-*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L10)*
+*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L10)*
 
 **Parameters:**
 
@@ -50,7 +50,7 @@ Name | Type |
 
 • **c8o**: *[C8o](c8o.md)*
 
-*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:11](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L11)*
+*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:11](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L11)*
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 • **fetch**: *string* = "Fetch"
 
-*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L10)*
+*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:10](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L10)*
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 • **headerName**: *string* = "x-xsrf-token"
 
-*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:9](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L9)*
+*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:9](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L9)*
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 • **tokenExtractor**: *HttpXsrfTokenExtractor*
 
-*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:11](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L11)*
+*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:11](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L11)*
 
 ## Methods
 
@@ -82,7 +82,7 @@ ___
 
 ▸ **intercept**(`req`: HttpRequest‹any›, `next`: HttpHandler): *Observable‹HttpEvent‹any››*
 
-*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:15](https://github.com/convertigo/c8osdk-angular/blob/edb9c2f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L15)*
+*Defined in [lib/c8oHttpxsrfInterceptor.service.ts:15](https://github.com/convertigo/c8osdk-angular/blob/4ef799f/projects/c8osdkangular/src/lib/c8oHttpxsrfInterceptor.service.ts#L15)*
 
 **Parameters:**
 

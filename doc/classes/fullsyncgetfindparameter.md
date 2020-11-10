@@ -27,7 +27,7 @@
 
 \+ **new FullSyncGetFindParameter**(`name`: string): *[FullSyncGetFindParameter](fullsyncgetfindparameter.md)*
 
-Defined in c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:8
+*Defined in [c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:8](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/FullSyncGetFindParameter.ts#L8)*
 
 **Parameters:**
 
@@ -43,7 +43,7 @@ Name | Type |
 
 • **name**: *string*
 
-Defined in c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:8
+*Defined in [c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:8](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/FullSyncGetFindParameter.ts#L8)*
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 ▪ **LIMIT**: *[FullSyncGetFindParameter](fullsyncgetfindparameter.md)* =  new FullSyncGetFindParameter("limit")
 
-Defined in c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:4
+*Defined in [c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:4](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/FullSyncGetFindParameter.ts#L4)*
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 ▪ **SELECTOR**: *[FullSyncGetFindParameter](fullsyncgetfindparameter.md)* =  new FullSyncGetFindParameter("selector")
 
-Defined in c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:2
+*Defined in [c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:2](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/FullSyncGetFindParameter.ts#L2)*
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 ▪ **SKIP**: *[FullSyncGetFindParameter](fullsyncgetfindparameter.md)* =  new FullSyncGetFindParameter("skip")
 
-Defined in c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:5
+*Defined in [c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:5](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/FullSyncGetFindParameter.ts#L5)*
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 ▪ **SORT**: *[FullSyncGetFindParameter](fullsyncgetfindparameter.md)* =  new FullSyncGetFindParameter("sort")
 
-Defined in c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:3
+*Defined in [c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:3](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/FullSyncGetFindParameter.ts#L3)*
 
 ___
 
@@ -83,4 +83,4 @@ ___
 
 ▪ **USE_INDEX**: *[FullSyncGetFindParameter](fullsyncgetfindparameter.md)* =  new FullSyncGetFindParameter("use_index")
 
-Defined in c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:6
+*Defined in [c8osdk-js-core/src/c8o/FullSyncGetFindParameter.ts:6](https://github.com/convertigo/c8osdk-angular/blob/cb8b414/src/c8o/FullSyncGetFindParameter.ts#L6)*
