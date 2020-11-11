@@ -45,6 +45,8 @@ jobs:
           name: eval-ang8
           command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular8.png || cp ./.circleci/results/icons/failed.png ./result/angular8.png)'
           when: always
+      - store_artifacts:
+          path: ./result/
 
   angular7:
     docker:
@@ -91,6 +93,8 @@ jobs:
           name: eval-ang7
           command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
           when: always
+      - store_artifacts:
+          path: ./result/
 
   angular6:
     docker:
@@ -137,6 +141,8 @@ jobs:
           name: eval-ang6
           command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular6.txt && cp ./.circleci/results/icons/passed.png ./result/angular6.png || cp ./.circleci/results/icons/failed.png ./result/angular6.png)'
           when: always
+      - store_artifacts:
+          path: ./result/
 
   angular5:
     docker:
@@ -183,13 +189,9 @@ jobs:
           name: eval-ang5
           command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular5.txt && cp ./.circleci/results/icons/passed.png ./result/angular5.png || cp ./.circleci/results/icons/failed.png ./result/angular5.png)'
           when: always
-
-  storeArtifacts:
-    docker:
-      - image: circleci/node:10.15.1-browsers
-    steps:
       - store_artifacts:
           path: ./result/
+
 workflows:
   version: 2
   buildAndTestAll:
@@ -198,9 +200,4 @@ workflows:
     - angular7
     - angular6
     - angular5
-    - storeArtifacts:
-          requires:
-            - angular8
-            - angular7
-            - angular6
-            - angular5
+    
