@@ -129,7 +129,7 @@ jobs:
       # Installing dependencies
       - run:
           name: install-dep-ang6
-          command: 'cd ./projects/c8osdkangular && yarn install &&  cd ./src/c8osdk-js-core && yarn install'
+          command: 'yarn install && cd ./projects/c8osdkangular && yarn install &&  cd ./src/c8osdk-js-core && yarn install'
           when: always
       # TESTANGULAR7
       - run:
@@ -177,7 +177,7 @@ jobs:
       # Installing dependencies
       - run:
           name: install-dep-ang5
-          command: 'cd ./projects/c8osdkangular && yarn install  && cd ./src/c8osdk-js-core && yarn install'
+          command: 'yarn install && cd ./projects/c8osdkangular && yarn install  && cd ./src/c8osdk-js-core && yarn install'
           when: always
       # TESTANGULAR7
       - run:
