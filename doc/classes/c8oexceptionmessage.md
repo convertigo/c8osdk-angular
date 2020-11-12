@@ -60,6 +60,7 @@ in order to make simpler their modification and avoid duplication.
 * [couchRequestInvalidRevision](c8oexceptionmessage.md#static-couchrequestinvalidrevision)
 * [couchRequestPostDocument](c8oexceptionmessage.md#static-couchrequestpostdocument)
 * [couchRequestResetDatabase](c8oexceptionmessage.md#static-couchrequestresetdatabase)
+* [couchRequestSearch](c8oexceptionmessage.md#static-couchrequestsearch)
 * [createSslContext](c8oexceptionmessage.md#static-createsslcontext)
 * [deserializeJsonObjectFromString](c8oexceptionmessage.md#static-deserializejsonobjectfromstring)
 * [encodeParameters](c8oexceptionmessage.md#static-encodeparameters)
@@ -148,7 +149,7 @@ in order to make simpler their modification and avoid duplication.
 
 ▸ **CouchDeleteFailed**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:245](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L245)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:250](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L250)*
 
 **Returns:** *string*
 
@@ -158,7 +159,7 @@ ___
 
 ▸ **FullSyncDatabaseInitFailed**(`databaseName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:55](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L55)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:55](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L55)*
 
 **Parameters:**
 
@@ -174,7 +175,7 @@ ___
 
 ▸ **FullSyncInterfaceInstance**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:469](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L469)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:474](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L474)*
 
 **Returns:** *string*
 
@@ -184,7 +185,7 @@ ___
 
 ▸ **FullSyncReplicationFail**(`databaseName`: string, `way`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:477](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L477)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:482](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L482)*
 
 **Parameters:**
 
@@ -201,7 +202,7 @@ ___
 
 ▸ **FullSyncRequestFail**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:536](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L536)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:541](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L541)*
 
 **Returns:** *string*
 
@@ -211,7 +212,7 @@ ___
 
 ▸ **GetLocalCacheParameters**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:437](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L437)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:442](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L442)*
 
 **Returns:** *string*
 
@@ -221,7 +222,7 @@ ___
 
 ▸ **GetLocalCachePolicy**(`policy`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:441](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L441)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:446](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L446)*
 
 **Parameters:**
 
@@ -237,7 +238,7 @@ ___
 
 ▸ **InitCouchManager**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:108](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L108)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:108](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L108)*
 
 **Returns:** *string*
 
@@ -247,7 +248,7 @@ ___
 
 ▸ **InitDocumentBuilder**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:116](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L116)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:116](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L116)*
 
 **Returns:** *string*
 
@@ -257,7 +258,7 @@ ___
 
 ▸ **InitError**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:100](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L100)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:100](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L100)*
 
 TAG Initialization
 
@@ -269,7 +270,7 @@ ___
 
 ▸ **InitHttpInterface**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:361](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L361)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:366](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L366)*
 
 **Returns:** *string*
 
@@ -279,7 +280,7 @@ ___
 
 ▸ **InitRsainternalKey**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:104](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L104)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:104](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L104)*
 
 **Returns:** *string*
 
@@ -289,7 +290,7 @@ ___
 
 ▸ **InitSslSocketFactory**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:112](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L112)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:112](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L112)*
 
 **Returns:** *string*
 
@@ -299,7 +300,7 @@ ___
 
 ▸ **InvalidArgumentInvalidEndpoint**(`endpoint`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:79](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L79)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:79](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L79)*
 
 **Parameters:**
 
@@ -315,7 +316,7 @@ ___
 
 ▸ **InvalidArgumentInvalidURL**(`urlStr`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:71](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L71)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:71](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L71)*
 
 **Parameters:**
 
@@ -331,7 +332,7 @@ ___
 
 ▸ **InvalidArgumentNullParameter**(`parameterName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:95](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L95)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:95](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L95)*
 
 **Parameters:**
 
@@ -347,7 +348,7 @@ ___
 
 ▸ **InvalidLocalCacheResponseInformation**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:497](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L497)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:502](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L502)*
 
 **Returns:** *string*
 
@@ -357,7 +358,7 @@ ___
 
 ▸ **InvalidParameterType**(`parameterName`: string, `wantedParameterType`: string, `actualParameterType`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:87](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L87)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:87](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L87)*
 
 **Parameters:**
 
@@ -375,7 +376,7 @@ ___
 
 ▸ **InvalidRequestable**(`requestable`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:83](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L83)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:83](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L83)*
 
 **Parameters:**
 
@@ -391,7 +392,7 @@ ___
 
 ▸ **MissParameter**(`parameterName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:59](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L59)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:59](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L59)*
 
 **Parameters:**
 
@@ -407,7 +408,7 @@ ___
 
 ▸ **MissingLocalCacheResponseDocument**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:540](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L540)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:545](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L545)*
 
 **Returns:** *string*
 
@@ -417,7 +418,7 @@ ___
 
 ▸ **ParseStreamToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:122](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L122)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:122](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L122)*
 
 TAG Parse
 
@@ -429,7 +430,7 @@ ___
 
 ▸ **ParseStreamToXml**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:126](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L126)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:126](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L126)*
 
 **Returns:** *string*
 
@@ -439,7 +440,7 @@ ___
 
 ▸ **ParseStringToObject**(`type`: any): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:170](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L170)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:170](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L170)*
 
 **Parameters:**
 
@@ -455,7 +456,7 @@ ___
 
 ▸ **RemoteLogFail**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:532](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L532)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:537](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L537)*
 
 **Returns:** *string*
 
@@ -465,7 +466,7 @@ ___
 
 ▸ **RunHttpRequest**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:393](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L393)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:398](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L398)*
 
 **Returns:** *string*
 
@@ -475,7 +476,7 @@ ___
 
 ▸ **StringToJsonValue**(`str`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:174](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L174)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:174](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L174)*
 
 **Parameters:**
 
@@ -491,7 +492,7 @@ ___
 
 ▸ **UnknownFullSyncPolicy**(`policy`: any): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:75](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L75)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:75](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L75)*
 
 **Parameters:**
 
@@ -507,7 +508,7 @@ ___
 
 ▸ **WrongListener**(`c8oListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:296](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L296)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:301](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L301)*
 
 **Parameters:**
 
@@ -523,7 +524,7 @@ ___
 
 ▸ **addparametersToQuery**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:333](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L333)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:338](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L338)*
 
 **Returns:** *string*
 
@@ -533,7 +534,7 @@ ___
 
 ▸ **c8oCallRequestToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:413](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L413)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:418](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L418)*
 
 **Returns:** *string*
 
@@ -543,7 +544,7 @@ ___
 
 ▸ **changeEventToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:341](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L341)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:346](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L346)*
 
 **Returns:** *string*
 
@@ -553,7 +554,7 @@ ___
 
 ▸ **clientKeyStore**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:271](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L271)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:276](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L276)*
 
 **Returns:** *string*
 
@@ -563,7 +564,7 @@ ___
 
 ▸ **closeInputStream**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:309](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L309)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:314](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L314)*
 
 **Returns:** *string*
 
@@ -573,7 +574,7 @@ ___
 
 ▸ **couchFullSyncNotActive**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:241](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L241)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:246](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L246)*
 
 **Returns:** *string*
 
@@ -583,7 +584,7 @@ ___
 
 ▸ **couchNullResult**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:237](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L237)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:242](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L242)*
 
 **Returns:** *string*
 
@@ -593,7 +594,7 @@ ___
 
 ▸ **couchRequestAllDocuments**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:213](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L213)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:218](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L218)*
 
 **Returns:** *string*
 
@@ -603,7 +604,7 @@ ___
 
 ▸ **couchRequestCreateIndex**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:194](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L194)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:194](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L194)*
 
 **Returns:** *string*
 
@@ -613,7 +614,7 @@ ___
 
 ▸ **couchRequestDeleteDocument**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:221](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L221)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:226](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L226)*
 
 **Returns:** *string*
 
@@ -623,7 +624,7 @@ ___
 
 ▸ **couchRequestDeleteIndex**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:209](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L209)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:209](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L209)*
 
 **Returns:** *string*
 
@@ -633,7 +634,7 @@ ___
 
 ▸ **couchRequestExplain**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:201](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L201)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:201](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L201)*
 
 **Returns:** *string*
 
@@ -643,7 +644,7 @@ ___
 
 ▸ **couchRequestFind**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:197](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L197)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:197](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L197)*
 
 **Returns:** *string*
 
@@ -653,7 +654,7 @@ ___
 
 ▸ **couchRequestGetIndexes**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:205](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L205)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:205](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L205)*
 
 **Returns:** *string*
 
@@ -663,7 +664,7 @@ ___
 
 ▸ **couchRequestGetView**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:190](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L190)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:190](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L190)*
 
 TAG Couch
 
@@ -675,7 +676,7 @@ ___
 
 ▸ **couchRequestInvalidRevision**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:225](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L225)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:230](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L230)*
 
 **Returns:** *string*
 
@@ -685,7 +686,7 @@ ___
 
 ▸ **couchRequestPostDocument**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:229](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L229)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:234](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L234)*
 
 **Returns:** *string*
 
@@ -695,7 +696,17 @@ ___
 
 ▸ **couchRequestResetDatabase**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:217](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L217)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:222](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L222)*
+
+**Returns:** *string*
+
+___
+
+### `Static` couchRequestSearch
+
+▸ **couchRequestSearch**(): *string*
+
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:213](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L213)*
 
 **Returns:** *string*
 
@@ -705,7 +716,7 @@ ___
 
 ▸ **createSslContext**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:349](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L349)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:354](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L354)*
 
 **Returns:** *string*
 
@@ -715,7 +726,7 @@ ___
 
 ▸ **deserializeJsonObjectFromString**(`str`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:313](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L313)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:318](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L318)*
 
 **Parameters:**
 
@@ -731,7 +742,7 @@ ___
 
 ▸ **encodeParameters**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:389](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L389)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:394](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L394)*
 
 **Returns:** *string*
 
@@ -741,7 +752,7 @@ ___
 
 ▸ **entryNotFound**(`entryKey`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:409](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L409)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:414](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L414)*
 
 **Parameters:**
 
@@ -757,7 +768,7 @@ ___
 
 ▸ **fullSyncGetOrCreateDatabase**(`databaseName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:253](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L253)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:258](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L258)*
 
 **Parameters:**
 
@@ -773,7 +784,7 @@ ___
 
 ▸ **fullSyncHandleResponse**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:257](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L257)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:262](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L262)*
 
 **Returns:** *string*
 
@@ -783,7 +794,7 @@ ___
 
 ▸ **fullSyncJsonToXML**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:445](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L445)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:450](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L450)*
 
 **Returns:** *string*
 
@@ -793,7 +804,7 @@ ___
 
 ▸ **fullSyncPutProperties**(`properties`: Object): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:249](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L249)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:254](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L254)*
 
 **Parameters:**
 
@@ -809,7 +820,7 @@ ___
 
 ▸ **generateRsainternalKey**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:397](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L397)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:402](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L402)*
 
 **Returns:** *string*
 
@@ -819,7 +830,7 @@ ___
 
 ▸ **getCipherInstance**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:405](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L405)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:410](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L410)*
 
 **Returns:** *string*
 
@@ -829,7 +840,7 @@ ___
 
 ▸ **getDocumentFromDatabase**(`documentId`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:473](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L473)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:478](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L478)*
 
 **Parameters:**
 
@@ -845,7 +856,7 @@ ___
 
 ▸ **getInputStreamFromHttpResponse**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:457](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L457)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:462](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L462)*
 
 **Returns:** *string*
 
@@ -855,7 +866,7 @@ ___
 
 ▸ **getJsonKey**(`key`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:417](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L417)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:422](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L422)*
 
 **Parameters:**
 
@@ -871,7 +882,7 @@ ___
 
 ▸ **getNameValuePairObjectValue**(`name`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:321](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L321)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:326](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L326)*
 
 **Parameters:**
 
@@ -887,7 +898,7 @@ ___
 
 ▸ **getParametersStringBytes**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:385](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L385)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:390](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L390)*
 
 **Returns:** *string*
 
@@ -897,7 +908,7 @@ ___
 
 ▸ **getResponseFromLocalCache**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:513](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L513)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:518](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L518)*
 
 **Returns:** *string*
 
@@ -907,7 +918,7 @@ ___
 
 ▸ **getResponseFromLocalCacheDocument**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:517](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L517)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:522](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L522)*
 
 **Returns:** *string*
 
@@ -917,7 +928,7 @@ ___
 
 ▸ **handleC8oCallRequest**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:521](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L521)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:526](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L526)*
 
 **Returns:** *string*
 
@@ -927,7 +938,7 @@ ___
 
 ▸ **handleFullSyncRequest**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:505](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L505)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:510](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L510)*
 
 **Returns:** *string*
 
@@ -937,7 +948,7 @@ ___
 
 ▸ **httpInterfaceInstance**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:465](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L465)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:470](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L470)*
 
 **Returns:** *string*
 
@@ -947,7 +958,7 @@ ___
 
 ▸ **httpLogs**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:184](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L184)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:184](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L184)*
 
 **Returns:** *string*
 
@@ -957,7 +968,7 @@ ___
 
 ▸ **illegalArgumentIncompatibleListener**(`listenerType`: string, `responseType`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:91](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L91)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:91](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L91)*
 
 **Parameters:**
 
@@ -974,7 +985,7 @@ ___
 
 ▸ **illegalArgumentInvalidEndpoint**(`endpoint`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:21](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:21](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L21)*
 
 **Parameters:**
 
@@ -990,7 +1001,7 @@ ___
 
 ▸ **illegalArgumentInvalidFullSyncDatabaseUrl**(`fullSyncDatabaseUrlStr`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:51](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L51)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:51](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L51)*
 
 TAG Illegal argument
 
@@ -1008,7 +1019,7 @@ ___
 
 ▸ **illegalArgumentInvalidLocalCachePolicy**(`localCachePolicyString`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:489](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L489)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:494](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L494)*
 
 **Parameters:**
 
@@ -1024,7 +1035,7 @@ ___
 
 ▸ **illegalArgumentInvalidURL**(`urlStr`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:67](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L67)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:67](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L67)*
 
 **Parameters:**
 
@@ -1040,7 +1051,7 @@ ___
 
 ▸ **illegalArgumentNotFoundFullSyncView**(`viewName`: string, `databaseName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:281](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L281)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:286](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L286)*
 
 TAG Not found
 
@@ -1059,7 +1070,7 @@ ___
 
 ▸ **illegalArgumentNullParameter**(`parameterName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:29](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L29)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:29](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L29)*
 
 **Parameters:**
 
@@ -1075,7 +1086,7 @@ ___
 
 ▸ **initC8oSslSocketFactory**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:345](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L345)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:350](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L350)*
 
 **Returns:** *string*
 
@@ -1085,7 +1096,7 @@ ___
 
 ▸ **initCipher**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:377](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L377)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:382](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L382)*
 
 **Returns:** *string*
 
@@ -1095,7 +1106,7 @@ ___
 
 ▸ **initKeyManagerFactory**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:357](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L357)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:362](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L362)*
 
 **Returns:** *string*
 
@@ -1105,7 +1116,7 @@ ___
 
 ▸ **initSslContext**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:373](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L373)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:378](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L378)*
 
 **Returns:** *string*
 
@@ -1115,7 +1126,7 @@ ___
 
 ▸ **initTrustManagerFactory**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:369](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L369)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:374](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L374)*
 
 **Returns:** *string*
 
@@ -1125,7 +1136,7 @@ ___
 
 ▸ **inputStreamReaderEncoding**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:429](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L429)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:434](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L434)*
 
 **Returns:** *string*
 
@@ -1135,7 +1146,7 @@ ___
 
 ▸ **inputStreamToJSON**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:461](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L461)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:466](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L466)*
 
 **Returns:** *string*
 
@@ -1145,7 +1156,7 @@ ___
 
 ▸ **inputStreamToXML**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:425](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L425)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:430](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L430)*
 
 **Returns:** *string*
 
@@ -1155,7 +1166,7 @@ ___
 
 ▸ **invalidParameterValue**(`parameterName`: string, `details`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:14](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L14)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:14](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L14)*
 
 **Parameters:**
 
@@ -1172,7 +1183,7 @@ ___
 
 ▸ **jsonValueToXML**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:421](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L421)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:426](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L426)*
 
 **Returns:** *string*
 
@@ -1182,7 +1193,7 @@ ___
 
 ▸ **keyFactoryInstance**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:401](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L401)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:406](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L406)*
 
 **Returns:** *string*
 
@@ -1192,7 +1203,7 @@ ___
 
 ▸ **keyManagerFactoryInstance**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:353](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L353)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:358](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L358)*
 
 **Returns:** *string*
 
@@ -1202,7 +1213,7 @@ ___
 
 ▸ **loadKeyStore**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:263](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L263)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:268](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L268)*
 
 TAG Certificate
 
@@ -1214,7 +1225,7 @@ ___
 
 ▸ **localCacheDocumentJustCreated**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:485](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L485)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:490](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L490)*
 
 **Returns:** *string*
 
@@ -1224,7 +1235,7 @@ ___
 
 ▸ **localCachePolicyIsDisable**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:481](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L481)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:486](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L486)*
 
 **Returns:** *string*
 
@@ -1234,7 +1245,7 @@ ___
 
 ▸ **missingValue**(`valueName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:33](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L33)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:33](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L33)*
 
 **Parameters:**
 
@@ -1250,7 +1261,7 @@ ___
 
 ▸ **notImplementedFullSyncInterface**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:10](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:10](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L10)*
 
 TAG Illegal argument
 
@@ -1262,7 +1273,7 @@ ___
 
 ▸ **overrideDocument**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:501](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L501)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:506](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L506)*
 
 **Returns:** *string*
 
@@ -1272,7 +1283,7 @@ ___
 
 ▸ **parseC8oReplicationResultToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:154](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L154)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:154](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L154)*
 
 **Returns:** *string*
 
@@ -1282,7 +1293,7 @@ ___
 
 ▸ **parseFullSyncDefaultResponseToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:158](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L158)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:158](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L158)*
 
 **Returns:** *string*
 
@@ -1292,7 +1303,7 @@ ___
 
 ▸ **parseFullSyncPostDocumentResponseToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:162](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L162)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:162](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L162)*
 
 **Returns:** *string*
 
@@ -1302,7 +1313,7 @@ ___
 
 ▸ **parseInputStreamToString**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:130](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L130)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:130](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L130)*
 
 **Returns:** *string*
 
@@ -1312,7 +1323,7 @@ ___
 
 ▸ **parseLogsStreamToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:150](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L150)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:150](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L150)*
 
 **Returns:** *string*
 
@@ -1322,7 +1333,7 @@ ___
 
 ▸ **parseLogsToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:146](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L146)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:146](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L146)*
 
 **Returns:** *string*
 
@@ -1332,7 +1343,7 @@ ___
 
 ▸ **parseQueryEnumeratorToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:142](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L142)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:142](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L142)*
 
 **Returns:** *string*
 
@@ -1342,7 +1353,7 @@ ___
 
 ▸ **parseRsainternalKey**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:138](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L138)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:138](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L138)*
 
 **Returns:** *string*
 
@@ -1352,7 +1363,7 @@ ___
 
 ▸ **parseStringToJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:166](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L166)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:166](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L166)*
 
 **Returns:** *string*
 
@@ -1362,7 +1373,7 @@ ___
 
 ▸ **parseXmlToString**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:134](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L134)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:134](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L134)*
 
 **Returns:** *string*
 
@@ -1372,7 +1383,7 @@ ___
 
 ▸ **postDocument**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:317](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L317)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:322](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L322)*
 
 **Returns:** *string*
 
@@ -1382,7 +1393,7 @@ ___
 
 ▸ **putJson**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:337](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L337)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:342](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L342)*
 
 **Returns:** *string*
 
@@ -1392,7 +1403,7 @@ ___
 
 ▸ **queryEnumeratorToJSON**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:325](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L325)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:330](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L330)*
 
 **Returns:** *string*
 
@@ -1402,7 +1413,7 @@ ___
 
 ▸ **queryEnumeratorToXML**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:329](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L329)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:334](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L334)*
 
 **Returns:** *string*
 
@@ -1412,7 +1423,7 @@ ___
 
 ▸ **readLineFromBufferReader**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:433](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L433)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:438](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L438)*
 
 **Returns:** *string*
 
@@ -1422,7 +1433,7 @@ ___
 
 ▸ **remoteLogHttpRequest**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:453](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L453)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:458](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L458)*
 
 **Returns:** *string*
 
@@ -1432,7 +1443,7 @@ ___
 
 ▸ **ressourceNotFound**(`ressourceName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:45](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L45)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:45](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L45)*
 
 **Parameters:**
 
@@ -1448,7 +1459,7 @@ ___
 
 ▸ **retrieveRsainternalKey**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:180](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L180)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:180](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L180)*
 
 TAG HTTP
 
@@ -1460,7 +1471,7 @@ ___
 
 ▸ **runHttpRequest**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:524](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L524)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:529](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L529)*
 
 **Returns:** *string*
 
@@ -1470,7 +1481,7 @@ ___
 
 ▸ **saveResponseToLocalCache**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:528](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L528)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:533](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L533)*
 
 **Returns:** *string*
 
@@ -1480,7 +1491,7 @@ ___
 
 ▸ **serializeC8oCallRequest**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:509](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L509)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:514](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L514)*
 
 **Returns:** *string*
 
@@ -1490,7 +1501,7 @@ ___
 
 ▸ **serverKeyStore**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:275](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L275)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:280](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L280)*
 
 **Returns:** *string*
 
@@ -1500,7 +1511,7 @@ ___
 
 ▸ **takeLog**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:449](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L449)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:454](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L454)*
 
 **Returns:** *string*
 
@@ -1510,7 +1521,7 @@ ___
 
 ▸ **timeToLiveExpired**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:493](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L493)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:498](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L498)*
 
 **Returns:** *string*
 
@@ -1520,7 +1531,7 @@ ___
 
 ▸ **trustAllCertificates**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:267](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L267)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:272](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L272)*
 
 **Returns:** *string*
 
@@ -1530,7 +1541,7 @@ ___
 
 ▸ **trustManagerFactoryInstance**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:365](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L365)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:370](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L370)*
 
 **Returns:** *string*
 
@@ -1540,7 +1551,7 @@ ___
 
 ▸ **unableToGetFullSyncDatabase**(`databaseName`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:233](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L233)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:238](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L238)*
 
 **Parameters:**
 
@@ -1556,7 +1567,7 @@ ___
 
 ▸ **unhandledFullSyncRequestable**(`fullSyncRequestableValue`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:305](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L305)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:310](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L310)*
 
 **Parameters:**
 
@@ -1572,7 +1583,7 @@ ___
 
 ▸ **unhandledListenerType**(`listenerType`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:291](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L291)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:296](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L296)*
 
 **Parameters:**
 
@@ -1588,7 +1599,7 @@ ___
 
 ▸ **unhandledResponseType**(`responseType`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:287](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L287)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:292](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L292)*
 
 TAG Other
 
@@ -1606,7 +1617,7 @@ ___
 
 ▸ **unknownType**(`variableName`: string, `variable`: Object): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:41](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L41)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:41](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L41)*
 
 **Parameters:**
 
@@ -1623,7 +1634,7 @@ ___
 
 ▸ **unknownValue**(`valueName`: string, `value`: string): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:37](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L37)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:37](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L37)*
 
 **Parameters:**
 
@@ -1640,7 +1651,7 @@ ___
 
 ▸ **urlEncode**(): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:381](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L381)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:386](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L386)*
 
 **Returns:** *string*
 
@@ -1650,7 +1661,7 @@ ___
 
 ▸ **wrongListener**(`c8oListener`: [C8oResponseListener](../interfaces/c8oresponselistener.md)): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:25](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L25)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:25](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L25)*
 
 **Parameters:**
 
@@ -1666,7 +1677,7 @@ ___
 
 ▸ **wrongResult**(`result`: any): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:300](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/Exception/c8oExceptionMessage.ts#L300)*
+*Defined in [c8osdk-js-core/src/c8o/Exception/c8oExceptionMessage.ts:305](https://github.com/convertigo/c8osdk-angular/blob/9ef7bf8/src/c8o/Exception/c8oExceptionMessage.ts#L305)*
 
 **Parameters:**
 

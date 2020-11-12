@@ -95,7 +95,7 @@ describe("provider: basic calls verifications", () => {
         try{
             await c8o.callJson("fs://mabase.post", "docid", 1, "name", "Gérard").async();
             await c8o.callJson("fs://mabase.post", "docid", 2, "name", "Roger").async();
-            await c8o.callJson("fs://mabase.post", "docid", 1, "name", "Luc").async();
+            await c8o.callJson("fs://mabase.post", "docid", 1, "name", "Luc Dupont").async();
         }
         catch(e){
             console.log("error", e);
@@ -171,6 +171,25 @@ describe("provider: basic calls verifications", () => {
             var resp = await c8o.callJsonObject("fs://mabase.getIndexes",{}).async();
             console.log(resp);
             var deleted = await c8o.callJsonObject("fs://mabase.deleteIndex",resp.indexes[1]).async();
+            done();
+        }
+        catch(e){
+            console.log("error 2", e);
+            done.fail("error is not supposed to happend");
+        }
+        })();
+    })
+
+    it("should test execute fs search (C8oFSSearch)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
+
+        c8o.init(Stuff.C8o)
+        .catch((err: C8oException) => {
+            expect(err).toBeUndefined();
+        });
+        await c8o.finalizeInit();
+        try{
+            var resp = await c8o.callJsonObject("fs://mabase.search",{query: 'dupont', fields: ['name']}).async();
             done();
         }
         catch(e){
