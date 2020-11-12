@@ -89,4 +89,4 @@
 
 *Defined in [c8osdk-js-core/src/c8o/c8oCore.ts:23](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/c8oCore.ts#L23)*
 
-*Defined in [_test.ts:30](https://github.com/convertigo/c8osdk-angular/blob/7682f19/projects/c8osdkangular/src/_test.ts#L30)*
+*Defined in [_test.ts:30](https://github.com/convertigo/c8osdk-angular/blob/4747612/projects/c8osdkangular/src/_test.ts#L30)*

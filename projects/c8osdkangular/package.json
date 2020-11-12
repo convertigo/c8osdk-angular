@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "3.0.11-beta35",
+  "version": "3.0.11-beta36",
   "description": "convertigo's MBaaS client API service",
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "pouchdb-browser": "7.2.2",
+    "pouchdb-find": "7.2.2",
     "pouchdb-checkpointer": "7.2.2",
     "pouchdb-extend": "0.1.2",
     "pouchdb-generate-replication-id": "7.2.2",
