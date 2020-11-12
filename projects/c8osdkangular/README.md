@@ -11,9 +11,9 @@
 </p>
 
 ## Test status ##
-Angular 10.X : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angular/latest/artifacts/0/result/angular10.png)
+Angular 10.X : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angular/latest/artifacts/0/result/angular8.png)
 
-Angular 9.X : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angular/latest/artifacts/0/result/angular9.png)
+Angular 9.X : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angular/latest/artifacts/0/result/angular8.png)
 
 Angular 8.X : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angular/latest/artifacts/0/result/angular8.png)
 

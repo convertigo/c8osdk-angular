@@ -30,7 +30,7 @@
 
 \+ **new C8oReplicationStatus**(`user`: [C8oSessionUser](c8osessionuser.md), `listener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `parameters`: Object, `type`: string, `authenticated`: boolean, `canceled`: boolean, `finished`: boolean, `fullSyncDatabase`: any, `id`: string): *[C8oReplicationStatus](c8oreplicationstatus.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:13](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:13](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L13)*
 
 **Parameters:**
 
@@ -54,7 +54,7 @@ Name | Type |
 
 • **authenticated**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:9](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L9)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:9](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L9)*
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 • **canceled**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:10](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L10)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:10](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L10)*
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 • **database**: *any*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:13](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:13](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L13)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 • **finished**: *boolean*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:11](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:11](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L11)*
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:12](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:12](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L12)*
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 • **listener**: *[C8oResponseListener](../interfaces/c8oresponselistener.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:6](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L6)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:6](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L6)*
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 • **parameters**: *Object*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:7](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L7)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:7](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L7)*
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 • **type**: *String*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:8](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L8)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:8](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L8)*
 
 ___
 
@@ -118,4 +118,4 @@ ___
 
 • **user**: *[C8oSessionUser](c8osessionuser.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:5](https://github.com/convertigo/c8osdk-angular/blob/acd0992/src/c8o/C8oReplicationStatus.ts#L5)*
+*Defined in [c8osdk-js-core/src/c8o/C8oReplicationStatus.ts:5](https://github.com/convertigo/c8osdk-angular/blob/a9907e2/src/c8o/C8oReplicationStatus.ts#L5)*

@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  angular8:
+  build:
     docker:
       - image: circleci/node:10.15.1-browsers
     steps:
@@ -45,29 +45,6 @@ jobs:
           name: eval-ang8
           command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular8.png || cp ./.circleci/results/icons/failed.png ./result/angular8.png)'
           when: always
-      - store_artifacts:
-          path: ./result/
-
-  angular7:
-    docker:
-      - image: circleci/node:10.15.1-browsers
-    steps:
-      - checkout
-      # getsubmodules
-      - run:
-          name: "pull-submodules"
-          command: |
-            git submodule update --init --recursive
-      # Installing ionic cli
-      - run:
-          name: install-angular/cli
-          command: 'sudo yarn global add @angular/cli'
-          when: always
-      # Creating result folder
-      - run:
-          name: create-result-folder
-          command: 'mkdir result'
-          when: always
       # Deleting dependencies and lock files
       - run:
           name: prepare-ang7
@@ -93,30 +70,7 @@ jobs:
           name: eval-ang7
           command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular7.txt && cp ./.circleci/results/icons/passed.png ./result/angular7.png || cp ./.circleci/results/icons/failed.png ./result/angular7.png)'
           when: always
-      - store_artifacts:
-          path: ./result/
-
-  angular6:
-    docker:
-      - image: circleci/node:10.15.1-browsers
-    steps:
-      - checkout
-      # getsubmodules
-      - run:
-          name: "pull-submodules"
-          command: |
-            git submodule update --init --recursive
-      # Installing ionic cli
-      - run:
-          name: install-angular/cli
-          command: 'sudo yarn global add @angular/cli'
-          when: always
-      # Creating result folder
-      - run:
-          name: create-result-folder
-          command: 'mkdir result'
-          when: always
-      # Deleting dependencies and lock files
+    # Deleting dependencies and lock files
       - run:
           name: prepare-ang6
           command: '([ -f ./projects/c8osdkangular/yarn.lock ] && rm ./projects/c8osdkangular/yarn.lock || echo "No yarn.lock file found") && ([ -d ./projects/c8osdkangular/node_modules ] && rm -rf ./projects/c8osdkangular/node_modules || echo "No node_modules directory found")'
@@ -129,7 +83,7 @@ jobs:
       # Installing dependencies
       - run:
           name: install-dep-ang6
-          command: 'yarn install && cd ./projects/c8osdkangular && yarn install &&  cd ./src/c8osdk-js-core && yarn install'
+          command: 'cd ./projects/c8osdkangular && yarn install &&  cd ./src/c8osdk-js-core && yarn install'
           when: always
       # TESTANGULAR7
       - run:
@@ -141,30 +95,7 @@ jobs:
           name: eval-ang6
           command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular6.txt && cp ./.circleci/results/icons/passed.png ./result/angular6.png || cp ./.circleci/results/icons/failed.png ./result/angular6.png)'
           when: always
-      - store_artifacts:
-          path: ./result/
-
-  angular5:
-    docker:
-      - image: circleci/node:10.15.1-browsers
-    steps:
-      - checkout
-      # getsubmodules
-      - run:
-          name: "pull-submodules"
-          command: |
-            git submodule update --init --recursive
-      # Installing ionic cli
-      - run:
-          name: install-angular/cli
-          command: 'sudo yarn global add @angular/cli'
-          when: always
-      # Creating result folder
-      - run:
-          name: create-result-folder
-          command: 'mkdir result'
-          when: always
-      # Deleting dependencies and lock files
+    # Deleting dependencies and lock files
       - run:
           name: prepare-ang5
           command: '([ -f ./projects/c8osdkangular/yarn.lock ] && rm ./projects/c8osdkangular/yarn.lock || echo "No yarn.lock file found") && ([ -d ./projects/c8osdkangular/node_modules ] && rm -rf ./projects/c8osdkangular/node_modules || echo "No node_modules directory found")'
@@ -177,7 +108,7 @@ jobs:
       # Installing dependencies
       - run:
           name: install-dep-ang5
-          command: 'yarn install && cd ./projects/c8osdkangular && yarn install  && cd ./src/c8osdk-js-core && yarn install'
+          command: 'cd ./projects/c8osdkangular && yarn install  && cd ./src/c8osdk-js-core && yarn install'
           when: always
       # TESTANGULAR7
       - run:
@@ -191,13 +122,3 @@ jobs:
           when: always
       - store_artifacts:
           path: ./result/
-
-workflows:
-  version: 2
-  buildAndTestAll:
-    jobs:
-    - angular8
-    - angular7
-    - angular6
-    - angular5
-    
