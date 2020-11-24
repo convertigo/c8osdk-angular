@@ -28,7 +28,7 @@
 
 • **_store**: *T[]* =  []
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:160](https://github.com/convertigo/c8osdk-angular/blob/62f98de/src/c8o/c8oUtilsCore.ts#L160)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:160](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oUtilsCore.ts#L160)*
 
 ## Methods
 
@@ -36,7 +36,7 @@
 
 ▸ **count**(): *number*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:170](https://github.com/convertigo/c8osdk-angular/blob/62f98de/src/c8o/c8oUtilsCore.ts#L170)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:170](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oUtilsCore.ts#L170)*
 
 **Returns:** *number*
 
@@ -46,7 +46,7 @@ ___
 
 ▸ **pop**(): *T*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:166](https://github.com/convertigo/c8osdk-angular/blob/62f98de/src/c8o/c8oUtilsCore.ts#L166)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:166](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oUtilsCore.ts#L166)*
 
 **Returns:** *T*
 
@@ -56,7 +56,7 @@ ___
 
 ▸ **push**(`val`: T): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:162](https://github.com/convertigo/c8osdk-angular/blob/62f98de/src/c8o/c8oUtilsCore.ts#L162)*
+*Defined in [c8osdk-js-core/src/c8o/c8oUtilsCore.ts:162](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oUtilsCore.ts#L162)*
 
 **Parameters:**
 
