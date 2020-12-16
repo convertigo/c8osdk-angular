@@ -24,6 +24,7 @@
 
 ### Methods
 
+* [cancelAllForbase](c8omanagerdatabase.md#cancelallforbase)
 * [cancelAndPopRequest](c8omanagerdatabase.md#cancelandpoprequest)
 * [localName](c8omanagerdatabase.md#localname)
 * [registerRequest](c8omanagerdatabase.md#registerrequest)
@@ -37,7 +38,7 @@
 
 \+ **new C8oManagerDatabase**(`c8o`: [C8oCore](c8ocore.md)): *[C8oManagerDatabase](c8omanagerdatabase.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:13](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:13](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L13)*
 
 **Parameters:**
 
@@ -53,7 +54,7 @@ Name | Type |
 
 • **c8o**: *[C8oCore](c8ocore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:11](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L11)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:11](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L11)*
 
 ___
 
@@ -61,7 +62,7 @@ ___
 
 • **mutexCreateReplication**: *[Semaphore](semaphore.md)*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:13](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L13)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:13](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L13)*
 
 ___
 
@@ -69,7 +70,7 @@ ___
 
 • **replications**: *Object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:12](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L12)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:12](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L12)*
 
 ## Accessors
 
@@ -77,17 +78,33 @@ ___
 
 • **get registeredReplications**(): *Object*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:33](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L33)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:33](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L33)*
 
 **Returns:** *Object*
 
 ## Methods
 
+###  cancelAllForbase
+
+▸ **cancelAllForbase**(`baseName`: any): *void*
+
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:74](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L74)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`baseName` | any |
+
+**Returns:** *void*
+
+___
+
 ###  cancelAndPopRequest
 
 ▸ **cancelAndPopRequest**(`id`: any): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:60](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L60)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:60](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L60)*
 
 **Parameters:**
 
@@ -103,7 +120,7 @@ ___
 
 ▸ **localName**(`baseName`: string, `log`: boolean): *string*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:21](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L21)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:21](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L21)*
 
 **Parameters:**
 
@@ -120,7 +137,7 @@ ___
 
 ▸ **registerRequest**(`listener`: [C8oResponseListener](../interfaces/c8oresponselistener.md), `parameters`: Object, `type`: string, `fullSyncDatabase`: any, `handler`: any): *any[]*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:43](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L43)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:43](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L43)*
 
 Register a request attaching it to the current user
 
@@ -142,7 +159,7 @@ ___
 
 ▸ **removeReplications**(`user`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:166](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L166)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:175](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L175)*
 
 Remove state an delte top all replications for a given user
 
@@ -160,7 +177,7 @@ ___
 
 ▸ **restartReplications**(`user`: string): *Promise‹void›*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:78](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L78)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:87](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L87)*
 
 Restart all replications for a given user
 
@@ -178,7 +195,7 @@ ___
 
 ▸ **stopReplications**(`user`: string): *void*
 
-*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:134](https://github.com/convertigo/c8osdk-angular/blob/70a3f40/src/c8o/c8oManagerDatabase.ts#L134)*
+*Defined in [c8osdk-js-core/src/c8o/c8oManagerDatabase.ts:143](https://github.com/convertigo/c8osdk-angular/blob/1fc5ad7/src/c8o/c8oManagerDatabase.ts#L143)*
 
 Stop all replications for a given user
 
