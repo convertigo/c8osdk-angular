@@ -65,7 +65,7 @@ Angular 5.X: ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-ang
   - [Delete an attachment](#delete-an-attachment)
   - [Synchronize client side database and server database (sync / replicate_pull / replicate_push / replications)](#synchronize-client-side-database-and-server-database-sync--replicate_pull--replicate_push--replications)
   - [Perform a Bulk load on a database](#perform-a-bulk-load-on-a-database)
-  - [Perform a Query View  (Map / Reduce)](#perform-a-query-view-map--reduce)
+  - [Perform a Query View  (Map / Reduce)](#perform-a-query-view--map--reduce)
   - [Get all documents](#get-all-documents)
     - [Get all synchronised documents](#get-all-synchronised-documents)
     - [Get all local documents ("_local/")](#get-all-local-documents-_local)
@@ -143,6 +143,7 @@ Then add the following lines into your polyfill.ts located at /ProjectRoot/src/p
 (window as any).global = window;
 (window as any).process = window;
 window["browser"] = true;
+(window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
 ```
 
 ## Documentation ##
