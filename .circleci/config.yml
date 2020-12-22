@@ -20,57 +20,6 @@ jobs:
           name: create-result-folder
           command: 'mkdir result'
           when: always
-      # Deleting dependencies and lock files
-      - run:
-          name: prepare-ang10
-          command: 'cd ./projects/c8osdkangular && ([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
-          when: always
-      # Get package.json
-      - run:
-          name: copy-package-ang10
-          command: 'cd ./projects/c8osdkangular && rm ./package.json && cp ./packages/packageANG10.json ./package.json &&  echo "project will be build with the following package.json: " && cat ./package.json'
-          when: always
-      # Installing dependencies
-      - run:
-          name: install-dep-ang10
-          command: 'yarn install && cd ./projects/c8osdkangular && yarn install  && cd ./src/c8osdk-js-core && yarn install'
-          when: always
-      # TESTANGULAR9
-      - run:
-          name: test-ang10
-          command: 'cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular10.txt'
-          when: always
-      # Check for results
-      - run:
-          name: eval-ang10
-          command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular10.txt && cp ./.circleci/results/icons/passed.png ./result/angular9.png || cp ./.circleci/results/icons/failed.png ./result/angular10.png)'
-          when: always
-      # Deleting dependencies and lock files
-      - run:
-          name: prepare-ang9
-          command: 'cd ./projects/c8osdkangular && ([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
-          when: always
-      # Get package.json
-      - run:
-          name: copy-package-ang9
-          command: 'cd ./projects/c8osdkangular && rm ./package.json && cp ./packages/packageANG9.json ./package.json &&  echo "project will be build with the following package.json: " && cat ./package.json'
-          when: always
-      # Installing dependencies
-      - run:
-          name: install-dep-ang9
-          command: 'yarn install && cd ./projects/c8osdkangular && yarn install  && cd ./src/c8osdk-js-core && yarn install'
-          when: always
-      # TESTANGULAR9
-      - run:
-          name: test-ang9
-          command: 'cd ./projects/c8osdkangular && ng test c8osdkangular --watch=false 2>&1 | tee -a ../../result/angular9.txt'
-          when: always
-      # Check for results
-      - run:
-          name: eval-ang9
-          command: '(grep -qs "TOTAL: [0-9]* SUCCESS" in ./result/angular9.txt && cp ./.circleci/results/icons/passed.png ./result/angular9.png || cp ./.circleci/results/icons/failed.png ./result/angular9.png)'
-          when: always
-      # Deleting dependencies and lock files
       - run:
           name: prepare-ang8
           command: 'cd ./projects/c8osdkangular && ([ -f ./yarn.lock ] && rm yarn.lock || echo "No yarn.lock file found") && ([ -d ./node_modules ] && rm -rf ./node_modules || echo "No node_modules directory found")'
