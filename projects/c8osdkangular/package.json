@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "3.0.11",
+  "version": "3.0.12",
   "description": "convertigo's MBaaS client API service",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "pouchdb-extend": "0.1.2",
     "pouchdb-find": "7.2.2",
     "pouchdb-generate-replication-id": "7.2.2",
-    "pouchdb-quick-search": "git://github.com/convertigo/pouchdb-quick-search.git#31696d183870c1ab50bcccefae4a0282ffb11802",
+    "pouchdb-quick-search": "https://github.com/convertigo/pouchdb-quick-search/tarball/bebbf5fed997f13ced280461271f5076a2b70a1f",
     "rxjs-compat": "6.3.3",
     "zone.js": "0.8.26"
   },
