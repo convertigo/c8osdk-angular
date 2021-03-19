@@ -31,5 +31,4 @@ export class C8o extends C8oCore {
     public initC8oHttInterface(){
         this.httpInterface = new C8oHttpInterface(this);
     }
-}  }
 }
