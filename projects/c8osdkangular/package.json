@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "3.0.12",
+  "version": "3.0.13-beta1",
   "description": "convertigo's MBaaS client API service",
   "repository": {
     "type": "git",
@@ -30,9 +30,9 @@
     "rxjs": ">= 5.5.11"
   },
   "dependencies": {
-    "@types/pouchdb-core": "7.0.6",
     "@types/node": "14.10.1",
     "@types/pouchdb": "6.4.0",
+    "@types/pouchdb-core": "7.0.6",
     "pouchdb-browser": "7.2.2",
     "pouchdb-checkpointer": "7.2.2",
     "pouchdb-extend": "0.1.2",
@@ -43,21 +43,21 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "js-cookie": "2.2.0",
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
-    "@angular/http": "~7.1.0",
     "@angular/compiler": "~7.1.0",
     "@angular/core": "~7.1.0",
     "@angular/forms": "~7.1.0",
+    "@angular/http": "~7.1.0",
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
     "core-js": "^2.5.4",
+    "js-cookie": "2.2.0",
     "rxjs": "~6.3.3",
-    "tslib": "^1.9.0",
-    "zone.js": "~0.8.26",
     "rxjs-compat": "~6.3.3",
-    "typescript": "3.1.6"
+    "tslib": "^1.9.0",
+    "typescript": "3.1.6",
+    "zone.js": "~0.8.26"
   }
 }

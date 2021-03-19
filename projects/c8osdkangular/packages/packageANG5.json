@@ -1,6 +1,6 @@
 {
   "name": "MyIonicProject",
-  "version": "3.0.12",
+  "version": "3.0.13-beta1",
   "test":"testing version",
   "author": "Convertigo",
   "private": true,
