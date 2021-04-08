@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export class C8oHttpInterface extends C8oHttpInterfaceCore{
     
     constructor(c8o: C8o) {
-        super(c8o);
+        super(c8o, true);
     }
 
     /**
