@@ -1,0 +1,6 @@
+sdk requirements:
+$ node -v
+v15.12.0
+
+$ npm -v
+7.5.2
