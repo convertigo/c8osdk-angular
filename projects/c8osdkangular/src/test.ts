@@ -83,7 +83,25 @@ describe("provider: basic calls verifications", () => {
         })();
     });
 
+    it("should test create fs my thing (C8oFstestMyThing)", async (done) => {
+        inject([C8o], async (c8o: C8o) => {
 
+        c8o.init(Stuff.C8o)
+        .catch((err: C8oException) => {
+            expect(err).toBeUndefined();
+        });
+        await c8o.finalizeInit();
+        try{
+            await c8o.callJson("fs://mabase.view", "ddoc", "abc", "view", "Gérard").async();
+        }
+        catch(e){
+            console.log("error", e);
+            //done.fail("error is not supposed to happend");
+        }
+        })();
+    })
+
+/*
     it("should test create fs createIndex (C8oFsCreateIndex)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
 
@@ -2250,7 +2268,7 @@ describe("provider: basic calls verifications", () => {
         )();
     });
 /*/
-
+/*
     it("should check that c8o local cache works (C8oLocalCacheXmlPriorityLocal)", async (done) => {
         inject([C8o], async (c8o: C8o) => {
             c8o.init(Stuff.C8o_LC).catch(() => {
