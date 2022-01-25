@@ -1,6 +1,6 @@
 sdk requirements:
 $ node -v
-v15.12.0
+v15.12.0 || v16.13.2
 
 $ npm -v
-7.5.2
+7.5.2 || 8.1.2
