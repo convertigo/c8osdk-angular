@@ -2,9 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:14.17.5-browsers
+      - image: cimg/node:16.13.2-browsers
     steps:
       - checkout
+      - run: node --version
       # getsubmodules
       - run:
           name: "pull-submodules"
