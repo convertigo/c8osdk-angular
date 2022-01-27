@@ -257,6 +257,7 @@ describe("provider: basic calls verifications", () => {
                     return null;
                 }
                 ).fail((error) => {
+                    console.log(error);
                     done.fail("error is not supposed to happend");
                 });
 
