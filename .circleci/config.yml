@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: node --version
+      - run: sudo apt install python2 -y
       # getsubmodules
       - run:
           name: "pull-submodules"
