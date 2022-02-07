@@ -10,8 +10,8 @@ const filter = '.version'
 const pathVersion = './projects/c8osdkangular/package.json';
 const regex0 = /(["]([0-9]*).[.].([0-9]*)[.]([0-9]*)((-?)(\w*))["])/g
 const regex1 = /(["][v][e][r][s][i][o][n]["][:][ ]["]([0-9]*).[.].([0-9]*)[.]([0-9]*)((-?)(\w*))["])/g
-const c8ofile = "./projects/c8osdkangular/src/lib/c8o.service.ts"
-const filePathAng = [path.join(__dirname, 'projects', 'c8osdkangular', 'src', 'lib', 'c8o.service.ts'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG5.json'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG6.json'),path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG7.json'),path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG8.json'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG9.json'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG10.json')];
+const c8ofile = "./projects/c8osdkangular/src/c8osdk-angular-core/lib/c8o.service.ts"
+const filePathAng = [path.join(__dirname, 'projects', 'c8osdkangular', 'src', 'c8osdk-angular-core' ,'lib', 'c8o.service.ts'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG5.json'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG6.json'),path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG7.json'),path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG8.json'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG9.json'), path.join(__dirname, 'projects', 'c8osdkangular', 'packages', 'packageANG10.json')];
 
 // Get version and trans
 const getAndTrans = (regex,versiAppend, path, path2)=>{
