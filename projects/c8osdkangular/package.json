@@ -1,66 +1,84 @@
 {
-    "name": "c8osdkangular",
-    "version": "3.0.16-beta48",
-    "description": "convertigo's MBaaS client API service",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/convertigo/C8oSDKAngular"
-    },
-    "keywords": [
-        "MBaaS",
-        "TypeScript",
-        "Angular",
-        "Ionic 2",
-        "Convertigo",
-        "mbaas",
-        "madp",
-        "mobility",
-        "nosql",
-        "couchdb"
-    ],
-    "author": {
-        "name": "Convertigo",
-        "email": "info@convertigo.com",
-        "url": "http://www.convertigo.com/"
-    },
-    "license": "Apache License Version 2.0, January 2004",
-    "peerDependencies": {
-        "@angular/common": ">= 4.4.4",
-        "@angular/core": ">= 4.4.4",
-        "rxjs": ">= 5.5.11"
-    },
-    "dependencies": {
-        "@types/node": "14.10.1",
-        "@types/pouchdb": "6.4.0",
-        "@types/pouchdb-core": "7.0.6",
-        "lodash": "4.17.21",
-        "pouchdb-browser": "7.2.2",
-        "pouchdb-checkpointer": "7.2.2",
-        "pouchdb-extend": "0.1.2",
-        "pouchdb-find": "7.2.2",
-        "pouchdb-generate-replication-id": "7.2.2",
-        "pouchdb-quick-search": "https://github.com/convertigo/pouchdb-quick-search/tarball/bebbf5fed997f13ced280461271f5076a2b70a1f",
-        "rxjs-compat": "6.3.3",
-        "worker-pouch": "2.1.0",
-        "zone.js": "0.8.26"
-    },
-    "devDependencies": {
-        "@angular/animations": "~7.1.0",
-        "@angular/common": "~7.1.0",
-        "@angular/compiler": "~7.1.0",
-        "@angular/core": "~7.1.0",
-        "@angular/forms": "~7.1.0",
-        "@angular/http": "~7.1.0",
-        "@angular/platform-browser": "~7.1.0",
-        "@angular/platform-browser-dynamic": "~7.1.0",
-        "@angular/router": "~7.1.0",
-        "@types/lodash": "4.14.161",
-        "core-js": "^2.5.4",
-        "js-cookie": "2.2.0",
-        "rxjs": "~6.3.3",
-        "rxjs-compat": "~6.3.3",
-        "tslib": "^1.9.0",
-        "typescript": "3.1.6",
-        "zone.js": "~0.8.26"
-    }
+  "name": "c8osdkangular",
+  "version": "3.0.16-beta49",
+  "description": "convertigo's MBaaS client API service",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/convertigo/C8oSDKAngular"
+  },
+  "keywords": [
+    "MBaaS",
+    "TypeScript",
+    "Angular",
+    "Ionic 2",
+    "Convertigo",
+    "mbaas",
+    "madp",
+    "mobility",
+    "nosql",
+    "couchdb"
+  ],
+  "author": {
+    "name": "Convertigo",
+    "email": "info@convertigo.com",
+    "url": "http://www.convertigo.com/"
+  },
+  "license": "Apache License Version 2.0, January 2004",
+  "peerDependencies": {
+    "@angular/common": ">= 4.4.4",
+    "@angular/core": ">= 4.4.4",
+    "@types/node": "14.10.1",
+    "@types/pouchdb": "6.4.0",
+    "@types/pouchdb-core": "7.0.6",
+    "lodash": "4.17.21",
+    "pouchdb-browser": "7.2.2",
+    "pouchdb-checkpointer": "7.2.2",
+    "pouchdb-extend": "0.1.2",
+    "pouchdb-find": "7.2.2",
+    "pouchdb-generate-replication-id": "7.2.2",
+    "pouchdb-quick-search": "https://github.com/convertigo/pouchdb-quick-search/tarball/bebbf5fed997f13ced280461271f5076a2b70a1f",
+    "rxjs": ">= 5.5.11",
+    "rxjs-compat": "6.3.3",
+    "tslib": "^2.3.0",
+    "worker-pouch": "^1.0.3",
+    "zone.js": ">=0.8.26"
+  },
+  "dependencies": {
+    "@types/node": "14.10.1",
+    "@types/pouchdb": "6.4.0",
+    "@types/pouchdb-core": "7.0.6",
+    "lodash": "4.17.21",
+    "pouchdb-browser": "7.2.2",
+    "pouchdb-checkpointer": "7.2.2",
+    "pouchdb-extend": "0.1.2",
+    "pouchdb-generate-replication-id": "7.2.2",
+    "pouchdb-quick-search": "https://github.com/convertigo/pouchdb-quick-search/tarball/bebbf5fed997f13ced280461271f5076a2b70a1f",
+    "rxjs-compat": "6.3.3",
+    "tslib": "^2.3.0",
+    "zone.js": ">=0.8.26",
+    "pouchdb-find": "7.2.2",
+    "worker-pouch": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.14.161",
+    "@types/node": "14.10.1",
+    "@types/pouchdb": "6.4.0",
+    "@types/pouchdb-core": "7.0.6",
+    "core-js": "^2.5.4",
+    "js-cookie": "2.2.0",
+    "lodash": "4.17.21",
+    "pouchdb-browser": "7.2.2",
+    "pouchdb-checkpointer": "7.2.2",
+    "pouchdb-extend": "0.1.2",
+    "pouchdb-find": "^7.0.0",
+    "pouchdb-generate-replication-id": "7.2.2",
+    "pouchdb-quick-search": "https://github.com/convertigo/pouchdb-quick-search/tarball/bebbf5fed997f13ced280461271f5076a2b70a1f",
+    "rxjs": "~7.5.0",
+    "rxjs-compat": "6.3.3",
+    "tslib": "^2.3.0",
+    "typescript": "~4.5.2",
+    "webpack": "^5.68.0",
+    "worker-pouch": "^1.0.3",
+    "zone.js": "~0.11.4"
+  }
 }
