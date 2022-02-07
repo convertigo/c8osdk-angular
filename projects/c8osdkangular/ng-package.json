@@ -2,7 +2,7 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/c8osdkangular",
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/c8osdk-angular-core/public_api.ts"
   },
   "whitelistedNonPeerDependencies": [
     ".",
