@@ -5,19 +5,16 @@
 <p align="center">
   <a href="/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
   <a href="https://www.npmjs.com/package/c8osdkangular"><img
-  src="https://img.shields.io/npm/v/c8osdkangular.svg" alt="Travis Status"></a>
-  <a href="https://circleci.com/gh/convertigo/c8osdk-angular/tree/develop"><img
-  src="https://circleci.com/gh/convertigo/c8osdk-angular/tree/develop.svg?style=svg" alt="Travis Status"></a>
+  src="https://img.shields.io/npm/v/c8osdkangular.svg" alt="npm link"></a>
+  <a href="https://github.com/convertigo/c8osdk-angular/actions"><img
+  src="https://github.com/convertigo/c8osdk-angular/actions/workflows/build_and_test.yml/badge.svg?branch=angular5" alt="Github action build and test Status"></a>
 </p>
 
-## Test status ##
-Angular : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angular/latest/artifacts/0/result/angular8.png)
 
 ## API documentation ##
 [Click here to see API documentation](./doc/README.md)
 ## Table of contents ##
 
-- [Test status](#test-status)
 - [API documentation](#api-documentation)
 - [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
@@ -25,7 +22,9 @@ Angular : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angula
   - [About Convertigo Platform](#about-convertigo-platform)
 - [Requirements](#requirements)
 - [Installation](#installation)
-  - [Support of Angular 6, 7, 8, 9](#support-of-angular-6-7-8-9)
+  - [Support of Angular 13+ with ivy](#support-of-angular-13-with-ivy)
+  - [Support of Angular 5+](#support-of-angular-5)
+  - [polyfills](#polyfills)
 - [Documentation](#documentation)
   - [Creating a C8o instance](#creating-a-c8o-instance)
   - [Support Cross-Site Request Forgery](#support-cross-site-request-forgery)
@@ -114,19 +113,25 @@ Convertigo Mobility Platform supports Angular developers. Services brought by th
 ```shell
 $ npm install --save c8osdkangular@latest
 ```
+### Support of Angular 13+ with ivy ###
 
-### Support of Angular 6, 7, 8, 9 ###
-
-To target angular 6 & 7 please use at least version 2.2.8
+To target angular 13+ (with ivy support) please use at least version 4.0.16
 ```shell
-$ npm install --save c8osdkangular@2.2.8
+$ npm install --save c8osdkangular@angular13
 ```
 
-To target angular  8 & 9 please use at least version 3.0.0
+NB: Both branches of sdk ( 3.X and 4.X ) supports the same features, only the builded package changes
+
+### Support of Angular 5+ ###
+
+To target angular 5+ (without ivy support) please use at least version 3.0.0
 ```shell
-$ npm install --save c8osdkangular@3.0.0
+$ npm install --save c8osdkangular@angular5
 ```
 
+NB: Both branches of sdk ( 3.X and 4.X ) supports the same features, only the builded package changes
+
+### polyfills
 Then add the following lines into your polyfill.ts located at /ProjectRoot/src/polyfill.ts
 
 ```typescript
@@ -134,6 +139,19 @@ Then add the following lines into your polyfill.ts located at /ProjectRoot/src/p
 (window as any).process = window;
 window["browser"] = true;
 (window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
+if((window as any).process != undefined){
+	(window as any).process.nextTick = function() {
+     	return null;  
+	};
+}
+else{
+	(window as any).process = {
+	   env: { DEBUG: undefined },
+	   nextTick: function() {
+	     return null;
+	   }
+	};
+}
 ```
 
 ## Documentation ##

@@ -20,7 +20,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "preserveSymlinks": true,
-            "main": "projects/c8osdkangular/src/test.ts",
+            "main": "projects/c8osdkangular/src/c8osdk-angular-core/test.ts",
             "tsConfig": "projects/c8osdkangular/tsconfig.spec.json",
             "karmaConfig": "projects/c8osdkangular/karma.conf.js"
           }
