@@ -1,4 +1,4 @@
-name: Build an test
+name: Build an tests
 on:
   push:
     branches:
