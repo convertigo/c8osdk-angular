@@ -29,8 +29,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: pull submodules, npm install, build and test
+      - name: npm install, build and test
         run: |
-          npm run init
+          npm run install-sdk
           npm run build-sdk
-          npm run test-sdk-ci
+          npm run test-sdk-cli
