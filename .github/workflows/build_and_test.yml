@@ -2,7 +2,7 @@ name: Build and tests
 on:
   push:
     branches:
-      - develop
+      - angular5
 
 jobs:
   build:
