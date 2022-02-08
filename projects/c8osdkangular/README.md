@@ -6,12 +6,12 @@
   <a href="/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
   <a href="https://www.npmjs.com/package/c8osdkangular"><img
   src="https://img.shields.io/npm/v/c8osdkangular.svg" alt="Travis Status"></a>
-  <a href="https://circleci.com/gh/convertigo/c8osdk-angular/tree/develop"><img
-  src="https://circleci.com/gh/convertigo/c8osdk-angular/tree/develop.svg?style=svg" alt="Travis Status"></a>
 </p>
 
 ## Test status ##
 Angular : ![status](https://circleci.com/api/v1/project/convertigo/c8osdk-angular/latest/artifacts/0/result/angular8.png)
+
+[![build status](https://github.com/convertigo/c8osdk-angular/workflows/Build/badge.svg)](https://github.com/convertigo/c8osdk-angular/actions)
 
 ## API documentation ##
 [Click here to see API documentation](./doc/README.md)

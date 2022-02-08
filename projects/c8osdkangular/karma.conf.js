@@ -36,6 +36,12 @@ module.exports = function (config) {
     browserDisconnectTolerance: 3,
     browserDisconnectTimeout : 500000,
     browserNoActivityTimeout : 500000,
+    customLaunchers: {
+      ChromeHeadlessCustom: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      }
+    }
 
   });
 };
