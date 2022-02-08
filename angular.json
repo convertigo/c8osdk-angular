@@ -27,9 +27,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/c8osdkangular/src/test.ts",
+            "main": "projects/c8osdkangular/src/c8osdk-angular-core/test.ts",
             "tsConfig": "projects/c8osdkangular/tsconfig.spec.json",
-            "karmaConfig": "projects/c8osdkangular/karma.conf.js"
+            "karmaConfig": "projects/c8osdkangular/karma.conf.js",
+            "polyfills": "projects/c8osdkangular/src/c8osdk-angular-core/polyfills.ts"
           }
         }
       }

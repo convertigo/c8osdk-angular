@@ -2,13 +2,38 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "skipLibCheck": true,
     "outDir": "../../out-tsc/spec",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
     "types": [
-      "jasmine"
-    ]
+      "jasmine",
+      "node",
+      "pouchdb"
+    ],
+    "paths": {
+      "crypto": ["node_modules/crypto-browserify"],
+      "stream": ["node_modules/stream-browserify"],
+      "@angular/*": ["./node_modules/@angular/*"]
+    },
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": false,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableResourceInlining": true
   },
   "files": [
-    "src/test.ts"
+    "src/c8osdk-angular-core/test.ts",
+    "src/c8osdk-angular-core/polyfills.ts"
   ],
   "include": [
     "**/*.spec.ts",
