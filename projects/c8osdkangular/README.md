@@ -7,7 +7,7 @@
   <a href="https://www.npmjs.com/package/c8osdkangular"><img
   src="https://img.shields.io/npm/v/c8osdkangular.svg" alt="npm link"></a>
   <a href="https://github.com/convertigo/c8osdk-angular/actions"><img
-  src="https://github.com/convertigo/c8osdk-angular/actions/workflows/build_and_test.yml/badge.svg?branch=angular5" alt="Github action build and test Status"></a>
+  src="https://github.com/convertigo/c8osdk-angular/actions/workflows/build_and_test.yml/badge.svg?branch=develop" alt="Github action build and test Status"></a>
 </p>
 
 
