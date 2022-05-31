@@ -1,6 +1,6 @@
 {
   "name": "c8osdkangular",
-  "version": "4.0.18-beta1",
+  "version": "4.0.18-beta2",
   "description": "convertigo's MBaaS client API service",
   "repository": {
     "type": "git",
@@ -58,7 +58,8 @@
     "rxjs-compat": "6.3.3",
     "tslib": "^2.3.0",
     "worker-pouch": "2.1.0",
-    "zone.js": ">=0.8.26"
+    "zone.js": ">=0.8.26",
+    "js-sha256":"0.9.0"
   },
   "devDependencies": {
     "@types/lodash": "4.14.161",
