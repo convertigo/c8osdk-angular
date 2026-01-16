@@ -13,6 +13,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 module.exports = {
+    mode: 'production',
     devtool: 'inline-source-map',
 
     resolve: {
@@ -30,18 +31,18 @@ module.exports = {
     },
 
     // require those dependencies but don't bundle them
-    externals: [/^\@angular\//, /^rxjs\//, 'pouchdb-browser'],
+    externals: [/^\@angular\//, /^rxjs(\/.*)?$/, 'pouchdb-browser'],
 
     module: {
         rules: [{
-            enforce: 'pre',
             test: /\.ts$/,
-            loader: 'tslint-loader',
-            exclude: [helpers.root('node_modules')]
-        }, {
-            test: /\.ts$/,
-            loader: 'awesome-typescript-loader?declaration=false',
-            exclude: [/\.e2e\.ts$/]
+            use: [{
+                loader: 'ts-loader',
+                options: {
+                    configFile: helpers.root('tsconfig.json')
+                }
+            }],
+            exclude: /node_modules/
         }]
     },
 
