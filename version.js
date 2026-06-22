@@ -8,8 +8,8 @@ const path = require('path');
 
 const filter = '.version'
 const pathVersion = './projects/c8osdkangular/package.json';
-const regex0 = /(["]([0-9]*).[.].([0-9]*)[.]([0-9]*)((-?)(\w*))["])/g
-const regex1 = /(["][v][e][r][s][i][o][n]["][:][ ]["]([0-9]*).[.].([0-9]*)[.]([0-9]*)((-?)(\w*))["])/g
+const versionStringPattern = /"(\d+\.\d+\.\d+(?:-[0-9A-Za-z._-]+)?)"/g
+const packageVersionPattern = /"version"\s*:\s*"(\d+\.\d+\.\d+(?:-[0-9A-Za-z._-]+)?)"/g
 const c8ofile = "./projects/c8osdkangular/src/c8osdk-angular-core/lib/c8o.service.ts"
 const filePathAng = [path.join(__dirname, 'projects', 'c8osdkangular', 'src', 'c8osdk-angular-core' ,'lib', 'c8o.service.ts')];
 
@@ -23,6 +23,9 @@ const getAndTrans = (regex,versiAppend, path, path2)=>{
           return console.log(err);
       }
       var result = data.replace(regex, version);
+      if (result === data) {
+          return;
+      }
       if(result.indexOf(version) != -1){
           console.log("[version.js] version "+ version + " has been written in " + path2);
       }
@@ -36,7 +39,7 @@ const getAndTrans = (regex,versiAppend, path, path2)=>{
   })
 };
 
-  getAndTrans(regex0, "", pathVersion, c8ofile);
+  getAndTrans(versionStringPattern, "", pathVersion, c8ofile);
   for(let path of filePathAng){
-    getAndTrans(regex1, '"version": ', pathVersion, path)
+    getAndTrans(packageVersionPattern, '"version": ', pathVersion, path)
   }
